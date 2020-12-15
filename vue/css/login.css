@@ -1,0 +1,78 @@
+body {
+    background-image: url("../image/login_E-media_enligne.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: -20px;
+} 
+
+.login {
+    position: relative;
+    margin-top: 120px;
+}
+
+.login .login_contenu {
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3), -2px -2px 2px 2px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.login img {
+    height: 180px;
+    width: auto;
+}
+
+.login h3 {
+    color: #fff;
+    font-weight: 600;
+}
+
+.login_input div input {
+    width: 300px;
+    height: 35px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #fff;
+    color: #fff ;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: #fff;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #fff;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #fff;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #fff;
+}
+
+.login_input label {
+    color: #fff;
+}
+
+.login_button_sinscrire a, .login_button_seconnecter input {
+    border-radius: 50px;
+    background-color: transparent;
+    transition: all .5s ease;
+}
+
+.login_button_sinscrire a {
+    color: #fff;
+    background-color: darkgreen;
+}
+
+.login_button_seconnecter input {
+    color: #fff;
+    background-color: #089dcf;
+}
+
+/*responsive*/
+@media (min-width: 300px) and (max-width: 767.9px) {
+    body {
+        background-position-y: 0px !important;
+    }
+}
