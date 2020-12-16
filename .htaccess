@@ -6,6 +6,7 @@ RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteCond %{REQUEST_URI} !/$
 RewriteRule ^(.*)$ $1\.php
 
+
 RewriteRule ^Connecter$ vue/login [L]
 RewriteRule ^Home$ vue/accueil [L]
 
