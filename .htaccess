@@ -10,5 +10,6 @@ RewriteRule ^(.*)$ $1\.php
 RewriteRule ^Connecter$ vue/login [L]
 RewriteRule ^Home$ vue/accueil [L]
 RewriteRule ^Abm$ mba/vue/login [L]
+RewriteRule ^Accueil_mba$ mba/vue/accueil [L]
 
 
