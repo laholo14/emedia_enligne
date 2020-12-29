@@ -10,9 +10,8 @@ class Exam
     private $sujet;
     private $durre;
     private $qcm;
-    private $base;
 
-    public function __construct(PDO $base)
+    public function __construct()
     {
         $this->matiere;
         $this->sessiondexam;
@@ -20,12 +19,6 @@ class Exam
         $this->sujet;
         $this->durre;
         $this->qcm;
-        $this->setBase($base);
-    }
-
-    public function setBase($base)
-    {
-        $this->base = $base;
     }
 
     public function setQcm($qcm)
@@ -90,9 +83,10 @@ class Exam
 
     public function insertExam()
     {
+        $db=Connexion::getCx();
         $requete = "INSERT INTO EXAM VALUES(:idmat, :sessiond, :idtypedexam, :sujet, :durre, :qcm)";
 
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
 
         $st->execute(array(
             "idmat" => $this->getMatiere(),
@@ -110,8 +104,9 @@ class Exam
 
     public function listexam()
     {
+        $db=Connexion::getCx();
         $requete = "SELECT * FROM EXAM NATURAL JOIN MATIERE NATURAL JOIN TYPEDEXAM NATURAL JOIN SESSIONDEXAM WHERE IDSESSIONDEXAM = :idsessiondexam ORDER BY INTITULE ASC";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array(
             "idsessiondexam" => $this->getSessiondexam()
         ));
@@ -124,8 +119,9 @@ class Exam
 
     public function listexam_format()
     {
+        $db=Connexion::getCx();
         $requete = "SELECT * FROM EXAM NATURAL JOIN MATIERE NATURAL JOIN TYPEDEXAM NATURAL JOIN SESSIONDEXAM WHERE IDSESSIONDEXAM = :idsessiondexam AND IDMATIERE = :idmat AND IDTYPEDEXAM = :idtype ORDER BY INTITULE ASC";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array(
             "idsessiondexam" => $this->getSessiondexam(),
             "idmat" => $this->getMatiere(),
@@ -140,8 +136,9 @@ class Exam
     public function update()
     {
 
+        $db=Connexion::getCx();
         $requete = "UPDATE EXAM SET SUJET = :sujet, DURRE = :durre, QCM = :qcm WHERE IDSESSIONDEXAM = :idsessiondexam AND IDMATIERE = :idmat AND IDTYPEDEXAM = :idtype";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array(
             "sujet" => $this->getSujet(),
             "durre" => $this->getDurre(),
@@ -158,8 +155,9 @@ class Exam
     public function search($search)
     {
 
+        $db=Connexion::getCx();
         $requete = "SELECT * FROM EXAM NATURAL JOIN MATIERE NATURAL JOIN TYPEDEXAM NATURAL JOIN SESSIONDEXAM WHERE IDSESSIONDEXAM = :idsessiondexam AND INTITULE LIKE :mat ORDER BY INTITULE ASC ";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array(
             "idsessiondexam" => $this->getSessiondexam(),
             "mat" => $search

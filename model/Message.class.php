@@ -9,9 +9,8 @@ class Message
     private $DIPLOME;
     private $FILIERE;
     private $VAGUE;
-    private $base;
 
-    public function __construct(PDO $base)
+    public function __construct()
     {
         $this->IDMESSAGE = 0;
         $this->MESSAGE = "";
@@ -20,7 +19,6 @@ class Message
         $this->DIPLOME = "";
         $this->FILIERE = "";
         $this->VAGUE = "";
-        $this->setBase($base);
     }
     public function getIDMESSAGE()
     {
@@ -78,15 +76,11 @@ class Message
     {
         $this->VAGUE = $VAGUE;
     }
-    public function setBase($base)
-    {
-        $this->base = $base;
-    }
-
     public function Insert()
     {
+        $db=Connexion::getCx();
 
-        $query = $this->base->prepare("INSERT INTO MESSAGE VALUES(null,:message,:reponse,:idetudiant,:diplome,:filiere,:vague,sysdate())");
+        $query = $db->prepare("INSERT INTO MESSAGE VALUES(null,:message,:reponse,:idetudiant,:diplome,:filiere,:vague,sysdate())");
         $query->execute(array(
             'message' => $this->getMESSAGE(),
             'reponse' => $this->getREPONSE(),
@@ -101,8 +95,9 @@ class Message
 
     function Affiche()
     {
+        $db=Connexion::getCx();
 
-        $query = $this->base->prepare("SELECT * FROM MESSAGE ORDER BY DATY DESC");
+        $query = $db->prepare("SELECT * FROM MESSAGE ORDER BY DATY DESC");
         $query->execute();
         $res = $query->fetchAll();
         return $res;
@@ -111,8 +106,9 @@ class Message
 
     function AfficheMessage($id)
     {
+        $db=Connexion::getCx();
 
-        $query = $this->base->prepare("SELECT * FROM MESSAGE WHERE IDETUDIANT= :id");
+        $query = $db->prepare("SELECT * FROM MESSAGE WHERE IDETUDIANT= :id");
         $query->execute(array(
             'id' => $id
         ));
@@ -123,8 +119,9 @@ class Message
 
     function AfficheIdOne($id)
     {
+        $db=Connexion::getCx();
 
-        $query = $this->base->prepare("SELECT * FROM MESSAGE WHERE IDMESSAGE= :id");
+        $query = $db->prepare("SELECT * FROM MESSAGE WHERE IDMESSAGE= :id");
         $query->execute(array(
             'id' => $id
         ));
@@ -135,8 +132,9 @@ class Message
 
     function update($reponse, $idM)
     {
+        $db=Connexion::getCx();
 
-        $query = $this->base->prepare("UPDATE  MESSAGE SET REPONSE=:reponse  WHERE IDMESSAGE=:idM");
+        $query = $db->prepare("UPDATE  MESSAGE SET REPONSE=:reponse  WHERE IDMESSAGE=:idM");
         $query->execute(array(
             'reponse' => $reponse,
             'idM' => $idM

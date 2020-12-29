@@ -4,19 +4,11 @@ class Code
 {
     private  $code;
     private $datedentrer;
-    private $base;
 
-    public function __construct(PDO $base)
+    public function __construct()
     {
         $this->code;
         $this->datedentrer;
-        $this->base;
-        $this->setBase($base);
-    }
-
-    public function setBase($base)
-    {
-        $this->base = $base;
     }
 
     public function setCode($code)
@@ -41,8 +33,9 @@ class Code
 
     public function create()
     {
+        $db=Connexion::getCx();
         $requete = "INSERT INTO CODECLASSE VALUES(:code , NULL)";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array(
             "code" => $this->getCode()
         ));
@@ -51,8 +44,9 @@ class Code
 
     public function listVague()
     {
+        $db=Connexion::getCx();
         $requete = "SELECT * FROM CODECLASSE WHERE CODE != 'CODE0'";
-        $st = $this->base->query($requete);
+        $st = $db->query($requete);
         $res = $st->fetchAll();
         return $res;
         $st->closeCursor();
@@ -60,8 +54,9 @@ class Code
 
     public function search($search)
     {
+        $db=Connexion::getCx();
         $requete = "SELECT * FROM CODECLASSE WHERE CODE != 'CODE0' AND CODE LIKE :code";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array(
             "code" => $search
         ));
@@ -72,8 +67,9 @@ class Code
 
     public function update()
     {
+        $db=Connexion::getCx();
         $requete = "UPDATE CODECLASSE SET DATEDENTER = :enter WHERE CODE = :code";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array(
             "enter" => $this->getDatedentrer(),
             "code" => $this->getCode()

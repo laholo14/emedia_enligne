@@ -15,11 +15,10 @@ class Suivre
   private $mdp;
   private $inscription;
   private $ecolage;
-  private $base;
 
 
 
-  public function __construct(PDO $base)
+  public function __construct()
   {
     $this->etudiant;
     $this->dip;
@@ -31,7 +30,6 @@ class Suivre
     $this->mdp;
     $this->inscription;
     $this->ecolage;
-    $this->setBase($base);
   }
 
   public function getEtudiant()
@@ -120,18 +118,15 @@ class Suivre
   {
     $this->inscription = $inscription;
   }
-  public function setBase($base)
-  {
-    $this->base = $base;
-  }
 
 
   public function createSuivre()
   {
+    $db=Connexion::getCx();
 
     $requete = "INSERT INTO SUIVRE VALUES(:ide, :dip, :fil, :par, :S0, :CODE0, NULL , NULL , :ins , :eco , :examen , :sout , :certi ,  sysdate())";
 
-    $st = $this->base->prepare($requete);
+    $st = $db->prepare($requete);
 
     $st->execute(array(
       "ide" => $this->getEtudiant(),
@@ -152,8 +147,9 @@ class Suivre
 
   public function readNombreNewInsri()
   {
+    $db=Connexion::getCx();
     $requete = "SELECT COUNT(*) FROM SUIVRE WHERE CODE = 'CODE0'";
-    $st = $this->base->query($requete);
+    $st = $db->query($requete);
     $res = $st->fetchAll();
     $st->closeCursor();
     return $res;
@@ -161,8 +157,9 @@ class Suivre
 
   public function readAllNewInscri()
   {
+    $db=Connexion::getCx();
     $requete = "SELECT * FROM SUIVRE NATURAL JOIN ETUDIANTS WHERE CODE = 'CODE0'";
-    $st = $this->base->query($requete);
+    $st = $db->query($requete);
     $res = $st->fetchAll();
     $st->closeCursor();
     return $res;
@@ -171,8 +168,9 @@ class Suivre
 
   public function NbrInsMaster()
   {
+    $db=Connexion::getCx();
     $requete = "SELECT COUNT(*) from SUIVRE WHERE  DIPLOME = 'MASTER' and CODE = 'CODE0'";
-    $st = $this->base->query($requete);
+    $st = $db->query($requete);
     $res = $st->fetchAll();
     $st->closeCursor();
     return $res;
@@ -180,8 +178,9 @@ class Suivre
 
   public function InsriMaster()
   {
+    $db=Connexion::getCx();
     $requete = "SELECT * FROM SUIVRE NATURAL JOIN ETUDIANTS WHERE DIPLOME = 'MASTER' and CODE = 'CODE0'";
-    $st = $this->base->query($requete);
+    $st = $db->query($requete);
     $res = $st->fetchAll();
     $st->closeCursor();
     return $res;
@@ -190,8 +189,9 @@ class Suivre
 
   public function NbrInsMasterTicm()
   {
+    $db=Connexion::getCx();
     $requete = "SELECT COUNT(*) from SUIVRE WHERE  DIPLOME = 'MASTER' and CODE = 'CODE0' and FILIERE = 'TICM' ";
-    $st = $this->base->query($requete);
+    $st = $db->query($requete);
     $res = $st->fetchAll();
     $st->closeCursor();
     return $res;
@@ -200,8 +200,9 @@ class Suivre
 
   public function NbrInsMasterAc()
   {
+    $db=Connexion::getCx();
     $requete = "SELECT COUNT(*) from SUIVRE WHERE  DIPLOME = 'MASTER' and CODE = 'CODE0' and FILIERE = 'AC' ";
-    $st = $this->base->query($requete);
+    $st = $db->query($requete);
     $res = $st->fetchAll();
     $st->closeCursor();
     return $res;
@@ -209,8 +210,9 @@ class Suivre
 
   public function NbrInsMasterMpjm()
   {
+    $db=Connexion::getCx();
     $requete = "SELECT COUNT(*) from SUIVRE WHERE  DIPLOME = 'MASTER' and CODE = 'CODE0' and FILIERE = 'MPJM' ";
-    $st = $this->base->query($requete);
+    $st = $db->query($requete);
     $res = $st->fetchAll();
     $st->closeCursor();
     return $res;
@@ -218,8 +220,9 @@ class Suivre
 
   public function NbrInsMasterMba()
   {
+    $db=Connexion::getCx();
     $requete = "SELECT COUNT(*) from SUIVRE WHERE  DIPLOME = 'MASTER' and CODE = 'CODE0' and FILIERE = 'MBA' ";
-    $st = $this->base->query($requete);
+    $st = $db->query($requete);
     $res = $st->fetchAll();
     $st->closeCursor();
     return $res;
@@ -227,8 +230,9 @@ class Suivre
 
   public function NbrInsMasterDrtm()
   {
+    $db=Connexion::getCx();
     $requete = "SELECT COUNT(*) from SUIVRE WHERE  DIPLOME = 'MASTER' and CODE = 'CODE0' and FILIERE = 'DRTM' ";
-    $st = $this->base->query($requete);
+    $st = $db->query($requete);
     $res = $st->fetchAll();
     $st->closeCursor();
     return $res;
@@ -237,8 +241,9 @@ class Suivre
 
   public function NbrInsLicence()
   {
+    $db=Connexion::getCx();
     $requete = "SELECT COUNT(*) from SUIVRE WHERE  DIPLOME = 'LICENCE' and CODE = 'CODE0'";
-    $st = $this->base->query($requete);
+    $st = $db->query($requete);
     $res = $st->fetchAll();
     $st->closeCursor();
     return $res;
@@ -247,9 +252,10 @@ class Suivre
   //liste inscri voaloany na licence na master
   public function InsriLicence()
   {
+    $db=Connexion::getCx();
     $requete = "SELECT * FROM SUIVRE NATURAL JOIN ETUDIANTS  WHERE DIPLOME = :dip and CODE = 'CODE0' and  FILIERE = :tic  ORDER BY DATEDINSCRIPTION ASC";
 
-    $st = $this->base->prepare($requete);
+    $st = $db->prepare($requete);
     $st->execute(array(
       "dip" => $this->getDip(),
       "tic" => $this->getFiliere()
@@ -264,9 +270,10 @@ class Suivre
   //liste efa pianatra 
   public function ListEtudiant()
   {
+    $db=Connexion::getCx();
     $requete = "SELECT * FROM SUIVRE NATURAL JOIN ETUDIANTS WHERE DIPLOME = :dip and CODE = :vague and  FILIERE = :tic ORDER BY MATRICULE ASC";
 
-    $st = $this->base->prepare($requete);
+    $st = $db->prepare($requete);
     $st->execute(array(
       "dip" => $this->getDip(),
       "vague" => $this->getCode(),
@@ -280,9 +287,10 @@ class Suivre
 
   public function ListEtudiantExam($mat, $session)
   {
+    $db=Connexion::getCx();
     $requete = "SELECT * FROM RESULTAT  NATURAL JOIN SUIVRE NATURAL JOIN ETUDIANTS NATURAL JOIN MATIERE  WHERE DIPLOME = :dip and CODE = :vague and  FILIERE = :tic and IDMATIERE = :mat AND IDSESSIONDEXAM = :sess ORDER BY MATRICULE ASC";
 
-    $st = $this->base->prepare($requete);
+    $st = $db->prepare($requete);
     $st->execute(array(
       "dip" => $this->getDip(),
       "vague" => $this->getCode(),
@@ -299,16 +307,18 @@ class Suivre
   /*SELECT * FROM SUIVRE NATURAL JOIN ETUDIANTS LEFT OUTER JOIN resultat  ON resultat.IDETUDIANTS = SUIVRE.IDETUDIANTS WHERE SUIVRE.DIPLOME = 'LICENCE' AND SUIVRE.CODE = 'V1' AND SUIVRE.FILIERE = 'TIC' AND resultat.IDMATIERE = 1*/
   public function NbrInsLicenceTic()
   {
+    $db=Connexion::getCx();
     $requete = "SELECT COUNT(*) from SUIVRE WHERE  DIPLOME = 'LICENCE' and CODE = 'CODE0' and FILIERE = 'TIC' ";
-    $st = $this->base->query($requete);
+    $st = $db->query($requete);
     $res = $st->fetchAll();
     $st->closeCursor();
     return $res;
   }
   public function NbrInsLicenceCan()
   {
+    $db=Connexion::getCx();
     $requete = "SELECT COUNT(*) from SUIVRE WHERE  DIPLOME = 'LICENCE' and CODE = 'CODE0' and FILIERE = 'CAN' ";
-    $st = $this->base->query($requete);
+    $st = $db->query($requete);
     $res = $st->fetchAll();
     $st->closeCursor();
     return $res;
@@ -317,8 +327,9 @@ class Suivre
 
   public function NbrInsLicenceMpj()
   {
+    $db=Connexion::getCx();
     $requete = "SELECT COUNT(*) from SUIVRE WHERE  DIPLOME = 'LICENCE' and CODE = 'CODE0' and FILIERE = 'MPJ' ";
-    $st = $this->base->query($requete);
+    $st = $db->query($requete);
     $res = $st->fetchAll();
     $st->closeCursor();
     return $res;
@@ -326,8 +337,9 @@ class Suivre
 
   public function NbrInsLicenceMgt()
   {
+    $db=Connexion::getCx();
     $requete = "SELECT COUNT(*) from SUIVRE WHERE  DIPLOME = 'LICENCE' and CODE = 'CODE0' and FILIERE = 'MGT' ";
-    $st = $this->base->query($requete);
+    $st = $db->query($requete);
     $res = $st->fetchAll();
     $st->closeCursor();
     return $res;
@@ -335,8 +347,9 @@ class Suivre
 
   public function NbrInsLicenceDrt()
   {
+    $db=Connexion::getCx();
     $requete = "SELECT COUNT(*) from SUIVRE WHERE  DIPLOME = 'LICENCE' and CODE = 'CODE0' and FILIERE = 'DRT' ";
-    $st = $this->base->query($requete);
+    $st = $db->query($requete);
     $res = $st->fetchAll();
     $st->closeCursor();
     return $res;
@@ -344,8 +357,9 @@ class Suivre
 
   public function readAllById($id)
   {
+    $db=Connexion::getCx();
     $requete = "SELECT * FROM SUIVRE NATURAL JOIN ETUDIANTS WHERE IDETUDIANTS = :ide";
-    $st = $this->base->prepare($requete);
+    $st = $db->prepare($requete);
     $st->execute(array("ide" => $id));
 
     $res = $st->fetchAll();
@@ -355,8 +369,9 @@ class Suivre
 
   public function readId($mat)
   {
+    $db=Connexion::getCx();
     $requete = "SELECT * FROM SUIVRE NATURAL JOIN ETUDIANTS WHERE MATRICULE = :mat";
-    $st = $this->base->prepare($requete);
+    $st = $db->prepare($requete);
     $st->execute(array("mat" => $mat));
 
     $res = $st->fetchAll();
@@ -368,8 +383,9 @@ class Suivre
 
   public function ajoutLogin()
   {
+    $db=Connexion::getCx();
     $requete = "UPDATE SUIVRE SET SEMESTRE = :sem , CODE = :code , MATRICULE = :mat , MDP = :mdp , DATEDINSCRIPTION = sysdate() WHERE IDETUDIANTS = :ide";
-    $st = $this->base->prepare($requete);
+    $st = $db->prepare($requete);
     $st->execute(array(
       "sem" => $this->getSemestre(),
       "code" => $this->getCode(),
@@ -383,8 +399,9 @@ class Suivre
 
   public function login()
   {
+    $db=Connexion::getCx();
     $requete = "SELECT * FROM SUIVRE NATURAL JOIN ETUDIANTS NATURAL JOIN FILIERE NATURAL JOIN PARCOURS WHERE MATRICULE = :mat and MDP = :mdp";
-    $st = $this->base->prepare($requete);
+    $st = $db->prepare($requete);
     $st->execute(array(
       "mat" => $this->getMatricule(),
       "mdp" => $this->getMdp()
@@ -397,8 +414,9 @@ class Suivre
 
   public function Vague()
   {
+    $db=Connexion::getCx();
     $requete = "SELECT * from CODECLASSE WHERE CODE != 'CODE0'";
-    $st = $this->base->query($requete);
+    $st = $db->query($requete);
     $res = $st->fetchAll();
     $st->closeCursor();
     return $res;
@@ -406,8 +424,9 @@ class Suivre
 
   public function NbrEtLicence($vague, $fil)
   {
+    $db=Connexion::getCx();
     $requete = "SELECT COUNT(*) from SUIVRE WHERE  DIPLOME = 'LICENCE' and CODE = :V and FILIERE = :fil ";
-    $st = $this->base->prepare($requete);
+    $st = $db->prepare($requete);
     $st->execute(array(
       "V" => $vague,
       "fil" => $fil
@@ -419,8 +438,9 @@ class Suivre
 
   public function NbrEtMaster($vague, $fil)
   {
+    $db=Connexion::getCx();
     $requete = "SELECT COUNT(*) from SUIVRE WHERE  DIPLOME = 'MASTER' and CODE = :V and FILIERE = :fil ";
-    $st = $this->base->prepare($requete);
+    $st = $db->prepare($requete);
     $st->execute(array(
       "V" => $vague,
       "fil" => $fil
@@ -434,8 +454,9 @@ class Suivre
 
   public function updateSemestre()
   {
+    $db=Connexion::getCx();
     $requete = "UPDATE SUIVRE SET SEMESTRE = :sem  WHERE MATRICULE = :matricule";
-    $st = $this->base->prepare($requete);
+    $st = $db->prepare($requete);
     $st->execute(array(
       "sem" => $this->getSemestre(),
       "matricule" => $this->getMatricule()
@@ -446,8 +467,9 @@ class Suivre
 
   public function delete()
   {
+    $db=Connexion::getCx();
     $sql = "DELETE FROM SUIVRE  WHERE IDETUDIANTS = :ide ";
-    $st = $this->base->prepare($sql);
+    $st = $db->prepare($sql);
     $st->execute(array(
       "ide" => $this->getEtudiant()
     ));
@@ -458,8 +480,9 @@ class Suivre
 
   public function verifymatricule()
   {
+    $db=Connexion::getCx();
     $sql = "SELECT COUNT(*) FROM SUIVRE WHERE MATRICULE = :idm";
-    $st = $this->base->prepare($sql);
+    $st = $db->prepare($sql);
     $st->execute(array(
 
       "idm" => $this->getMatricule()
@@ -471,8 +494,9 @@ class Suivre
   }
   public function readAllSemestre()
   {
+    $db=Connexion::getCx();
     $sql="select * from SEMESTRE";
-    $st = $this->base->prepare($sql);
+    $st = $db->prepare($sql);
     $st->execute();
     $res = $st->fetchAll();
     $st->closeCursor();
@@ -480,8 +504,9 @@ class Suivre
   }
   public function readAllEtudiant($matricule)
   {
+    $db=Connexion::getCx();
     $sql = "SELECT * FROM SUIVRE WHERE MATRICULE LIKE '".$matricule."%'";
-    $st =$this->base->query($sql);
+    $st =$db->query($sql);
     $res = $st->fetchAll();
     $st->closeCursor();
     return $res;
@@ -489,8 +514,9 @@ class Suivre
   }
   public function readAllEtudiants($matricule,$vague)
   {
+    $db=Connexion::getCx();
     $sql = "SELECT * FROM SUIVRE WHERE MATRICULE LIKE '$matricule%' AND CODE='$vague'";
-    $st =$this->base->query($sql);
+    $st =$db->query($sql);
     $res = $st->fetchAll();
     $st->closeCursor();
     return $res;
@@ -498,8 +524,9 @@ class Suivre
   }
    
   public function updateMdp(){
+    $db=Connexion::getCx();
     $requete = "UPDATE SUIVRE SET MDP = :mdp WHERE IDETUDIANTS = :ide";
-    $st = $this->base->prepare($requete);
+    $st = $db->prepare($requete);
     $st->execute(array(
       "mdp" => $this->getMdp(),
       "ide" => $this->getEtudiant()

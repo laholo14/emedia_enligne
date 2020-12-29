@@ -4,13 +4,11 @@
         
         private $id_matiere;
         private $intitule;
-        private $base;
    
 
-        public function __construct(PDO $base){
+        public function __construct(){
             $this->id_matiere;
             $this->intitule;
-            $this->setBase($base);
            
         }
 
@@ -20,9 +18,6 @@
         }
         public function setIntitule($intitule){
             $this->intitule = $intitule;
-        }
-        public function setBase($base){
-            $this->base = $base;
         }
 
 
@@ -41,21 +36,23 @@
 
        
    public function create(){
-    $requete = "INSERT INTO MATIERE VALUES(NULL, :intitule)";
-    
-    $st = $this->base->prepare($requete);
-    
-    $st->execute(array("intitule"=> $this->getIntitule()
-                                                        
-                      ));
-    $st->closeCursor();
+        $db=Connexion::getCx();
+        $requete = "INSERT INTO MATIERE VALUES(NULL, :intitule)";
+        
+        $st = $db->prepare($requete);
+        
+        $st->execute(array("intitule"=> $this->getIntitule()
+                                                            
+                          ));
+        $st->closeCursor();
     
     }
        
     public function listMatiere(){
+        $db=Connexion::getCx();
 
         $requete = "SELECT * FROM MATIERE ORDER BY INTITULE ASC";
-        $st = $this->base->query($requete);
+        $st = $db->query($requete);
         $res=$st->fetchAll();
         $st->closeCursor();
         return $res;
@@ -64,9 +61,10 @@
     }
 
     public function search($search){
+        $db=Connexion::getCx();
 
         $requete = "SELECT * FROM MATIERE WHERE INTITULE LIKE :search ORDER BY INTITULE ASC";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array("search"=> $search 
                                                         
         ));
@@ -79,10 +77,11 @@
 
 
     public function listMatiere_id(){
+        $db=Connexion::getCx();
 
         $requete = "SELECT * FROM MATIERE where IDMATIERE = :idm ORDER BY IDMATIERE ASC";
 
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array("idm"=> $this->getId_matiere()
                                                         
         ));
@@ -95,10 +94,11 @@
 
 
     public function update(){
+        $db=Connexion::getCx();
 
         $requete = 'UPDATE MATIERE SET INTITULE = :intitule WHERE IDMATIERE = :idm';
         
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
     
         $st->execute(array("intitule"=> $this->getIntitule(),
                             "idm" => $this->getId_matiere()
@@ -109,8 +109,9 @@
     }
 
     public function verify(){
+        $db=Connexion::getCx();
         $sql="SELECT COUNT(*) FROM MATIERE WHERE INTITULE = :idm";
-        $st=$this->base->prepare($sql);
+        $st=$db->prepare($sql);
         $st->execute(array(
 
             "idm" => $this->getIntitule()
@@ -122,8 +123,9 @@
     }
        public function readMatById($idMatiere)
        {
+        $db=Connexion::getCx();
         $sql = "SELECT * FROM MATIERE WHERE IDMATIERE ='".$idMatiere."'";
-        $st =$this->base->query($sql);
+        $st =$db->query($sql);
         $res = $st->fetchAll();
         $st->closeCursor();
         return $res;
@@ -131,8 +133,9 @@
        }
        public function readAllMatiere()
        {
+        $db=Connexion::getCx();
         $sql = "SELECT * FROM MATIERE";
-        $st =$this->base->query($sql);
+        $st =$db->query($sql);
         $res = $st->fetchAll();
         $st->closeCursor();
         return $res;

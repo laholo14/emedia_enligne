@@ -21,9 +21,8 @@ class Etudiant
     private $dossier;
     private $photo;
     private $parcourse;
-    private $base;
 
-    public function __construct(PDO $base)
+    public function __construct()
     {
         $this->_id;
         $this->nom;
@@ -40,7 +39,6 @@ class Etudiant
         $this->dossier;
         $this->photo;
         $this->parcourse;
-        $this->setBase($base);
     }
 
     public function set_Id($_id)
@@ -102,10 +100,6 @@ class Etudiant
     public function setParcourse($parcours)
     {
         $this->parcours = $parcours;
-    }
-    public function setBase($base)
-    {
-        $this->base = $base;
     }
 
 
@@ -175,8 +169,9 @@ class Etudiant
     public function create()
     {
 
+        $db=Connexion::getCx();
         $requete = "insert into ETUDIANTS values(null, :nom, :prenom, :datenais, :lieunais, :sexe, :nat, :adresse, :mail,  :numero, :parent, :numparent, :dossier, :photo ,:parcours)";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array(
             "nom" => $this->getNom(),
             "prenom" => $this->getPrenom(),
@@ -199,9 +194,10 @@ class Etudiant
 
     public function readId()
     {
+        $db=Connexion::getCx();
         $sql = "select * from ETUDIANTS where NOM = :name and PRENOM = :pname
             and PARCOURCHOIX = :par";
-        $st = $this->base->prepare($sql);
+        $st = $db->prepare($sql);
         $st->execute(array(
             "name" => $this->getNom(),
             "pname" => $this->getPrenom(),
@@ -215,8 +211,9 @@ class Etudiant
 
     public function readInscri($n, $p, $f)
     {
+        $db=Connexion::getCx();
         $sql = "select IDETUDIANTS from ETUDIANTS NATURAL JOIN SUIVRE where NOM = :name and PRENOM = :pname and FILIERE = :par ";
-        $st = $this->base->prepare($sql);
+        $st = $db->prepare($sql);
         $st->execute(array(
             "name" => $n,
             "pname" => $p,
@@ -229,8 +226,9 @@ class Etudiant
 
     public function search($search)
     {
+        $db=Connexion::getCx();
         $sql = "SELECT * FROM ETUDIANTS NATURAL JOIN SUIVRE where NOM LIKE :nom OR PRENOM LIKE :pnom OR MAIL LIKE :mail ORDER BY DATEDINSCRIPTION DESC";
-        $st = $this->base->prepare($sql);
+        $st = $db->prepare($sql);
         $st->execute(array(
             "nom" => $search,
             "pnom" => $search,
@@ -244,8 +242,9 @@ class Etudiant
 
     public function delete()
     {
+        $db=Connexion::getCx();
         $sql = "DELETE FROM ETUDIANTS  WHERE IDETUDIANTS = :ide ";
-        $st = $this->base->prepare($sql);
+        $st = $db->prepare($sql);
         $st->execute(array(
             "ide" => $this->get_Id()
         ));
@@ -254,8 +253,9 @@ class Etudiant
 
     public function verify()
     {
+        $db=Connexion::getCx();
         $sql = "SELECT COUNT(*) FROM ETUDIANTS WHERE NOM = :nom and PRENOM = :prenom and NUMERO = :num";
-        $st = $this->base->prepare($sql);
+        $st = $db->prepare($sql);
         $st->execute(array(
             "nom" => $this->getNom(),
             "prenom" => $this->getPrenom(),
@@ -268,8 +268,9 @@ class Etudiant
     }
        public function readEtudById($idEtudiant)
        {
+        $db=Connexion::getCx();
         $sql = "SELECT * FROM ETUDIANTS WHERE IDETUDIANTS ='".$idEtudiant."'";
-        $st =$this->base->query($sql);
+        $st =$db->query($sql);
         $res = $st->fetchAll();
         $st->closeCursor();
         return $res;
@@ -277,8 +278,9 @@ class Etudiant
        }
        public function readAllEtud()
        {
+        $db=Connexion::getCx();
         $sql = "SELECT * FROM ETUDIANTS";
-        $st =$this->base->query($sql);
+        $st =$db->query($sql);
         $res = $st->fetchAll();
         $st->closeCursor();
         return $res;

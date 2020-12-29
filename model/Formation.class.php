@@ -10,9 +10,8 @@ class Formation
     private $parcours;
     private $categorie;
     private $type;
-    private $base;
 
-    public function __construct(PDO $base)
+    public function __construct()
     {
         $this->intitule;
         $this->semestre;
@@ -21,12 +20,6 @@ class Formation
         $this->parcours;
         $this->categorie;
         $this->type;
-        $this->setbase($base);
-    }
-
-    public function setBase($base)
-    {
-        $this->base = $base;
     }
     public function setIntitule($intitule)
     {
@@ -89,8 +82,9 @@ class Formation
 
     public function formationL1L2M1()
     {
+        $db=Connexion::getCx();
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN PARCOURS  NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE SEMESTRE = :sem AND FILIERE = :fil AND MOIS <= :mois AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
             "fil" => $this->getFiliere(),
@@ -105,8 +99,9 @@ class Formation
 
     public function formationAncienL1L2M1()
     {
+        $db=Connexion::getCx();
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN SEMESTRE NATURAL JOIN PARCOURS  NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE num <= :sem AND FILIERE = :fil  AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
             "fil" => $this->getFiliere(),
@@ -122,8 +117,9 @@ class Formation
 
     public function formationExamenMensuel()
     {
+        $db=Connexion::getCx();
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN PARCOURS  NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE SEMESTRE = :sem AND FILIERE = :fil AND MOIS = :mois AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
             "fil" => $this->getFiliere(),
@@ -139,8 +135,9 @@ class Formation
 
     public function formationL3M2()
     {
+        $db=Connexion::getCx();
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN PARCOURS  NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE SEMESTRE = :sem AND PARCOURS = :par AND MOIS <= :mois AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
             "par" => $this->getParcours(),
@@ -154,8 +151,9 @@ class Formation
     }
     public function formationAncienL3M2()
     {
+        $db=Connexion::getCx();
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN SEMESTRE NATURAL JOIN PARCOURS  NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE num < :sem AND PARCOURS = :par AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
             "par" => $this->getParcours(),
@@ -169,8 +167,9 @@ class Formation
     
     public function listMatSemestriel()
     {
+        $db=Connexion::getCx();
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN PARCOURS  NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE SEMESTRE = :sem AND FILIERE = :par AND MOIS <= :mois AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
             "par" => $this->getFiliere(),
@@ -187,8 +186,9 @@ class Formation
 
 
     public function listmat(){
+        $db=Connexion::getCx();
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN PARCOURS  WHERE SEMESTRE = :sem AND FILIERE = :fil ORDER BY MOIS,INTITULE ASC";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
             "fil" => $this->getFiliere()
