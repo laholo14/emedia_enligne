@@ -7,17 +7,15 @@ class Enseigner
     private $semestre;
     private $matiere;
     private $prof;
-    private $base;
     private $mois;
 
-    public function __construct(PDO $base)
+    public function __construct()
     {
         $this->parcours;
         $this->semestre;
         $this->matiere;
         $this->prof;
         $this->mois;
-        $this->setBase($base);
     }
 
     public function setParcours($parcours)
@@ -39,10 +37,6 @@ class Enseigner
     public function setMois($mois)
     {
         $this->mois = $mois;
-    }
-    public function setBase($base)
-    {
-        $this->base = $base;
     }
 
 
@@ -73,9 +67,10 @@ class Enseigner
 
     public function create()
     {
+        $db=Connexion::getCx();
         $requete = "INSERT INTO ENSEIGNER VALUES(:idpa, :sem, :mat, :mois ,:idprof)";
 
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
 
         $st->execute(array(
             "idpa" => $this->getParcours(),
@@ -88,8 +83,9 @@ class Enseigner
     }
     
    /* public function verify(){
+        $db=Connexion::getCx();
         $sql="SELECT COUNT(*) FROM ENSEIGNER WHERE IDMATIERE = :idm";
-        $st=$this->base->prepare($sql);
+        $st=$db->prepare($sql);
         $st->execute(array(
 
             "idm" => $this->getMatiere()
@@ -104,8 +100,9 @@ class Enseigner
     public function listEnseigner($search)
     {
 
+        $db=Connexion::getCx();
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN PARCOURS NATURAL JOIN MATIERE NATURAL JOIN PROF WHERE FILIERE= :fil AND INTITULE LIKE :mat ORDER BY MOIS ASC";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
 
         $st->execute(array(
             "fil" => $this->getParcours(),
@@ -117,8 +114,9 @@ class Enseigner
     }
    
     public function listMatiere_enseigner(){
+        $db=Connexion::getCx();
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN PARCOURS NATURAL JOIN MATIERE NATURAL JOIN PROF WHERE FILIERE= :fil AND SEMESTRE = :sem ORDER BY MOIS ASC";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
 
         $st->execute(array(
             "fil" => $this->getParcours(),
@@ -134,8 +132,9 @@ class Enseigner
     public function listEnseigner_ID($idm,$idp,$ids)
     {
 
+        $db=Connexion::getCx();
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN PARCOURS NATURAL JOIN MATIERE NATURAL JOIN PROF WHERE IDMATIERE = :idm AND PARCOURS = :idp AND SEMESTRE = :sem";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
 
         $st->execute(array(
                 "idm" => $idm,
@@ -151,9 +150,10 @@ class Enseigner
 
     public function update()
     {
+        $db=Connexion::getCx();
         $requete = "UPDATE  ENSEIGNER SET  SEMESTRE = :sem  ,  MOIS = :mois ,IDPROF = :idprof   WHERE IDMATIERE = :idm AND PARCOURS = :idpa";
 
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
 
         $st->execute(array(
             
@@ -168,9 +168,9 @@ class Enseigner
     
     public function search($search)
     {
-
+        $db=Connexion::getCx();
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN PROF NATURAL JOIN MATIERE NATURAL JOIN PARCOURS WHERE INTITULE  LIKE :mat";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array(
            
             "mat" => $search
@@ -182,8 +182,9 @@ class Enseigner
     }
 
     public function delete(){
+        $db=Connexion::getCx();
         $sql="DELETE FROM ENSEIGNER  WHERE IDMATIERE = :idm AND PARCOURS = :par ANS SEMESTRE = :sem ";
-        $st=$this->base->prepare($sql);
+        $st=$db->prepare($sql);
         $st->execute(array(
                           "idm" => $this->getMatiere(),
                           "par" =>$this->getParcours(),

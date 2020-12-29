@@ -4,20 +4,12 @@ class Repecher{
     private $idEtudiant;
     private $idMatiere;
     private $etat;
-    private $base;
 
-    public function __construct(PDO $base)
+    public function __construct()
     {
         $this->idEtudiant;
         $this->idMatiere;
         $this->etat;
-        $this->base;
-        $this->setBase($base);
-    }
-
-    public function setBase($base)
-    {
-        $this->base = $base;
     }
 
     public function setIdEtudiant($idEtudiant){
@@ -44,8 +36,9 @@ class Repecher{
     
 
    public function create(){
+      $db=Connexion::getCx();
        $requete = "INSERT INTO REPECHER VALUES(:idEtudiant , :idMatiere, :etat)";
-       $st = $this->base->prepare($requete);
+       $st = $db->prepare($requete);
        $st->execute(array(
            "idEtudiant" => $this->getIdEtudiant(),
            "idMatiere" => $this->getIdMatiere(),
@@ -55,8 +48,9 @@ class Repecher{
    }
    public function readEtudById($idEtudiant)
    {
+    $db=Connexion::getCx();
     $sql = "SELECT * FROM REPECHER WHERE IDETUDIANTS ='".$idEtudiant."'";
-    $st =$this->base->query($sql);
+    $st =$db->query($sql);
     $res = $st->fetchAll();
     $st->closeCursor();
     return $res;
@@ -64,16 +58,18 @@ class Repecher{
    }
    public function deleteMatById($idMatiere)
    {
+        $db=Connexion::getCx();
     $sql = "DELETE FROM REPECHER WHERE IDMATIERE ='".$idMatiere."'";
-    $st = $this->base->prepare($sql);
+    $st = $db->prepare($sql);
     $st->execute();
     $st->closeCursor();
 
    }
        public function readNbrEtudById($idEtudiant)
        {
+        $db=Connexion::getCx();
         $sql = "SELECT COUNT(*) as 'nombreEtudiant' FROM REPECHER WHERE IDETUDIANTS ='".$idEtudiant."'";
-        $st =$this->base->query($sql);
+        $st =$db->query($sql);
         $res = $st->fetchAll();
         $st->closeCursor();
         return $res;

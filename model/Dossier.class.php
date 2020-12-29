@@ -9,9 +9,8 @@ class Dossier
     private $contenu_mg;
     private $contenu_fr;
     private $couverture;
-    private $base;
 
-    public function __construct(PDO $base)
+    public function __construct()
     {
         $this->matiere;
         $this->categorie;
@@ -19,7 +18,6 @@ class Dossier
         $this->contenu_mg;
         $this->contenu_fr;
         $this->couverture;
-        $this->setBase($base);
     }
 
 
@@ -47,10 +45,6 @@ class Dossier
     public function setCouverture($couverture)
     {
         $this->couverture = $couverture;
-    }
-    public function setBase($base)
-    {
-        $this->base = $base;
     }
 
 
@@ -90,9 +84,10 @@ class Dossier
 
     public function create()
     {
+        $db=Connexion::getCx();
         $requete = "INSERT INTO DOSSIER VALUES(:idm, :cat, :typ, :cont_mg, :cont_fr, NULL)";
 
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
 
         $st->execute(array(
             "idm" => $this->getMatiere(),
@@ -108,8 +103,9 @@ class Dossier
     public function listDossier()
     {
 
+        $db=Connexion::getCx();
         $requete = "SELECT * FROM DOSSIER NATURAL JOIN MATIERE NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS ORDER BY INTITULE ASC";
-        $st = $this->base->query($requete);
+        $st = $db->query($requete);
         $res = $st->fetchAll();
         $st->closeCursor();
         return $res;
@@ -118,8 +114,9 @@ class Dossier
     public function listDossier_ID($idm, $idc, $idt)
     {
 
+        $db=Connexion::getCx();
         $requete = "SELECT * FROM DOSSIER NATURAL JOIN MATIERE NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE IDMATIERE = :idm and IDCATEGORIE = :idc and IDTYPE = :idt";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array(
             "idm" => $idm,
             "idc" => $idc,
@@ -134,8 +131,9 @@ class Dossier
     public function search($search)
     {
 
+        $db=Connexion::getCx();
         $requete = "SELECT * FROM DOSSIER NATURAL JOIN MATIERE NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE INTITULE LIKE :mat ORDER BY INTITULE ASC ";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array(
 
             "mat" => $search
@@ -150,8 +148,9 @@ class Dossier
     public  function update()
     {
 
+        $db=Connexion::getCx();
         $requete = "UPDATE DOSSIER SET CONTENU_MG = :contm , CONTENU_FR = :contf  WHERE IDMATIERE = :idm AND IDCATEGORIE = :idc AND IDTYPE = :idt";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array(
             "contm" => $this->getContenu_mg(),
             "contf" => $this->getContenu_fr(),

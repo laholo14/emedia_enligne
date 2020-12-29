@@ -6,14 +6,12 @@
       
         private $lastactivity;
         private $type;
-        private $base;
 
-        public function __construct(PDO $base){
+        public function __construct(){
            
             
             $this->lastactivity;
             $this->type;
-            $this->setBase($base);  
 
             }
 
@@ -35,16 +33,14 @@
         public function setType($type){
             $this->type  = $type;
         }
-        public function setBase($base){
-        $this->base = $base;
-        }
 
 
 
         function fetch_user_last_activity($idetudiant,$mat ,$fil)
        {
+            $db=Connexion::getCx();
             $requete = " SELECT * FROM LOGIN_DETAILS WHERE IDUSERSTATUS = :idetu AND MATRICULESTATUS = :mat AND FILIERE = :filiere ORDER BY LAST_ACTIVITY DESC LIMIT 1";
-            $st = $this->base->prepare($requete);
+            $st = $db->prepare($requete);
             $st->execute(array(
                 "idetu" => $idetudiant,
                 "mat" => $mat,
@@ -64,8 +60,9 @@
 
        function update_last_activity($id_details)
        {
+            $db=Connexion::getCx();
             $requete = "UPDATE LOGIN_DETAILS SET LAST_ACTIVITY = now() WHERE LOGIN_DETAILS_ID = :id " ;
-            $st = $this->base->prepare($requete);
+            $st = $db->prepare($requete);
             $st->execute(array(
                 "id" => $id_details,
                             ));

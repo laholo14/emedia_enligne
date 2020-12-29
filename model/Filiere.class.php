@@ -6,15 +6,13 @@ class Filiere
 
     private $filiere;
     private $nomfiliere;
-    private $base;
     private $diplome;
 
-    public function __construct(PDO $base)
+    public function __construct()
     {
         $this->filiere;
         $this->nomfiliere;
         $this->diplome;
-        $this->setBase($base);
     }
 
     public function getFiliere()
@@ -44,17 +42,12 @@ class Filiere
     {
         $this->diplome = $diplome;
     }
-
-    public function setBase($base)
-    {
-        $this->base = $base;
-    }
-
     public function read()
     {
 
+        $db=Connexion::getCx();
         $requete = "SELECT * FROM FILIERE  WHERE DIPLOME = :dip ";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
 
         $st->execute(array(
             "dip" => $this->getDiplome()
@@ -67,9 +60,10 @@ class Filiere
 
     public function readP()
     {
+        $db=Connexion::getCx();
 
         $requete = "SELECT * FROM PARCOURS  WHERE FILIERE = :fil ";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
 
         $st->execute(array(
             "fil" => $this->getFiliere()

@@ -20,7 +20,7 @@ if (isset($_POST["matricule"]) and isset($_POST["password"])) {
 
     extract($_POST);
 
-    $log = new Suivre($db->getCx());   
+    $log = new Suivre();   
     $log->setMatricule($matricule);
     $crypt = new Cryptage();
     $mdp = $crypt->crpt14($password);

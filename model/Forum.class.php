@@ -10,9 +10,8 @@ class Forum
     private $vague;
     private $contenu;
     private $date;
-    private $base;
 
-    public function __construct(PDO $base)
+    public function __construct()
     {
         $this->idetudiant;
         $this->idreply;
@@ -21,12 +20,6 @@ class Forum
         $this->vague;
         $this->contenu;
         $this->date;
-        $this->setBase($base);
-    }
-
-    public function setBase($base)
-    {
-        $this->base = $base;
     }
     public function setEtudiant($idetudiant)
     {
@@ -92,9 +85,11 @@ class Forum
 
     public function insertForum()
     {
+       
+        $db=Connexion::getCx(); 
         $requete = "INSERT INTO FORUM VALUES(null , :idetud, :fil, :parc, :vag, :idreply, :cont, sysdate())";
 
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
 
         $st->execute(array(
             "idetud" => $this->getEtudiant(),
@@ -111,8 +106,10 @@ class Forum
 
     public function forumetudaintL1L2M1()
     {
+        $db=Connexion::getCx();
+
         $requete = "SELECT * FROM FORUM WHERE IDREPLY = 0 AND FILIERE = :fil AND VAGUE = :vag ORDER BY IDFORUM DESC";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array(
             "fil" => $this->getFiliere(),
             "vag" => $this->getVague()
@@ -126,8 +123,10 @@ class Forum
 
     public function forumetudaintL3M2()
     {
+        $db=Connexion::getCx();
+
         $requete = "SELECT * FROM FORUM WHERE IDREPLY = 0 AND PARCOURS = :parc AND VAGUE = :vag ORDER BY IDFORUM DESC";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array(
             "parc" => $this->getParcours(),
             "vag" => $this->getVague()
@@ -140,8 +139,10 @@ class Forum
 
 
     public function replyL1L2M1(){
+        $db=Connexion::getCx();
+
         $requete = "SELECT * FROM FORUM WHERE IDREPLY = :idreply AND FILIERE = :fil AND VAGUE = :vag ";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array(
             "idreply" => $this->getReply(),
             "fil" => $this->getFiliere(),
@@ -154,8 +155,10 @@ class Forum
     }
     
     public function countreplyL1L2M1(){
+        $db=Connexion::getCx();
+
         $requete = "SELECT COUNT(*) FROM FORUM WHERE IDREPLY = :idreply AND FILIERE = :fil AND VAGUE = :vag ";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array(
             "idreply" => $this->getReply(),
             "fil" => $this->getFiliere(),
@@ -168,8 +171,10 @@ class Forum
     }
 
     public function rowcountreplyL1L2M1(){
+        $db=Connexion::getCx();
+
         $requete = "SELECT COUNT(*) FROM FORUM WHERE IDREPLY = :idreply AND FILIERE = :fil AND VAGUE = :vag ";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array(
             "idreply" => $this->getReply(),
             "fil" => $this->getFiliere(),
@@ -183,8 +188,10 @@ class Forum
 
     public function replyL3M2()
     {
+        $db=Connexion::getCx();
+
         $requete = "SELECT * FROM FORUM WHERE IDREPLY = :idreply AND PARCOURS = :parc AND VAGUE = :vag ";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array(
             "idreply" => $this->getReply(),
             "parc" => $this->getParcours(),
@@ -199,8 +206,10 @@ class Forum
 
     public function countreplyL3M2()
     {
+        $db=Connexion::getCx();
+
         $requete = "SELECT COUNT(*) FROM FORUM WHERE IDREPLY = :idreply AND PARCOURS = :parc AND VAGUE = :vag ";
-        $st = $this->base->prepare($requete);
+        $st = $db->prepare($requete);
         $st->execute(array(
             "idreply" => $this->getReply(),
             "parc" => $this->getParcours(),
