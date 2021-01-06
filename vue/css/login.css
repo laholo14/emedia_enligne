@@ -1,7 +1,9 @@
 body {
+    overflow-x: hidden;
     background-image: url("../image/login_E-media_enligne.jpg");
     background-position: center;
     background-size: cover;
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-position-y: -20px;
 } 
@@ -35,6 +37,10 @@ body {
     border: none;
     border-bottom: 1px solid #fff;
     color: #fff ;
+}
+
+.login_input div input {
+    outline: none !important;
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
@@ -71,8 +77,8 @@ body {
 }
 
 /*responsive*/
-@media (min-width: 300px) and (max-width: 767.9px) {
-    body {
-        background-position-y: 0px !important;
+@media (min-width: 200px) and (max-width: 575.9px) {
+    .login img {
+        height: 120px;
     }
 }
