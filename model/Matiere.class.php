@@ -37,15 +37,15 @@
        
    public function create(){
         $db=Connexion::getCx();
-        $requete = "INSERT INTO MATIERE VALUES(NULL, :intitule)";
+        $requete = "INSERT INTO MATIERE VALUES(NULL, :intitule, :idue)";
         
         $st = $db->prepare($requete);
         
-        $st->execute(array("intitule"=> $this->getIntitule()
-                                                            
-                          ));
-        $st->closeCursor();
-    
+        $st->execute(array(
+            "intitule"=> $this->getIntitule(),
+            "idue" => $this->getIdue()                                   
+        ));
+        
     }
        
     public function listMatiere(){
@@ -96,14 +96,16 @@
     public function update(){
         $db=Connexion::getCx();
 
-        $requete = 'UPDATE MATIERE SET INTITULE = :intitule WHERE IDMATIERE = :idm';
+        $requete = 'UPDATE MATIERE SET INTITULE = :intitule, IDUE = :idue WHERE IDMATIERE = :idm';
         
         $st = $db->prepare($requete);
     
-        $st->execute(array("intitule"=> $this->getIntitule(),
-                            "idm" => $this->getId_matiere()
+        $st->execute(array(
+            "intitule"=> $this->getIntitule(),
+            "idue" => $this->getIdue(),
+            "idm" => $this->getId_matiere()
                                                             
-                          ));
+        ));
         $st->closeCursor();
 
     }
@@ -141,5 +143,16 @@
         return $res;
 
        }
+        public function readByUE() {
+            $db=Connexion::getCx();
+            $requete = "SELECT * FROM matiere WHERE idue = :idue";
+            $st = $db->prepare($requete);
+            $st->execute(array(
+                "idue" => $this->getIdue()
+            ));
+            $resultat = $st->fetchAll();
+            $st->closeCursor();
+            return $resultat;
+        }
 
 }
