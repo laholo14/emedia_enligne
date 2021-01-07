@@ -76,6 +76,57 @@ body {
     margin-left: -15px;
 }
 
+.logout-btn {
+    background-color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+  
+.logout {
+    position: relative;
+    display: inline-block;
+}
+  
+.logout-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    width: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 8px;
+    left: -110px;
+    transition: .5s all ease;
+}
+
+.logout-content::after {
+    content: "\25Ba";
+    font-size: 1.5rem;
+    position: absolute;
+    top: -3px;
+    right: -2.5rem;
+    padding: 0 1em;
+    color: #fff;
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-transition: 0.25s all ease;
+    -o-transition: 0.25s all ease;
+    transition: 0.25s all ease;
+}
+  
+.logout-content span {
+    color: rgba(204, 25, 25, 1);
+    padding: 4px;
+    text-decoration: none;
+    display: block;
+}
+  
+.logout:hover .logout-content {
+    display: block;
+}
+  
 .logout i {
     font-size: 25px;
     color: rgba(204, 25, 25, 1);
@@ -122,6 +173,10 @@ body {
     box-sizing: border-box;
     padding-left: 10px;
     transition: all .8s ease;
+}
+
+.dashboard li {
+    cursor: pointer;
 }
 
 .dashboard ul li:hover {
@@ -205,8 +260,7 @@ body {
 }
 
 .video1_text {
-    background-color: rgba(255, 255, 255, 0.404);
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 5px 5px 0 0;
 }
 
@@ -277,7 +331,7 @@ body {
     margin: 100px 0px 0px 0px;
     height: auto;
     z-index: 999;
-    background-color: rgba(0, 0, 0, 0.171);
+    background-color: rgba(0, 0, 0, 0.062);
 }
 
 .propos-img img {
@@ -383,7 +437,7 @@ body {
     font-size: 0.875rem;
     padding: 0.625rem;
     width: 100%;
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 .table-note table th {
@@ -663,6 +717,33 @@ strong{
 .cours-pdf .button-cours button:nth-child(2) {
     background-color: #353333;
 }
+
+/* contenu-cours pdf & explication */
+.contenu-cours-pdf, .contenu-cours-explication {
+    display: none;
+}
+
+.contenu-cours-pdf .head, .contenu-cours-explication .head {
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
+    background-color: #0184b446;
+}
+
+.contenu-cours-pdf .head .title h3, .contenu-cours-explication .head .title h3 {
+    font-size: 25px;
+    font-weight: bold !important;
+    color: #000000b7;
+}
+
+.contenu-cours-pdf .head .exit, .contenu-cours-explication .head .exit {
+    background-color: rgb(185, 20, 20);
+    color: #fff;
+    width: 50%;
+}
+
+.contenu-cours-pdf .affiche-cours-pdf, .contenu-cours-explication .affiche-cours-explication {
+    height: 80vh;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
+}
 /* fin cours */
 
 /* exercice */
@@ -749,6 +830,33 @@ strong{
 
 .exercice-pdf .button-exercice button:nth-child(3) {
     background-color: rgb(214, 41, 41);
+}
+
+/* contenu-exercice pdf & explication & corrige */
+.contenu-exercice-pdf, .contenu-exercice-explication, .contenu-exercice-corrige {
+    display: none;
+}
+
+.contenu-exercice-pdf .head, .contenu-exercice-explication .head, .contenu-exercice-corrige .head {
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
+    background-color: #920f0f50;
+}
+
+.contenu-couexercicers-pdf .head .title h3, .contenu-exercice-explication .head .title h3, .contenu-exercice-corrige .head .title h3 {
+    font-size: 25px;
+    font-weight: bold !important;
+    color: #000000b7;
+}
+
+.contenu-exercice-pdf .head .exit, .contenu-exercice-explication .head .exit, .contenu-exercice-corrige .head .exit {
+    background-color: rgb(185, 20, 20);
+    color: #fff;
+    width: 50%;
+}
+
+.contenu-exercice-pdf .affiche-exercice-pdf, .contenu-exercice-explication .affiche-exercice-explication, .contenu-exercice-corrige .affiche-exercice-corrige {
+    height: 80vh;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 /* fin exercice */
 
