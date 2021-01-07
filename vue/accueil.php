@@ -8,8 +8,8 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>  
-        <!-- <link rel="stylesheet" href="vue/css/bootstrap.min.css">  -->
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/> 
+        <!-- <link rel="stylesheet" href="vue/css/bootstrap.min.css"> -->
         <link rel="stylesheet" href="vue/css/accueil.css">
     </head>
     <body>
@@ -17,7 +17,7 @@
         <div class="container-fluid">
            <div class="row">
 
-                 <!-- navbar -->
+                <!-- navbar -->
                 <div class="row d-flex fixed-top nav_bar">
                     <div class="col-4">
                         <img src="vue/image/logo/logo_E-media_enligne.png" class="img-fluid ml-4" alt="">
@@ -32,13 +32,18 @@
                                 </div>
                             </div>
                                 
-                            <button type="button" class="btn notification ml-5">
+                            <button type="button" class="btn notification ml-3">
                                 <i class="fal fa-bells"></i> <span class="badge badge-light">4</span>
                             </button>
 
-                            <div class="logout mt-2 ml-5 mr-4">
-                                <a href=""><i class="fal fa-power-off"></i></a>
+                            <div class="logout">
+                                <button class="logout-btn"><i class="fas fa-power-off"></i></button>
+                                <div class="logout-content">
+                                    <span>Deconnexion</span>
+                                </div>
                             </div>
+
+                            
                         </div>
                 </div>
                 <!-- fin navbar -->
@@ -57,8 +62,8 @@
                             <div class="panel-group">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <a data-toggle="collapse" href="#collapse1">
-                                        <i class="fal fa-user-circle mr-3"></i>
+                                        <a data-toggle="collapse" href="#collapse1" class="active-profil">
+                                            <i class="fal fa-user-circle mr-3"></i>
                                             <span class="text-center">Santatra</span>
                                             <i class="fad fa-angle-down float-right mt-3 mr-2"></i>
                                         </a>
@@ -468,13 +473,13 @@
                             </div> -->
                         </div>
 
-                        <div class="col-12 row table-cours mt-3">
+                        <div class="col-12 row table-cours mt-3" id="table-cours">
                             <div class="col-3">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
                                     <h4>Algorithme Algorithme</h4>
                                     <div class="button-cours">
-                                        <button class="btn pl-4 pr-4 mt-2">PDF</button>
-                                        <button class="btn pl-3 pr-3 mt-2">Explication</button>
+                                        <button class="btn pl-4 pr-4 mt-2" id="active-cours-pdf">PDF</button>
+                                        <button class="btn pl-3 pr-3 mt-2" id="active-cours-explication">Explication</button>
                                     </div>
                                 </div>
                             </div>
@@ -547,6 +552,36 @@
                                         <button class="btn pl-3 pr-3 mt-2">Explication</button>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 contenu-cours-pdf mt-3 pb-3" id="contenu-cours-pdf">
+                            <div class="head d-flex">
+                                <div class="col-11 title d-flex justify-content-center pt-1">
+                                    <h3>Algorithme</h3>
+                                </div>
+                                <div class="col-1 exit d-flex justify-content-center pt-2" id="exit-cours-pdf">
+                                    <span>x</span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 affiche-cours-pdf overflow-auto mt-1">
+                                
+                            </div>
+                        </div>
+
+                        <div class="col-12 contenu-cours-explication mt-3 pb-3" id="contenu-cours-explication">
+                            <div class="head d-flex">
+                                <div class="col-11 title d-flex justify-content-center pt-1">
+                                    <h3>Algorithme</h3>
+                                </div>
+                                <div class="col-1 exit d-flex justify-content-center pt-2" id="exit-cours-explication">
+                                    <span>x</span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 affiche-cours-explication overflow-auto mt-1 pt-3">
+                                <iframe width="100%" height="500" src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
@@ -571,14 +606,14 @@
                             </div> -->
                         </div>
 
-                        <div class="col-12 row table-exercice mt-3">
+                        <div class="col-12 row table-exercice mt-3" id="table-exercice">
                             <div class="col-3">
                                 <div class="mb-2 pt-2 pb-2 exercice-pdf text-center">
                                     <h4>Algorithme Algorithme</h4>
                                     <div class="button-exercice">
-                                        <button class="btn pl-4 pr-4 mt-2">PDF</button>
-                                        <button class="btn pl-3 pr-3 mt-2">Explication</button>
-                                        <button class="btn pl-3 pr-3 mt-2">Corrige</button>
+                                        <button class="btn pl-4 pr-4 mt-2" id="active-exercice-pdf">PDF</button>
+                                        <button class="btn pl-3 pr-3 mt-2" id="active-exercice-explication">Explication</button>
+                                        <button class="btn pl-3 pr-3 mt-2" id="active-exercice-corrige">Corrige</button>
                                     </div>
                                 </div>
                             </div>
@@ -658,6 +693,51 @@
                                         <button class="btn pl-3 pr-3 mt-2">Corrige</button>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 contenu-exercice-pdf mt-3 pb-3" id="contenu-exercice-pdf">
+                            <div class="head d-flex">
+                                <div class="col-11 title d-flex justify-content-center pt-1">
+                                    <h3>Algorithme</h3>
+                                </div>
+                                <div class="col-1 exit d-flex justify-content-center pt-2" id="exit-exercice-pdf">
+                                    <span>x</span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 affiche-exercice-pdf overflow-auto mt-1">
+                                
+                            </div>
+                        </div>
+
+                        <div class="col-12 contenu-exercice-explication mt-3 pb-3" id="contenu-exercice-explication">
+                            <div class="head d-flex">
+                                <div class="col-11 title d-flex justify-content-center pt-1">
+                                    <h3>Algorithme</h3>
+                                </div>
+                                <div class="col-1 exit d-flex justify-content-center pt-2" id="exit-exercice-explication">
+                                    <span>x</span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 affiche-exercice-explication overflow-auto mt-1 pt-3">
+                                <iframe width="100%" height="500" src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+                        <div class="col-12 contenu-exercice-corrige mt-3 pb-3" id="contenu-exercice-corrige">
+                            <div class="head d-flex">
+                                <div class="col-11 title d-flex justify-content-center pt-1">
+                                    <h3>Algorithme</h3>
+                                </div>
+                                <div class="col-1 exit d-flex justify-content-center pt-2" id="exit-exercice-corrige">
+                                    <span>x</span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 affiche-exercice-corrige overflow-auto mt-1 pt-3">
+                                <iframe width="100%" height="500" src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
@@ -764,9 +844,9 @@
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
-        <script src="vue/js/accueil.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <!-- <script src="vue/js/jquery-3.4.1.min.js"></script>
         <script src="vue/js/popper.min.js"></script>
         <script src="vue/js/bootstrap.min.js"></script> -->
+        <script src="vue/js/accueil.js"></script>
     </body><!--
