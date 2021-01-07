@@ -19,6 +19,7 @@ class Connexion
 		    self::$cx->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			self::$cx->query("SET NAMES UTF8");
 			date_default_timezone_set('Indian/Antananarivo');
+			// Salut daholo an
 			
 		} catch (PDOException $e) {
 
