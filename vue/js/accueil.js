@@ -1,3 +1,9 @@
+//preloading
+$(document).ready(function() {
+    $("#preloading").delay(3000).fadeOut("slow");
+    $("#universite-Emedia").delay(3100).fadeIn("slow");
+})
+
 //afficher contenu-video
 $(document).ready(function() {
     $("#active-video").click(function(){
