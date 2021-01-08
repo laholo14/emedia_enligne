@@ -8,8 +8,8 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/> 
-        <!-- <link rel="stylesheet" href="vue/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <!-- <link rel="stylesheet" href="vue/css/bootstrap.min.css">  -->
         <link rel="stylesheet" href="vue/css/accueil.css">
     </head>
     <body>
@@ -30,36 +30,36 @@
                 <!-- navbar -->
                 <div class="row d-flex fixed-top nav_bar">
                     <div class="col-4">
-                        <img src="vue/image/logo/logo_E-media_enligne.png" class="img-fluid ml-4" alt="">
+                        <img src="vue/image/logo/logo_E-media_enligne.png" class="img-fluid ml-4 logo" alt="">
+                        <div id="fa-bars"><i class="fas fa-bars pt-2 pl-4"></i></div>
+                        <div id="fa-times"><i class="fas fa-times pt-2 pl-4"></i></div>
                     </div>
 
-                        <div class="col-8 d-flex justify-content-end select-langue">
-                            <div class="dropdown mt-1">
-                                <button class="dropbtn" id="langue-button">Version cours  <i class="fad fa-angle-down float-right mt-1 ml-4"></i></button>
-                                <div class="dropdown-content mt-2" id="langue-content">
-                                    <a href="#" id="francais">Francais</a>
-                                    <a href="#" id="malagasy">Malagasy</a>
-                                </div>
+                    <div class="col-8 d-flex justify-content-end select-langue">
+                        <div class="dropdown mt-1 mr-3">
+                            <button class="dropbtn" id="langue-button">Version cours  <i class="fad fa-angle-down float-right mt-1 ml-4"></i></button>
+                            <div class="dropdown-content mt-2" id="langue-content">
+                                <a href="#" id="francais">Francais</a>
+                                <a href="#" id="malagasy">Malagasy</a>
                             </div>
-                                
-                            <button type="button" class="btn notification ml-3">
-                                <i class="fal fa-bells"></i> <span class="badge badge-light">4</span>
-                            </button>
-
-                            <div class="logout">
-                                <button class="logout-btn"><i class="fas fa-power-off"></i></button>
-                                <div class="logout-content">
-                                    <span>Deconnexion</span>
-                                </div>
-                            </div>
-
-                            
                         </div>
+                                
+                        <button type="button" class="btn notification" id="notification">
+                            <i class="fal fa-bell"></i> <span class="badge badge-light">4</span>
+                        </button>
+
+                        <div class="logout" id="logout">
+                            <button class="logout-btn"><i class="fas fa-power-off"></i></button>
+                            <div class="logout-content">
+                                <span>Deconnexion</span>
+                            </div>
+                        </div>                       
+                    </div>
                 </div>
                 <!-- fin navbar -->
 
                 <!-- sidebar -->
-                <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 dashboard">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 dashboard" id="dashboard">
 
                     <div class="pdp d-flex justify-content-center pt-3">
                         <img src="vue/image/user.jpg" class="mr-3" alt="">
@@ -135,6 +135,10 @@
                         <li id="active-chat"><a href="#"><i class="fal fa-comments-alt mr-3"></i><span>Nous vous ecoutons</span></a></li>
                     
                         <li id="active-contact"><a href="#"><i class="fal fa-phone-volume mr-3"></i><span>Contacts</span></a></li>
+
+                        <li id="active-notification"><a href="#"><i class="fal fa-bell mr-3"></i><span>Notifications <span class="badge badge-light">4</span></span></a></li>
+
+                        <li id="active-logout"><a href="#"><i class="fas fa-power-off mr-3"></i><span>Deconnexion </span></a></li>
                     </ul>
                 </div>
                 <!-- fin sidebar -->
@@ -308,7 +312,7 @@
                         </div>
                        
                         <div class="col-12 table-calendrier mt-3 pb-3">
-                            <h4 class="text-center">"1er - 3eme moi" et "5eme - 7eme moi"</h4>
+                            <h4 class="text-center">"1er - 3eme mois" et "5eme - 7eme mois"</h4>
                             
                             <div class="row legende d-flex justify-content-center">
                                 <div class="cours d-flex justify-content-center align-items-center">
@@ -383,7 +387,7 @@
                         </div>
 
                         <div class="col-12 table-calendrier mt-3 pb-3">
-                            <h4 class="text-center">"4eme moi" et "9eme moi"</h4>
+                            <h4 class="text-center">"4eme mois" et "9eme mois"</h4>
                             
                             <div class="row legende d-flex justify-content-center">
                                 <div class="cours d-flex justify-content-center align-items-center">
@@ -824,23 +828,23 @@
                         </div>
 
                         <div class="col-12 row table-contact mt-3">
-                            <div class="col-3 contact">
+                            <div class="col-4 contact">
                                 <h6>Pedagogique License <br> <span>0347626108</span></h6>
                             </div>
 
-                            <div class="col-3 contact">
+                            <div class="col-4 contact">
                                 <h6>Pedagogique Master <br> <span>0347626108</span></h6>
                             </div>
 
-                            <div class="col-3 contact">
+                            <div class="col-4 contact">
                                 <h6>Pedagogique MBA <br> <span>0347626108</span></h6>
                             </div>
 
-                            <div class="col-3 contact">
+                            <div class="col-4 contact">
                                 <h6>Finance <br> <span>0347626108</span></h6>
                             </div>
 
-                            <div class="col-3 contact">
+                            <div class="col-4 contact">
                                 <h6>Technique <br> <span>0347626108</span></h6>
                             </div>
                         </div>
@@ -854,7 +858,7 @@
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <!-- <script src="vue/js/jquery-3.4.1.min.js"></script>
         <script src="vue/js/popper.min.js"></script>
         <script src="vue/js/bootstrap.min.js"></script> -->

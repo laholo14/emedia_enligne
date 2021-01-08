@@ -1,6 +1,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     overflow-x: hidden !important;
+    background-color: #fff;
 }
 
 *{
@@ -90,6 +91,10 @@ body {
 
 .nav_bar img {
     height: 50px;
+}
+
+.nav_bar #fa-bars, .nav_bar #fa-times {
+    display: none;
 }
 
 .select-langue .dropbtn {
@@ -201,7 +206,29 @@ body {
     font-size: 25px;
     color: rgba(204, 25, 25, 1);
 }
+/* mobile navbar */
+@media (min-width: 200px) and (max-width: 991.9px) {
+    .logo {
+        display: none;
+    }
 
+    .nav_bar #fa-bars {
+        display: block;
+        position: absolute;
+        font-size: 30px;
+        color: #0185b4;
+    }
+
+    .nav_bar #fa-times {
+        position: absolute;
+        font-size: 30px;
+        color: #0185b4;
+    }
+
+    .notification, .logout {
+        display: none;
+    }
+}
 /* fin navbar */
 
 /*dashboard*/
@@ -220,6 +247,7 @@ body {
     transition:all .5s ease;
     border-right: 1px solid #069dcf38;
     margin-top: 3rem;
+    transition: 1s all ease;
 }
 
 .liste_dashboard {
@@ -282,6 +310,10 @@ body {
     font-size: 20px;
 }
 
+.dashboard #active-notification,.dashboard #active-logout {
+    display: none;
+}
+
 .dashboard_collapse li {
     color: #fff;
     background-color: transparent !important;
@@ -290,10 +322,28 @@ body {
 .dashboard_collapse li:last-child {
     border-bottom: none !important;
 }
+
+@media (min-width: 100px) and (max-width: 991.9px) {
+    .dashboard {
+        background-color: rgb(0, 0, 0, 1);
+        left: -100rem;
+        position: fixed !important;
+        z-index: 99999;
+    }
+
+    .dashboard-mobile {
+        left: -100rem;
+    }
+
+    .dashboard #active-notification,.dashboard #active-logout {
+        display: block !important;
+    }
+}
 /* fin dashboard */
 
 /*section*/
 .contenu {
+    
     height: 90vh;
     margin-top: 3rem;
     overflow-x: hidden !important;

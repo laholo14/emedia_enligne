@@ -2,11 +2,10 @@
 $(document).ready(function() {
     $("#preloading").delay(3000).fadeOut("slow");
     $("#universite-Emedia").delay(3100).fadeIn("slow");
-})
 
-//afficher contenu-video
-$(document).ready(function() {
-    $("#active-video").click(function(){
+    //afficher contenu-video
+    $("#active-video").click(function() {
+        $
         $("#contenu-video").fadeIn();
         $("#contenu-video").fadeIn("slow");
         $("#contenu-video").fadeIn(1200);
@@ -32,11 +31,9 @@ $(document).ready(function() {
         $("#contenu-contact").fadeOut("slow");
         $("#contenu-contact").fadeOut(1000);
     });
-});
 
-//afficher contenu-profil
-$(document).ready(function() {
-    $("#active-profil").click(function(){
+    //afficher contenu-profil
+    $("#active-profil").click(function() {
         $("#contenu-video").fadeOut();
         $("#contenu-video").fadeOut("slow");
         $("#contenu-video").fadeOut(1000);
@@ -62,11 +59,9 @@ $(document).ready(function() {
         $("#contenu-contact").fadeOut("slow");
         $("#contenu-contact").fadeOut(1000);
     });
-});
 
-//afficher contenu-note
-$(document).ready(function() {
-    $("#active-note").click(function(){
+    //afficher contenu-note
+    $("#active-note").click(function() {
         $("#contenu-video").fadeOut();
         $("#contenu-video").fadeOut("slow");
         $("#contenu-video").fadeOut(1000);
@@ -92,10 +87,8 @@ $(document).ready(function() {
         $("#contenu-contact").fadeOut("slow");
         $("#contenu-contact").fadeOut(1000);
     });
-});
 
-//afficher contenu-calendrier
-$(document).ready(function() {
+    //afficher contenu-calendrier
     $("#active-calendrier").click(function(){
         $("#contenu-video").fadeOut();
         $("#contenu-video").fadeOut("slow");
@@ -122,10 +115,8 @@ $(document).ready(function() {
         $("#contenu-contact").fadeOut("slow");
         $("#contenu-contact").fadeOut(1000);
     });
-});
 
-//afficher contenu-cours
-$(document).ready(function() {
+    //afficher contenu-cours
     $("#active-cours").click(function(){
         $("#contenu-video").fadeOut();
         $("#contenu-video").fadeOut("slow");
@@ -152,10 +143,8 @@ $(document).ready(function() {
         $("#contenu-contact").fadeOut("slow");
         $("#contenu-contact").fadeOut(1000);
     });
-});
 
-//afficher contenu-exercice
-$(document).ready(function() {
+    //afficher contenu-exercice
     $("#active-exercice").click(function(){
         $("#contenu-video").fadeOut();
         $("#contenu-video").fadeOut("slow");
@@ -182,10 +171,8 @@ $(document).ready(function() {
         $("#contenu-contact").fadeOut("slow");
         $("#contenu-contact").fadeOut(1000);
     });
-});
 
-//afficher contenu-chat
-$(document).ready(function() {
+    //afficher contenu-chat
     $("#active-chat").click(function(){
         $("#contenu-video").fadeOut();
         $("#contenu-video").fadeOut("slow");
@@ -212,10 +199,8 @@ $(document).ready(function() {
         $("#contenu-contact").fadeOut("slow");
         $("#contenu-contact").fadeOut(1000);
     });
-});
 
-//afficher contenu-contact
-$(document).ready(function() {
+    //afficher contenu-contact
     $("#active-contact").click(function(){
         $("#contenu-video").fadeOut();
         $("#contenu-video").fadeOut("slow");
@@ -242,10 +227,8 @@ $(document).ready(function() {
         $("#contenu-contact").fadeIn("slow");
         $("#contenu-contact").fadeIn(1200);
     });
-});
 
-//active langue
-$(document).ready(function() {
+    //active langue
     $("#langue-button").click(function(){
         $("#langue-content").fadeToggle();
     });
@@ -257,10 +240,8 @@ $(document).ready(function() {
     $("#malagasy").click(function(){
         $("#langue-content").fadeToggle();
     });
-});
 
-//active langue
-$(document).ready(function() {
+    //active langue
     $("#semestre-button").click(function(){
         $("#semestre-content").fadeToggle();
     });
@@ -272,17 +253,13 @@ $(document).ready(function() {
     $("#semestre2").click(function(){
         $("#semestre-content").fadeToggle();
     });
-});
 
-//rotate fa-angle-down profil
-$(document).ready(function(){
+    //rotate fa-angle-down profil
     $(".active-profil").click(function(){
       $(".active-profil").addclass("desactive-profil");
     });
-});
 
-//active-cours 
-$(document).ready(function() {
+    //active-cours 
     $("#active-cours-pdf").click(function(){
         $("#table-cours").fadeOut();
         $("#table-cours").fadeOut("slow");
@@ -324,10 +301,8 @@ $(document).ready(function() {
         $("#contenu-cours-pdf").fadeOut("slow");
         $("#contenu-cours-pdf").fadeOut(1000);
     });
-});
 
-//active-exercice
-$(document).ready(function() {
+    //active-exercice
     $("#active-exercice-pdf").click(function(){
         $("#table-exercice").fadeOut();
         $("#table-exercice").fadeOut("slow");
@@ -398,5 +373,26 @@ $(document).ready(function() {
         $("#contenu-exercice-corrige").fadeOut();
         $("#contenu-exercice-corrige").fadeOut("slow");
         $("#contenu-exercice-corrige").fadeOut(1000);
+    });
+
+    //active dashboard
+    $("#fa-bars").click(function() {
+        $("#dashboard").css({"left": "0"});
+        $("#fa-bars").fadeOut();
+        $("#fa-bars").fadeOut("slow");
+        $("#fa-bars").fadeOut(200);
+        $("#fa-times").fadeIn();
+        $("#fa-times").fadeIn("slow");
+        $("#fa-times").fadeIn(500);
+    });
+
+    $("#fa-times").click(function() {
+        $("#dashboard").css({"left": "-100rem"});
+        $("#fa-bars").fadeIn();
+        $("#fa-bars").fadeIn("slow");
+        $("#fa-bars").fadeIn(500);
+        $("#fa-times").fadeOut();
+        $("#fa-times").fadeOut("slow");
+        $("#fa-times").fadeOut(200);
     });
 });
