@@ -5,7 +5,7 @@ $(document).ready(function() {
 
     //afficher contenu-video
     $("#active-video").click(function() {
-        $
+        $("#dashboard").addClass("dashboard_mobile");
         $("#contenu-video").fadeIn();
         $("#contenu-video").fadeIn("slow");
         $("#contenu-video").fadeIn(1200);
@@ -395,4 +395,100 @@ $(document).ready(function() {
         $("#fa-times").fadeOut("slow");
         $("#fa-times").fadeOut(200);
     });
+
+    //mobile version 
+    var largeurEcran = $(window).width();
+
+    if (largeurEcran <= 991) {
+        $("#active-video").click(function () {
+            $("#dashboard").css({ "left": "-100rem" });
+            $("#fa-bars").fadeIn();
+            $("#fa-bars").fadeIn("slow");
+            $("#fa-bars").fadeIn(500);
+            $("#fa-times").fadeOut();
+            $("#fa-times").fadeOut("slow");
+            $("#fa-times").fadeOut(200);
+        });
+
+        $("#active-profil").click(function () {
+            $("#dashboard").css({ "left": "-100rem" });
+            $("#fa-bars").fadeIn();
+            $("#fa-bars").fadeIn("slow");
+            $("#fa-bars").fadeIn(500);
+            $("#fa-times").fadeOut();
+            $("#fa-times").fadeOut("slow");
+            $("#fa-times").fadeOut(200);
+        });
+
+        $("#active-note").click(function () {
+            $("#dashboard").css({ "left": "-100rem" });
+            $("#fa-bars").fadeIn();
+            $("#fa-bars").fadeIn("slow");
+            $("#fa-bars").fadeIn(500);
+            $("#fa-times").fadeOut();
+            $("#fa-times").fadeOut("slow");
+            $("#fa-times").fadeOut(200);
+        });
+
+        $("#active-calendrier").click(function () {
+            $("#dashboard").css({ "left": "-100rem" });
+            $("#fa-bars").fadeIn();
+            $("#fa-bars").fadeIn("slow");
+            $("#fa-bars").fadeIn(500);
+            $("#fa-times").fadeOut();
+            $("#fa-times").fadeOut("slow");
+            $("#fa-times").fadeOut(200);
+        });
+
+        $("#active-calendrier").click(function () {
+            $("#dashboard").css({ "left": "-100rem" });
+            $("#fa-bars").fadeIn();
+            $("#fa-bars").fadeIn("slow");
+            $("#fa-bars").fadeIn(500);
+            $("#fa-times").fadeOut();
+            $("#fa-times").fadeOut("slow");
+            $("#fa-times").fadeOut(200);
+        });
+
+        $("#active-cours").click(function () {
+            $("#dashboard").css({ "left": "-100rem" });
+            $("#fa-bars").fadeIn();
+            $("#fa-bars").fadeIn("slow");
+            $("#fa-bars").fadeIn(500);
+            $("#fa-times").fadeOut();
+            $("#fa-times").fadeOut("slow");
+            $("#fa-times").fadeOut(200);
+        });
+
+        $("#active-exercice").click(function () {
+            $("#dashboard").css({ "left": "-100rem" });
+            $("#fa-bars").fadeIn();
+            $("#fa-bars").fadeIn("slow");
+            $("#fa-bars").fadeIn(500);
+            $("#fa-times").fadeOut();
+            $("#fa-times").fadeOut("slow");
+            $("#fa-times").fadeOut(200);
+        });
+
+        $("#active-chat").click(function () {
+            $("#dashboard").css({ "left": "-100rem" });
+            $("#fa-bars").fadeIn();
+            $("#fa-bars").fadeIn("slow");
+            $("#fa-bars").fadeIn(500);
+            $("#fa-times").fadeOut();
+            $("#fa-times").fadeOut("slow");
+            $("#fa-times").fadeOut(200);
+        });
+
+        $("#active-contact").click(function () {
+            $("#dashboard").css({ "left": "-100rem" });
+            $("#fa-bars").fadeIn();
+            $("#fa-bars").fadeIn("slow");
+            $("#fa-bars").fadeIn(500);
+            $("#fa-times").fadeOut();
+            $("#fa-times").fadeOut("slow");
+            $("#fa-times").fadeOut(200);
+        });
+    }
 });
+
