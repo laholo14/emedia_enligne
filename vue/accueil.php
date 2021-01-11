@@ -59,7 +59,7 @@
                 <!-- fin navbar -->
 
                 <!-- sidebar -->
-                <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 dashboard" id="dashboard">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 dashboard dashboard_mobile" id="dashboard">
 
                     <div class="pdp d-flex justify-content-center pt-3">
                         <img src="vue/image/user.jpg" class="mr-3" alt="">
@@ -157,26 +157,26 @@
                             </div>
                         </div>
 
-                        <div class="col-12 mb-3">
+                        <div class="col-12 mb-3 video1">
                             <div class="video1_text text-center mt-3 p-2">
                                 <a href="https://www.youtube.com/embed/HgIeckuG7cQ" target="blank" class="text-center">Pour connaitre le manipulation de l'interface etudiants.</a>
                             </div>
-                            <iframe width="100%" height="420" src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
 
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 video2">
                                 <div class="video1_text text-center p-2">
                                     <a href="https://www.youtube.com/embed/HgIeckuG7cQ" target="blank" class="text-center">Pour connaitre le manipulation de l'interface etudiants.</a>
                                 </div>
-                                <iframe width="100%" height="320" src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
 
-                            <div class="col-6">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 video3">
                                 <div class="video1_text text-center p-2">
                                     <a href="https://www.youtube.com/embed/HgIeckuG7cQ" target="blank" class="text-center">Pour connaitre le manipulation de l'interface etudiants.</a>
                                 </div>
-                                <iframe width="100%" height="320" src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
@@ -199,8 +199,8 @@
                                     <img src="vue/image/user.jpg" class="img-fluid" alt="">
                                 </div>
 
-                                <div class="col-12 d-flex propos-legende pt-3 pb-3">
-                                    <div class="col-6 mt-5">
+                                <div class="col-12 d-md-flex d-lg-flex d-xl-flex propos-legende pt-3 pb-3">
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-5">
                                         <div class="profile-legend">
                                             <h6>Nom <br><span> RATSITOHAINA </span></h6>
                                         </div>
@@ -208,17 +208,17 @@
                                             <h6>Prénom<br><span> Santatra </span></h6>
                                         </div>
                                         <div class="profile-legend">
-                                            <h6>E-mail<br><span> MAMINIAINAZAIN@GMAIL.COM </span></h6>
+                                            <h6>E-mail<br><span> santatra22ratsitohaina@gmail.com </span></h6>
                                         </div>
                                         <div class="profile-legend">
-                                            <h6>Nationalité<br><span> MADAGASCAR,MAHAJANGA </span></h6>
+                                            <h6>Nationalité<br><span> MADAGASCAR, MAHAJANGA </span></h6>
                                         </div>      
                                         <div class="profile-legend">
                                             <h6>Mention<br><span> Marketing Publicité et Journalisme </span></h6>
                                         </div>
                                     </div>
 
-                                    <div class="col-6 mt-5 ml-5">
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-md-5 mt-lg-5 mt-xl-5 ml-md-5 ml-lg-5 ml-xl-5">
                                         <div class="profile-legend">
                                             <h6>Parcours<br><span> Réalisation Audiovisuelle </span></h6>
                                         </div>
@@ -282,8 +282,8 @@
 
                                 <tbody id = "tabnote">
 
-                                    <tr class="priority-300">
-                                        <td class="matier text-center">Matiere</td>
+                                    <tr class="priority-300 ">
+                                        <td class="matiere text-center">Matiere</td>
                                         <td class="note1 text-center">Note M</td>
                                         <td class="note1 text-center">Note S</td>
                                         <td class="note1 text-center">Moyenne</td>
@@ -315,19 +315,19 @@
                             <h4 class="text-center">"1er - 3eme mois" et "5eme - 7eme mois"</h4>
                             
                             <div class="row legende d-flex justify-content-center">
-                                <div class="cours d-flex justify-content-center align-items-center">
+                                <div class="cours d-flex justify-content-center align-items-center mr-1">
                                     Cours
                                 </div>
 
-                                <div class="exercices d-flex justify-content-center align-items-center">
+                                <div class="exercices d-flex justify-content-center align-items-center mr-1">
                                     Exercices
                                 </div>
 
-                                <div class="corrige d-flex justify-content-center align-items-center">
+                                <div class="corrige d-flex justify-content-center align-items-center mr-1">
                                     Corrige
                                 </div>
 
-                                <div class="examen-mensuel d-flex justify-content-center align-items-center">
+                                <div class="examen-mensuel d-flex justify-content-center align-items-center mr-1">
                                     Examen Mensuel
                                 </div>
                             </div>
@@ -390,23 +390,23 @@
                             <h4 class="text-center">"4eme mois" et "9eme mois"</h4>
                             
                             <div class="row legende d-flex justify-content-center">
-                                <div class="cours d-flex justify-content-center align-items-center">
+                                <div class="cours d-flex justify-content-center align-items-center mr-1">
                                     Cours
                                 </div>
 
-                                <div class="exercices d-flex justify-content-center align-items-center">
+                                <div class="exercices d-flex justify-content-center align-items-center mr-1">
                                     Exercices
                                 </div>
 
-                                <div class="corrige d-flex justify-content-center align-items-center">
+                                <div class="corrige d-flex justify-content-center align-items-center mr-1">
                                     Corrige
                                 </div>
 
-                                <div class="examen-mensuel d-flex justify-content-center align-items-center">
+                                <div class="examen-mensuel d-flex justify-content-center align-items-center mr-1">
                                     Examen Mensuel
                                 </div>
 
-                                <div class="examen-semestriel d-flex justify-content-center align-items-center">
+                                <div class="examen-semestriel d-flex justify-content-center align-items-center mr-1">
                                     Examen Semestriel
                                 </div>
                             </div>
@@ -488,7 +488,7 @@
                         </div>
 
                         <div class="col-12 row table-cours mt-3" id="table-cours">
-                            <div class="col-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
                                     <h4>Algorithme Algorithme</h4>
                                     <div class="button-cours">
@@ -498,7 +498,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
                                     <h4>Algorithme Algorithme</h4>
                                     <div class="button-cours">
@@ -508,7 +508,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
                                     <h4>Algorithme Algorithme</h4>
                                     <div class="button-cours">
@@ -518,7 +518,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
                                     <h4>Algorithme Algorithme</h4>
                                     <div class="button-cours">
@@ -528,7 +528,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
                                     <h4>Algorithme Algorithme</h4>
                                     <div class="button-cours">
@@ -538,7 +538,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
                                     <h4>Algorithme Algorithme</h4>
                                     <div class="button-cours">
@@ -548,7 +548,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
                                     <h4>Algorithme Algorithme</h4>
                                     <div class="button-cours">
@@ -558,7 +558,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
                                     <h4>Algorithme Algorithme</h4>
                                     <div class="button-cours">
