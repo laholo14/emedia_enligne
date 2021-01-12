@@ -15,7 +15,7 @@ $db = new Connexion();
 
 if (isset($_POST['matricule'], $_POST['pass'])) {
     extract($_POST);
-    $admin = new Admin($db->getCx());
+    $admin = new Admin();
     $admin->setMatricule($matricule);
     $crypt = new Cryptage();
     $mdp = $crypt->crpt14($pass);
