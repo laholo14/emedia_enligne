@@ -1,0 +1,229 @@
+@font-face {
+    font-family: "Raleway";
+    src: url("../FONT/Raleway-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Jajo";
+    src: url("../FONT/ResotYgPERSONALUSE.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Raleway ebold";
+    src: url("../FONT/Raleway-ExtraBold.ttf") format("truetype");
+}
+
+body {
+    background: #E9EBEF;
+    margin: 0;
+    padding: 0;
+}
+
+.cesar {
+    background: url("../image/inscription.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.down {
+    margin-top: -240px !important;
+    margin-left: 137px;
+}
+
+.fa {
+    animation: tada 1s 0s alternate infinite ease-out;
+}
+
+.info {
+    background: #100f177d;
+    border-top-left-radius: 50px;
+}
+
+.inscription {
+    text-align: left;
+    background: #E9EBEF;
+    padding: 50px;
+    width: 100%;
+    height: 1200px;
+}
+
+.contact {
+    padding-left: 35px !important;
+}
+
+.inscription h4 {
+    margin-top: 10px;
+    padding: 0;
+    font-weight: bold;
+    columns: white;
+    color: #07BADF;
+    font-family: Jajo;
+    animation: fadeIn 1s 0s 1 ease-in backwards;
+}
+
+.inscription .header {
+    text-align: right;
+    margin-bottom: 40px;
+}
+
+form div .titre {
+    margin-top: 25px;
+}
+
+.titre {
+    color: #07BADF;
+    padding: 0;
+    font-family: Raleway ebold;
+    text-transform: uppercase;
+}
+
+.titre1 {
+    color: #07BADF;
+    padding: 0;
+    font-family: Raleway ebold;
+}
+
+.radio {
+    font-size: 18px;
+    text-transform: capitalize;
+    display: inline-block;
+    vertical-align: middle;
+    color: #07BADF;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    margin-top: 25px;
+    font-family: Raleway;
+}
+
+.radio+.radio {
+    margin-left: 0px;
+}
+
+.radio input[type="radio"] {
+    display: none;
+}
+
+.radio span {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 3px solid #07BADF;
+    display: block;
+    position: absolute;
+    left: 8px;
+    top: 3px;
+    cursor: pointer;
+}
+
+.radio span::after {
+    content: '';
+    height: 8px;
+    width: 8px;
+    background: #07BADF;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    transition: 300ms ease-in-out 0s;
+}
+
+.radio input[type="radio"]:checked~span:after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+form input[type=text], form input[type=password], form input[type=email], form input[type=number] {
+    border: none;
+    border-bottom: 1px solid #07BADF;
+    background-color: transparent;
+    outline: none;
+    width: 100%;
+    display: 26px;
+    padding-left: 15px;
+            
+    font-family: "Raleway";
+}
+
+form input[type='date'] {
+    border: none;
+    border-bottom: 1px solid #07BADF;
+    background-color: transparent;
+    font-family: "Raleway";
+    width: auto;
+    color: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+}
+
+::placeholder {
+    opacity: 0.6 !important;
+}
+
+form input[type=submit] {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 2px 10px 2px 10px;
+    /*box-shadow: 0 6px rgb(3, 159, 190);*/
+    margin-bottom: 10px;
+    border-radius: 18px;
+    transition: all 300ms;
+}
+
+form input[type=submit]:hover {
+    transition: all 300ms;
+    box-shadow: 0 3px rgb(3, 159, 190);
+    transform: translateY(3px);
+}
+
+/* background-color: rgba(7,186,223,0.3);*/
+
+.label-file {
+    cursor: pointer;
+    color: #00b1ca;
+    font-weight: bold;
+}
+
+.label-file:hover {
+    color: #25a5c4;
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.input-group-btn {
+    cursor: pointer;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+select {
+    width: 100%;
+    padding: 9px 10px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #07BADF;
+    box-sizing: border-box;
+    font-family: "Raleway";
+    color: grey;
+    cursor: pointer;
+}   
