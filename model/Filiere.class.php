@@ -45,7 +45,7 @@ class Filiere
     public function read()
     {
 
-        $db=Connexion::getCx();
+        $db = Connexion::getCx();
         $requete = "SELECT * FROM FILIERE  WHERE DIPLOME = :dip ";
         $st = $db->prepare($requete);
 
@@ -60,7 +60,7 @@ class Filiere
 
     public function readP()
     {
-        $db=Connexion::getCx();
+        $db = Connexion::getCx();
 
         $requete = "SELECT * FROM PARCOURS  WHERE FILIERE = :fil ";
         $st = $db->prepare($requete);
@@ -73,5 +73,4 @@ class Filiere
         $st->closeCursor();
         return $res;
     }
-
 }

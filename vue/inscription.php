@@ -6,19 +6,13 @@ session_start();
 
 session_destroy();
 
+require_once("../model/Connexion.class.php");
 
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-    <link rel="icon" href="vue/image/logo/logo_E-media_enligne_rond.png" type="image/png" sizes="16x16">
-    <link rel="stylesheet" href="vue/css/inscription.css" type="text/css">
+    <?php
+    require('head.html');
+    ?>
+    <link rel="stylesheet" href="vue/css/inscription.css">
     <title>Inscription</title>
 </head>
 
@@ -59,7 +53,7 @@ session_destroy();
             <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 overflow-auto inscription">
                 <h4 class="text-center">Fiche d'inscription:</h4>
 
-                <form method="POST" class="form" id="form1" action="Controller/contrinscription.php" enctype="multipart/form-data">
+                <form method="POST" class="form" id="form1" action="controller/contrinscription.php" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="start" class="titre">Nom:</label>
                         <input type="text" name="name" class="form-control" required />
@@ -117,7 +111,7 @@ session_destroy();
                     <select class="form-control" name="pays" id="pays" required>
                         <option value="MG">Madagascar</option>
                         <?php
-                        $requete = $base->query("select * from PAYS");
+                        $requete = Connexion::getCx()->query("select * from PAYS");
                         while ($donnees = $requete->fetch()) {
                         ?>
                             <option value="<?php echo $donnees['alpha2']; ?>"><?php echo $donnees['nom_fr_fr']; ?></option>
@@ -261,12 +255,12 @@ session_destroy();
                             <p style="font-size:14px;" id="pa">- Tous les diplôme,....</p>
                             <div id="demo" class="collapse">
                                 <div class="overflow-auto" style="height:500px;padding-top:10px;font-size:12px;">
-                                    <img src="vue/image/france.png" width="7%" class="img-fluid" />- Tous les diplômes, noms et autres informations fournis sont exactes.</br>
-                                    - Accepter les conditions d’admissibilités et les règlements de l’établissement.</br>
-                                    - Ne divulguer aucun contenu total ou partiel de ce site.</br>
-                                    - Honorer mes frais de formations et les divers frais y afférant.</br>
-                                    - Ne pas partager le mot de passe, autoriser d’autres personnes à accéder à mon compte, ni transférer mon compte à quiconque (sans l’autorisation de l’établissement).</br>
-                                    - Aucun remboursement n’est possible après l’inscription ou tout autre paiement.</br><br>
+                                    <img src="vue/image/france.png" width="7%" class="img-fluid" />- Tous les diplômes, noms et autres informations fournis sont exactes.<br>
+                                    - Accepter les conditions d’admissibilités et les règlements de l’établissement.<br>
+                                    - Ne divulguer aucun contenu total ou partiel de ce site.<br>
+                                    - Honorer mes frais de formations et les divers frais y afférant.<br>
+                                    - Ne pas partager le mot de passe, autoriser d’autres personnes à accéder à mon compte, ni transférer mon compte à quiconque (sans l’autorisation de l’établissement).<br>
+                                    - Aucun remboursement n’est possible après l’inscription ou tout autre paiement.<br><br>
                                     <b> En cliquant sur le bouton inscription, j’atteste avoir lu et pris conscience tous les règlements de l’établissement.</b><br><br>
                                     <img src="vue/image/mada.png" width="7%" class="img-fluid" /> - Marina avokoa ireo maripahaizana, anarana sy andinindininy rehetra nomeko.<br>
                                     - Manaiky ireo fepetra rehetra fidirana sy mifehy ny sekoly.<br>
@@ -285,12 +279,14 @@ session_destroy();
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="vue/js/inscription.js"></script>
 
+    <?php
+    require('script.html');
+    ?>
+
+    <script src="vue/js/inscription.js"></script>
+    <script src="vue/js/inscriptionJS.js"></script>
+</body>
 </html>
 
 <?php
