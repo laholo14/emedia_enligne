@@ -1,7 +1,7 @@
     <?php
-        require('head.php');
+        require('head.html');
     ?>
-        <link rel="stylesheet" href="vue/css/accueil.css">
+        <link rel="stylesheet" href="vue/css/accueilMaster.css">
     </head>
     <body>
 
@@ -848,7 +848,8 @@
         </div>
         
         <?php
-            require('script.php');
+            require('script.html');
         ?>
-        <script src="vue/js/accueil.js"></script>
-    </body><!--
+        <script src="vue/js/accueilMaster.js"></script>
+    </body>
+    </html>
