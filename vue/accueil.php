@@ -8,8 +8,8 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/> 
-        <!-- <link rel="stylesheet" href="vue/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <!-- <link rel="stylesheet" href="vue/css/bootstrap.min.css">  -->
         <link rel="stylesheet" href="vue/css/accueil.css">
     </head>
     <body>
@@ -30,36 +30,36 @@
                 <!-- navbar -->
                 <div class="row d-flex fixed-top nav_bar">
                     <div class="col-4">
-                        <img src="vue/image/logo/logo_E-media_enligne.png" class="img-fluid ml-4" alt="">
+                        <img src="vue/image/logo/logo_E-media_enligne.png" class="img-fluid ml-4 logo" alt="">
+                        <div id="fa-bars"><i class="fas fa-bars pt-2 pl-4"></i></div>
+                        <div id="fa-times"><i class="fas fa-times pt-2 pl-4"></i></div>
                     </div>
 
-                        <div class="col-8 d-flex justify-content-end select-langue">
-                            <div class="dropdown mt-1">
-                                <button class="dropbtn" id="langue-button">Version cours  <i class="fad fa-angle-down float-right mt-1 ml-4"></i></button>
-                                <div class="dropdown-content mt-2" id="langue-content">
-                                    <a href="#" id="francais">Francais</a>
-                                    <a href="#" id="malagasy">Malagasy</a>
-                                </div>
+                    <div class="col-8 d-flex justify-content-end select-langue">
+                        <div class="dropdown mt-1 mr-3">
+                            <button class="dropbtn" id="langue-button">Version cours  <i class="fad fa-angle-down float-right mt-1 ml-4"></i></button>
+                            <div class="dropdown-content mt-2" id="langue-content">
+                                <a href="#" id="francais">Francais</a>
+                                <a href="#" id="malagasy">Malagasy</a>
                             </div>
-                                
-                            <button type="button" class="btn notification ml-3">
-                                <i class="fal fa-bells"></i> <span class="badge badge-light">4</span>
-                            </button>
-
-                            <div class="logout">
-                                <button class="logout-btn"><i class="fas fa-power-off"></i></button>
-                                <div class="logout-content">
-                                    <span>Deconnexion</span>
-                                </div>
-                            </div>
-
-                            
                         </div>
+                                
+                        <button type="button" class="btn notification" id="notification">
+                            <i class="fal fa-bell"></i> <span class="badge badge-light">4</span>
+                        </button>
+
+                        <div class="logout" id="logout">
+                            <button class="logout-btn"><i class="fas fa-power-off"></i></button>
+                            <div class="logout-content">
+                                <span>Deconnexion</span>
+                            </div>
+                        </div>                       
+                    </div>
                 </div>
                 <!-- fin navbar -->
 
                 <!-- sidebar -->
-                <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 dashboard">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 dashboard dashboard_mobile" id="dashboard">
 
                     <div class="pdp d-flex justify-content-center pt-3">
                         <img src="vue/image/user.jpg" class="mr-3" alt="">
@@ -135,6 +135,10 @@
                         <li id="active-chat"><a href="#"><i class="fal fa-comments-alt mr-3"></i><span>Nous vous ecoutons</span></a></li>
                     
                         <li id="active-contact"><a href="#"><i class="fal fa-phone-volume mr-3"></i><span>Contacts</span></a></li>
+
+                        <li id="active-notification"><a href="#"><i class="fal fa-bell mr-3"></i><span>Notifications <span class="badge badge-light">4</span></span></a></li>
+
+                        <li id="active-logout"><a href="#"><i class="fas fa-power-off mr-3"></i><span>Deconnexion </span></a></li>
                     </ul>
                 </div>
                 <!-- fin sidebar -->
@@ -153,26 +157,26 @@
                             </div>
                         </div>
 
-                        <div class="col-12 mb-3">
+                        <div class="col-12 mb-3 video1">
                             <div class="video1_text text-center mt-3 p-2">
                                 <a href="https://www.youtube.com/embed/HgIeckuG7cQ" target="blank" class="text-center">Pour connaitre le manipulation de l'interface etudiants.</a>
                             </div>
-                            <iframe width="100%" height="420" src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
 
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 video2">
                                 <div class="video1_text text-center p-2">
                                     <a href="https://www.youtube.com/embed/HgIeckuG7cQ" target="blank" class="text-center">Pour connaitre le manipulation de l'interface etudiants.</a>
                                 </div>
-                                <iframe width="100%" height="320" src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
 
-                            <div class="col-6">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 video3">
                                 <div class="video1_text text-center p-2">
                                     <a href="https://www.youtube.com/embed/HgIeckuG7cQ" target="blank" class="text-center">Pour connaitre le manipulation de l'interface etudiants.</a>
                                 </div>
-                                <iframe width="100%" height="320" src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
@@ -195,8 +199,8 @@
                                     <img src="vue/image/user.jpg" class="img-fluid" alt="">
                                 </div>
 
-                                <div class="col-12 d-flex propos-legende pt-3 pb-3">
-                                    <div class="col-6 mt-5">
+                                <div class="col-12 d-md-flex d-lg-flex d-xl-flex propos-legende pt-3 pb-3">
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-5">
                                         <div class="profile-legend">
                                             <h6>Nom <br><span> RATSITOHAINA </span></h6>
                                         </div>
@@ -204,17 +208,17 @@
                                             <h6>Prénom<br><span> Santatra </span></h6>
                                         </div>
                                         <div class="profile-legend">
-                                            <h6>E-mail<br><span> MAMINIAINAZAIN@GMAIL.COM </span></h6>
+                                            <h6>E-mail<br><span> santatra22ratsitohaina@gmail.com </span></h6>
                                         </div>
                                         <div class="profile-legend">
-                                            <h6>Nationalité<br><span> MADAGASCAR,MAHAJANGA </span></h6>
+                                            <h6>Nationalité<br><span> MADAGASCAR, MAHAJANGA </span></h6>
                                         </div>      
                                         <div class="profile-legend">
                                             <h6>Mention<br><span> Marketing Publicité et Journalisme </span></h6>
                                         </div>
                                     </div>
 
-                                    <div class="col-6 mt-5 ml-5">
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-md-5 mt-lg-5 mt-xl-5 ml-md-5 ml-lg-5 ml-xl-5">
                                         <div class="profile-legend">
                                             <h6>Parcours<br><span> Réalisation Audiovisuelle </span></h6>
                                         </div>
@@ -278,8 +282,8 @@
 
                                 <tbody id = "tabnote">
 
-                                    <tr class="priority-300">
-                                        <td class="matier text-center">Matiere</td>
+                                    <tr class="priority-300 ">
+                                        <td class="matiere text-center">Matiere</td>
                                         <td class="note1 text-center">Note M</td>
                                         <td class="note1 text-center">Note S</td>
                                         <td class="note1 text-center">Moyenne</td>
@@ -308,22 +312,22 @@
                         </div>
                        
                         <div class="col-12 table-calendrier mt-3 pb-3">
-                            <h4 class="text-center">"1er - 3eme moi" et "5eme - 7eme moi"</h4>
+                            <h4 class="text-center">"1er - 3eme mois" et "5eme - 7eme mois"</h4>
                             
                             <div class="row legende d-flex justify-content-center">
-                                <div class="cours d-flex justify-content-center align-items-center">
+                                <div class="cours d-flex justify-content-center align-items-center mr-1">
                                     Cours
                                 </div>
 
-                                <div class="exercices d-flex justify-content-center align-items-center">
+                                <div class="exercices d-flex justify-content-center align-items-center mr-1">
                                     Exercices
                                 </div>
 
-                                <div class="corrige d-flex justify-content-center align-items-center">
+                                <div class="corrige d-flex justify-content-center align-items-center mr-1">
                                     Corrige
                                 </div>
 
-                                <div class="examen-mensuel d-flex justify-content-center align-items-center">
+                                <div class="examen-mensuel d-flex justify-content-center align-items-center mr-1">
                                     Examen Mensuel
                                 </div>
                             </div>
@@ -383,26 +387,26 @@
                         </div>
 
                         <div class="col-12 table-calendrier mt-3 pb-3">
-                            <h4 class="text-center">"4eme moi" et "9eme moi"</h4>
+                            <h4 class="text-center">"4eme mois" et "9eme mois"</h4>
                             
                             <div class="row legende d-flex justify-content-center">
-                                <div class="cours d-flex justify-content-center align-items-center">
+                                <div class="cours d-flex justify-content-center align-items-center mr-1">
                                     Cours
                                 </div>
 
-                                <div class="exercices d-flex justify-content-center align-items-center">
+                                <div class="exercices d-flex justify-content-center align-items-center mr-1">
                                     Exercices
                                 </div>
 
-                                <div class="corrige d-flex justify-content-center align-items-center">
+                                <div class="corrige d-flex justify-content-center align-items-center mr-1">
                                     Corrige
                                 </div>
 
-                                <div class="examen-mensuel d-flex justify-content-center align-items-center">
+                                <div class="examen-mensuel d-flex justify-content-center align-items-center mr-1">
                                     Examen Mensuel
                                 </div>
 
-                                <div class="examen-semestriel d-flex justify-content-center align-items-center">
+                                <div class="examen-semestriel d-flex justify-content-center align-items-center mr-1">
                                     Examen Semestriel
                                 </div>
                             </div>
@@ -484,7 +488,7 @@
                         </div>
 
                         <div class="col-12 row table-cours mt-3" id="table-cours">
-                            <div class="col-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
                                     <h4>Algorithme Algorithme</h4>
                                     <div class="button-cours">
@@ -494,7 +498,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
                                     <h4>Algorithme Algorithme</h4>
                                     <div class="button-cours">
@@ -504,7 +508,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
                                     <h4>Algorithme Algorithme</h4>
                                     <div class="button-cours">
@@ -514,7 +518,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
                                     <h4>Algorithme Algorithme</h4>
                                     <div class="button-cours">
@@ -524,7 +528,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
                                     <h4>Algorithme Algorithme</h4>
                                     <div class="button-cours">
@@ -534,7 +538,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
                                     <h4>Algorithme Algorithme</h4>
                                     <div class="button-cours">
@@ -544,7 +548,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
                                     <h4>Algorithme Algorithme</h4>
                                     <div class="button-cours">
@@ -554,7 +558,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
                                     <h4>Algorithme Algorithme</h4>
                                     <div class="button-cours">
@@ -824,23 +828,23 @@
                         </div>
 
                         <div class="col-12 row table-contact mt-3">
-                            <div class="col-3 contact">
+                            <div class="col-4 contact">
                                 <h6>Pedagogique License <br> <span>0347626108</span></h6>
                             </div>
 
-                            <div class="col-3 contact">
+                            <div class="col-4 contact">
                                 <h6>Pedagogique Master <br> <span>0347626108</span></h6>
                             </div>
 
-                            <div class="col-3 contact">
+                            <div class="col-4 contact">
                                 <h6>Pedagogique MBA <br> <span>0347626108</span></h6>
                             </div>
 
-                            <div class="col-3 contact">
+                            <div class="col-4 contact">
                                 <h6>Finance <br> <span>0347626108</span></h6>
                             </div>
 
-                            <div class="col-3 contact">
+                            <div class="col-4 contact">
                                 <h6>Technique <br> <span>0347626108</span></h6>
                             </div>
                         </div>
@@ -854,7 +858,7 @@
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <!-- <script src="vue/js/jquery-3.4.1.min.js"></script>
         <script src="vue/js/popper.min.js"></script>
         <script src="vue/js/bootstrap.min.js"></script> -->
