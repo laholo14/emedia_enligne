@@ -15,7 +15,7 @@
                  <table class="table table-striped table-hover table-light">
                      <thead class="thead-background">
                          <tr>
-                             <th scope="col">N°</th>
+                             <th scope="col">ID</th>
                              <th scope="col">Nom</th>
                              <th scope="col">Prénom</th>
                              <th scope="col">Parcours</th>
@@ -39,7 +39,7 @@
                              <td>Mardi 5 Janvier 2021 à 21:17</td>
                              <td>mahadimbyh@gmail.com</td>
                              <td align="center"><i class="fa fa-folder-open" aria-hidden="true"></i></td>
-                             <td align="center"><i class="fa fa-check-circle-o" aria-hidden="true"></i></td>
+                             <td align="center"><i class="fa fa-check-circle" aria-hidden="true"></i></td>
                              <td align="center"><i class="fa fa-times" aria-hidden="true"></i></td>
                          </tr>
                          <tr>
@@ -52,7 +52,7 @@
                              <td>Mardi 5 Janvier 2021 à 21:17</td>
                              <td>mahadimbyh@gmail.com</td>
                              <td align="center"><i class="fa fa-folder-open" aria-hidden="true"></i></td>
-                             <td align="center"><i class="fa fa-check-circle-o" aria-hidden="true"></i></td>
+                             <td align="center"><i class="fa fa-check-circle" aria-hidden="true"></i></td>
                              <td align="center"><i class="fa fa-times" aria-hidden="true"></i></td>
                          </tr>
                          <tr>
@@ -65,7 +65,7 @@
                              <td>Mardi 5 Janvier 2021 à 21:17</td>
                              <td>mahadimbyh@gmail.com</td>
                              <td align="center"><i class="fa fa-folder-open" aria-hidden="true"></i></td>
-                             <td align="center"><i class="fa fa-check-circle-o" aria-hidden="true"></i></td>
+                             <td align="center"><i class="fa fa-check-circle" aria-hidden="true"></i></td>
                              <td align="center"><i class="fa fa-times" aria-hidden="true"></i></td>
                          </tr>
                      </tbody>
@@ -83,3 +83,8 @@
         require('include/script.html');
 
         ?>
+
+<script src="js/inscription.js"></script>
+</body>
+
+</html>
