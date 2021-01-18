@@ -1,6 +1,6 @@
 <?php
 $currentPage = 'etudiant';
-require('include/header.html');
+require('include/header.php');
 require('include/nav.php');
 ?>
 <section id="Liste_etudiant">
