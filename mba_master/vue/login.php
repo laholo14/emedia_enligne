@@ -19,7 +19,7 @@ session_destroy();
     <div class="container">
         <div class="col d-flex justify-content-center">
             <div class="image_logo_mba">
-                <img src="mba_master/vue/img/logo E-media.png" alt="">
+                <img src="mba_master/vue/image/logoE-media.png" alt="fff">
             </div>
         </div>
         <div class="row">
@@ -57,9 +57,9 @@ session_destroy();
 
     </div>
 <?php
-    include_once('include/script.php');  
+    require_once("include/script.html");
 ?>
-  <script src="vue/js/login.js"></script>
+  <script src="mba_master/vue/js/login.js"></script>
 </body>
 
 </html>
