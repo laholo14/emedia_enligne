@@ -1,6 +1,7 @@
 <?php
 $currentPage = 'etudiant';
-include('include/header.php');
+require('include/header.html');
+require('include/nav.php');
 ?>
 <section id="Liste_etudiant">
     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -126,9 +127,9 @@ include('include/header.php');
     </div>
 
 </section>
-<?php
-include_once('include/script.php');
-?>
-</body>
 
-</html>
+<?php
+
+require('include/script.html');
+
+?>
