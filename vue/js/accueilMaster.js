@@ -260,68 +260,65 @@ $(document).ready(function() {
     });
 
     //active-cours 
-    $("#active-cours-pdf").click(function(){
-        $("#table-cours").fadeOut();
-        $("#table-cours").fadeOut("slow");
-        $("#table-cours").fadeOut(1000);
+    $("#active-cours-pdf").click(function () {
+        $("#contenu").fadeOut();
+        $("#contenu").fadeOut("slow");
+        $("#contenu").fadeOut(1000);
+        $("#dashboard").fadeOut();
+        $("#dashboard").fadeOut("slow");
+        $("#dashboard").fadeOut(1000);
         $("#contenu-cours-pdf").fadeIn();
         $("#contenu-cours-pdf").fadeIn("slow");
         $("#contenu-cours-pdf").fadeIn(1200);
-        $("#contenu-cours-explication").fadeOut();
-        $("#contenu-cours-explication").fadeOut("slow");
-        $("#contenu-cours-explication").fadeOut(1000);
     });
 
     $("#active-cours-explication").click(function(){
-        $("#table-cours").fadeOut();
-        $("#table-cours").fadeOut("slow");
-        $("#table-cours").fadeOut(1000);
+        $("#contenu-cours").fadeOut();
+        $("#contenu-cours").fadeOut("slow");
+        $("#contenu-cours").fadeOut(1000);
         $("#contenu-cours-explication").fadeIn();
         $("#contenu-cours-explication").fadeIn("slow");
         $("#contenu-cours-explication").fadeIn(1200);
-        $("#contenu-cours-pdf").fadeOut();
-        $("#contenu-cours-pdf").fadeOut("slow");
-        $("#contenu-cours-pdf").fadeOut(1000);
     });
 
-    $("#exit-cours-explication").click(function(){
-        $("#table-cours").fadeIn();
-        $("#table-cours").fadeIn("slow");
-        $("#table-cours").fadeIn(1200);
+    $("#exit-cours-explication").click(function () {
         $("#contenu-cours-explication").fadeOut();
         $("#contenu-cours-explication").fadeOut("slow");
         $("#contenu-cours-explication").fadeOut(1000);
+        $("#contenu-cours").fadeIn();
+        $("#contenu").fadeIn("slow");
+        $("#contenu").fadeIn(1200);
     });
 
-    $("#exit-cours-pdf").click(function(){
-        $("#table-cours").fadeIn();
-        $("#table-cours").fadeIn("slow");
-        $("#table-cours").fadeIn(1200);
+    $("#exit-cours-pdf").click(function () {
         $("#contenu-cours-pdf").fadeOut();
         $("#contenu-cours-pdf").fadeOut("slow");
         $("#contenu-cours-pdf").fadeOut(1000);
+        $("#contenu").fadeIn();
+        $("#contenu").fadeIn("slow");
+        $("#contenu").fadeIn(1200);
+        $("#dashboard").fadeIn();
+        $("#dashboard").fadeIn("slow");
+        $("#dashboard").fadeIn(1200);
     });
 
     //active-exercice
     $("#active-exercice-pdf").click(function(){
-        $("#table-exercice").fadeOut();
-        $("#table-exercice").fadeOut("slow");
-        $("#table-exercice").fadeOut(1000);
+        $("#contenu").fadeOut();
+        $("#contenu").fadeOut("slow");
+        $("#contenu").fadeOut(1000);
         $("#contenu-exercice-pdf").fadeIn();
         $("#contenu-exercice-pdf").fadeIn("slow");
         $("#contenu-exercice-pdf").fadeIn(1200);
-        $("#contenu-exercice-explication").fadeOut();
-        $("#contenu-exercice-explication").fadeOut("slow");
-        $("#contenu-exercice-explication").fadeOut(1000);
-        $("#contenu-exercice-corrige").fadeOut();
-        $("#contenu-exercice-corrige").fadeOut("slow");
-        $("#contenu-exercice-corrige").fadeOut(1000);
+        $("#dashboard").fadeOut();
+        $("#dashboard").fadeOut("slow");
+        $("#dashboard").fadeOut(1000);
     });
 
     $("#active-exercice-explication").click(function(){
-        $("#table-exercice").fadeOut();
-        $("#table-exercice").fadeOut("slow");
-        $("#table-exercice").fadeOut(1000);
+        $("#contenu-exercice").fadeOut();
+        $("#contenu-exercice").fadeOut("slow");
+        $("#contenu-exercice").fadeOut(1000);
         $("#contenu-exercice-explication").fadeIn();
         $("#contenu-exercice-explication").fadeIn("slow");
         $("#contenu-exercice-explication").fadeIn(1200);
@@ -334,42 +331,45 @@ $(document).ready(function() {
     });
 
     $("#active-exercice-corrige").click(function(){
-        $("#table-exercice").fadeOut();
-        $("#table-exercice").fadeOut("slow");
-        $("#table-exercice").fadeOut(1000);
-        $("#contenu-exercice-explication").fadeOut();
-        $("#contenu-exercice-explication").fadeOut("slow");
-        $("#contenu-exercice-explication").fadeOut(1000);
-        $("#contenu-exercice-pdf").fadeOut();
-        $("#contenu-exercice-pdf").fadeOut("slow");
-        $("#contenu-exercice-pdf").fadeOut(1000);
+        $("#contenu").fadeOut();
+        $("#contenu").fadeOut("slow");
+        $("#contenu").fadeOut(1000);
+        $("#dashboard").fadeOut();
+        $("#dashboard").fadeOut("slow");
+        $("#dashboard").fadeOut(1000);
         $("#contenu-exercice-corrige").fadeIn();
         $("#contenu-exercice-corrige").fadeIn("slow");
         $("#contenu-exercice-corrige").fadeIn(1200);
     });
 
     $("#exit-exercice-explication").click(function(){
-        $("#table-exercice").fadeIn();
-        $("#table-exercice").fadeIn("slow");
-        $("#table-exercice").fadeIn(1200);
+        $("#contenu-exercice").fadeIn();
+        $("#contenu-exercice").fadeIn("slow");
+        $("#contenu-exercice").fadeIn(1200);
         $("#contenu-exercice-explication").fadeOut();
         $("#contenu-exercice-explication").fadeOut("slow");
         $("#contenu-exercice-explication").fadeOut(1000);
     });
 
     $("#exit-exercice-pdf").click(function(){
-        $("#table-exercice").fadeIn();
-        $("#table-exercice").fadeIn("slow");
-        $("#table-exercice").fadeIn(1200);
+        $("#contenu").fadeIn();
+        $("#contenu").fadeIn("slow");
+        $("#contenu").fadeIn(1200);
+        $("#dashboard").fadeIn();
+        $("#dashboard").fadeIn("slow");
+        $("#dashboard").fadeIn(1200);
         $("#contenu-exercice-pdf").fadeOut();
         $("#contenu-exercice-pdf").fadeOut("slow");
         $("#contenu-exercice-pdf").fadeOut(1000);
     });
 
     $("#exit-exercice-corrige").click(function(){
-        $("#table-exercice").fadeIn();
-        $("#table-exercice").fadeIn("slow");
-        $("#table-exercice").fadeIn(1200);
+       $("#contenu").fadeIn();
+        $("#contenu").fadeIn("slow");
+        $("#contenu").fadeIn(1200);
+        $("#dashboard").fadeIn();
+        $("#dashboard").fadeIn("slow");
+        $("#dashboard").fadeIn(1200);
         $("#contenu-exercice-corrige").fadeOut();
         $("#contenu-exercice-corrige").fadeOut("slow");
         $("#contenu-exercice-corrige").fadeOut(1000);
