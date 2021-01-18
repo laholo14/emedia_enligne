@@ -5,17 +5,17 @@ session_start();
 
 function loadclass($class)
 {
-
-    require "../../model/" . $class . '.class.php';
+    require "../model/" . $class . '.class.php';
 }
 
 spl_autoload_register("loadclass");
 
-$db = new Connexion();
+require_once("../../model/Binary.class.php");
+require_once("../../model/Cryptage.class.php");
 
 if (isset($_POST['matricule'], $_POST['pass'])) {
     extract($_POST);
-    $admin = new Admin();
+    $admin = new AdminMba();
     $admin->setMatricule($matricule);
     $crypt = new Cryptage();
     $mdp = $crypt->crpt14($pass);
@@ -27,7 +27,7 @@ if (isset($_POST['matricule'], $_POST['pass'])) {
         $_SESSION['mdpmba'] = $resultat['MDP'];
     }
 
-    if (isset($_SESSION['matriculemba']) and $_SESSION['matriculemba'] === "SCOL-MBA") {
+    if (isset($_SESSION['matriculemba']) and $_SESSION['matriculemba'] === $matricule) {
         header("location: ../../Accueil_mba");
     } else {
         $_SESSION['erreuradmin'] = "Matricule ou mot de passe incorrect";
