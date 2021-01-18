@@ -120,6 +120,19 @@ class Suivre
   }
 
 
+  //select des nouveaux etudiants inscri en MBA
+
+  public function NouveauxInscriMba(){
+
+    $requete = "SELECT * FROM ETUDIANTS NATURAL JOIN SUIVRE WHERE DIPLOME = 'MASTER' AND FILIERE = 'MBA' AND CODE = 'CODE0'";
+    $query = Connexion::getCxEtudiant()->query($requete);
+    $res = $query->fetchAll();
+    $query->closeCursor();
+    return $res;
+  }
+
+
+
 }
 ?>
 <?php ?>

@@ -18,6 +18,7 @@
                              <th scope="col">ID</th>
                              <th scope="col">Nom</th>
                              <th scope="col">Prénom</th>
+                             <th scope="col">Semestre</th>
                              <th scope="col">Parcours</th>
                              <th scope="col">Contact</th>
                              <th scope="col">Nationalité</th>
@@ -28,46 +29,8 @@
                              <th scope="col">Effacer</th>
                          </tr>
                      </thead>
-                     <tbody>
-                         <tr>
-                             <th scope="row">1</th>
-                             <td>Rakoto</td>
-                             <td>Onja</td>
-                             <td>SVT</td>
-                             <td>0356996352</td>
-                             <td>MG</td>
-                             <td>Mardi 5 Janvier 2021 à 21:17</td>
-                             <td>mahadimbyh@gmail.com</td>
-                             <td align="center"><i class="fa fa-folder-open" aria-hidden="true"></i></td>
-                             <td align="center"><i class="fa fa-check-circle" aria-hidden="true"></i></td>
-                             <td align="center"><i class="fa fa-times" aria-hidden="true"></i></td>
-                         </tr>
-                         <tr>
-                             <th scope="row">2</th>
-                             <td>Rakoto</td>
-                             <td>Onja</td>
-                             <td>SVT</td>
-                             <td>0356996352</td>
-                             <td>MG</td>
-                             <td>Mardi 5 Janvier 2021 à 21:17</td>
-                             <td>mahadimbyh@gmail.com</td>
-                             <td align="center"><i class="fa fa-folder-open" aria-hidden="true"></i></td>
-                             <td align="center"><i class="fa fa-check-circle" aria-hidden="true"></i></td>
-                             <td align="center"><i class="fa fa-times" aria-hidden="true"></i></td>
-                         </tr>
-                         <tr>
-                             <th scope="row">3</th>
-                             <td>RAKOTO</td>
-                             <td>Onja</td>
-                             <td>SVT</td>
-                             <td>0356996352</td>
-                             <td>MG</td>
-                             <td>Mardi 5 Janvier 2021 à 21:17</td>
-                             <td>mahadimbyh@gmail.com</td>
-                             <td align="center"><i class="fa fa-folder-open" aria-hidden="true"></i></td>
-                             <td align="center"><i class="fa fa-check-circle" aria-hidden="true"></i></td>
-                             <td align="center"><i class="fa fa-times" aria-hidden="true"></i></td>
-                         </tr>
+                     <tbody id="section_list_etudiant">
+            
                      </tbody>
                  </table>
 
