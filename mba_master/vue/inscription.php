@@ -1,7 +1,7 @@
      <?php
 
         $currentPage = 'inscription';
-        require('include/header.html');
+        require('include/header.php');
         require('include/nav.php');
 
         ?>
