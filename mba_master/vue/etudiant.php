@@ -36,7 +36,7 @@ require('include/nav.php');
                             <h4>Modifier</h4>
                         </div>
                         <div class="accordion ml-3 mb-4 mt-2" id="accordionExample">
-                            <div class="card mt-1">
+                            <div class="card mt-3">
                                 <div class="card-header" id="headingOne">
                                     <h2 class="mb-0">
                                         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -69,7 +69,11 @@ require('include/nav.php');
                                     </div>
                                 </div>
                             </div>
-                            <div class="card mt-1">
+
+
+
+
+                            <div class="card mt-3">
                                 <div class="card-header" id="headingOne">
                                     <h2 class="mb-0">
                                         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -111,12 +115,58 @@ require('include/nav.php');
                         <div class="row">
                             <div class="col-6 col-sm-6 col-md-4 col-lg-4">
 
+                                <div class="card p-2 ml-5 mt-5 " style="width: 9rem;">
+                                    <div class="col d-flex justify-content-center">
+                                        <div class="card-header-mba ">
+                                            <h5 class="text-center">MBA</h5>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <h5 class="text-center">V1 <span class="badge badge-danger">4</span></h5>
+                                        <div class="col d-flex justify-content-center">
+                                            <a href="#" class="btn boutton">Lire</a>
+                                        </div>
+
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-6 col-sm-6 col-md-4 col-lg-4">
+                                <div class="card p-2 ml-5 mt-5 " style="width: 9rem;">
+                                    <div class="col d-flex justify-content-center">
+                                        <div class="card-header-mba ">
+                                            <h5 class="text-center">MBA</h5>
 
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <h5 class="text-center">V2 <span class="badge badge-danger">4</span></h5>
+                                        <div class="col d-flex justify-content-center">
+                                            <a href="#" class="btn boutton">Lire</a>
+                                        </div>
+
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-6 col-sm-6 col-md-4 col-lg-4">
+                                <div class="card p-2 ml-5 mt-5 " style="width: 9rem;">
+                                    <div class="col d-flex justify-content-center">
+                                        <div class="card-header-mba ">
+                                            <h5 class="text-center">MBA</h5>
 
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <h5 class="text-center">V3 <span class="badge badge-danger">4</span></h5>
+                                        <div class="col d-flex justify-content-center">
+                                            <a href="#" class="btn boutton">Lire</a>
+                                        </div>
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
