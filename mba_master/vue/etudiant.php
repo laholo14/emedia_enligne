@@ -1,6 +1,9 @@
 <?php
 $currentPage = 'etudiant';
 require('include/header.php');
+?>
+<link rel="stylesheet" href="css/etudiantMBA.css">
+<?php
 require('include/nav.php');
 ?>
 <section id="Liste_etudiant">
@@ -183,3 +186,7 @@ require('include/nav.php');
 require('include/script.html');
 
 ?>
+
+</body>
+
+</html>

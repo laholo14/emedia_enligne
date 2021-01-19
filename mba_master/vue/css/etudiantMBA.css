@@ -1,0 +1,114 @@
+
+    /**LISTE ETUDIANTS**/
+    *{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+        a{
+            color: unset;
+            text-decoration: none;
+        }
+        body,html{
+            background-color: #bbb!important;
+            scroll-behavior: smooth;
+            position: relative;
+            overflow-x: hidden;
+        }
+    
+    #Liste_etudiant .titre_inscriptions h2{
+        color: white;
+        font-weight: 400;
+        border-bottom: 2px solid white;
+        width: 400px;
+        text-transform: uppercase;
+        padding-bottom: 10px;
+        }
+    #Liste_etudiant .bloc_list_etudiant{
+        background: white;
+
+    }
+    #Liste_etudiant .bloc_list_etudiant .form_ajoute_vague .btn-ajouter{
+        color: white!important;
+        background-image: linear-gradient(to right top, #1906e9, #007bff, #00aaff, #00cfad, #12eb4a);
+        border: none;
+        transition: 0.5s;
+    }
+    #Liste_etudiant .bloc_list_etudiant .form_ajoute_vague .btn-ajouter:hover{
+        transform: scale(1.1);
+    }
+
+    #Liste_etudiant .bloc_modifier_vague .titre_entrer_vague h4{
+        font-size: 18px!important;
+    }
+    #Liste_etudiant .bloc_modifier_vague i{
+        transition: 0.5s;
+        border: 2px solid rgb(170, 168, 168);
+    }
+    #Liste_etudiant .bloc_modifier_vague i:hover{
+        transform: scale(1.1);
+        text-decoration: none!important;
+    }
+    #Liste_etudiant .bloc_modifier_vague .icon{
+        margin-left: 70px;
+        color: blanchedalmond;
+        background: rgb(255, 0, 0);
+        padding: 10px;
+        font-size: 15px;
+        border-radius: 5px;
+        margin-top: -5px;
+    }
+    #Liste_etudiant .bloc_modifier_vague .vague{
+        color: white;
+        margin-top: 5px;
+    }
+    #Liste_etudiant .bloc_modifier_vague .date{
+        margin-left: 95px;
+        color: white;
+        margin-top: 5px;
+    }
+    #Liste_etudiant .bloc_modifier_vague .btn:hover{
+        text-decoration: none!important;
+    }
+    #Liste_etudiant .bloc_modifier_vague .card{
+        background-image: linear-gradient(to right top, #1906e9, #007bff, #00aaff, #00cfad, #12eb4a);
+        border: none;
+    }
+    #Liste_etudiant .bloc_modifier_vague .card-body{
+        background: white;
+    }
+    #Liste_etudiant .card-header-mba{
+        background-image: linear-gradient(to right top, #1906e9, #007bff, #00aaff, #00cfad, #12eb4a);
+       height: 85px;
+       width: 85px;
+       border-radius: 50%;
+       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+       margin-top: -50px;
+   }
+   
+   
+   #Liste_etudiant .card-header-mba h5 {
+       color: white;
+       margin-top: 29px;
+   }
+   
+
+   #Liste_etudiant .card{
+       border:none !important;
+       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+       transition: 0.5s;
+   }
+   #Liste_etudiant .card:hover{
+       transform: scale(1.1);
+   }
+   
+   #Liste_etudiant .card .card-body .boutton{
+   
+       background-color: #007bff;
+       color: white;
+       margin-top: 10px;
+   
+   }
+   
+    /**FIN LISTE ETUDIANTS**/
