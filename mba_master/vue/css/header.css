@@ -136,7 +136,7 @@
     }
     #Liste_etudiant .bloc_list_etudiant .form_ajoute_vague .btn-ajouter{
         color: white!important;
-        background: #0901e1;
+        background-image: linear-gradient(to right top, #1906e9, #007bff, #00aaff, #00cfad, #12eb4a);
         border: none;
         transition: 0.5s;
     }
@@ -177,10 +177,43 @@
         text-decoration: none!important;
     }
     #Liste_etudiant .bloc_modifier_vague .card{
-        background: #0901e1;
+        background-image: linear-gradient(to right top, #1906e9, #007bff, #00aaff, #00cfad, #12eb4a);
         border: none;
     }
     #Liste_etudiant .bloc_modifier_vague .card-body{
         background: white;
     }
+    #Liste_etudiant .card-header-mba{
+        background-image: linear-gradient(to right top, #1906e9, #007bff, #00aaff, #00cfad, #12eb4a);
+       height: 85px;
+       width: 85px;
+       border-radius: 50%;
+       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+       margin-top: -50px;
+   }
+   
+   
+   #Liste_etudiant .card-header-mba h5 {
+       color: white;
+       margin-top: 29px;
+   }
+   
+
+   #Liste_etudiant .card{
+       border:none !important;
+       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+       transition: 0.5s;
+   }
+   #Liste_etudiant .card:hover{
+       transform: scale(1.1);
+   }
+   
+   #Liste_etudiant .card .card-body .boutton{
+   
+       background-color: #007bff;
+       color: white;
+       margin-top: 10px;
+   
+   }
+   
     /**FIN LISTE ETUDIANTS**/
