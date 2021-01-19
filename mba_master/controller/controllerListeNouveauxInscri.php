@@ -26,7 +26,7 @@ if (isset($_POST['liste'])) {
                     <td>'.$datefr->dateToFrench($resultat['DATEDINSCRIPTION'], "l j F Y à H:i").'</td>
                     <td>'.$resultat['MAIL'].'</td>
                     <td align="center"><i class="fa fa-folder-open" aria-hidden="true"></i></td>
-                    <td align="center"><i class="fa fa-check-circle" aria-hidden="true"></i></td>
+                    <td align="center"><i class="fa fa-check-circle" data-toggle="modal" data-target=".bd-example-modal-md" aria-hidden="true"></i></td>
                     <td align="center"><i class="fa fa-times" aria-hidden="true"></i></td>
                   </tr>';
     }
