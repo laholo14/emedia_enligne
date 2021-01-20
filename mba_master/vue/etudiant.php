@@ -9,7 +9,7 @@ require('include/nav.php');
 <section id="Liste_etudiant">
     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
         <div class="titre_inscriptions mt-3 d-flex justify-content-center">
-            <h2 class="text-center">Listes des étudiants</h2>
+            <h2 class="text-center">Listes des vagues</h2>
         </div>
         <div class="bloc_list_etudiant mt-3">
             <div class="row">
@@ -129,7 +129,7 @@ require('include/nav.php');
                                     <div class="card-body">
                                         <h5 class="text-center">V1 <span class="badge badge-danger">4</span></h5>
                                         <div class="col d-flex justify-content-center">
-                                            <a href="#" class="btn boutton">Lire</a>
+                                            <a href="liste_etudiant.php" class="btn boutton">Lire</a>
                                         </div>
 
                                     </div>
@@ -147,7 +147,7 @@ require('include/nav.php');
                                     <div class="card-body">
                                         <h5 class="text-center">V2 <span class="badge badge-danger">4</span></h5>
                                         <div class="col d-flex justify-content-center">
-                                            <a href="#" class="btn boutton">Lire</a>
+                                            <a href="liste_etudiant.php" class="btn boutton">Lire</a>
                                         </div>
 
                                     </div>
@@ -165,7 +165,7 @@ require('include/nav.php');
                                     <div class="card-body">
                                         <h5 class="text-center">V3 <span class="badge badge-danger">4</span></h5>
                                         <div class="col d-flex justify-content-center">
-                                            <a href="#" class="btn boutton">Lire</a>
+                                            <a href="liste_etudiant.php" class="btn boutton">Lire</a>
                                         </div>
 
                                     </div>
