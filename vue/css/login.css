@@ -1,23 +1,35 @@
 body {
     overflow-x: hidden;
-    background-image: url("../image/login_E-media_enligne.jpg");
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position-y: -20px;
+    background-color: #fff;
 } 
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0185b4;
+    clip-path: polygon(41% 0, 100% 0, 0 100%, 0 0);
+}
 
 .login {
     position: relative;
-    margin-top: 120px;
+    margin-top: 6rem;
+    z-index: 999;
 }
 
 .login .login_contenu {
-    background-color: rgba(0, 0, 0, 0.7);
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3), -2px -2px 2px 2px rgba(0, 0, 0, 0.3);
+    width: 50%;
+    background-color: #fff;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1), -2px -2px 2px 2px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     padding: 20px;
+}
+
+.login .logo {
+    margin-top: -6rem;
 }
 
 .login img {
@@ -26,8 +38,12 @@ body {
 }
 
 .login h3 {
-    color: #fff;
-    font-weight: 600;
+    color: #000;
+    font-weight: bold;
+}
+
+.login_input div i {
+    color: #0185b4;
 }
 
 .login_input div input {
@@ -35,8 +51,8 @@ body {
     height: 35px;
     background: none;
     border: none;
-    border-bottom: 1px solid #fff;
-    color: #fff ;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.253);
+    color: rgba(0, 0, 0, 0.842) ;
 }
 
 .login_input div input {
@@ -44,20 +60,20 @@ body {
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
-    color: #fff;
+    color: rgba(0, 0, 0, 0.853);
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color: #fff;
+    color: rgba(0, 0, 0, 0.853);
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color: #fff;
+    color: rgba(0, 0, 0, 0.853);
 }
 :-ms-input-placeholder { /* Internet Explorer 10+ */
-    color: #fff;
+    color: rgba(0, 0, 0, 0.853);
 }
 
 .login_input label {
-    color: #fff;
+    color: rgba(0, 0, 0, 0.853);
 }
 
 .login_button_sinscrire a, .login_button_seconnecter input {
@@ -68,17 +84,23 @@ body {
 
 .login_button_sinscrire a {
     color: #fff;
-    background-color: darkgreen;
+    background-color: #0185b4;
+    border: none;
 }
 
 .login_button_seconnecter input {
     color: #fff;
-    background-color: #089dcf;
+    background-color: #0185b4;
+    border: none;
 }
 
 /*responsive*/
-@media (min-width: 200px) and (max-width: 575.9px) {
-    .login img {
-        height: 120px;
+@media (min-width: 200px) and (max-width: 767.9px) {
+    .login .login_contenu {
+        width: 100%;
+    }
+
+    .login_input div input {
+        width: 260px;
     }
 }

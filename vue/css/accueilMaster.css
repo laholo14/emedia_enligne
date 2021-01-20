@@ -13,26 +13,20 @@ body {
 
 /* preloading */
 .preloading {
-    background: url("../image/login_E-media_enligne.jpg");
-    background-attachment: fixed;
-    background-size: cover;
+    overflow-x: hidden;
+    background-color: #fff;
     height: 100vh;
-    background-color: transparent;
-    position: fixed;
-    z-index: 999;
 }
 
 .contenu-preloading {
 	position:relative;
-    width: 80px;
-    height: 80px;
     top: 40%;
     margin: 0 auto;
 }
 
 .contenu-preloading span {
 	position:absolute;
-	border: 8px solid #0185b4;
+	border: 8px solid #25b40100;
 	border-top: 8px solid transparent;
 	border-radius:999px;
 }
@@ -296,9 +290,34 @@ body {
     text-decoration: none !important;
 }
 
+.dashboard .active {
+    background-color: #fff;
+}
+
+.dashboard .active a {
+    color: #000000b7 !important;
+}
+
+.dashboard .active:hover a {
+    color: #fff !important;
+}
+
 .dashboard .cours ul li, .dashboard .profil ul li {
     background-color: transparent !important;
     padding-left: 10px;
+    border-radius: 0;
+}
+
+.dashboard .cours ul .active, .dashboard .profil ul .active {
+    background-color: #fff !important;
+}
+
+.dashboard .cours ul .active, .dashboard .profil ul .active {
+    color: #000000b7 !important;
+}
+
+.dashboard .cours ul .active:hover, .dashboard .profil ul .active:active {
+    color: #000000b7 !important;
 }
 
 .dashboard .cours ul .list-group-item, .dashboard .profil ul .list-group-item {
@@ -346,8 +365,7 @@ body {
 /* fin dashboard */
 
 /*section*/
-.contenu {
-    
+.contenu {   
     height: 90vh;
     margin-top: 3rem;
     overflow-x: hidden !important;
@@ -356,8 +374,6 @@ body {
 /* video tuto */
 .contenu-video {
     min-height: 90vh;
-    background: url("../image/calque.png");
-    background-size: cover;
     border-radius: 10px 10px 0 0;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
 }
@@ -413,10 +429,6 @@ body {
 }
 
 @media (min-width: 100px) and (max-width: 575.9px) {
-    .contenu-video {
-        background-image: none;
-    }
-
     .video1 iframe, .video2 iframe, .video3 iframe {
         width: 100%;
         height: 300px;
@@ -427,8 +439,6 @@ body {
 /* profil */
 .contenu-profil {
     min-height: 82.5vh;
-    background: url("../image/calque.png");
-    background-size: cover;
     border-radius: 10px 10px 0 0;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
     display: none;
@@ -481,7 +491,6 @@ body {
     margin: 100px 0px 0px 0px;
     height: auto;
     z-index: 999;
-    background-color: rgba(0, 0, 0, 0.062);
 }
 
 .propos-img img {
@@ -495,7 +504,7 @@ body {
 
 .propos-legende span {
     padding-left: 2rem;
-    color: rgb(65, 62, 62);
+    color: #0185b4;
     font-size: 22px;
     font-weight: bold;
 }
@@ -510,10 +519,6 @@ body {
 }
 
 @media (min-width: 100px) and (max-width: 575.9px) {
-    .contenu-profil {
-        background-image: none;
-    }
-
     .title-profil h3 {
         margin-top: 3rem;
     }
@@ -536,8 +541,6 @@ body {
 .contenu-note {
     min-height: 82.5vh;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
-    background: url("../image/calque.png");
-    background-size: cover;
     border-radius: 10px 10px 0 0;
     display: none;
 }
@@ -672,10 +675,6 @@ strong{
 }
 
 @media (min-width: 100px) and (max-width: 575.9px) {
-    .contenu-note {
-        background-image: none;
-    }
-
     .title-note h3 {
         margin-top: 3rem;
     }
@@ -693,12 +692,6 @@ strong{
     .table-note table {
         font-size: .8rem;
     }
-
-    .contenu-note {
-        background: url("../image/calque.png");
-        background-size: cover;
-        background-position-x: 40rem;
-    }
 }
 
 /* fin note */
@@ -707,8 +700,6 @@ strong{
 .contenu-calendrier {
     min-height: 82.5vh;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
-    background: url("../image/calque.png");
-    background-size: cover;
     border-radius: 10px 10px 0 0;
     display: none;
 }
@@ -842,10 +833,6 @@ strong{
 }
 
 @media (min-width: 100px) and (max-width: 575.9px) {
-    .contenu-calendrier {
-        background-image: none;
-    }
-
     .title-calendrier h3 {
         margin-top: 3rem;
     }
@@ -865,8 +852,6 @@ strong{
 .contenu-cours {
     min-height: 82.5vh;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
-    background: url("../image/calque.png");
-    background-size: cover;
     border-radius: 10px 10px 0 0;
     display: none;
 }
@@ -926,7 +911,7 @@ strong{
 .cours-pdf h5 {
     height: 20vh;
     position: relative;
-    color: #000000b7;
+    color: #0185b4;
     font-weight: 600;
 }
 
@@ -960,7 +945,7 @@ strong{
 .contenu-cours-pdf .head .title h3, .contenu-cours-explication .head .title h3 {
     font-size: 25px;
     font-weight: bold !important;
-    color: #0000006b;
+    color: #0185b4;
 }
 
 .contenu-cours-pdf .head .exit {
@@ -986,10 +971,6 @@ strong{
 }
 
 @media (min-width: 100px) and (max-width: 575.9px) {
-    .contenu-cours {
-        background-image: none;
-    }
-
     .title-cours h3 {
         margin-top: 3rem;
     }
@@ -1008,8 +989,6 @@ strong{
 .contenu-exercice {
     min-height: 82.5vh;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
-    background: url("../image/calque.png");
-    background-size: cover;
     border-radius: 10px 10px 0 0;
     display: none;
 }
@@ -1063,7 +1042,7 @@ strong{
 .exercice-pdf h5 {
     height: 20vh;
     position: relative;
-    color: #000000b7;
+    color: #0185b4;
     font-weight: 600;
 }
 
@@ -1101,7 +1080,7 @@ strong{
 .contenu-exercice-pdf .head .title h3, .contenu-exercice-explication .head .title h3, .contenu-exercice-corrige .head .title h3 {
     font-size: 25px;
     font-weight: bold !important;
-    color: #0000006b;
+    color: #0185b4;
 }
 
 .contenu-exercice-pdf .head .exit, .contenu-exercice-explication .head .exit, .contenu-exercice-corrige .head .exit {
@@ -1121,10 +1100,6 @@ strong{
 }
 
 @media (min-width: 100px) and (max-width: 575.9px) {
-    .contenu-exercice {
-        background-image: none;
-    }
-
     .title-exercice h3 {
         margin-top: 3rem;
     }
@@ -1143,8 +1118,6 @@ strong{
 .contenu-chat {
     min-height: 82.5vh;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
-    background: url("../image/calque.png");
-    background-size: cover;
     border-radius: 10px 10px 0 0;
     display: none;
 }
@@ -1174,7 +1147,7 @@ strong{
 }
 
 .body-chat {
-    height: 50vh;
+    height: 60vh;
 }
 
 .user-chat img {
@@ -1240,16 +1213,13 @@ strong{
 }
 
 @media (min-width: 100px) and (max-width: 575px) {
-    .contenu-chat {
-        background-image: none;
-    }
-
     .title-chat h3 {
         margin-top: 3rem;
+        margin-left: 3rem;
     }
 
     .body-chat {
-        height: 45vh;
+        height: 45vh !important;
     }
 }
 
@@ -1259,8 +1229,6 @@ strong{
 .contenu-contact {
     min-height: 82.5vh;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
-    background: url("../image/calque.png");
-    background-size: cover;
     border-radius: 10px 10px 0 0;
     display: none;
 }
@@ -1293,13 +1261,10 @@ strong{
 .contact h6 span {
     font-size: 25px;
     font-weight: bold;
+    color: #0185b4;
 }
 
 @media (min-width: 100px) and (max-width: 575px) {
-    .contenu-contact {
-        background-image: none;
-    }
-
     .title-contact h3 {
         margin-top: 3rem;
     }
