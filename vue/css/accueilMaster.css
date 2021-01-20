@@ -275,6 +275,7 @@ body {
 
 .dashboard li {
     cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.089);
 }
 
 .dashboard ul li:hover {
@@ -302,7 +303,10 @@ body {
 
 .dashboard .cours ul .list-group-item, .dashboard .profil ul .list-group-item {
     padding: 0rem !important;
-    border: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.089);
+    border-top: none;
+    border-left: none;
+    border-right: none;
     color: #fff;
 }
 
@@ -310,7 +314,7 @@ body {
     font-size: 20px;
 }
 
-.dashboard #active-notification,.dashboard #active-logout {
+.dashboard #active-notification {
     display: none;
 }
 
@@ -335,7 +339,7 @@ body {
         left: -100rem;
     }
 
-    .dashboard #active-notification,.dashboard #active-logout {
+    .dashboard #active-notification {
         display: block !important;
     }
 }
@@ -409,6 +413,10 @@ body {
 }
 
 @media (min-width: 100px) and (max-width: 575.9px) {
+    .contenu-video {
+        background-image: none;
+    }
+
     .video1 iframe, .video2 iframe, .video3 iframe {
         width: 100%;
         height: 300px;
@@ -502,12 +510,20 @@ body {
 }
 
 @media (min-width: 100px) and (max-width: 575.9px) {
+    .contenu-profil {
+        background-image: none;
+    }
+
     .title-profil h3 {
         margin-top: 3rem;
     }
 
     .propos-legende span {
         font-size: 14px;
+    }
+
+    .profile-legend-nom {
+        padding-top: 2rem !important;
     }
 
     .profile-legend h6 {
@@ -656,6 +672,10 @@ strong{
 }
 
 @media (min-width: 100px) and (max-width: 575.9px) {
+    .contenu-note {
+        background-image: none;
+    }
+
     .title-note h3 {
         margin-top: 3rem;
     }
@@ -823,7 +843,7 @@ strong{
 
 @media (min-width: 100px) and (max-width: 575.9px) {
     .contenu-calendrier {
-        background-position-x: 20rem;
+        background-image: none;
     }
 
     .title-calendrier h3 {
@@ -934,17 +954,16 @@ strong{
 }
 
 .contenu-cours-pdf .head, .contenu-cours-explication .head {
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
-    background-color: #0185b4;
+    background-color: transparent;
 }
 
 .contenu-cours-pdf .head .title h3, .contenu-cours-explication .head .title h3 {
     font-size: 25px;
     font-weight: bold !important;
-    color: #fff;
+    color: #0000006b;
 }
 
-.contenu-cours-pdf .head .exit, .contenu-cours-explication .head .exit {
+.contenu-cours-pdf .head .exit {
     border: none;
     color: rgb(221, 34, 34);
     font-size: 24px;
@@ -960,7 +979,17 @@ strong{
     height: 500px;
 }
 
+.modal a.close-modal {
+    top: 15.5px;
+    right: 33.5px;
+    color: red !important;
+}
+
 @media (min-width: 100px) and (max-width: 575.9px) {
+    .contenu-cours {
+        background-image: none;
+    }
+
     .title-cours h3 {
         margin-top: 3rem;
     }
@@ -1066,14 +1095,13 @@ strong{
 }
 
 .contenu-exercice-pdf .head, .contenu-exercice-explication .head, .contenu-exercice-corrige .head {
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
-    background-color: #0185b4;
+    background-color: transparent;
 }
 
 .contenu-exercice-pdf .head .title h3, .contenu-exercice-explication .head .title h3, .contenu-exercice-corrige .head .title h3 {
     font-size: 25px;
     font-weight: bold !important;
-    color: #fff;
+    color: #0000006b;
 }
 
 .contenu-exercice-pdf .head .exit, .contenu-exercice-explication .head .exit, .contenu-exercice-corrige .head .exit {
@@ -1094,7 +1122,7 @@ strong{
 
 @media (min-width: 100px) and (max-width: 575.9px) {
     .contenu-exercice {
-        background-position-x: -50rem;
+        background-image: none;
     }
 
     .title-exercice h3 {
@@ -1212,6 +1240,10 @@ strong{
 }
 
 @media (min-width: 100px) and (max-width: 575px) {
+    .contenu-chat {
+        background-image: none;
+    }
+
     .title-chat h3 {
         margin-top: 3rem;
     }
@@ -1264,6 +1296,10 @@ strong{
 }
 
 @media (min-width: 100px) and (max-width: 575px) {
+    .contenu-contact {
+        background-image: none;
+    }
+
     .title-contact h3 {
         margin-top: 3rem;
     }

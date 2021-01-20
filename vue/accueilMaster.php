@@ -38,13 +38,7 @@
                         <button type="button" class="btn notification" id="notification">
                             <i class="fal fa-bell"></i> <span class="badge badge-light">4</span>
                         </button>
-
-                        <div class="logout" id="logout">
-                            <button class="logout-btn"><i class="fas fa-power-off"></i></button>
-                            <div class="logout-content">
-                                <span>Deconnexion</span>
-                            </div>
-                        </div>                       
+                   
                     </div>
                 </div>
                 <!-- fin navbar -->
@@ -192,7 +186,7 @@
 
                                 <div class="col-12 d-md-flex d-lg-flex d-xl-flex propos-legende pt-3 pb-3">
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-5">
-                                        <div class="profile-legend">
+                                        <div class="profile-legend profile-legend-nom">
                                             <h6>Nom <br><span> RATSITOHAINA </span></h6>
                                         </div>
                                         <div class="profile-legend">
@@ -478,8 +472,8 @@
                             </div> -->
                         </div>
 
-                        <div class="col-12 row table-cours mt-3" id="table-cours">
-                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                        <div class="col-12 row table-cours" id="table-cours">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
                                     <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
                                     <div class="button-cours">
@@ -489,7 +483,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
                                     <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
                                     <div class="button-cours">
@@ -499,7 +493,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
                                     <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
                                     <div class="button-cours">
@@ -509,7 +503,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
                                     <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
                                     <div class="button-cours">
@@ -519,7 +513,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
                                     <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
                                     <div class="button-cours">
@@ -529,7 +523,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
                                     <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
                                     <div class="button-cours">
@@ -539,7 +533,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
                                     <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
                                     <div class="button-cours">
@@ -549,7 +543,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
                                     <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
                                     <div class="button-cours">
@@ -563,19 +557,14 @@
                     </div>
 
                     <!-- contenu-cours-explication -->
-                    <div class="row contenu-cours-explication mt-3 pb-3" id="contenu-cours-explication">
+                    <div class="row contenu-cours-explication mt-5 pb-3" id="contenu-cours-explication">
                         <div class="head d-flex">
-                            <div class="col-11 title d-flex justify-content-center pt-1">
+                            <div class="col-12 title d-flex justify-content-center pt-1">
                                 <h3>Algorithme</h3>
-                            </div>
-                            <div class="col-1 exit d-flex justify-content-center pt-2" id="exit-cours-explication">
-                                <span><i class="fas fa-times"></i></span>
                             </div>
                         </div>
 
-                        <div class="col-12 affiche-cours-explication overflow-auto mt-1 pt-3">
-                                <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
+                        <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
 
                     <!-- fin cours -->
@@ -599,8 +588,8 @@
                             </div> -->
                         </div>
 
-                        <div class="col-12 row table-exercice mt-3" id="table-exercice">
-                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                        <div class="col-12 row table-exercice" id="table-exercice">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
                                 <div class="mb-2 pt-2 pb-2 exercice-pdf text-center">
                                     <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
                                     <div class="button-exercice">
@@ -611,7 +600,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
                                 <div class="mb-2 pt-2 pb-2 exercice-pdf text-center">
                                     <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
                                     <div class="button-exercice">
@@ -622,7 +611,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
                                 <div class="mb-2 pt-2 pb-2 exercice-pdf text-center">
                                     <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
                                     <div class="button-exercice">
@@ -633,7 +622,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
                                 <div class="mb-2 pt-2 pb-2 exercice-pdf text-center">
                                     <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
                                     <div class="button-exercice">
@@ -644,7 +633,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
                                 <div class="mb-2 pt-2 pb-2 exercice-pdf text-center">
                                     <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
                                     <div class="button-exercice">
@@ -655,7 +644,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
                                 <div class="mb-2 pt-2 pb-2 exercice-pdf text-center">
                                     <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
                                     <div class="button-exercice">
@@ -666,7 +655,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
                                 <div class="mb-2 pt-2 pb-2 exercice-pdf text-center">
                                     <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
                                     <div class="button-exercice">
@@ -677,7 +666,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
                                 <div class="mb-2 pt-2 pb-2 exercice-pdf text-center">
                                     <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
                                     <div class="button-exercice">
@@ -692,19 +681,14 @@
                     </div>
 
                     <!-- contenu-exercice-explication -->
-                    <div class="row contenu-exercice-explication mt-3 pb-3" id="contenu-exercice-explication">
+                    <div class="row contenu-exercice-explication mt-5 pb-3" id="contenu-exercice-explication">
                         <div class="head d-flex">
-                            <div class="col-11 title d-flex justify-content-center pt-1">
+                            <div class="col-12 title d-flex justify-content-center pt-1">
                                 <h3>Algorithme</h3>
-                            </div>
-                            <div class="col-1 exit d-flex justify-content-center pt-2" id="exit-exercice-explication">
-                                <span><i class="fas fa-times"></i></span>
                             </div>
                         </div>
 
-                        <div class="col-12 affiche-exercice-explication overflow-auto mt-1 pt-3">
-                            <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
+                        <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
 
                     <!-- fin exercice -->
@@ -833,7 +817,7 @@
                             <h3>Algorithme</h3>
                         </div>
                         <div class="col-1 exit d-flex justify-content-center" id="exit-cours-pdf">
-                            <span><i class="fas fa-times ml-5"></i></span>
+                            <span><i class="fas fa-times ml-lg-5 ml-xl-5"></i></span>
                         </div>
                     </div>
 
@@ -849,7 +833,7 @@
                             <h3>Algorithme</h3>
                         </div>
                         <div class="col-1 exit d-flex justify-content-center" id="exit-exercice-pdf">
-                            <span><i class="fas fa-times ml-5"></i></span>
+                            <span><i class="fas fa-times ml-lg-5 ml-xl-5"></i></span>
                         </div>
                     </div>
 
@@ -865,7 +849,7 @@
                             <h3>Algorithme</h3>
                         </div>
                         <div class="col-1 exit d-flex justify-content-center" id="exit-exercice-corrige">
-                            <span><i class="fas fa-times ml-5"></i></span>
+                            <span><i class="fas fa-times ml-lg-5 ml-xl-5"></i></span>
                         </div>
                     </div>
 
