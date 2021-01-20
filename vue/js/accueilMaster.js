@@ -5,7 +5,6 @@ $(document).ready(function() {
 
     //afficher contenu-video
     $("#active-video").click(function() {
-        $("#dashboard").addClass("dashboard_mobile");
         $("#contenu-video").fadeIn();
         $("#contenu-video").fadeIn("slow");
         $("#contenu-video").fadeIn(1200);
@@ -30,6 +29,16 @@ $(document).ready(function() {
         $("#contenu-contact").fadeOut();
         $("#contenu-contact").fadeOut("slow");
         $("#contenu-contact").fadeOut(1000);
+
+        //ajout class active
+        $("#active-profil").removeClass("active")
+        $("#active-note").removeClass("active")
+        $("#active-calendrier").removeClass("active")
+        $("#active-cours").removeClass("active")
+        $("#active-exercice").removeClass("active")
+        $("#active-chat").removeClass("active")
+        $("#active-contact").removeClass("active")
+        $("#active-video").addClass("active");
     });
 
     //afficher contenu-profil
@@ -58,6 +67,16 @@ $(document).ready(function() {
         $("#contenu-contact").fadeOut();
         $("#contenu-contact").fadeOut("slow");
         $("#contenu-contact").fadeOut(1000);
+
+        //ajout class active
+        $("#active-video").removeClass("active")
+        $("#active-note").removeClass("active")
+        $("#active-calendrier").removeClass("active")
+        $("#active-cours").removeClass("active")
+        $("#active-exercice").removeClass("active")
+        $("#active-chat").removeClass("active")
+        $("#active-contact").removeClass("active")
+        $("#active-profil").addClass("active");
     });
 
     //afficher contenu-note
@@ -86,6 +105,16 @@ $(document).ready(function() {
         $("#contenu-contact").fadeOut();
         $("#contenu-contact").fadeOut("slow");
         $("#contenu-contact").fadeOut(1000);
+
+        //ajout class active
+        $("#active-profil").removeClass("active")
+        $("#active-video").removeClass("active")
+        $("#active-calendrier").removeClass("active")
+        $("#active-cours").removeClass("active")
+        $("#active-exercice").removeClass("active")
+        $("#active-chat").removeClass("active")
+        $("#active-contact").removeClass("active")
+        $("#active-note").addClass("active");
     });
 
     //afficher contenu-calendrier
@@ -114,6 +143,16 @@ $(document).ready(function() {
         $("#contenu-contact").fadeOut();
         $("#contenu-contact").fadeOut("slow");
         $("#contenu-contact").fadeOut(1000);
+
+        //ajout class active
+        $("#active-profil").removeClass("active")
+        $("#active-note").removeClass("active")
+        $("#active-video").removeClass("active")
+        $("#active-cours").removeClass("active")
+        $("#active-exercice").removeClass("active")
+        $("#active-chat").removeClass("active")
+        $("#active-contact").removeClass("active")
+        $("#active-calendrier").addClass("active");
     });
 
     //afficher contenu-cours
@@ -142,6 +181,16 @@ $(document).ready(function() {
         $("#contenu-contact").fadeOut();
         $("#contenu-contact").fadeOut("slow");
         $("#contenu-contact").fadeOut(1000);
+
+        //ajout class active
+        $("#active-profil").removeClass("active")
+        $("#active-note").removeClass("active")
+        $("#active-calendrier").removeClass("active")
+        $("#active-video").removeClass("active")
+        $("#active-exercice").removeClass("active")
+        $("#active-chat").removeClass("active")
+        $("#active-contact").removeClass("active")
+        $("#active-cours").addClass("active");
     });
 
     //afficher contenu-exercice
@@ -170,6 +219,16 @@ $(document).ready(function() {
         $("#contenu-contact").fadeOut();
         $("#contenu-contact").fadeOut("slow");
         $("#contenu-contact").fadeOut(1000);
+
+        //ajout class active
+        $("#active-profil").removeClass("active")
+        $("#active-note").removeClass("active")
+        $("#active-calendrier").removeClass("active")
+        $("#active-cours").removeClass("active")
+        $("#active-video").removeClass("active")
+        $("#active-chat").removeClass("active")
+        $("#active-contact").removeClass("active")
+        $("#active-exercice").addClass("active");
     });
 
     //afficher contenu-chat
@@ -198,6 +257,16 @@ $(document).ready(function() {
         $("#contenu-contact").fadeOut();
         $("#contenu-contact").fadeOut("slow");
         $("#contenu-contact").fadeOut(1000);
+
+        //ajout class active
+        $("#active-profil").removeClass("active")
+        $("#active-note").removeClass("active")
+        $("#active-calendrier").removeClass("active")
+        $("#active-cours").removeClass("active")
+        $("#active-exercice").removeClass("active")
+        $("#active-video").removeClass("active")
+        $("#active-contact").removeClass("active")
+        $("#active-chat").addClass("active");
     });
 
     //afficher contenu-contact
@@ -226,6 +295,16 @@ $(document).ready(function() {
         $("#contenu-contact").fadeIn();
         $("#contenu-contact").fadeIn("slow");
         $("#contenu-contact").fadeIn(1200);
+
+        //ajout class active
+        $("#active-profil").removeClass("active")
+        $("#active-note").removeClass("active")
+        $("#active-calendrier").removeClass("active")
+        $("#active-cours").removeClass("active")
+        $("#active-exercice").removeClass("active")
+        $("#active-chat").removeClass("active")
+        $("#active-video").removeClass("active")
+        $("#active-contact").addClass("active");
     });
 
     //active langue
@@ -479,3 +558,4 @@ $(document).ready(function() {
         });
     }
 });
+

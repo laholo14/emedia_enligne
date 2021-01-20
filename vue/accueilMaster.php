@@ -7,7 +7,7 @@
 
         <!-- preloading -->
         <div class="container-fluid preloading" id="preloading">
-            <div class="contenu-preloading">
+            <div class="contenu-preloading text-center">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -51,7 +51,7 @@
                     </div>
                     <ul class="overflow-auto liste_dashboard mt-1">
 
-                        <li id="active-video"><a href="#"><i class="fal fa-video-plus mr-3"></i><span>Video tuto</span></a></li>
+                        <li id="active-video" class="active"><a href="#"><i class="fal fa-video-plus mr-3"></i><span>Video tuto</span></a></li>
 
                         <li class="profil">
                             <div class="panel-group">
@@ -66,15 +66,15 @@
                                     <div id="collapse1" class="panel-collapse collapse">
                                         <ul class="list-group ml-3">
                                             <li class="list-group-item" id="active-profil">
-                                                <i class="fal fa-user mr-3"></i>
+                                                <i class="fal fa-user ml-2 mr-3"></i>
                                                 <span>Profil</span>
                                             </li>
                                             <li class="list-group-item" id="active-note">
-                                                <i class="fal fa-clipboard mr-3"></i>
+                                                <i class="fal fa-clipboard ml-2 mr-3"></i>
                                                 <span>Note</span>
                                             </li>
                                             <li class="list-group-item">
-                                                <i class="fal fa-credit-card mr-3"></i>
+                                                <i class="fal fa-credit-card ml-2 mr-3"></i>
                                                 <span>Paiment</span>
                                             </li>
                                         </ul>
@@ -98,15 +98,15 @@
                                     <div id="collapse2" class="panel-collapse collapse">
                                         <ul class="list-group ml-3">
                                             <li class="list-group-item" id="active-cours">
-                                                <i class="fal fa-user-graduate mr-2"></i>
+                                                <i class="fal fa-user-graduate ml-2 mr-2"></i>
                                                 <span>S1</span>
                                             </li>
                                             <li class="list-group-item" id="active-cours">
-                                                <i class="fal fa-user-graduate mr-2"></i>
+                                                <i class="fal fa-user-graduate ml-2 mr-2"></i>
                                                 <span>S2</span>
                                             </li>
                                             <li class="list-group-item" id="active-cours">
-                                                <i class="fal fa-user-graduate mr-2"></i>
+                                                <i class="fal fa-user-graduate ml-2 mr-2"></i>
                                                 <span>Nouveau cours</span>
                                             </li>
                                         </ul>
@@ -475,7 +475,7 @@
                         <div class="col-12 row table-cours" id="table-cours">
                             <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
-                                    <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
+                                    <h5 class="d-flex align-items-center">Algorithme Algorithme Algorithme Algorithme Algorithme Algorithme Algorithme</h5>
                                     <div class="button-cours">
                                         <button class="btn pl-4 pr-4 mt-2" id="active-cours-pdf">PDF</button>
                                         <button class="btn pl-3 pr-3 mt-2" id="active-cours-explication">Explication</button>
@@ -783,24 +783,24 @@
                             </div>
                         </div>
 
-                        <div class="col-12 row table-contact mt-3 text-center">
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 contact">
+                        <div class="col-12 row table-contact">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-5 contact">
                                 <h6>Pedagogique License <br> <span>0347626108</span></h6>
                             </div>
 
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4  contact">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-5 contact">
                                 <h6>Pedagogique Master <br> <span>0347626108</span></h6>
                             </div>
 
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4  contact">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-5 contact">
                                 <h6>Pedagogique MBA <br> <span>0347626108</span></h6>
                             </div>
 
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4  contact">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-5 contact">
                                 <h6>Finance <br> <span>0347626108</span></h6>
                             </div>
 
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4  contact">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-5 contact">
                                 <h6>Technique <br> <span>0347626108</span></h6>
                             </div>
                         </div>

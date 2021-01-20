@@ -11,15 +11,19 @@ require('head.html');
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 d-flex flex-column align-items-center login mt-5">
+            <div class="col-12 d-flex flex-column align-items-center login">
                 <div class="login_contenu mt-md-5 mt-lg-5 mt-xl-5">
-                    <img src="vue/image/logo/logo_E-media_enligne.png" alt="">
+                    
+                    <div class="d-flex justify-content-center logo">
+                        <img src="vue/image/logo/logo_E-media_enligne_rond.png" alt="">
+                    </div>
                     <h3 class="text-center">Se connecter</h3>
+
                     <div class="form">
                         <form action="controller/controllerLogin" method="post" class="d-flex flex-column align-items-center">
                             <div class="login_input">
-                                <div><input type="text" placeholder="Matricule" name="matricule" required></div>
-                                <div class="mt-3 mb-3"><input type="password" placeholder="Mot de passe" name="password" id="password" required></div>
+                                <div class="d-flex"><i class="fas fa-user mr-2 mt-2"></i><input type="text" placeholder="Matricule" name="matricule" required></div>
+                                <div class="d-flex mt-3 mb-3"><i class="fas fa-key mr-2 mt-2"></i><input type="password" placeholder="Mot de passe" name="password" id="password" required></div>
                                 <?php
                                 if (isset($_SESSION['erreur'])) {
                                     echo "<p style='color:white'>" . $_SESSION['erreur'] . "</p>";
