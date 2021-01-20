@@ -13,7 +13,8 @@
                     <li class="nav-item">
                         <a class="nav-link <?php echo $currentPage == 'inscription' ? 'active' : '' ?>" href="inscription.php">Inscriptions  <span class="badge badge-danger pb-2" id="count-inscription"></span></a>
                     </li>
-                    <li class="nav-item">
+                    <li class="n
+                    av-item">
                         <a class="nav-link <?php echo $currentPage == 'etudiant' ? 'active' : '' ?>" href="etudiant.php">Etudiants <span class="badge badge-success pb-2" id="count-etudiants"></span></a>
                     </li>
                     <li class="nav-item">
