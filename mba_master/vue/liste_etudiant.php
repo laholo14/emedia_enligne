@@ -2,7 +2,7 @@
 $currentPage = 'etudiant';
 require('include/header.php');
 ?>
-<link rel="stylesheet" href="css/liste_etudiant.css">
+<link rel="stylesheet" href="css/liste_etudiantMBA.css">
 <?php
 require('include/nav.php');
 ?>
@@ -70,7 +70,7 @@ require('include/nav.php');
 require('include/script.html');
 
 ?>
-
+<script src="js/liste_etudiant.js"></script>
 </body>
 
 </html>
