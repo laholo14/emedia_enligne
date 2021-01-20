@@ -132,6 +132,15 @@ class Suivre
     return $res;
   }
 
+  public function EtudiantMba()
+  {
+
+    $requete = "SELECT * FROM ETUDIANTS NATURAL JOIN SUIVRE WHERE DIPLOME = 'MASTER' AND FILIERE = 'MBA' AND CODE != 'CODE0'";
+    $query = Connexion::getCxEtudiant()->query($requete);
+    $res = $query->fetchAll();
+    $query->closeCursor();
+    return $res;
+  }
 
   public function Valider()
   {
@@ -147,6 +156,7 @@ class Suivre
     ));
     $query->closeCursor();
   }
+
   public function readAllById($id)
   {
     $requete = "SELECT * FROM SUIVRE NATURAL JOIN ETUDIANTS WHERE IDETUDIANTS = :ide";

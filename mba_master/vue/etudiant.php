@@ -186,7 +186,7 @@ require('include/nav.php');
 require('include/script.html');
 
 ?>
-
+<script src="js/etudiants.js"></script>
 </body>
 
 </html>

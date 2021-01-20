@@ -11,10 +11,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link <?php echo $currentPage == 'inscription' ? 'active' : '' ?>" href="inscription.php">Inscriptions  <span class="badge badge-danger" id="count-inscription"></span></a>
+                        <a class="nav-link <?php echo $currentPage == 'inscription' ? 'active' : '' ?>" href="inscription.php">Inscriptions  <span class="badge badge-danger pb-2" id="count-inscription"></span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php echo $currentPage == 'etudiant' ? 'active' : '' ?>" href="etudiant.php">Etudiants<span class="badge badge-success">560</span></a>
+                        <a class="nav-link <?php echo $currentPage == 'etudiant' ? 'active' : '' ?>" href="etudiant.php">Etudiants <span class="badge badge-success pb-2" id="count-etudiants"></span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php echo $currentPage == 'cours' ? 'active' : '' ?>" href="cours.php">Cours</a>
@@ -35,7 +35,7 @@
                         <a class="nav-link <?php echo $currentPage == 'scolarite' ? 'active' : '' ?>" href="scolarite.php">Scolarites</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa fa-power-off ml-4"></i></a>
+                        <a class="nav-link" href="../controller/controllerLogout"><i class="fa fa-power-off ml-4"></i></a>
                     </li>
 
                 </ul>
