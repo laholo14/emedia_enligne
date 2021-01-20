@@ -11,7 +11,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link <?php echo $currentPage == 'inscription' ? 'active' : '' ?>" href="inscription.php">Inscriptions<span class="badge badge-danger">4</span></a>
+                        <a class="nav-link <?php echo $currentPage == 'inscription' ? 'active' : '' ?>" href="inscription.php">Inscriptions  <span class="badge badge-danger" id="count-inscription"></span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php echo $currentPage == 'etudiant' ? 'active' : '' ?>" href="etudiant.php">Etudiants<span class="badge badge-success">560</span></a>

@@ -122,7 +122,8 @@ class Suivre
 
   //select des nouveaux etudiants inscri en MBA
 
-  public function NouveauxInscriMba(){
+  public function NouveauxInscriMba()
+  {
 
     $requete = "SELECT * FROM ETUDIANTS NATURAL JOIN SUIVRE WHERE DIPLOME = 'MASTER' AND FILIERE = 'MBA' AND CODE = 'CODE0'";
     $query = Connexion::getCxEtudiant()->query($requete);
@@ -132,7 +133,45 @@ class Suivre
   }
 
 
+  public function Valider()
+  {
+    $requete = "UPDATE SUIVRE set MATRICULE = :mat , MDP = :mdp , CODE = :vague , SEMESTRE = :semestre WHERE IDETUDIANTS = :ide";
+    $query = Connexion::getCxEtudiant()->prepare($requete);
+    $query->execute(array(
+      "mat" => $this->getMatricule(),
+      "mdp" => $this->getMdp(),
+      "vague" => $this->getCode(),
+      "semestre" => $this->getSemestre(),
+      "ide" => $this->getEtudiant()
 
+    ));
+    $query->closeCursor();
+  }
+  public function readAllById($id)
+  {
+    $requete = "SELECT * FROM SUIVRE NATURAL JOIN ETUDIANTS WHERE IDETUDIANTS = :ide";
+    $st = Connexion::getCxEtudiant()->prepare($requete);
+    $st->execute(array("ide" => $id));
+
+    $res = $st->fetchAll();
+    $st->closeCursor();
+    return $res;
+  }
+
+
+  public function verifymatricule()
+  {
+    $sql = "SELECT * FROM SUIVRE WHERE MATRICULE = :idm";
+    $st = Connexion::getCxEtudiant()->prepare($sql);
+    $st->execute(array(
+
+      "idm" => $this->getMatricule()
+    ));
+
+    $res = $st->fetchAll();
+    $st->closeCursor();
+    return $res;
+  }
 }
 ?>
 <?php ?>

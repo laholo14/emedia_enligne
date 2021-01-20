@@ -2,6 +2,8 @@
 session_start();
 if(!isset($_SESSION['matriculemba'])){
     header("location: ../../Abm");
+}else{
+    include_once("../model/Connexion.class.php");
 }
 ?>
 
