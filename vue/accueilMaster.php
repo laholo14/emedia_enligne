@@ -27,7 +27,7 @@
                     </div>
 
                     <div class="col-8 d-flex justify-content-end select-langue">
-                        <div class="dropdown mt-1 mr-3">
+                        <div class="dropdown mt-1 mr-5">
                             <button class="dropbtn" id="langue-button">Version cours  <i class="fad fa-angle-down float-right mt-1 ml-4"></i></button>
                             <div class="dropdown-content mt-2" id="langue-content">
                                 <a href="#" id="francais">Francais</a>
@@ -35,7 +35,7 @@
                             </div>
                         </div>
                                 
-                        <button type="button" class="btn notification" id="notification">
+                        <button type="button" class="btn-notification mr-3" id="active-notification">
                             <i class="fal fa-bell"></i> <span class="badge badge-light">4</span>
                         </button>
                    
@@ -115,7 +115,35 @@
                             </div>
                         </li>
 
-                        <li id="active-exercice"><a href="#"><i class="fal fa-edit mr-3"></i><span>Exercices</span></a></li>
+                        <li class="exercice">
+                            <div class="panel-group">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <a data-toggle="collapse" href="#collapse3">
+                                            <i class="fal fa-edit mr-3"></i>
+                                            <span>Exercices</span>
+                                            <i class="fad fa-angle-down float-right mt-3 mr-2"></i>
+                                        </a>
+                                    </div>
+                                    <div id="collapse3" class="panel-collapse collapse">
+                                        <ul class="list-group ml-3">
+                                            <li class="list-group-item" id="active-exercice">
+                                                <i class="fal fa-user-graduate ml-2 mr-2"></i>
+                                                <span>S1</span>
+                                            </li>
+                                            <li class="list-group-item" id="active">
+                                                <i class="fal fa-user-graduate ml-2 mr-2"></i>
+                                                <span>S2</span>
+                                            </li>
+                                            <li class="list-group-item" id="active">
+                                                <i class="fal fa-user-graduate ml-2 mr-2"></i>
+                                                <span>Nouveau exercice</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                         
                         <li id="active-chat"><a href="#"><i class="fal fa-comments-alt mr-3"></i><span>Nous vous ecoutons</span></a></li>
                     
@@ -475,7 +503,7 @@
                         <div class="col-12 row table-cours" id="table-cours">
                             <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
                                 <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
-                                    <h5 class="d-flex align-items-center">Algorithme Algorithme Algorithme Algorithme Algorithme Algorithme Algorithme</h5>
+                                    <h5 class="d-flex align-items-center">Algorithme Algorithme Algorithme Algorithme</h5>
                                     <div class="button-cours">
                                         <button class="btn pl-4 pr-4 mt-2" id="active-cours-pdf">PDF</button>
                                         <button class="btn pl-3 pr-3 mt-2" id="active-cours-explication">Explication</button>
@@ -855,6 +883,26 @@
 
                     <div class="col-12 affiche-exercice-corrige overflow-auto mt-1 pt-3">
                         <iframe width="100%" height="500" src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <!-- contenu-notification -->
+                <div class="col-12 contenu-notification mt-5" id="contenu-notification" >
+                    <h4 class="d-flex justify-content-center mt-4">Examen dans:</h4>
+                    <div class="d-flex justify-content-center">
+                        <div class="date text-center"><div class="bloc1 d-flex justify-content-center align-items-center" id="jours">20</div> <div class="bloc2"><p>Jours</p></div> </div>
+                        <div class="date text-center"><div class="bloc1 d-flex justify-content-center align-items-center" id="heures">12</div> <div class="bloc2"><p>HR</p></div> </div>
+                        <div class="date text-center"><div class="bloc1 d-flex justify-content-center align-items-center" id="minutes">53</div> <div class="bloc2"><p>MIN</p></div> </div>
+                        <div class="date text-center"><div class="bloc1 d-flex justify-content-center align-items-center" id="secondes">23</div> <div class="bloc2"><p>SEC</p></div> </div>
+                    </div>
+                    <button class="btn-details-examen" id="btn-details-examen">Details</button>
+
+                    <h4 class="d-flex justify-content-center mt-5">Paiments dans:</h4>
+                    <div class="d-flex justify-content-center">
+                        <div class="date text-center"><div class="bloc1 d-flex justify-content-center align-items-center" id="jours">20</div> <div class="bloc2"><p>Jours</p></div> </div>
+                        <div class="date text-center"><div class="bloc1 d-flex justify-content-center align-items-center" id="heures">12</div> <div class="bloc2"><p>HR</p></div> </div>
+                        <div class="date text-center"><div class="bloc1 d-flex justify-content-center align-items-center" id="minutes">53</div> <div class="bloc2"><p>MIN</p></div> </div>
+                        <div class="date text-center"><div class="bloc1 d-flex justify-content-center align-items-center" id="secondes">23</div> <div class="bloc2"><p>SEC</p></div> </div>
                     </div>
                 </div>
 

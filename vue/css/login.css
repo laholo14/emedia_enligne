@@ -29,11 +29,11 @@ body::before {
 }
 
 .login .logo {
-    margin-top: -6rem;
+    margin-top: -5rem;
 }
 
 .login img {
-    height: 180px;
+    height: 120px;
     width: auto;
 }
 
@@ -51,7 +51,7 @@ body::before {
     height: 35px;
     background: none;
     border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.253);
+    border-bottom: 1px solid #0185b4;
     color: rgba(0, 0, 0, 0.842) ;
 }
 
@@ -88,10 +88,18 @@ body::before {
     border: none;
 }
 
+.login_button_sinscrire:hover a {
+    background-color: #0185b4;
+}
+
 .login_button_seconnecter input {
     color: #fff;
-    background-color: #0185b4;
+    background-color: #0ea00e;
     border: none;
+}
+
+.login_button_seconnecter input:hover {
+    background-color: #0ea00e;
 }
 
 /*responsive*/

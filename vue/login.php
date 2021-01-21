@@ -15,7 +15,7 @@ require('head.html');
                 <div class="login_contenu mt-md-5 mt-lg-5 mt-xl-5">
                     
                     <div class="d-flex justify-content-center logo">
-                        <img src="vue/image/logo/logo_E-media_enligne_rond.png" alt="">
+                        <img src="vue/image/logo/logo_E-media_enligne.png" alt="">
                     </div>
                     <h3 class="text-center">Se connecter</h3>
 
