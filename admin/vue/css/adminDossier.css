@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+h1{
+    color: #007bff;
+    letter-spacing: 4px;
+    font-size: 25px;
+    text-align: center;
+    margin-top: 70px !important;
+}
+
+.form1{
+    color: gray;
+    text-align: center;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+form select{
+    color: #007bff !important;
+    
+}
+
+table thead tr th{
+    background: #007bff;
+    color: white;
+}
+
+tbody tr td button{
+    border: 1px solid #007bff;
+    width: 60%;
+    height: 60%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+tbody tr td button:hover{
+    background: #007bff;
+}
+.search{
+    float: right;
+    overflow: hidden;
+    border-top: none;
+}
+
+form #search{
+    border-radius: 5px !important;
+    border: 1px solid grey;
+}
