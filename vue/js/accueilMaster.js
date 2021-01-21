@@ -3,6 +3,20 @@ $(document).ready(function() {
     $("#preloading").delay(3000).fadeOut("slow");
     $("#universite-Emedia").delay(3100).fadeIn("slow");
 
+    //afficher notification
+    $("#active-notification").click(function () {
+        $("#contenu-notification").modal({
+            fadeDuration: 100
+        }); 
+    });
+
+    //details examen
+    $("#btn-details-examen").click(function () {
+        $("#contenu-examen").modal({
+            fadeDuration: 100
+        }); 
+    });
+
     //afficher contenu-video
     $("#active-video").click(function() {
         $("#contenu-video").fadeIn();

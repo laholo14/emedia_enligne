@@ -133,73 +133,27 @@ body {
     color: #0185b4;
 }
 
-.notification i {
+.btn-notification {
+    background-color: #fff;
+    border: none;
+}
+
+.btn-notification:focus {
+    outline: none;
+}
+
+.btn-notification i {
     font-size: 30px;
     color: rgb(95, 93, 93);
 }
 
-.notification span {
+.btn-notification span {
     background-color: red;
     color: #fff;
     border-radius: 50%;
     margin-left: -15px;
 }
 
-.logout-btn {
-    background-color: #fff;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-  
-.logout {
-    position: relative;
-    display: inline-block;
-}
-  
-.logout-content {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    width: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    top: 8px;
-    left: -110px;
-    transition: .5s all ease;
-}
-
-.logout-content::after {
-    content: "\25Ba";
-    font-size: 1.5rem;
-    position: absolute;
-    top: -3px;
-    right: -2.5rem;
-    padding: 0 1em;
-    color: #fff;
-    cursor: pointer;
-    pointer-events: none;
-    -webkit-transition: 0.25s all ease;
-    -o-transition: 0.25s all ease;
-    transition: 0.25s all ease;
-}
-  
-.logout-content span {
-    color: rgba(204, 25, 25, 1);
-    padding: 4px;
-    text-decoration: none;
-    display: block;
-}
-  
-.logout:hover .logout-content {
-    display: block;
-}
-  
-.logout i {
-    font-size: 25px;
-    color: rgba(204, 25, 25, 1);
-}
 /* mobile navbar */
 @media (min-width: 200px) and (max-width: 991.9px) {
     .logo {
@@ -291,36 +245,33 @@ body {
 }
 
 .dashboard .active {
-    background-color: #fff;
+    background-color: #acb7bb7a;
 }
 
 .dashboard .active a {
-    color: #000000b7 !important;
+    color: #fff !important;
 }
 
 .dashboard .active:hover a {
     color: #fff !important;
 }
 
-.dashboard .cours ul li, .dashboard .profil ul li {
+.dashboard .cours ul li, .dashboard .profil ul li, .dashboard .exercice ul li {
     background-color: transparent !important;
     padding-left: 10px;
     border-radius: 0;
 }
 
-.dashboard .cours ul .active, .dashboard .profil ul .active {
-    background-color: #fff !important;
+.dashboard .cours ul .active, .dashboard .profil ul .active, .dashboard .exercice ul .active {
+    background-color: #acb7bb7a !important;
+    color: #fff !important;
 }
 
-.dashboard .cours ul .active, .dashboard .profil ul .active {
-    color: #000000b7 !important;
+.dashboard .cours ul .active:hover, .dashboard .profil ul .active:active, .dashboard .exercice ul .active:active {
+    color: #fff !important;
 }
 
-.dashboard .cours ul .active:hover, .dashboard .profil ul .active:active {
-    color: #000000b7 !important;
-}
-
-.dashboard .cours ul .list-group-item, .dashboard .profil ul .list-group-item {
+.dashboard .cours ul .list-group-item, .dashboard .profil ul .list-group-item, .dashboard .exercice ul .list-group-item {
     padding: 0rem !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.089);
     border-top: none;
@@ -934,6 +885,11 @@ strong{
     display: none;
 }
 
+.contenu-cours-explication {
+    background-color: #fff;
+    height: auto;
+}
+
 .contenu-cours-pdf {
     margin-top: 4rem !important;
 }
@@ -961,7 +917,7 @@ strong{
 
 .contenu-cours-explication iframe {
     width: 100%;
-    height: 500px;
+    height: 400px;
 }
 
 .modal a.close-modal {
@@ -1069,6 +1025,11 @@ strong{
     display: none;
 }
 
+.contenu-exercice-explication {
+    background-color: #fff;
+    height: auto;
+}
+
 .contenu-exercice-pdf, .contenu-exercice-corrige {
     margin-top: 4rem;
 }
@@ -1096,7 +1057,7 @@ strong{
 
 .contenu-exercice-explication iframe {
     width: 100%;
-    height: 500px;
+    height: 400px;
 }
 
 @media (min-width: 100px) and (max-width: 575.9px) {
@@ -1271,6 +1232,46 @@ strong{
 
 }
 /* fin contact */
+
+/* contenu-notification */
+.contenu-notification {
+    background-color: #fff;
+    width: 80%;
+    height: auto;
+}
+
+.contenu-notification h4 {
+    color: #000000b7;
+    font-weight: bold;
+}
+
+.contenu-notification .date .bloc1 {
+    margin: 2px 2px 2px 2px;
+    width: 80px;
+    height: 100px;
+    background: #0185b4;
+    color: #fff;
+    font-size: 2rem;
+}
+
+.contenu-notification .date .bloc2 {
+    margin: 0 0 0 2px;
+    background-color: #0184b4c5;
+    width: 80px;
+    color: #fff;
+    filter: blur(.5px);
+    -webkit-filter: blur(.5px);
+}
+
+.contenu-notification .btn-details-examen {
+    float: right;
+    padding: 4px 1rem 4px 1rem;
+    border-radius: 50px;
+    background-color: #fff;
+    border: 1px solid #0184b4c5;
+    color: #0184b4c5;
+    outline: none;
+}
 
 /* fin section */
 
