@@ -3,6 +3,7 @@ $(document).ready(function () {
     setInterval(countEtudiants,1000);
     countEtudiants();
     countInscription();
+    
  //countinsription
     function countInscription() {
         $.ajax({
