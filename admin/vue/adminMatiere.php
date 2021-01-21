@@ -35,6 +35,15 @@ if (!isset($_SESSION['matriculeadmin'])) {
     <form class="intitule text-center mt-3" method="POST">
         <label><b>L'intitulé de l'EC:</b></label>
         </br>
+
+        <select name="" id="select-UE" class="select-UE">
+            <option value="">TIC</option>
+            <option value="">CAN</option>
+            <option value="">MPJ</option>
+            <option value="">CFP</option>
+            <option value="">UE1</option>
+        </select>
+
         <input type="text" id='matiere' name='matiere' />
         <input class="ajout btn btn-primary" type='submit' id='ajoutmat' value='Ajouter' name='ajoutmat' />
     </form>

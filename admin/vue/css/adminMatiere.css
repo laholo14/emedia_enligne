@@ -27,6 +27,14 @@ h1{
 
 }
 
+.intitule .select-UE {
+    background-color: #fff;
+    border: 1px solid rgb(65, 63, 63);
+    border-radius: 5px;
+    width: 250px;
+    height: 35px;
+}
+
 .ajout{
     background: #06a1d1;
     border: 1px solid #06a1d1;
