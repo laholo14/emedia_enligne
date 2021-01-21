@@ -1,0 +1,45 @@
+#sidebar-container{
+    min-height: 100vh;
+      margin-left: -15rem;
+    transition: margin .25s easy-in-out;
+}
+#logo{
+    width: 12rem;
+}
+#sidebar-container .logo{
+  padding: 0.875rem 1.25rem;
+}
+#sidebar-container .logo{
+    padding: 0.875rem 1.25rem;
+}
+#sidebar-container .menu{
+    width: 15rem;
+}
+#content-wrapper.toggled #sidebar-container {
+    margin-left: 0;
+}
+.bg{
+    background-color: #f1f1f1;
+}
+.option{
+    background-color: #15bce1cb;
+    border-radius: 0rem !important;
+    color: white;
+    border-radius: 0.5rem !important;
+}
+.option:hover{
+    background-color: #189cd0cc;
+    color: white;
+}
+  @media (min-width: 768px) {
+    #sidebar-container {
+      margin-left: 0;
+    }
+    #page-container {
+        min-width: 0;
+        width: 100%;
+    }
+    #content-wrapper.toggled #sidebar-container {
+      margin-left: -15rem;
+    }
+  }

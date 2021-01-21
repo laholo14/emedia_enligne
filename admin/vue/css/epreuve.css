@@ -1,0 +1,147 @@
+@font-face {
+  font-family: "Raleway";
+  src: url("../FONT/Raleway-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Jajo";
+  src: url("../FONT/ResotYgPERSONALUSE.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Raleway ebold";
+  src: url("../FONT/Raleway-ExtraBold.ttf") format("truetype");
+}
+
+body {
+    
+    background: linear-gradient(-90deg, #E9EBEF, #d3d6da) !important;
+   
+}
+
+.shadow-lg {
+    background-color: darkred;
+}
+
+h2 {
+    color: #f9f9f9;
+}
+
+/*timer*/
+.countdown {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+  
+.countdown span {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 0.5rem;
+    margin-left: 0.8rem;
+}
+  
+.countdown span:first-of-type {
+    margin-left: 0;
+}
+  
+.countdown-circles {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+  
+.countdown-circles span {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+  
+.countdown-circles span:first-of-type {
+    margin-left: 0;
+}
+  
+.bg-gradient-4 {
+    background: #007991;
+    background: -webkit-linear-gradient(to right, #007991, #15bce1cb);
+    background: linear-gradient(to right, #007991, #15bce1cb);
+}
+  
+.rounded {
+    border-radius: 1rem !important;
+}
+
+/*cqcm*/
+
+
+.qcm {
+    height: 90vh !important;
+    position: relative;
+}
+
+.redaction {
+    height: 90vh !important;
+    position: relative;
+}
+
+.suggestion {
+ font-weight: 50 !important;
+}
+
+.envoyer {
+    background-color: darkred !important;
+    float: right;
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0 !important;
+    filter: alpha(opacity=0);
+}
+.input-group-btn{
+    cursor: pointer;
+}
+
+/*responsive*/
+@media (min-width:200px) and (max-width:767px) {
+    .qcm {
+        margin-top: -1rem !important;
+        height: 60vh !important;
+    }
+
+    .redaction {
+      margin-top: -1rem !important;
+      height: 60vh !important;
+    }
+}
+
+@media (min-width:421px) and (max-width:627px) {
+    .timer-redaction {
+        margin-top: 5rem !important;
+    }
+}
+
+@media (min-width:200px) and (max-width:420px) {
+  .timer-redaction {
+      margin-top: 7rem !important;
+  }
+}
+
+
+
+
+  
+  

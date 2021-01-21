@@ -1,0 +1,87 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+}
+
+h1{
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 25px;
+    color: #007bff;
+}
+
+.ajoutinsert{
+    border: 1px solid #007bff;
+    background: #007bff;
+    color: white;
+}
+
+.ajoutinsert:hover{
+    background: white !important;
+    color: #007bff;
+}
+
+.h5{
+    color: #007bff !important;
+}
+
+.modal-body{
+    color: grey;
+}
+
+select{    
+  
+    width: 25rem;
+    cursor: pointer;
+}
+
+#ajouter{
+    background: #007bff;
+    border: none !important;
+}
+
+.edit{
+    border: 1px solid #007bff;
+}
+
+.edit:hover{
+    background: #007bff!important;
+}
+
+.master.active{
+    background: rgb(14, 126, 14) !important;
+}
+
+.nav-tabs1 .nav-link{
+    color: white;
+    background-color: #007bff;
+    border-color: #dee2e6 #dee2e6 #fff;
+}
+
+.nav-tabs1 .nav-link.active {
+    color: #007bff;
+    background-color: white;
+    border-color: #dee2e6 #dee2e6 #fff;
+}
+
+.nav-tabs2 .nav-link{
+    color: white;
+    background-color: rgb(14, 126, 14);
+    border-color: #dee2e6 #dee2e6 #fff;
+}
+
+.nav-tabs2 .nav-link.active {
+    color: rgb(14, 126, 14);
+    background-color: white;
+    border-color: #dee2e6 #dee2e6 #fff;
+}
+
+table thead tr th{
+    color: gray;
+}
+form #search,#searchm{
+    border-radius: 5px !important;
+    border: 1px solid grey;
+}
