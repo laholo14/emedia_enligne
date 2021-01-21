@@ -1,0 +1,65 @@
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    a{
+        color: unset;
+        text-decoration: none;
+    }
+    body,html{
+        background-color: #bbb!important;
+        scroll-behavior: smooth;
+        position: relative;
+        overflow-x: hidden;
+    }
+    #Status .titre_inscriptions h2{
+        color: white;
+        font-weight: 400;
+        border-bottom: 2px solid white;
+        width: 450px;
+        text-transform: uppercase;
+        padding-bottom: 10px;
+        }
+    #Status .bloc_status{
+        background: white;
+
+    }
+  
+    #Status  .card-body{
+        background: white;
+    }
+    #Status .card-header-mba{
+        background-image: linear-gradient(to right top, #1906e9, #007bff, #00aaff, #00cfad, #12eb4a);
+       height: 85px;
+       width: 85px;
+       border-radius: 50%;
+       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+       margin-top: -50px;
+   }
+   
+   
+   #Status .card-header-mba h5 {
+       color: white;
+       margin-top: 29px;
+   }
+   
+
+   #Status .card{
+       border:none !important;
+       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+       transition: 0.5s;
+       margin-bottom: 20px;
+   }
+   #Status .card:hover{
+       transform: scale(1.1);
+   }
+   
+   #Status .card .card-body .boutton{
+   
+       background-color: #007bff;
+       color: white;
+       margin-top: 10px;
+   
+   }

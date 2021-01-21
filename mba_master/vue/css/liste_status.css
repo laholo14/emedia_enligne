@@ -1,0 +1,29 @@
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    a{
+        color: unset;
+        text-decoration: none;
+    }
+    body,html{
+        background-color: #bbb!important;
+        scroll-behavior: smooth;
+        position: relative;
+        overflow-x: hidden;
+    }
+    #Status_liste .bloc_status{
+        background: white;
+
+    }
+    #Status_liste .bloc_status i{
+        margin-left: 20px;
+    }
+    #Status_liste .bloc_status .actif{
+        color: chartreuse;
+    }
+    #Status_liste .bloc_status .inactif{
+        color: red;
+    }
