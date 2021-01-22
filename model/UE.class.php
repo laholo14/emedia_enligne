@@ -25,7 +25,7 @@ public function setIdue($idue){
 public function setIntituleue($intituleue){
     $this->intituleue = $intituleue;
 }
-
+ 
     public function create() {
         $db=Connexion::getCx();
         $requete = "INSERT INTO UE VALUES(null, :intituleue)";
@@ -40,7 +40,7 @@ public function setIntituleue($intituleue){
         $requete = "SELECT * FROM UE WHERE IDUE = :idue";
         $st = $db->prepare($requete);
         $st->execute(array(
-            "ide" => $this->getIdue()
+            "idue" => $this->getIdue()
         ));
         $resultat = $st->fetchAll();
         $st->closeCursor();
@@ -71,6 +71,17 @@ public function setIntituleue($intituleue){
         $st->execute(array(
             "idue" => $this->getIdue()
         ));
+    }
+    public function readIdUe($nom) {
+        $db=Connexion::getCx();
+        $requete = "SELECT * FROM UE WHERE INTITULEUE = :intitule";
+        $st = $db->prepare($requete);
+        $st->execute(array(
+            "intitule" => $nom
+        ));
+        $resultat = $st->fetchAll();
+        $st->closeCursor();
+        return $resultat;
     }
 }
 ?>

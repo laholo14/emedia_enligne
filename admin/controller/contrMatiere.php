@@ -48,7 +48,8 @@ if (isset($_POST['search'])) {
         <thead>
             <tr class="col-md-12">
                 <th>Numéro</th>
-                <th class="col-8">Intitulé</th>
+                <th class="col-4">Intitulé</th>
+                <th class="col-4">Unité d\'enseignement</th>
                 <th>Modifier</th>
                 
             </tr>
@@ -57,18 +58,26 @@ if (isset($_POST['search'])) {
     $res = $matiere->search($search . '%');
 
     foreach ($res as $resultat) {
-        $table .= '<tbody>
-            <tr class="col-md-12">
-                <td>' . $resultat['IDMATIERE'] . '</td>
-                <td>' . $resultat['INTITULE'] . '</td>
-                <td> <button class="btn btn-outline-primary edit" data-toggle="modal" data-target="#Updata" onclick="GetUser(' . $resultat['IDMATIERE'] . ')"><img src="image/edit.png" width="30px" height="30px" alt=""></button></td>
-            </tr>
-         </tbody>';
+        $ue=new UE();
+        $ue->setIdue($resultat['IDUE']);
+        $res1=$ue->readById();
+        foreach($res1 as $resultat1){
+            $table .= '<tbody>
+                <tr class="col-md-12">
+                    <td>' . $resultat['IDMATIERE'] . '</td>
+                    <td>' . $resultat['INTITULE'] . '</td>
+                    <td>' . $resultat1['INTITULEUE'] . '</td>
+                    <td> <button class="btn btn-outline-primary edit" data-toggle="modal" data-target="#Updata" onclick="GetUser(' . $resultat['IDMATIERE'] . ')"><img src="image/edit.png" width="30px" height="30px" alt=""></button></td>
+                </tr>
+            </tbody>';
+        }
     }
     $table .= '</table>';
     echo $table;
 }
 
+
+//update
 if (isset($_POST['action']) and isset($_POST['id'])) {
 
     extract($_POST);
@@ -88,12 +97,13 @@ if (isset($_POST['action']) and isset($_POST['id'])) {
 }
 
 
-if (isset($_POST['intituleup']) and isset($_POST['idup'])) {
+if (isset($_POST['intituleup']) and isset($_POST['idup']) and isset($_POST['upidue'])) {
 
     extract($_POST);
 
     $matiere->setIntitule($intituleup);
     $matiere->setId_matiere($idup);
+    $matiere->setIdUe($upidue);
     $matiere->update();
 }
 ?>
