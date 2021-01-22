@@ -1,4 +1,10 @@
+@font-face {
+    font-family: "Jajo";
+    src: url("../FONT/ResotYgPERSONALUSE.ttf") format("truetype");
+}
+
 body {
+    font-family: Garamond, serif;
     overflow-x: hidden;
     background-color: #fff;
 } 
@@ -16,12 +22,13 @@ body::before {
 
 .login {
     position: relative;
-    margin-top: 6rem;
+    margin-top: 5.5rem;
     z-index: 999;
 }
 
 .login .login_contenu {
     width: 50%;
+    height: 60vh;
     background-color: #fff;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1), -2px -2px 2px 2px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -38,7 +45,7 @@ body::before {
 }
 
 .login h3 {
-    color: #000;
+    color: #0185b4;
     font-weight: bold;
 }
 
@@ -51,7 +58,7 @@ body::before {
     height: 35px;
     background: none;
     border: none;
-    border-bottom: 1px solid #0185b4;
+    border-bottom: 1px solid #ddd;
     color: rgba(0, 0, 0, 0.842) ;
 }
 

@@ -17,9 +17,9 @@ require('head.html');
                     <div class="d-flex justify-content-center logo">
                         <img src="vue/image/logo/logo_E-media_enligne.png" alt="">
                     </div>
-                    <h3 class="text-center">Se connecter</h3>
+                    <h3 class="text-center mt-5">Se connecter</h3>
 
-                    <div class="form">
+                    <div class="form mt-4">
                         <form action="controller/controllerLogin" method="post" class="d-flex flex-column align-items-center">
                             <div class="login_input">
                                 <div class="d-flex"><i class="fas fa-user mr-2 mt-2"></i><input type="text" placeholder="Matricule" name="matricule" required></div>
