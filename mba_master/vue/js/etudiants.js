@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    listVaguedate();
 
     function ajoutVague() {
         if ($("#ajout_vague").val() != "") {
@@ -25,6 +26,20 @@ $(document).ready(function () {
 
     });
 
-    
+    function listVaguedate() {
+        $.ajax({
+            url: "../controller/controllerListVagueDate.php",
+            type: "POST",
+            data: {
+                listVagueAcordion: ""
+            },
+            success: function (data) {
+                $("#listVagueAccordion").html(data);
+            }
+        })
+    }
 
+    $("body").mousemove(function (e) {
+        listVaguedate();
+    })
 });
