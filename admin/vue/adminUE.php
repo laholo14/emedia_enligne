@@ -1,3 +1,27 @@
+<?php
+
+ob_start();
+
+session_start();
+ 
+function loadclass($class)
+{
+
+    require "../../model/" . $class . '.class.php';
+}
+
+spl_autoload_register("loadclass");
+
+$connexion = new Connexion();
+
+$base=Connexion::getCx();
+
+if (!isset($_SESSION['matriculeadmin'])) {
+
+    header("location:../admin/index.php");
+}
+
+?>
 <!DOCTYPE html>
 
 <head>
@@ -71,3 +95,9 @@
 </body>
 
 </html>
+
+<?php
+
+ob_end_flush();
+
+?>

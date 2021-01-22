@@ -4,11 +4,13 @@
         
         private $id_matiere;
         private $intitule;
+        private $idUe;
    
 
         public function __construct(){
             $this->id_matiere;
             $this->intitule;
+            $this->idUe;
            
         }
 
@@ -19,6 +21,9 @@
         public function setIntitule($intitule){
             $this->intitule = $intitule;
         }
+        public function setIdUe($idUe){
+            $this->idUe=$idUe;
+        }
 
 
         
@@ -27,6 +32,9 @@
         }
         public function getIntitule(){
           return $this->intitule;
+        }
+        public function getIdUe(){
+            return $this->idUe;
         }
 
       
