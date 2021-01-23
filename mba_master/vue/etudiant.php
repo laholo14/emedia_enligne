@@ -79,7 +79,7 @@ require('include/nav.php');
                                                                 <input type="date" class="form-control" id="<?php echo 'datevague' . $resultat['IDDATYFIDIRANA']; ?>" value="" name="">
                                                             </div>
                                                             <div class="form-group  mb-2">
-                                                                <input type="submit" class="btnajoutdate btn btn-outline-info" id="" value="Ajouter|Modifier" onclick="GetIDDATY(<?php echo $resultat['IDDATYFIDIRANA'];?>,'<?php echo 'datevague' . $resultat['IDDATYFIDIRANA']; ?>')" />
+                                                                <input type="submit" class="btnajoutdate btn btn-outline-info" id="" value="Ajouter|Modifier" onclick="GetIDDATY(<?php echo $resultat['IDDATYFIDIRANA']; ?>,'<?php echo 'datevague' . $resultat['IDDATYFIDIRANA']; ?>')" />
                                                             </div>
                                                         </form>
                                                     </div>
@@ -96,64 +96,47 @@ require('include/nav.php');
                         </div>
                     </div>
                 </div>
+
                 <div class="col-12 col-sm-12 col-md-8 col-lg-8">
                     <div class="card_vague">
                         <div class="row">
-                            <div class="col-6 col-sm-6 col-md-4 col-lg-4">
+                            <?php $vague = new Code();
+                            $res = $vague->listVague();
+                            $suivre = new Suivre();
+                            $suivre->setDip("MASTER");
+                            $suivre->setFiliere("MBA");
+                            
+                            foreach ($res as $resultat) {
+                                $suivre->setCode($resultat['CODE']);
+                                foreach($suivre->ListEtudiantParVague() as $d){  $semestre = $d['SEMESTRE'];}
+                            ?>
 
-                                <div class="card p-2 ml-5 mt-5 " style="width: 9rem;">
-                                    <div class="col d-flex justify-content-center">
-                                        <div class="card-header-mba ">
-                                            <h5 class="text-center">MBA</h5>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="card-body">
-                                        <h5 class="text-center">V1 <span class="badge badge-danger">4</span></h5>
+                                <div class="col-6 col-sm-6 col-md-4 col-lg-4">
+                                    <div class="card p-2 ml-5 mt-5 " style="width: 9rem;">
                                         <div class="col d-flex justify-content-center">
-                                            <a href="liste_etudiant.php" class="btn boutton">Lire</a>
+                                            <div class="card-header-mba ">
+                                                <h5 class="text-center"><?php echo $resultat['CODE']; ?></h5>
+
+                                            </div>
                                         </div>
 
+                                        <div class="card-body">
+                                            <h5 class="text-center"><?php  echo $semestre ?> <span class="badge badge-danger"><?php echo count($suivre->ListEtudiantParVague()); ?></span></h5>
+                                            <form action="liste_etudiant.php" method="POST">
+                                                <div class="col d-flex justify-content-center">
+                                                    <input type="hidden" name="diplome" value="MASTER">
+                                                    <input type="hidden" name="filiere" value="MBA">
+                                                    <input type="hidden" name="semestre" value="<?php echo $semestre; ?>">
+                                                    <input type="hidden" name="vague" value="<?php echo $resultat['CODE']; ?>">
+                                                   <input type="submit" class="btn btn-outline-info mt-3" value="Lire" />
+                                                </div>
+                                            </form>
+
+
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-6 col-sm-6 col-md-4 col-lg-4">
-                                <div class="card p-2 ml-5 mt-5 " style="width: 9rem;">
-                                    <div class="col d-flex justify-content-center">
-                                        <div class="card-header-mba ">
-                                            <h5 class="text-center">MBA</h5>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="card-body">
-                                        <h5 class="text-center">V2 <span class="badge badge-danger">4</span></h5>
-                                        <div class="col d-flex justify-content-center">
-                                            <a href="liste_etudiant.php" class="btn boutton">Lire</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-sm-6 col-md-4 col-lg-4">
-                                <div class="card p-2 ml-5 mt-5 " style="width: 9rem;">
-                                    <div class="col d-flex justify-content-center">
-                                        <div class="card-header-mba ">
-                                            <h5 class="text-center">MBA</h5>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="card-body">
-                                        <h5 class="text-center">V3 <span class="badge badge-danger">4</span></h5>
-                                        <div class="col d-flex justify-content-center">
-                                            <a href="liste_etudiant.php" class="btn boutton">Lire</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>

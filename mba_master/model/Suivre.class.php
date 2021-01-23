@@ -142,6 +142,23 @@ class Suivre
     return $res;
   }
 
+  public function ListEtudiantParVague()
+  {
+
+    $requete = "SELECT * FROM ETUDIANTS NATURAL JOIN SUIVRE WHERE DIPLOME = :diplome AND FILIERE = :filiere AND CODE = :vague ORDER BY MATRICULE ASC";
+    $query = Connexion::getCxEtudiant()->prepare($requete);
+    $query->execute(array(
+      "diplome" => $this->getDip(),
+      "filiere" => $this->getFiliere(),
+      "vague" => $this->getCode()
+    ));
+    $res = $query->fetchAll();
+    $query->closeCursor();
+    return $res;
+  }
+
+
+
   public function Valider()
   {
     $requete = "UPDATE SUIVRE set MATRICULE = :mat , MDP = :mdp , CODE = :vague , SEMESTRE = :semestre WHERE IDETUDIANTS = :ide";
