@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-    listVaguedate();
 
     function ajoutVague() {
         if ($("#ajout_vague").val() != "") {
@@ -26,20 +25,38 @@ $(document).ready(function () {
 
     });
 
-    function listVaguedate() {
-        $.ajax({
-            url: "../controller/controllerListVagueDate.php",
+
+    $(".btnajoutdate").click(function (e) {
+
+        e.preventDefault();
+        let id =$("#idvaluedaty").val();
+        $.ajax(({
+            url: "../controller/controllerAjoutDate.php",
             type: "POST",
             data: {
-                listVagueAcordion: ""
+                iddaty: $("#iddaty").val(),
+                datyvalue: $("#"+id+"").val()
             },
             success: function (data) {
-                $("#listVagueAccordion").html(data);
+                alert(data);
+                location.reload();
             }
-        })
-    }
+        }))
+  
 
-    $("body").mousemove(function (e) {
-        listVaguedate();
-    })
+    });
+
 });
+
+
+function GetIDDATY(iddaty,daty) {
+    $("#iddaty").val(iddaty);
+    $("#idvaluedaty").val(daty);
+
+
+
+}
+
+
+
+
