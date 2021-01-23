@@ -11,6 +11,7 @@ spl_autoload_register("loadclass");
 $db = new Connexion();
 
 $matiere = new Matiere();
+$ue=new UE();
 /*if(isset($_POST['tabmat'])){
 
     $table =' <div class="table-responsive mt-3">
@@ -58,7 +59,6 @@ if (isset($_POST['search'])) {
     $res = $matiere->search($search . '%');
 
     foreach ($res as $resultat) {
-        $ue=new UE();
         $ue->setIdue($resultat['IDUE']);
         $res1=$ue->readById();
         foreach($res1 as $resultat1){
@@ -89,6 +89,7 @@ if (isset($_POST['action']) and isset($_POST['id'])) {
         $res = $matiere->listMatiere_id();
 
         foreach ($res as $row) {
+            $output['ue']=$row['IDUE'];
             $output['matiere'] = $row['INTITULE'];
         }
 
