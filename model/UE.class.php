@@ -35,6 +35,33 @@ public function setIntituleue($intituleue){
         ));
         $st->closeCursor();
     }
+    public function search($search){
+        $db=Connexion::getCx();
+
+        $requete = "SELECT * FROM UE WHERE INTITULEUE LIKE :search ORDER BY INTITULEUE ASC";
+        $st = $db->prepare($requete);
+        $st->execute(array("search"=> $search 
+                                                        
+        ));
+        $res=$st->fetchAll();
+        $st->closeCursor();
+        return $res;
+
+        
+    }
+    public function verify(){
+        $db=Connexion::getCx();
+        $sql="SELECT COUNT(*) FROM UE WHERE INTITULEUE = :idue";
+        $st=$db->prepare($sql);
+        $st->execute(array(
+
+            "idue" => $this->getIdue()
+        ));
+
+        $res=$st->fetchAll();
+        $st->closeCursor();
+        return $res;
+    }
     public function readById() {
         $db=Connexion::getCx();
         $requete = "SELECT * FROM UE WHERE IDUE = :idue";
@@ -83,5 +110,21 @@ public function setIntituleue($intituleue){
         $st->closeCursor();
         return $resultat;
     }
+    public function listUe_id(){
+        $db=Connexion::getCx();
+
+        $requete = "SELECT * FROM UE where IDUE = :idue ORDER BY IDUE ASC";
+
+        $st = $db->prepare($requete);
+        $st->execute(array("idue"=> $this->getIdue()
+                                                        
+        ));
+        $res=$st->fetchAll();
+        $st->closeCursor();
+        return $res;
+
+        
+    }
+
 }
 ?>

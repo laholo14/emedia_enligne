@@ -179,6 +179,7 @@ if (!isset($_SESSION['matriculeadmin'])) {
             success: function(data) {
 
                 $('#matiereup').val(data.matiere);
+                $('#ue1').val(data.ue);
 
             }
         });
@@ -206,7 +207,6 @@ if (!isset($_SESSION['matriculeadmin'])) {
                     alert("Modification reussi...");
                     readMat();
                     recherche();   
-                    alert(data) 
                 }
             });
 
