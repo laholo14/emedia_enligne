@@ -1,3 +1,4 @@
+@import "mixin.scss";
 $text-primary:rgb(4, 5, 24);
 $background: #3743eeba;
 
@@ -9,6 +10,14 @@ $background: #3743eeba;
         color: unset;
         cursor: pointer;
     }
+}
+%form{
+    width:90%;
+    padding: 20px;
+    border: 1px solid grey;
+    box-sizing: border-box;
+    margin: 40px 0px;
+    position: relative;
 }
 body{
     padding: 0;
@@ -22,9 +31,19 @@ body{
     flex-direction: row;
 
     section{
+        padding: 20px;
         flex-grow: 1;
         background-color: rgb(255, 254, 254);
         height: 500px;
+    }
+    .fieldset{
+        @include fieldsetTitle;
+    }
+    .fieldinput{
+        @include fieldinput;
+    }
+    input[type="button"]{
+        @include button;
     }
 }
 
