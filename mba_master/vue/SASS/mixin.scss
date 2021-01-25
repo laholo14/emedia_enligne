@@ -1,3 +1,4 @@
+$widthformcomponent:300px;
 @mixin fieldsetTitle {
 
     width: 90%;
@@ -22,10 +23,21 @@
     }
 
 }
+@mixin fieldselect {
+    width: $widthformcomponent;
+    appearance: none;
+    &::after{
+        content:'<';
+        position: absolute;
+        right: -2px;
+        font-size: 14px;
+        color: #3f41b9;
+    }
+}
 
 @mixin fieldinput {
 
-    width: 300px;
+    width: $widthformcomponent;
     border-radius: 2px;
     border: 1px solid #bbbabd82;
     margin: 10px 0px;
@@ -33,8 +45,8 @@
     color: #00000096;
 }
 @mixin button{
-   
-        appearance: unset;
+    width: 100px;
+        appearance: none;
         padding: 3px 15px;
         border: 1px solid #6e6e7b;
         background: linear-gradient(to right,#6322b3 -1%,#3f41b9 100%);
@@ -42,4 +54,6 @@
         border-radius: 3px;
         font-size: 14px;
         font-weight: 780;
+        position: absolute;
+        right: 0px;
 }

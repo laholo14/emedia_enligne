@@ -33,14 +33,20 @@ body{
     section{
         padding: 20px;
         flex-grow: 1;
-        background-color: rgb(255, 254, 254);
+        background-color: #fffefe;
         height: 500px;
     }
     .fieldset{
         @include fieldsetTitle;
+        .form-group{
+            position: relative;
+        }
     }
     .fieldinput{
         @include fieldinput;
+    }
+    .fieldselect{
+        @include fieldselect;
     }
     input[type="button"]{
         @include button;

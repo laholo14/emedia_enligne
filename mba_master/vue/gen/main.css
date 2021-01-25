@@ -43,6 +43,9 @@ body {
   color: #6549ea;
   font-weight: bold;
 }
+#body .fieldset .form-group {
+  position: relative;
+}
 #body .fieldinput {
   width: 300px;
   border-radius: 2px;
@@ -51,8 +54,20 @@ body {
   box-shadow: 0px 0px 4px #808080c4;
   color: #00000096;
 }
+#body .fieldselect {
+  width: 300px;
+  appearance: none;
+}
+#body .fieldselect::after {
+  content: "<";
+  position: absolute;
+  right: -2px;
+  font-size: 14px;
+  color: #3f41b9;
+}
 #body input[type=button] {
-  appearance: unset;
+  width: 100px;
+  appearance: none;
   padding: 3px 15px;
   border: 1px solid #6e6e7b;
   background: linear-gradient(to right, #6322b3 -1%, #3f41b9 100%);
@@ -60,6 +75,8 @@ body {
   border-radius: 3px;
   font-size: 14px;
   font-weight: 780;
+  position: absolute;
+  right: 0px;
 }
 
 .dropdown {

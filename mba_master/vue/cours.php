@@ -77,15 +77,15 @@ $currentPage='cours';
             </form>
             <form class="fieldset" action="#">
                 <h3 class="fieldsetTitle">Element constitutif</h3>
-                <div class="form-group">
+                <div class="form-group field-group d-flex flex-column">
                     <label>
                         Ajouter une element constitutif
                     </label>
-                    <input type="text" placeholder="ajouter une Element constitutif" />
+                    <input class="fieldinput" type="text" placeholder="ajouter une Element constitutif" />
                     <label>
                         Selectionnez l'unité d'enseignement correspondant
                     </label>
-                    <select>
+                    <select class="fieldselect" >
                         <option>Algorithme</option>
                     </select>
                 </div>
