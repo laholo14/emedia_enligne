@@ -25,7 +25,7 @@ require('include/nav.php');
                         <div class="card-body">
                             <h5 class="text-center">V1 <span class="badge badge-danger">4</span></h5>
                             <div class="col d-flex justify-content-center">
-                                <a href="liste_etudiant_admission.php" class="btn boutton">Lister</a>
+                                <a href="liste_etudiant_admission.php" class="btn  boutton">Lister</a>
                             </div>
 
                         </div>
@@ -43,7 +43,7 @@ require('include/nav.php');
                         <div class="card-body">
                             <h5 class="text-center">V2 <span class="badge badge-danger">4</span></h5>
                             <div class="col d-flex justify-content-center">
-                                <a href="liste_etudiant_admission.php" class="btn boutton">Lister</a>
+                                <a href="liste_etudiant_admission.php" class="btn  boutton">Lister</a>
                             </div>
 
                         </div>
@@ -61,7 +61,7 @@ require('include/nav.php');
                         <div class="card-body">
                             <h5 class="text-center">V3 <span class="badge badge-danger">4</span></h5>
                             <div class="col d-flex justify-content-center">
-                                <a href="liste_etudiant_admission.php" class="btn boutton">Lister</a>
+                                <a href="liste_etudiant_admission.php" class="btn  boutton">Lister</a>
                             </div>
 
                         </div>
@@ -79,7 +79,7 @@ require('include/nav.php');
                         <div class="card-body">
                             <h5 class="text-center">V4 <span class="badge badge-danger">4</span></h5>
                             <div class="col d-flex justify-content-center">
-                                <a href="liste_etudiant_admission.php" class="btn boutton">Lister</a>
+                                <a href="liste_etudiant_admission.php" class="btn  boutton">Lister</a>
                             </div>
 
                         </div>
@@ -97,7 +97,7 @@ require('include/nav.php');
                         <div class="card-body">
                             <h5 class="text-center">V5 <span class="badge badge-danger">4</span></h5>
                             <div class="col d-flex justify-content-center">
-                                <a href="liste_etudiant_admission.php" class="btn boutton">Lister</a>
+                                <a href="liste_etudiant_admission.php" class="btn  boutton">Lister</a>
                             </div>
 
                         </div>
@@ -115,7 +115,7 @@ require('include/nav.php');
                         <div class="card-body">
                             <h5 class="text-center">V6 <span class="badge badge-danger">4</span></h5>
                             <div class="col d-flex justify-content-center">
-                                <a href="liste_etudiant_admission.php" class="btn boutton">Lister</a>
+                                <a href="liste_etudiant_admission.php" class="btn  boutton">Lister</a>
                             </div>
 
                         </div>

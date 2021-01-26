@@ -9,18 +9,19 @@
         text-decoration: none;
     }
     body,html{
-        background-color: #bbb!important;
+        background-image: linear-gradient(to right left, #ffffff, #dadada, #edf0f1, #00cfad, #ffffff);
         scroll-behavior: smooth;
         position: relative;
         overflow-x: hidden;
     }
     #Status .titre_inscriptions h2{
-        color: white;
+        color: rgb(7, 160, 152);
         font-weight: 400;
         border-bottom: 2px solid white;
-        width: 450px;
+        width: 600px;
         text-transform: uppercase;
         padding-bottom: 10px;
+        font-family: Georgia, serif;
         }
     #Status .bloc_status{
         background: white;
@@ -31,7 +32,7 @@
         background: white;
     }
     #Status .card-header-mba{
-        background-image: linear-gradient(to right top, #1906e9, #007bff, #00aaff, #00cfad, #12eb4a);
+        background: rgb(7, 160, 152);
        height: 85px;
        width: 85px;
        border-radius: 50%;
@@ -58,7 +59,7 @@
    
    #Status .card .card-body .boutton{
    
-       background-color: #007bff;
+    background: rgb(7, 160, 152);
        color: white;
        margin-top: 10px;
    

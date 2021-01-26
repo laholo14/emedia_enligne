@@ -9,18 +9,19 @@
         text-decoration: none;
     }
     body,html{
-        background-color: #bbb!important;
+        background-image: linear-gradient(to right left, #ffffff, #dadada, #edf0f1, #00cfad, #ffffff);
         scroll-behavior: smooth;
         position: relative;
         overflow-x: hidden;
     }
     #Liste_etudiant_admission .titre_inscriptions h2{
-        color: white;
+        color: rgb(7, 160, 152);
         font-weight: 400;
         border-bottom: 2px solid white;
-        width: 800px;
+        width: 1000px;
         text-transform: uppercase;
         padding-bottom: 10px;
+        font-family: Georgia, serif;
         }
     #Liste_etudiant_admission .bloc_list_etudiant_admission{
         padding: 10px;
@@ -28,6 +29,6 @@
 
     }
     #Liste_etudiant_admission .thead-background{
-        background: #007bff!important;
+        background: rgb(7, 160, 152);
         color: white!important;
     }
