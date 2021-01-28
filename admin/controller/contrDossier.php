@@ -12,14 +12,14 @@ function loadclass($class){
   spl_autoload_register("loadclass");
 
 $db = new Connexion();
+$dossier = new Dossier();
+$mat = new Matiere();
 
 
 if (isset($_POST['matiere']) and isset($_POST['categorie']) and isset($_POST['type']) and isset($_POST['youtube_mg']) and isset($_POST['youtube_fr'])) {
 
     extract($_POST);
 
-    $dossier = new Dossier();
-    $mat = new Matiere();
     $mat->setId_matiere($matiere);
     $res  = $mat->listMatiere_id();
     foreach ($res as $resultat) {
@@ -89,7 +89,6 @@ echo "tsy ao";
 
 
 if (isset($_POST['tabdoc'])) {
-    $dossier = new Dossier();
     $table =
     ' <div class="table-responsive mt-3">
         <table class="table table-border-danger table-striped">
@@ -129,7 +128,6 @@ if (isset($_POST['search'])) {
 
     extract($_POST);
 
-    $dossier = new Dossier();
 
     $table =
         ' <div class="table-responsive mt-3">
@@ -167,7 +165,6 @@ if (isset($_POST['search'])) {
 if (isset($_POST['action']) and isset($_POST['idm']) and isset($_POST['idc']) and isset($_POST['idt'])) {
 
     extract($_POST);
-    $doc = new Dossier();
     if ($_POST["action"] == "update") {
 
         $res = $doc->listDossier_ID($idm, $idc, $idt);
@@ -188,8 +185,6 @@ if (isset($_POST['action']) and isset($_POST['idm']) and isset($_POST['idc']) an
 if (isset($_POST['matiereup']) and isset($_POST['categorieup']) and isset($_POST['typeup'])) {
 
     extract($_POST);
-
-    $dossierup = new Dossier();
     $matup = new Matiere();
     $matup->setId_matiere($matiereup);
     $res  = $matup->listMatiere_id();

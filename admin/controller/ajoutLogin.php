@@ -19,12 +19,12 @@ $db = new Connexion();
 $suivre = new Suivre();
 
 $datefr = new DateFr();
+    $et = new Etudiant();
 
 if (isset($_POST['search'])) {
 
     extract($_POST);
 
-    $et = new Etudiant();
 
     $table =
         ' <div class="table-responsive mt-3">
@@ -166,7 +166,7 @@ if (isset($_POST['readNotifdrt'])) {
     echo $notifm;
 }
 
-
+/*
 if (isset($_POST['readNotifticm'])) {
 
     $notifm = '';
@@ -238,7 +238,7 @@ if (isset($_POST['readNotifdrtm'])) {
 
     echo $notifm;
 }
-
+*/
 
 
 if (isset($_POST['LICENCE']) and isset($_POST['TIC'])) {
@@ -490,7 +490,7 @@ if (isset($_POST['LICENCE']) and isset($_POST['DRT'])) {
     echo $table;
 }
 
-
+/* 
 if (isset($_POST['MASTER']) and isset($_POST['TICM'])) {
 
     extract($_POST);
@@ -739,7 +739,7 @@ if (isset($_POST['MASTER']) and isset($_POST['DRTM'])) {
     echo $table;
 }
 
-
+*/
 
 if (isset($_POST['vague']) and isset($_POST['semestre']) and isset($_POST['numero'])) {
 
@@ -788,7 +788,6 @@ if (isset($_POST['vague']) and isset($_POST['semestre']) and isset($_POST['numer
         $suivre->setEtudiant($ide);
         $suivre->ajoutLogin();
 
-        $et = new Etudiant();
         $et->setNom($nom_1);
         $et->setPrenom($pnom_1);
         $et->setNumero($pass);
@@ -971,9 +970,8 @@ if (isset($_POST['vague']) and isset($_POST['semestre']) and isset($_POST['numer
     }
 
 
-    $etudiants = new Etudiant();
-    $etudiants->set_Id($hiddensup);
-    $etudiants->delete();
+    $et->set_Id($hiddensup);
+    $et->delete();
 
     $suivre->setEtudiant($hiddensup);
     $suivre->delete();
