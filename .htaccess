@@ -9,6 +9,7 @@ RewriteRule ^(.*)$ $1\.php
 
 RewriteRule ^Abm$ mba_master/vue/login [L]
 RewriteRule ^Accueil_mba$ mba_master/vue/index [L]
+RewriteRule ^Accueil$ vue/plateformeLicence [L]
 RewriteRule ^Bureau$ admin/vue/admin [L]
 RewriteRule ^Connecter$ vue/login [L]
 RewriteRule ^Home$ vue/accueilMaster [L]
