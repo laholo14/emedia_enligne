@@ -9,7 +9,7 @@
         text-decoration: none;
     }
     body,html{
-        background-color: #bbb!important;
+        background-image: linear-gradient(to right left, #ffffff, #dadada, #edf0f1, #00cfad, #ffffff);
         scroll-behavior: smooth;
         position: relative;
         overflow-x: hidden;

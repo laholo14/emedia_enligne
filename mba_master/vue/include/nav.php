@@ -2,7 +2,7 @@
 </head>
 
 <body>
-    <div class="container">
+  
         <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="#">MBA</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,7 +27,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                          
-                            <a class="dropdown-item"  <?php echo $currentPage == 'examens' ? 'active' : '' ?>" href="ajoute_examen">Ajoute Examen</a>
+                            <a class="dropdown-item"  <?php echo $currentPage == 'examens' ? 'active' : '' ?>" href="ajoute_examen">Ajout Examen</a>
                             <a class="dropdown-item"  <?php echo $currentPage == 'examens' ? 'active' : '' ?>" href="">Resultat & Note</a>
                             <a class="dropdown-item"  <?php echo $currentPage == 'examens' ? 'active' : '' ?>" href="#">Liste repéchage</a>
                             <a class="dropdown-item"  <?php echo $currentPage == 'examens' ? 'active' : '' ?>" href="#">Insértion Examen Spécifique</a>
@@ -53,4 +53,4 @@
 
             </div>
         </nav>
-    </div>
+   

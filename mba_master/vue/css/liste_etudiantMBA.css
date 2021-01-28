@@ -9,24 +9,25 @@
         text-decoration: none;
     }
     body,html{
-        background-color: #bbb!important;
+        background-image: linear-gradient(to right left, #ffffff, #dadada, #edf0f1, #00cfad, #ffffff);
         scroll-behavior: smooth;
         position: relative;
         overflow-x: hidden;
     }
     #Liste_etudiant_vague .titre_inscriptions h2{
-        color: white;
+        color: rgb(7, 160, 152);
         font-weight: 400;
         border-bottom: 2px solid white;
-        width: 800px;
+        width: 350px;
         text-transform: uppercase;
         padding-bottom: 10px;
+        font-family: Georgia, serif;
         }
     #Liste_etudiant_vague .bloc_list_etudiant{
         background: white;
 
     }
     #Liste_etudiant_vague .thead-background{
-        background: #0901e1!important;
+        background: rgb(7, 160, 152);
         color: white!important;
     }
