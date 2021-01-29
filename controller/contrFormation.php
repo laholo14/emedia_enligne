@@ -558,11 +558,9 @@ if (isset($_POST['open_corrige']) and isset($_POST['open_corrige_livres'])) {
             if ($langue == 'Malagasy') {
 
                 $contenu = $resultat['CONTENU_MG'];
-
             } else {
 
                 $contenu = $resultat['CONTENU_FR'];
-                
             }
 
 

@@ -44,15 +44,16 @@ if (isset($_POST["matricule"]) and isset($_POST["password"])) {
 
         $_SESSION['vague'] = $resultat['CODE'];
 
-        $req1 = "SELECT DATEDENTER FROM CODECLASSE WHERE CODE = :code";
+        $req1 = "SELECT DATYFIDIRANA FROM DATYFIDIRANA WHERE CODE = :code AND DIPLOME = :diplome";
         $st1 = $db->getCx()->prepare($req1);
         $st1->execute(array(
-            "code" =>  $_SESSION['vague']
+            "code" =>  $_SESSION['vague'],
+            "diplome" =>  $_SESSION['diplome']
 
         ));
 
         while ($d1 = $st1->fetch()) {
-            $datedenter = $d1['DATEDENTER'];
+            $datedenter = $d1['DATYFIDIRANA'];
         }
 
         $_SESSION['datedenter'] = $datedenter;

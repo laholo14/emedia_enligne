@@ -10,9 +10,9 @@ if (isset($_POST["vague"])) {
     extract($_POST);
     $code = new Code();
     $code->setCode($vague);
-    $code->create();
+    $code->create();    
 
-    $datyfidiranaLicence = new Datyfidirana();
+    $datyfidiranaLicence = new Datyfidirana();  
     $datyfidiranaMaster = new Datyfidirana();
 
     $datyfidiranaLicence->setDiplome("LICENCE");
