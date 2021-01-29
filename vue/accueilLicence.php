@@ -10,7 +10,7 @@ if (!isset($_SESSION['matricule'])) {
     header("location: Connecter");
 }
 
-include("../Controller/contrIEM.php");
+include("../controller/contrIEM.php");
 
 ?>
 
