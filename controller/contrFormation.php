@@ -86,7 +86,7 @@ if (isset($_POST['open_cours']) and isset($_POST['open_cours_livres'])) {
                 $part = $i + 1;
                 $partie = ' Partie';
             }
-            //courslivres le pdf
+            //courslivres le pdf 
             $tabletemporaire .= '
                     <div class="gradient col-sm-12 col-md-4 col-lg-4">
                         <div class="card card_filiere mt-2 my-4">

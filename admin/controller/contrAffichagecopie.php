@@ -66,9 +66,11 @@ if(isset($_POST['diplome_ajax'],$_POST['filiere_ajax'],$_POST['vague_ajax'],$_PO
   foreach($res as $resultat_res){
     if($resultat_res['NOTE'] == NULL){
       $note = '__';
-    }else{
+    }else{ 
       $note = $resultat_res['NOTE'];
     }
+    ?>
+    <?php
     $table .= '<tr>
 
     
