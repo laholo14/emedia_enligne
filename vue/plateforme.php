@@ -1,7 +1,7 @@
 <!--Calendrier-->
 <?php
 
-include '../Controller/contrSessionExamLicence.php';
+include '../controller/contrSessionExamLicence.php';
 
 ?>
 <!-- Modal 
