@@ -1,0 +1,207 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+a {
+    color: unset;
+    text-decoration: none;
+}
+
+body, html {
+    background-image: linear-gradient(to right left, #ffffff, #dadada, #edf0f1, #00cfad, #ffffff);
+    scroll-behavior: smooth;
+    position: relative;
+    overflow-x: hidden;
+}
+
+#Examens .titre_examens h2 {
+    color: rgb(7, 160, 152);
+    font-weight: 400;
+    border-bottom: 2px solid white;
+    width: 350px;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    font-family: Georgia, serif;
+}
+
+#Examens .nav-pills .nav-link {
+    background: rgb(7, 160, 152)!important;
+    margin-top: 10px;
+    padding: 10px;
+    color: white!important;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#Examens .nav-pills .nav-link.active {
+    background: rgb(255, 255, 255)!important;
+    color: black!important;
+    border: 1px solid rgb(7, 160, 152);
+}
+
+#Examens .nav-pills .nav-item .sous_tabs {
+    background-color: rgb(7, 160, 152)!important;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white!important;
+    font-family: 'Times New Roman', Times, serif;
+    border: none!important;
+}
+
+#Examens .nav-pills .nav-item .sous_tabs.active {
+    background: rgb(255, 255, 255)!important;
+    color: black!important;
+    border:1px solid rgb(7, 160, 152)!important;
+}
+
+#Examens .form_examen_mensuel .ajouter_examen_mensuel {
+    border: none!important;
+    background-color: rgb(7, 160, 152)!important;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    transition: 0.5s;
+}
+
+#Examens .form_examen_mensuel .ajouter_examen_mensuel:hover {
+    transform: scale(1.1);
+}
+
+#Examens .form_examen_mensuel .thead {
+    background-color: rgb(14, 111, 106);
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+#Examens .form_examen_mensuel .thead th{
+    font-family: 'Times New Roman', Times, serif!important;
+    font-size: 18px;
+}
+#Examens .form_examen_mensuel .thead td{
+    font-family: 'Times New Roman', Times, serif!important;
+    font-size: 14px!important;
+}
+#Examens .form_examen_mensuel .table i{
+   background: rgb(53, 219, 2);
+   color: white;
+   padding: 10px;
+   border:2px solid grey;
+   border-radius: 5px;
+   transition: 0.5s;
+}
+
+#Examens .form_examen_mensuel .table i:hover{
+    transform: scale(1.1);
+}
+#Examens .form_examen_theorique .table i:hover{
+    transform: scale(1.1);
+}
+
+
+
+
+
+#Examens .form_examen_theorique .ajouter_examen_theorique {
+    border: none!important;
+    background-color: rgb(7, 160, 152)!important;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    transition: 0.5s;
+}
+
+#Examens .form_examen_theorique .ajouter_examen_theorique:hover {
+    transform: scale(1.1);
+}
+
+#Examens .form_examen_theorique .thead {
+    background-color: rgb(14, 111, 106);
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+#Examens .form_examen_theorique .thead th{
+    font-family: 'Times New Roman', Times, serif!important;
+    font-size: 18px;
+}
+#Examens .form_examen_theorique .thead td{
+    font-family: 'Times New Roman', Times, serif!important;
+    font-size: 14px!important;
+}
+#Examens .form_examen_theorique .table i{
+   background: rgb(53, 219, 2);
+   color: white;
+   padding: 10px;
+   border:2px solid grey;
+   border-radius: 5px;
+   transition: 0.5s;
+}
+#Examens .sous_titre{
+    font-family: 'Times New Roman', Times, serif!important;
+}
+
+
+
+
+
+
+
+
+
+
+#Resultat .titre_inscriptions h2{
+    color: rgb(7, 160, 152);
+    font-weight: 400;
+    border-bottom: 2px solid white;
+    width: 800px;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    font-family: Georgia, serif;
+    }
+#Resultat .bloc_resultat{
+    background: white;
+
+}
+
+#Resultat  .card-body{
+    background: white;
+}
+#Resultat .card-header-mba{
+   background: rgb(7, 160, 152)!important;
+   height: 85px;
+   width: 85px;
+   border-radius: 50%;
+   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+   margin-top: -50px;
+}
+
+
+#Resultat .card-header-mba h5 {
+   color: white;
+   margin-top: 29px;
+}
+
+
+#Resultat .card{
+   border:none !important;
+   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+   transition: 0.5s;
+   margin-bottom: 20px;
+}
+#Resultat .card:hover{
+   transform: scale(1.1);
+}
+
+#Resultat .card .card-body .boutton{
+
+    background: rgb(7, 160, 152);
+   color: white;
+   margin-top: 10px;
+
+}
+#Examen_specifique .btn{
+    background: rgb(7, 160, 152)!important;
+    color: white!important;
+    margin-top: 10px;
+}

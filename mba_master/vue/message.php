@@ -54,7 +54,7 @@ require('include/nav.php');
                                     <div class="row">
 
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                            <div class="message_etudiant ml-2">
+                                            <div class="message_etudiant ml-2 mt-3">
                                                 <span>fa otrany aona kay azafady ny manao an'lay exercice communication visuelles azafady, misaotra mialoha</span>
                                             </div>
                                         </div>
@@ -65,7 +65,7 @@ require('include/nav.php');
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                            <div class="message_etudiant ml-2">
+                                            <div class="message_etudiant ml-2 mt-3">
                                                 <span>fa otrany aona kay azafady ny manao an'lay exercice communication visuelles azafady, misaotra mialoha</span>
                                             </div>
                                         </div>
