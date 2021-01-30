@@ -1,5 +1,7 @@
 $widthformcomponent:300px;
 $heightformcomponent:33px;
+$sizelabel:16px;
+$spacinglabel:0.3px;
 @mixin fieldset {
     //style the container of each section of form
     width: 90%;
@@ -15,17 +17,28 @@ $heightformcomponent:33px;
     position: relative;
     box-shadow: 0px 1px 3px #6862624f;
     
-
     & .fieldsetTitle {
         //place and styling the title of the section form
         position: absolute;
         top: -10px;
-        font-size: 16px;
+        font-size: 20px;
         width: max-content;
         background-color: white;
         color: #6549ea;
         font-weight: bold;
     }
+    .form-group label{
+        font-size:$sizelabel;
+        letter-spacing:$spacinglabel;
+        font-family:Calibri, sans-serif;
+        color: #4d4d4d;
+    }
+    .file_name{
+        
+            font-style: italic;
+            color: #e39530;
+    }
+
 }
 @mixin oncontainer_createfieldset {
     display: inline-block;

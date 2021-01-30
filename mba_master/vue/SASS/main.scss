@@ -59,8 +59,29 @@ body{
 .dropdown{
     //dropdown dans la deconnexion
     width: max-content;
-    background-color: rgba(222, 221, 253, 0.795);
+    background-color: rgb(222, 221, 253);
     border: 1px solid #1805ff69;
+    position: absolute;
+    right: 0;
+    top: 34px;
+    z-index: 9;
+    ul{
+        background-color: white;
+    }
+    &::before{
+        content:"";
+        color: white;
+        position: absolute;
+        right: 0;
+        top: -19px;
+        border: {
+            top:10px solid transparent;
+            left:10px solid transparent;
+            right:10px solid transparent;
+            bottom:10px solid white;
+        };
+        
+    }
     li{
         padding: 5px 15px;
         border-bottom:0.1px solid #1805ff69 ;
@@ -102,6 +123,7 @@ body{
             box-sizing: border-box;
             width: 50%;
             div.setting{
+                position: relative;
                 cursor: pointer;
                 i{
                     color:white;
