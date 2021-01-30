@@ -12,8 +12,14 @@ if (isset($_POST['text_ec'])) {
     $ec = new Matiere();
     $ec->setId_matiere($select_ue);
     $ec->setIntitule($text_ec);
-    echo $ec->create();
-   
+    $ec->create();
+    $enseigner = new Enseigner();
+    $enseigner->setMois($mois);
+    $enseigner->setSemestre($semestre);
+    foreach ($ec->readByIntitule() as $resultat) {
+        $enseigner->setMatiere($resultat['IDMATIERE']);
+    }
+    echo $enseigner->create();
 }
 
 
