@@ -27,6 +27,7 @@ include("../controller/contrIEM.php");
     <link rel="stylesheet" href="vue/js/owl.carousel/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="vue/css/loading.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <title>Accueil</title>
 </head>
 

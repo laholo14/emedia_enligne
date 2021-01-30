@@ -595,6 +595,7 @@ if (!isset($_SESSION['matriculeadmin'])) {
 
         //manao click master
         if ($("#admin").val() == 'master') {
+            $("#rlv").hide();
             $("#v-pills-home-tab").hide();
             $("#v-pills-profile-tab").click();
         } else if ($("#admin").val() == 'licence') {

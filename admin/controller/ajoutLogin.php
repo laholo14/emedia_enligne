@@ -166,7 +166,7 @@ if (isset($_POST['readNotifdrt'])) {
     echo $notifm;
 }
 
-/*
+
 if (isset($_POST['readNotifticm'])) {
 
     $notifm = '';
@@ -238,8 +238,6 @@ if (isset($_POST['readNotifdrtm'])) {
 
     echo $notifm;
 }
-*/
-
 
 if (isset($_POST['LICENCE']) and isset($_POST['TIC'])) {
 
@@ -490,7 +488,7 @@ if (isset($_POST['LICENCE']) and isset($_POST['DRT'])) {
     echo $table;
 }
 
-/* 
+
 if (isset($_POST['MASTER']) and isset($_POST['TICM'])) {
 
     extract($_POST);
@@ -739,7 +737,7 @@ if (isset($_POST['MASTER']) and isset($_POST['DRTM'])) {
     echo $table;
 }
 
-*/
+
 
 if (isset($_POST['vague']) and isset($_POST['semestre']) and isset($_POST['numero'])) {
 

@@ -45,7 +45,7 @@
        
    public function create(){
         $db=Connexion::getCx();
-        $requete = "INSERT INTO MATIERE VALUES(NULL, :intitule, :idue)";
+        $requete = "INSERT INTO MATIERE VALUES(NULL, :intitule,3, :idue)";
         
         $st = $db->prepare($requete);
         
