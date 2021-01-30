@@ -105,14 +105,14 @@ $currentPage='cours';
                         Selectionnez la semestre correspondant
                     </label>
                     <div class="container-select">
-                        <select id="select_ue">
+                        <select id="select_semestre">
                             <optgroup label="M1">
-                                <option value="s7">S7</option>
-                                <option value="s8">S8</option>
+                                <option value="S7">S7</option>
+                                <option value="S8">S8</option>
                             </optgroup>
                             <optgroup label="M2">
-                                <option value="s9">S9</option>
-                                <option value="s10">S10</option>
+                                <option value="S9">S9</option>
+                                <option value="S10">S10</option>
                             </optgroup>
                         </select>
                     </div>
@@ -124,7 +124,7 @@ $currentPage='cours';
                         Selectionnez le mois correspondant 
                     </label>
                     <div class="container-select">
-                        <select id="select_ue">
+                        <select id="select_mois">
                             <optgroup label="1 ère Semestre">
                                 <option value="1">1</option>
                                 <option value="2">2</option>

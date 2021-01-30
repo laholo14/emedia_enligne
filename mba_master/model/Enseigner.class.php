@@ -61,7 +61,18 @@ class Enseigner
         return $this->mois;
     }
 
-
+    
+    public function create(){
+        $requete = "INSERT INTO ENSEIGNER VALUES('FCM',:sem , :idmat , '1', :mois)";
+        $query = Connexion::getCx()->prepare($requete);
+        $query->execute(array(
+            "sem" => $this->getSemestre(),
+            "idmat" => $this->getMatiere(),
+            "mois" => $this->getMois()
+        ));
+        $query->closeCursor();
+        return '1';
+    }
 
   
 

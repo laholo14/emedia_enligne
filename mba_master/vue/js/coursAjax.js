@@ -46,6 +46,8 @@ $(document).ready(function () {
                 data: {
                     select_ue: $("#select_ue").val(),
                     text_ec: $("#text_ec").val(),
+                    semestre: $("#select_semestre").val(),
+                    mois: $("#select_mois").val()
                 },
                 success: function (data) {
                     alert(data);
@@ -60,7 +62,7 @@ $(document).ready(function () {
     $("#btn_ajout_ec").click(function (e) {
 
         e.preventDefault();
-         ajoutEC();
+        ajoutEC();
 
     });
 

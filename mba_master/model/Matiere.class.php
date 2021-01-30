@@ -45,7 +45,17 @@ class Matiere
             "intitule" => $this->getIntitule()
         ));
         $query->closeCursor();
-        return "1";
     }
-    
+
+    public function readByIntitule()
+    {
+        $requete = "SELECT * FROM MATIERE WHERE INTITULE = :int";
+        $query = Connexion::getCx()->prepare($requete);
+        $query->execute(array(
+            "int" => $this->getIntitule()
+        ));
+        $res = $query->fetchAll();
+        $query->closeCursor();
+        return $res;
+    }
 }
