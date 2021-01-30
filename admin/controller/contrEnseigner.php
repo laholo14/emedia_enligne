@@ -255,7 +255,6 @@ if (isset($_POST['LICENCE']) and isset($_POST['MGT']) and isset($_POST['search']
     $table .= '</table>';
     echo $table;
 }
-/*
 
 if (isset($_POST['MASTER']) and isset($_POST['TICM']) and isset($_POST['search'])) {
 
@@ -465,7 +464,6 @@ if (isset($_POST['MASTER']) and isset($_POST['DRTM'])) {
     $table .= '</table>';
     echo $table;
 }
-*/
 if (isset($_POST['action'])) {
     if ($_POST["action"] == "update") {
         $requete = $base->prepare("select * FROM ENSEIGNER NATURAL JOIN PARCOURS NATURAL JOIN MATIERE NATURAL JOIN PROF   where IDMATIERE = '" . $_POST["id"] . "' AND PARCOURS = '".$_POST["parcourspar"]."' ");
