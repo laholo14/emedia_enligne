@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    selectEC();
     selectUE();
     function ajoutUE() {
         if ($("#text_ue").val() != "") {
@@ -34,6 +35,18 @@ $(document).ready(function () {
             },
             success: function (data) {
                 $("#select_ue").html(data);
+            }
+        })
+    }
+    function selectEC() {
+        $.ajax({
+            url: "../controller/controllerSelectEC.php",
+            type: "POST",
+            data: {
+                select_ec: ""
+            },
+            success: function (data) {
+                $("#select_ec").html(data);
             }
         })
     }

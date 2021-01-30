@@ -58,4 +58,12 @@ class Matiere
         $query->closeCursor();
         return $res;
     }
+
+    public function readAll()
+    {
+        $requete = "SELECT * FROM MATIERE NATURAL JOIN ENSEIGNER WHERE PARCOURS = 'FCM' OR PARCOURS = 'CIM' OR PARCOURS = 'ADAM'";
+        $query = Connexion::getCx()->query($requete);
+        $res = $query->fetchAll();
+        return $res;
+    }
 }

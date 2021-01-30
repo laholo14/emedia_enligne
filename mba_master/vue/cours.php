@@ -155,10 +155,8 @@ $currentPage='cours';
                         Selectionnez un element constitutif
                     </label>
                     <div class="container-select">
-                        <select>
-                            <option value="0">WS</option>
-                            <option value="1">Audi</option>
-                            <option value="2">BMW</option>
+                        <select id="select_ec">
+
                         </select>
                     </div>
 
@@ -169,9 +167,9 @@ $currentPage='cours';
                     </label>
                     <div class="container-select">
                         <select>
-                            <option value="0">Cours</option>
-                            <option value="1">Exercice</option>
-                            <option value="2">Type du corrigé</option>
+                            <option value="1">Cours</option>
+                            <option selected disabled value="1">Exercice</option>
+                            <option selected disabled value="2">Type du corrigé</option>
                         </select>
                     </div>
 
@@ -182,9 +180,9 @@ $currentPage='cours';
                     </label>
                     <div class="container-select">
                         <select>
-                            <option value="0">Livre en pdf</option>
-                            <option value="1">Video</option>
-                            <option value="2">Audio</option>
+                            <option value="1">Livre en pdf</option>
+                            <option value="2">Video</option>
+                            <option value="3">Audio</option>
                         </select>
                     </div>
 
