@@ -106,11 +106,13 @@ $currentPage='cours';
                     </label>
                     <div class="container-select">
                         <select id="select_semestre">
+                        <option selected disabled>...</option>
                             <optgroup label="M1">
                                 <option value="S7">S7</option>
                                 <option value="S8">S8</option>
                             </optgroup>
                             <optgroup label="M2">
+                            <option selected disabled>...</option>
                                 <option value="S9">S9</option>
                                 <option value="S10">S10</option>
                             </optgroup>
