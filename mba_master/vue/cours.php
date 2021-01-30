@@ -1,11 +1,11 @@
 <?php 
-/*session_start();
+session_start();
 if(!isset($_SESSION['matriculemba'])){
     header('Content-Type:text/html ; charset=utf-8');
     header('location: ../../Abm');
 }else{
     include_once("../model/Connexion.class.php");
-}*/
+}
 $currentPage='cours';
 ?>
 <!DOCTYPE html>
