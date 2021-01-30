@@ -1,5 +1,3 @@
-
-
 <?php 
 /*session_start();
 if(!isset($_SESSION['matriculemba'])){
@@ -70,65 +68,116 @@ $currentPage='cours';
                         <label>Ajouter une unité d'enseignement</label>
                         <input class="fieldinput" type="text" placeholder="unite d'enseignement" />
                     </div>
-                        <input type="button" value="creez" />
-                    
-                </div>
 
+
+                </div>
+                <input type="button" value="creez" />
             </form>
+
             <form class="fieldset" action="#">
                 <h3 class="fieldsetTitle">Element constitutif</h3>
-                <div class="form-group field-group d-flex flex-column">
+                <div class="form-group d-flex flex-column">
                     <label>
                         Ajouter une element constitutif
                     </label>
                     <input class="fieldinput" type="text" placeholder="ajouter une Element constitutif" />
+                </div>
+
+
+                <div class="form-group d-flex flex-column">
                     <label>
                         Selectionnez l'unité d'enseignement correspondant
                     </label>
-                    <select class="fieldselect" >
-                        <option>Algorithme</option>
-                    </select>
+                    <div class="container-select">
+                        <select>
+                            <option value="0">WS</option>
+                            <option value="1">Audi</option>
+                            <option value="2">BMW</option>
+                        </select>
+                    </div>
+
                 </div>
+                <input type="button" value="creez" />
 
             </form>
             <form class="fieldset" action="#">
                 <h3 class="fieldsetTitle">Cours</h3>
-                <div class="field">
-                    <label>Ajouter une element constitutif</label>
-                    <select>
-                        <option></option>
-                    </select>
+                <div class="form-group d-flex flex-column">
+                    <label>
+                        Selectionnez un element constitutif
+                    </label>
+                    <div class="container-select">
+                        <select>
+                            <option value="0">WS</option>
+                            <option value="1">Audi</option>
+                            <option value="2">BMW</option>
+                        </select>
+                    </div>
+
                 </div>
-                <label>Ajouter une categorie</label>
-                <select>
-                    <option>Cours</option>
-                </select>
-                <label>Type du contenu</label>
-                <select>
-                    <option></option>
-                </select>
-                <label>
-                    contenu pour les nationaux
-                </label>
-                <input type="file" placeholder="importer votre contenu ici">
-                <label>
-                    contenu pour les etrangers
-                </label>
-                <input type="file" placeholder="importer votre contenu ici">
+                <div class="form-group d-flex flex-column">
+                    <label>
+                        Selectionnez la categorie du cours
+                    </label>
+                    <div class="container-select">
+                        <select>
+                            <option value="0">Cours</option>
+                            <option value="1">Exercice</option>
+                            <option value="2">Type du corrigé</option>
+                        </select>
+                    </div>
 
+                </div>
+                <div class="form-group d-flex flex-column">
+                    <label>
+                        Selectionnez le format du contenu
+                    </label>
+                    <div class="container-select">
+                        <select>
+                            <option value="0">Livre en pdf</option>
+                            <option value="1">Video</option>
+                            <option value="2">Audio</option>
+                        </select>
+                    </div>
 
+                </div>
+                <div class="form-group">
+                    <div class="container_field_import">
+                        <label for="file_book_mg">
+                            contenu pour les nationaux
+                        </label>
+                        <div class="boutton_file">
+                            choisir
+                        </div>
+                        <input id="file_book_mg" class="file_book" type="file" />
+                        <span class="file_name">Aucune fichier selectionnér</span>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <div class="container_field_import">
+                        <label for="file_book_et">
+                            contenu pour les etrangers
+                        </label>
+                        <div class="boutton_file">
+                            choisir
+                        </div>
+                        <input id="file_book_et" class="file_book" type="file" />
+                        <span class="file_name">Aucune fichier selectionné</span>
+                    </div>
+                </div>
 
 
             </form>
         </section>
+        <div class="dropdown">
+            <ul>
+                <li><a href="#">Deconnexion</a></li>
+                <li><a href="#">Paramètre</a></li>
+                <ul>
+        </div>
     </div>
 
-    <div class="dropdown">
-        <ul>
-            <li><a href="#">Deconnexion</a></li>
-            <li><a href="#">Paramètre</a></li>
-            <ul>
-    </div>
+   
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -136,6 +185,9 @@ $currentPage='cours';
 </script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
+<script src="js/cours.js">
+
 </script>
 
 </html>
