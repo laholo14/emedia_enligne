@@ -44,11 +44,21 @@ body {
 #body .fieldset .fieldsetTitle {
   position: absolute;
   top: -10px;
-  font-size: 16px;
+  font-size: 20px;
   width: max-content;
   background-color: white;
   color: #6549ea;
   font-weight: bold;
+}
+#body .fieldset .form-group label {
+  font-size: 16px;
+  letter-spacing: 0.3px;
+  font-family: Calibri, sans-serif;
+  color: #4d4d4d;
+}
+#body .fieldset .file_name {
+  font-style: italic;
+  color: #e39530;
 }
 #body .fieldinput {
   width: 300px;
@@ -133,8 +143,26 @@ body {
 
 .dropdown {
   width: max-content;
-  background-color: rgba(222, 221, 253, 0.795);
+  background-color: #deddfd;
   border: 1px solid #1805ff69;
+  position: absolute;
+  right: 0;
+  top: 34px;
+  z-index: 9;
+}
+.dropdown ul {
+  background-color: white;
+}
+.dropdown::before {
+  content: "";
+  color: white;
+  position: absolute;
+  right: 0;
+  top: -19px;
+  border-top: 10px solid transparent;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid white;
 }
 .dropdown li {
   padding: 5px 15px;
@@ -174,6 +202,7 @@ body {
   width: 50%;
 }
 .bar-navigation .container-item div.setting {
+  position: relative;
   cursor: pointer;
 }
 .bar-navigation .container-item div.setting i {
