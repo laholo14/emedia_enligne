@@ -32,7 +32,7 @@ session_destroy();
 
 <body>
     <div class="login-container d-flex align-items-center ">
-        <form class="login-form text-center" method="post" action="admin/Controller/contrloginadmin">
+        <form class="login-form text-center" method="post" action="admin/controller/contrloginadmin">
             <img src="admin/vue/image/logo E-media.png" class="image" alt="">
             <div class="form-group">
                 <input type="text" name="login" class="form-control rounded-pill form-control-lg" placeholder="Login..." required>

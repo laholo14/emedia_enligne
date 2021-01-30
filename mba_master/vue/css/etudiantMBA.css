@@ -5,25 +5,27 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+     
         }
         a{
             color: unset;
             text-decoration: none;
         }
         body,html{
-            background-color: #bbb!important;
+            background-image: linear-gradient(to right left, #ffffff, #dadada, #edf0f1, #00cfad, #ffffff);
             scroll-behavior: smooth;
             position: relative;
             overflow-x: hidden;
         }
     
     #Liste_etudiant .titre_inscriptions h2{
-        color: white;
+        color: rgb(7, 160, 152);
         font-weight: 400;
         border-bottom: 2px solid white;
-        width: 343px;
+        width: 350px;
         text-transform: uppercase;
         padding-bottom: 10px;
+        font-family: Georgia, serif;
         }
     #Liste_etudiant .bloc_list_etudiant{
         background: white;
@@ -31,7 +33,7 @@
     }
     #Liste_etudiant .bloc_list_etudiant .form_ajoute_vague .btn-ajouter{
         color: white!important;
-        background-image: linear-gradient(to right top, #1906e9, #007bff, #00aaff, #00cfad, #12eb4a);
+        background: rgb(7, 160, 152)!important;
         border: none;
         transition: 0.5s;
     }
@@ -72,14 +74,17 @@
         text-decoration: none!important;
     }
     #Liste_etudiant .bloc_modifier_vague .card{
-        background-image: linear-gradient(to right top, #1906e9, #007bff, #00aaff, #00cfad, #12eb4a);
+        background: rgb(7, 160, 152);
         border: none;
     }
     #Liste_etudiant .bloc_modifier_vague .card-body{
         background: white;
     }
+    #Liste_etudiant .bloc_modifier_vague .card-body .btn{
+        background-color: #2bff00;
+    } 
     #Liste_etudiant .card-header-mba{
-        background-image: linear-gradient(to right top, #1906e9, #007bff, #00aaff, #00cfad, #12eb4a);
+        background: rgb(7, 160, 152);
        height: 85px;
        width: 85px;
        border-radius: 50%;
@@ -103,12 +108,6 @@
        transform: scale(1.1);
    }
    
-   #Liste_etudiant .card .card-body .boutton{
-   
-       background-color: #007bff;
-       color: white;
-       margin-top: 10px;
-   
-   }
+
    
     /**FIN LISTE ETUDIANTS**/

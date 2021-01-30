@@ -1,0 +1,21 @@
+#List_repechage  .thead {
+    background-color: rgb(14, 111, 106)!important;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+#List_repechage  .thead th{
+    font-family: 'Times New Roman', Times, serif!important;
+    font-size: 18px;
+}
+#List_repechage  .thead td{
+    font-family: 'Times New Roman', Times, serif!important;
+    font-size: 14px!important;
+}
+#List_repechage .btn{
+    background-color: rgb(14, 111, 106)!important;
+    color: white;
+    transition: 0.5s;
+}
+#List_repechage .btn:hover{
+    transform: scale(1.1);
+}

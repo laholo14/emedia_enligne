@@ -62,6 +62,7 @@ $connexion = new Connexion();
                         <div class="dropdown">
                             <a class="nav-link dropdown-toggle" style="cursor :pointer;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cours</a>
                             <div class="dropdown-menu" aria-labelldby="dropdownMenuLink">
+                            <a class="dropdown-item" href="admin/vue/adminUE.php">Ajout UE</a>
                                 <a class="dropdown-item" href="admin/vue/adminMatiere.php">Ajout EC</a>
                                 <a class="dropdown-item" href="admin/vue/adminEnseigner.php">Ajout EC par Mention</a>
                                 <a class="dropdown-item" href="admin/vue/adminDossier.php">Ajout des Formations</a>
@@ -76,6 +77,7 @@ $connexion = new Connexion();
                                 <a class="nav-link" href="admin/vue/adminNote.php">Resultat & Note</a>
                                 <a class="nav-link" href="admin/vue/AdminRepechage.php">Liste repéchage</a>
                                 <a class="nav-link" href="admin/vue/examenSpecifique.php">Insértion Examen Spécifique</a>
+                                <a class="nav-link" href="admin/vue/adminReleve.php">Relevés de notes</a>
                             </div>
                         </div>
                     </li>

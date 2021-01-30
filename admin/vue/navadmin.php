@@ -21,6 +21,7 @@
                     <div class="dropdown">
                         <a class="nav-link dropdown-toggle" style="cursor :pointer;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cours</a>
                         <div class="dropdown-menu" aria-labelldby="dropdownMenuLink">
+                            <a class="dropdown-item" href="adminUE.php">Ajout UE</a>
                             <a class="dropdown-item" href="adminMatiere.php">Ajout EC</a>
                             <a class="dropdown-item" href="adminEnseigner.php">Ajout EC par Mention</a>
                             <a class="dropdown-item" href="adminDossier.php">Ajout des Formations</a>
@@ -35,6 +36,7 @@
                                 <a class="nav-link" href="adminNote.php">Resultat & Note</a>
                                 <a class="nav-link" href="AdminRepechage.php">Liste repéchage</a>
                                 <a class="nav-link" href="examenSpecifique.php">Insértion Examen Spécifique</a>
+                                <a class="nav-link" href="adminReleve.php">Relevés de notes</a>
                             </div>
                         </div>
                     </li>

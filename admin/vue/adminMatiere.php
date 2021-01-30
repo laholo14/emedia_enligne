@@ -3,7 +3,18 @@
 ob_start();
 
 session_start();
+ 
+function loadclass($class)
+{
 
+    require "../../model/" . $class . '.class.php';
+}
+
+spl_autoload_register("loadclass");
+
+$connexion = new Connexion();
+
+$base=Connexion::getCx();
 
 
 if (!isset($_SESSION['matriculeadmin'])) {
@@ -33,8 +44,18 @@ if (!isset($_SESSION['matriculeadmin'])) {
     <h1 class="mt-2">Element Constitutif</h1>
 
     <form class="intitule text-center mt-3" method="POST">
-        <label><b>L'intitulé de l'EC:</b></label>
         </br>
+
+        <select name="ue" id="ue" class="select-UE">
+            <?php
+                $ue=new Ue();
+                $res=$ue->readAll();
+                foreach($res as $resultat){
+                    echo "<option value='".$resultat['IDUE']."'>".$resultat['INTITULEUE']."</option>";
+                }
+            ?>
+        </select>
+
         <input type="text" id='matiere' name='matiere' />
         <input class="ajout btn btn-primary" type='submit' id='ajoutmat' value='Ajouter' name='ajoutmat' />
     </form>
@@ -64,7 +85,17 @@ if (!isset($_SESSION['matriculeadmin'])) {
                 <div class="modal-body">
                     <form method="post" action="">
                         <div class="form-group">
-                            <label for="update_fname" class="col-form-label">Intiule</label><br>
+
+                        <label for="update_fname" class="col-form-label">Unité d'enseignement</label><br>
+                    <select name="ue1" id="ue1" class="select-UE">
+                        <?php
+                            $res=$ue->readAll();
+                            foreach($res as $resultat){
+                                echo "<option value='".$resultat['IDUE']."'>".$resultat['INTITULEUE']."</option>";
+                            }
+                        ?>
+                    </select><br>
+                            <label for="update_fname" class="col-form-label">Intitule</label>
                             <input type="text" class="form-control" id="matiereup">
 
                         </div>
@@ -112,15 +143,18 @@ if (!isset($_SESSION['matriculeadmin'])) {
 
         e.preventDefault(); //mamono submit
         let intitule = $('#matiere').val();
+        let idue=$('#ue').val();
         if (intitule != '') {
              $.ajax({
                 url: "../Controller/contrAjoutMatiere.php", //Controller
                 method: "POST",
                 data: {
-                    intitule: intitule
-                }, //valeur alefa
-                success: function(data) {
+                    intitule: intitule,
+                    idue:idue
+                },//valeur alefa
+                 success: function(data) {
                     alert(data);
+                    recherche();
                 }
             });
             $('#matiere').val('');
@@ -145,6 +179,7 @@ if (!isset($_SESSION['matriculeadmin'])) {
             success: function(data) {
 
                 $('#matiereup').val(data.matiere);
+                $('#ue1').val(data.ue);
 
             }
         });
@@ -156,6 +191,7 @@ if (!isset($_SESSION['matriculeadmin'])) {
 
         let idup = $('#hidden').val();
         let intituleup = $('#matiereup').val();
+        let upidue = $('#ue1').val();
 
         if (intituleup != '') {
 
@@ -164,12 +200,13 @@ if (!isset($_SESSION['matriculeadmin'])) {
                 method: "POST",
                 data: {
                     intituleup: intituleup,
-                    idup: idup
+                    idup: idup,
+                    upidue:upidue
                 }, //valeur alefa
                 success: function(data) {
-                    alert("Modifucation reussi...");
+                    alert("Modification reussi...");
                     readMat();
-                    recherche();    
+                    recherche();   
                 }
             });
 

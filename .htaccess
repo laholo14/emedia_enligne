@@ -9,10 +9,26 @@ RewriteRule ^(.*)$ $1\.php
 
 RewriteRule ^Abm$ mba_master/vue/login [L]
 RewriteRule ^Accueil_mba$ mba_master/vue/index [L]
+RewriteRule ^Accueil$ vue/accueilLicence [L]
+RewriteRule ^apTjay661lo$ vue/ancien [L]
+RewriteRule ^Bulletin$ vue/noteLicence [L]
 RewriteRule ^Bureau$ admin/vue/admin [L]
 RewriteRule ^Connecter$ vue/login [L]
+RewriteRule ^Examen$ vue/plateformeExamLicence [L]
 RewriteRule ^Home$ vue/accueilMaster [L]
 RewriteRule ^Register$ vue/inscription [L]
+RewriteRule ^Salle_d_examen$ vue/epreuveLicence [L]
 RewriteRule ^Succes$ admin/vue/login [L]
+RewriteRule ^Traitement$ paiement/Vue/paiement [L]
+RewriteRule ^Error$ vue/error_404.php [L]
+RewriteRule ^Error403$ vue/error_403.php [L]
+RewriteRule ^Error500$ vue/error_500.php [L]
+
+
+
+
+ErrorDocument 404 https://e-media-madagascar.com/universite/Error
+ErrorDocument 403 https://e-media-madagascar.com/universite/Error403
+ErrorDocument 500 https://e-media-madagascar.com/universite/Error500
 
 

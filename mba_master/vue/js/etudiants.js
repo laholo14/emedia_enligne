@@ -25,6 +25,38 @@ $(document).ready(function () {
 
     });
 
-    
+
+    $(".btnajoutdate").click(function (e) {
+
+        e.preventDefault();
+        let id =$("#idvaluedaty").val();
+        $.ajax(({
+            url: "../controller/controllerAjoutDate.php",
+            type: "POST",
+            data: {
+                iddaty: $("#iddaty").val(),
+                datyvalue: $("#"+id+"").val()
+            },
+            success: function (data) {
+                alert(data);
+                location.reload();
+            }
+        }))
+  
+
+    });
 
 });
+
+
+function GetIDDATY(iddaty,daty) {
+    $("#iddaty").val(iddaty);
+    $("#idvaluedaty").val(daty);
+
+
+
+}
+
+
+
+

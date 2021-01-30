@@ -1,0 +1,305 @@
+@font-face {
+    font-family: "Raleway";
+    src: url("../FONT/Raleway-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Jajo";
+    src: url("../FONT/ResotYgPERSONALUSE.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Raleway ebold";
+    src: url("../FONT/Raleway-ExtraBold.ttf") format("truetype");
+}
+
+body {
+    font-family: Raleway;
+    background-color: #f1f1f1;
+    padding: 0;
+    margin: 0;
+}
+
+/*navbar*/
+
+.navbar {
+    background: linear-gradient(-90deg, #0b99d2, #051e49) !important;
+    color: #f9f9f9;
+}
+
+.navbar .cours a {
+    position: absolute;
+    font-size: 16px;
+    color: #f9f9f9;
+    border: 2px solid #f9f9f9;
+    transition: .5s;
+}
+
+.navbar .cours a:hover {
+    background: #f1f1f1;
+    color: #051e49 !important;
+    border: 2px solid transparent;
+}
+
+.navbar .verification-lg a, .verification-sm  a {
+    font-size: 16px;
+    color: #f9f9f9;
+    border: 2px solid #f9f9f9;
+}
+
+.navbar .verification-sm {
+    display: none;
+}
+
+.btn-none {
+    display: none;
+}
+
+.navbar .titre {
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1), 1px 2px 1px rgba(0, 0, 0, 0.1), 1px 3px 1px rgba(0, 0, 0, 0.1), 1px 4px 1px rgba(0, 0, 0, 0.1), 1px 5px 1px rgba(0, 0, 0, 0.1), 1px 6px 1px rgba(0, 0, 0, 0.1), 1px 7px 1px rgba(0, 0, 0, 0.1), 1px 8px 1px rgba(0, 0, 0, 0.1), 1px 9px 1px rgba(0, 0, 0, 0.1), 1px 10px 1px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .power-off a {
+    font-size: 18px;
+    color: #f9f9f9;
+    border-radius: 5px;
+    border: 2px solid #f9f9f9;
+    transition: .9s;
+}
+
+.navbar .power-off a:hover {
+    background: #c80000;
+    border: 2px solid transparent;
+}
+
+/*sidebar*/
+
+.sidebar {
+    opacity: 0;
+    top: -250px;
+    background: transparent;
+    transition: .5s;
+}
+
+.sidebar ul li {
+    width: 100%;
+    text-decoration: none;
+    list-style: none;
+    font-size: 20px;
+    line-height: 50px;
+    box-sizing: border-box;
+    border-bottom: 2px solid #f9f9f9;
+}
+
+.sidebar ul li button {
+    color: #051e49 !important;
+    transition: .5s;
+}
+
+.sidebar ul li:hover button {
+    padding-left: 20px;
+}
+
+/*section*/
+
+
+.section ul {
+    list-style: none;
+}
+
+
+
+.section .list-matiere-exam li .title {
+    background-color: darkred;
+    color: #f9f9f9;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 0 0 10px 10px;
+}
+
+.section .list-matiere-exam li .title i {
+    color: #f1f1f1;
+    font-weight: bold;
+}
+
+.section ul li span {
+    font-size: 18px;
+    color: #051e49;
+}
+
+.section ul li i {
+    transition: .5s;
+}
+
+.separator {
+    width: 15px;
+    height: 15px;
+    margin: 0px auto;
+    margin-bottom: 0px;
+    background: darkred;
+    position: relative;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.separator::before {
+    position: absolute;
+    right: 5%;
+    bottom: 4px;
+    height: 2px;
+    width: 150px;
+    background: rgb(148, 148, 148);
+    content: "";
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.separator::after {
+    position: absolute;
+    left: 5%;
+    bottom: 4px;
+    height: 2px;
+    width: 150px;
+    background: rgb(148, 148, 148);
+    content: "";
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.section ul li .contenu-format button, .section ul li .contenu-format a {
+    color: #051e49 !important;
+    background-color: transparent;
+    border: 1px solid #051e49 !important;
+    float: right !important;
+    transition: .5s;
+}
+
+.section ul li .contenu-format button:hover, .section ul li .contenu-format a:hover {
+    border: 1px solid darkred !important;
+    background-color: darkred;
+    color: #f9f9f9 !important;
+}
+
+.section ul li .contenu-format .download-upload {
+    border: 1px solid #051e49 !important;
+    color: #051e49;
+    transition: .5s;
+}
+
+.section ul li .contenu-format .download-envoyer {
+    border: 1px solid #051e49 !important;
+    color: #051e49;
+    transition: .5s;
+}
+
+.section ul li .contenu-format .download-envoyer:hover {
+    border: 1px solid darkred !important;
+    background-color: darkred;
+    color: #f9f9f9 !important;
+}
+
+.section table td {
+    border-top: none !important;
+}
+
+.modal .modal-content .modal-body .continuer {
+    color: #f9f9f9;
+    background: darkgreen;
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.input-group-btn {
+    cursor: pointer;
+}
+
+/*responsive*/
+@media (max-width: 1200px) {
+  .separator::before,.separator::after{
+    width:100px;
+  }
+}
+
+@media (min-width: 749px) and (max-width: 990px) {
+    .sidebar {
+        margin-top: 52px !important;
+    }
+}
+
+@media (min-width: 679px) and (max-width: 750px) {
+    .sidebar {
+        margin-top: 90px !important;
+    }
+}
+
+@media (min-width: 389px) and (max-width: 678px) {
+    .sidebar {
+        margin-top: 130px !important;
+    }
+}
+
+@media (min-width: 371px) and (max-width: 388px) {
+    .sidebar {
+        margin-top: 180px !important;
+    }
+}
+
+@media (min-width: 100px) and (max-width: 370px) {
+    .sidebar {
+        margin-top: 130px !important;
+    }
+}
+
+
+@media (min-width: 100px) and (max-width: 325px) {
+    .navbar .cours {
+        margin-left: -25px !important;
+    }
+    .navbar .power-off {
+        margin-left: -20px !important;
+    }
+}
+
+
+/*responsive titre examen*/
+@media (min-width: 371px) and (max-width: 987px) {
+    .navbar h2 {
+        font-size: 1.5rem !important;
+    }
+}
+
+@media (min-width: 100px) and (max-width: 370px) {
+    .navbar h2 {
+        font-size: 1rem !important;
+        margin-left: 12px !important;
+    }
+}
+
+/*verification responsive*/
+@media (min-width: 100px) and (max-width: 750px) {
+    .verification-lg {
+        display: none;
+    }
+
+    .verification-sm {
+        display: block !important;
+    }
+}

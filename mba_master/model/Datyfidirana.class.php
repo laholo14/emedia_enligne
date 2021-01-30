@@ -105,6 +105,18 @@ class Datyfidirana
                 $query = Connexion::getCxEtudiant()->query($requete);
                 return $query->fetchAll();
         }
+
+        public function update()
+        {
+                $requete = "UPDATE DATYFIDIRANA SET DATYFIDIRANA = :daty WHERE  IDDATYFIDIRANA = :iddaty ";
+                $query = Connexion::getCxEtudiant()->prepare($requete);
+                $query->execute(array(
+                    "daty" => $this->getDatyfidirana(),
+                    "iddaty" => $this->getIddatyfidirana()
+                ));
+                $query->closeCursor();
+                return "Nety";
+        }
 }
 
 
