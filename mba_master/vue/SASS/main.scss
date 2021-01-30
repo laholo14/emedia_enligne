@@ -33,14 +33,23 @@ body{
     section{
         padding: 20px;
         flex-grow: 1;
-        background-color: rgb(255, 254, 254);
+        background-color: #fffefe;
         height: 500px;
     }
     .fieldset{
-        @include fieldsetTitle;
+        .form-group{
+            position: relative;
+        }
+        @include fieldset;
     }
     .fieldinput{
         @include fieldinput;
+    }
+    .container-select{
+        @include oncontainer_createfieldset;
+    }
+    .container_field_import{
+        @include container_field_import;
     }
     input[type="button"]{
         @include button;
@@ -48,6 +57,7 @@ body{
 }
 
 .dropdown{
+    //dropdown dans la deconnexion
     width: max-content;
     background-color: rgba(222, 221, 253, 0.795);
     border: 1px solid #1805ff69;
