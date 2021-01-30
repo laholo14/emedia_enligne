@@ -39,7 +39,7 @@ $(document).ready(function () {
     }
 
     function ajoutEC() {
-        if ($("#text_ec").val() != "" || $("#select_ue").val() != "") {
+        if ($("#text_ec").val() != "") {
             $.ajax({
                 url: "../controller/controllerAjoutEC.php",
                 type: "POST",
