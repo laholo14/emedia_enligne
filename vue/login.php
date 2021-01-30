@@ -26,7 +26,7 @@ require('head.html');
                                 <div class="d-flex mt-3 mb-3"><i class="fas fa-key mr-2 mt-2"></i><input type="password" placeholder="Mot de passe" name="password" id="password" required></div>
                                 <?php
                                 if (isset($_SESSION['erreur'])) {
-                                    echo "<p style='color:white'>" . $_SESSION['erreur'] . "</p>";
+                                    echo "<p class='text-danger'>" . $_SESSION['erreur'] . "</p>";
                                 }
                                 ?>
                                 <label for="checkbox">

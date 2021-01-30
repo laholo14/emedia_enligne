@@ -74,7 +74,8 @@ $currentPage='cours';
                     <input class="fieldinput" type="text" placeholder="unite d'enseignement" />
                 </div>
 
-                <input type="button" value="creez" />
+                <input type="button" value="creez" id="btn_ajout_ue" />
+
             </form>
 
             <form class="fieldset" action="#">
@@ -83,7 +84,7 @@ $currentPage='cours';
                     <label>
                         Ajouter une element constitutif
                     </label>
-                    <input class="fieldinput" type="text" placeholder="ajouter une Element constitutif" />
+                    <input class="fieldinput" type="text" placeholder="ajouter une Element constitutif" id="text_ec" />
                 </div>
 
 
@@ -92,15 +93,13 @@ $currentPage='cours';
                         Selectionnez l'unité d'enseignement correspondant
                     </label>
                     <div class="container-select">
-                        <select>
-                            <option value="0">WS</option>
-                            <option value="1">Audi</option>
-                            <option value="2">BMW</option>
+                        <select id="select_ue">
+
                         </select>
                     </div>
 
                 </div>
-                <input type="button" value="creez" />
+                <input type="button" value="creez" id="btn_ajout_ec"/>
 
             </form>
             <form class="fieldset" action="#">
@@ -187,5 +186,8 @@ $currentPage='cours';
 <script src="js/cours.js">
 
 </script>
+<script src="js/coursAjax.js">
 
+</script>
+        
 </html>
