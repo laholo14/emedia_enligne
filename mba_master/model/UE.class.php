@@ -34,6 +34,7 @@ public function setIntituleue($intituleue){
             "intituleue" => $this->getIntituleue()
         ));
         $st->closeCursor();
+        return "Ajout reussi";
     }
     public function readById() {
         $db=Connexion::getCx();
@@ -63,6 +64,7 @@ public function setIntituleue($intituleue){
             "intituleue" => $this->getIntituleue(),
             "idue" => $this->getIdue()
         ));
+        
     }
     public function delete() {
         $db=Connexion::getCx();
