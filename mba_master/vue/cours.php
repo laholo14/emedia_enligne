@@ -99,6 +99,50 @@ $currentPage='cours';
                     </div>
 
                 </div>
+
+                <div class="form-group d-flex flex-column">
+                    <label>
+                        Selectionnez la semestre correspondant
+                    </label>
+                    <div class="container-select">
+                        <select id="select_ue">
+                            <optgroup label="M1">
+                                <option value="s7">S7</option>
+                                <option value="s8">S8</option>
+                            </optgroup>
+                            <optgroup label="M2">
+                                <option value="s9">S9</option>
+                                <option value="s10">S10</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="form-group d-flex flex-column">
+                    <label>
+                        Selectionnez le mois correspondant 
+                    </label>
+                    <div class="container-select">
+                        <select id="select_ue">
+                            <optgroup label="1 ère Semestre">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </optgroup>
+                            <optgroup label="2 ème Semestre">
+                                <option value="">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                            </optgroup>
+                            
+                        </select>
+                    </div>
+
+                </div>
+
                 <input type="button" value="creez" id="btn_ajout_ec"/>
 
             </form>
