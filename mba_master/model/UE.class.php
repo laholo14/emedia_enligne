@@ -34,7 +34,7 @@ public function setIntituleue($intituleue){
             "intituleue" => $this->getIntituleue()
         ));
         $st->closeCursor();
-        return "Ajout reussi";
+        return "1";
     }
     public function readById() {
         $db=Connexion::getCx();
