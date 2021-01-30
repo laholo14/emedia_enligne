@@ -37,7 +37,7 @@ $currentPage='cours';
                 <i class="fas fa-cog fa-1x"></i>
                 <div class="dropdown">
                     <ul>
-                        <li><a href="#">Deconnexion</a></li>
+                        <li><a href="../controller/controllerLogout">Deconnexion</a></li>
                         <li><a href="#">Paramètre</a></li>
                     </ul>
                 </div>
