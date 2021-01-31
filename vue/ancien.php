@@ -10,7 +10,7 @@ if (!isset($_SESSION['matricule'])) {
     header("location: Connecter");
 }
 
-include("../Controller/contrIEM.php");
+include("../controller/contrIEM.php");
 
 ?>
 
@@ -191,7 +191,7 @@ include("../Controller/contrIEM.php");
         let idlivre = 1;
 
         $.ajax({
-            url: "Controller/contrAncien.php",
+            url: "controller/contrAncien.php",
             method: "POST",
             data: {
                 idcours: idcours,
@@ -210,7 +210,7 @@ include("../Controller/contrIEM.php");
         let idlivre = 2;
 
         $.ajax({
-            url: "Controller/contrAncien.php",
+            url: "controller/contrAncien.php",
             method: "POST",
             data: {
                 idcours: idcours,
@@ -229,7 +229,7 @@ include("../Controller/contrIEM.php");
         let idlivre = 1;
 
         $.ajax({
-            url: "Controller/contrAncien.php",
+            url: "controller/contrAncien.php",
             method: "POST",
             data: {
                 idcours: idcours,
@@ -248,7 +248,7 @@ include("../Controller/contrIEM.php");
         let idlivre = 1;
 
         $.ajax({
-            url: "Controller/contrAncien.php",
+            url: "controller/contrAncien.php",
             method: "POST",
             data: {
                 idcours: idcours,

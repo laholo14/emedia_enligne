@@ -18,10 +18,9 @@ if (!isset($_SESSION['matriculeadmin'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
   <link rel="stylesheet" href="css/admin.css" type="text/css" />
-  <link rel="stylesheet" href="css/animate.css" type="text/css" />
-  <link rel="stylesheet" href="fontawesome-free-5.6.3-web/css/all.min.css" type="text/css">
   <title>Document</title>
 </head>
 
@@ -30,7 +29,7 @@ if (!isset($_SESSION['matriculeadmin'])) {
 
 
   <?php
-  include("../Controller/contrListnote.php");
+  include("../controller/contrListnote.php");
   ?>
 
   <h1>Listes des Etudiants en:<?php echo $resultat['DIPLOME'] . ' ' . $resultat['FILIERE'] . '' . $resultat['CODE'] . '/' . $semestre; ?> </h1>
@@ -159,9 +158,9 @@ if (!isset($_SESSION['matriculeadmin'])) {
   </div>
   <input type="hidden" id="admin" value="<?php echo $_SESSION['admin'] ?>" />
 </body>
-<script src="js/jquery.min.js"></script>
-<script src="js/popper.js"></script>
-<script src="bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <script>
   $(document).ready(function() {
@@ -206,7 +205,7 @@ if (!isset($_SESSION['matriculeadmin'])) {
     let etudiants = $("#id_et").val();
     let session = $("#session").val();
     $.ajax({
-      url: "../Controller/contrAffichagecopie.php", //Controller
+      url: "../controller/contrAffichagecopie.php", //controller
       method: "POST",
       data: {
         matiere: matiere,
@@ -228,7 +227,7 @@ if (!isset($_SESSION['matriculeadmin'])) {
     let session_ajax = $("#session").val();
     let matiere_ajax = $("#matiere").val();
     $.ajax({
-      url: "../Controller/contrAffichagecopie.php", //Controller
+      url: "../controller/contrAffichagecopie.php", //controller
       method: "POST",
       data: {
         diplome_ajax: diplome_ajax,
@@ -250,7 +249,7 @@ if (!isset($_SESSION['matriculeadmin'])) {
     let semestre = $("#semestre").val();
     let filiere_ajax = $("#filiere_ajax").val();
     $.ajax({
-      url: "../Controller/contrListnote.php", //Controller
+      url: "../controller/contrListnote.php", //controller
       method: "POST",
       data: {
         semestre: semestre,
@@ -275,7 +274,7 @@ if (!isset($_SESSION['matriculeadmin'])) {
     let session_note = $("#session").val();
     let matiere_note = $("#matiere").val();
     $.ajax({
-      url: "../Controller/contrAffichagecopie.php", //Controller
+      url: "../controller/contrAffichagecopie.php", //controller
       method: "POST",
       data: {
         note: note,

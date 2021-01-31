@@ -106,6 +106,8 @@ class Datyfidirana
                 return $query->fetchAll();
         }
 
+
+
         public function update()
         {
                 $requete = "UPDATE DATYFIDIRANA SET DATYFIDIRANA = :daty WHERE  IDDATYFIDIRANA = :iddaty ";

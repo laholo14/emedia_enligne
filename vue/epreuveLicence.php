@@ -4,7 +4,7 @@ ob_start();
 
 session_start();
 
-include("../Controller/contrEnterEpreuveLicence.php");
+include("../controller/contrEnterEpreuveLicence.php");
 
 ?>
 
