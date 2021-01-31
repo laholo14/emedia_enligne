@@ -4,7 +4,7 @@ ob_start();
 
 session_start();
 
-include("../Controleur/contrloginadmin.php");
+include("../controller/contrloginadmin.php");
 
 $connexion = new Connexion();
 

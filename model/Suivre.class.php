@@ -133,7 +133,7 @@ class Suivre
       "dip" => $this->getDip(),
       "fil" => $this->getFiliere(),
       "par" => $this->getParcours(),
-      "S0" => 'S0',
+      "S0" => $this->getSemestre(),
       "CODE0" => 'CODE0',
       "ins" => 0,
       "eco" => 0,

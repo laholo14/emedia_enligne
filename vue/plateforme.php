@@ -267,7 +267,7 @@ Fin Calendrier-->
                                             <?php echo $_SESSION['mail']; ?></h6>
                                     </div>
                                     <div class="profile-legend">
-                                        <h6 class=""><b>Nationalité: &nbsp;</b> <?php echo $_SESSION['pays']; ?></h6>
+                                        <h6 class=""><b>>Pays d'origine: &nbsp;</b> <?php echo $_SESSION['pays']; ?></h6>
                                     </div>
                                     <div class="profile-legend mention">
                                         <h6 class=""><b>Mention: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>

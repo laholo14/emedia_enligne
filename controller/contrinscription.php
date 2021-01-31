@@ -16,7 +16,7 @@ spl_autoload_register("loadclass");
 
 $db = new Connexion();
 
-if (isset($_POST['name']) and isset($_POST['firstname']) and isset($_POST['born']) and isset($_POST['lieu']) and isset($_POST['sexe']) and isset($_POST['obtenir']) and isset($_POST['filiere']) and isset($_POST['parcours']) and isset($_POST['pays']) and isset($_POST['ville']) and isset($_POST['adresse']) and isset($_POST['numero1']) and isset($_POST['mail']) and isset($_FILES["cin"]) and  isset($_FILES["cv"]) and  isset($_FILES["residence"]) and  isset($_FILES["bnais"]) and isset($_FILES["lettre"]) and isset($_FILES["photo"])) {
+if (isset($_POST['name']) and isset($_POST['firstname']) and isset($_POST['born']) and isset($_POST['niveau']) and isset($_POST['lieu']) and isset($_POST['sexe']) and isset($_POST['obtenir']) and isset($_POST['filiere']) and isset($_POST['parcours']) and isset($_POST['pays']) and isset($_POST['ville']) and isset($_POST['adresse']) and isset($_POST['numero1']) and isset($_POST['mail']) and isset($_FILES["cin"]) and  isset($_FILES["cv"]) and  isset($_FILES["residence"]) and  isset($_FILES["bnais"]) and isset($_FILES["lettre"]) and isset($_FILES["photo"])) {
 
 
     extract($_POST);
@@ -200,8 +200,10 @@ if (isset($_POST['name']) and isset($_POST['firstname']) and isset($_POST['born'
                         $insert2->setDip($obtenir);
 
                         $insert2->setFiliere($filiere);
-
+                        $insert2->setSemestre($niveau);
                         $insert2->setParcours($parcours);
+
+                       
 
                         $insert2->createSuivre();
                     }
