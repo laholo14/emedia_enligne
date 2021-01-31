@@ -7,8 +7,8 @@ $datefr = new DateFr();
 $date = Date('Y-m-d');
 
 $datedentrer = new DateTime($_SESSION['datedenter']);
-$datedaujourdhui = new DateTime("2021-02-03");
-//$datedaujourdhui = new DateTime($date);
+//$datedaujourdhui = new DateTime("2021-02-03");
+$datedaujourdhui = new DateTime($date);
 
 
 $diff = $datedentrer->diff($datedaujourdhui);
