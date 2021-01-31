@@ -25,7 +25,7 @@ function Get(session, matiere, type, durre) {
 function listQcm() {
     let qcm = 3;
     $.ajax({
-        url: "Controller/contrExamEtudiantLicence.php",
+        url: "controller/contrExamEtudiantLicence.php",
         method: "POST",
         data: {
             qcm: qcm
@@ -39,7 +39,7 @@ function listQcm() {
 function listRedaction() {
     let redaction = 2;
     $.ajax({
-        url: "Controller/contrExamEtudiantLicence.php",
+        url: "controller/contrExamEtudiantLicence.php",
         method: "POST",
         data: {
             redaction: redaction
@@ -53,7 +53,7 @@ function listRedaction() {
 function listUpload() {
    let upload = 1;
     $.ajax({
-        url: "Controller/contrExamEtudiantLicence.php",
+        url: "controller/contrExamEtudiantLicence.php",
         method: "POST",
         data: {
         upload: upload
@@ -70,7 +70,7 @@ afficherMatiere();
 function afficherMatiere() {
     let listmat = '';
     $.ajax({
-        url: "Controller/contrExamEtudiantLicence.php",
+        url: "controller/contrExamEtudiantLicence.php",
         method: "POST",
         data: {
             listmat: listmat

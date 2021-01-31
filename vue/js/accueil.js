@@ -63,7 +63,7 @@ $(document).on("click", "#MessageAjouter", function (e) {
         alert('Veuillez remplir le champ');
     } else {
         $.ajax({
-            url: "Controller/Message.php",
+            url: "controller/Message.php",
             type: "post",
             data: {
                 id: idetudiant,
@@ -89,7 +89,7 @@ function readMessage() {
     let idetudiant = $('#idetudiant').val();
     let readMessage = "readMessage";
     $.ajax({
-        url: "Controller/Message.php",
+        url: "controller/Message.php",
         method: "POST",
         data: {
             idetudiant: idetudiant,
@@ -117,7 +117,7 @@ function affichercourslivres() {
 
 
     $.ajax({
-        url: "Controller/contrFormation.php",
+        url: "controller/contrFormation.php",
         method: "POST",
         data: {
             open_cours: open_cours,
@@ -141,7 +141,7 @@ function affichercoursvideo() {
 
 
     $.ajax({
-        url: "Controller/contrFormation.php",
+        url: "controller/contrFormation.php",
         method: "POST",
         data: {
             open_cours: open_cours,
@@ -164,7 +164,7 @@ function affichercoursaudio() {
 
 
     $.ajax({
-        url: "Controller/contrFormation.php",
+        url: "controller/contrFormation.php",
         method: "POST",
         data: {
             open_cours: open_cours,
@@ -222,7 +222,7 @@ function afficherexercicelivres() {
 
 
     $.ajax({
-        url: "Controller/contrFormation.php",
+        url: "controller/contrFormation.php",
         method: "POST",
         data: {
             open_exercice: open_exercice,
@@ -245,7 +245,7 @@ function afficherexercicevideo() {
 
 
     $.ajax({
-        url: "Controller/contrFormation.php",
+        url: "controller/contrFormation.php",
         method: "POST",
         data: {
             open_exercice: open_exercice,
@@ -268,7 +268,7 @@ function afficherexerciceaudio() {
 
 
     $.ajax({
-        url: "Controller/contrFormation.php",
+        url: "controller/contrFormation.php",
         method: "POST",
         data: {
             open_exercice: open_exercice,
@@ -292,7 +292,7 @@ function affichercorrigelivres() {
 
 
     $.ajax({
-        url: "Controller/contrFormation.php",
+        url: "controller/contrFormation.php",
         method: "POST",
         data: {
             open_corrige: open_corrige,
@@ -314,7 +314,7 @@ afficherMatiere();
 function afficherMatiere() {
     let listmat = '';
     $.ajax({
-        url: "Controller/contrFormation.php",
+        url: "controller/contrFormation.php",
         method: "POST",
         data: {
             listmat: listmat
@@ -334,7 +334,7 @@ update_last_activity();
 function update_last_activity() {
     var update_last_activity = "update_last_activity";
     $.ajax({
-        url: "Controller/contrStatus.php",
+        url: "controller/contrStatus.php",
         method: "POST",
         data: { update_last_activity: update_last_activity },
         success: function (data) {

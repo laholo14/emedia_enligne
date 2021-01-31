@@ -51,7 +51,7 @@ function readfiliere() {
     if (obtenir != 'choix') {
 
         $.ajax({
-            url: "controller/controlAffichageFiliereParcoursInscription.php", //Controller
+            url: "controller/controlAffichageFiliereParcoursInscription.php", //controller
             method: "POST",
             data: {
                 obtenir: obtenir
@@ -83,7 +83,7 @@ function readParcours() {
     if (filiere != '...') {
 
         $.ajax({
-            url: "controller/controlAffichageFiliereParcoursInscription.php", //Controller
+            url: "controller/controlAffichageFiliereParcoursInscription.php", //controller
             method: "POST",
             data: {
                 filiere: filiere
