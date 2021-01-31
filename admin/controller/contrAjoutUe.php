@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 function loadclass($class)
 {
@@ -7,7 +7,7 @@ function loadclass($class)
 }
 
 spl_autoload_register("loadclass");
-$unite =new Ue();
+$unite =new UE();
     
 if (isset($_POST['intitule'])) {
 

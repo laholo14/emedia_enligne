@@ -32,10 +32,11 @@ if (isset($_GET['erreur'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/adminEtudiant.css" type="text/css" />
+   
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    
+    <link rel="stylesheet" href="css/adminEtudiant.css" type="text/css" />
     <title>Document</title>
 </head>
 
@@ -44,46 +45,11 @@ if (isset($_GET['erreur'])) {
     include("navadmin.php"); 
      ?>
 
-    <div>
-        <h1 class="m-4">etudiants</h1>
-    </div>
 
 
-    <div class="modal fade" id="UpdataDate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header text-center ">
-                    <h5 class="modal-title text-capitalize" id="exampleModalLabel">Ajouter/Modifier Date d'entré</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-
-                </div>
-                <div class="modal-body">
-                    <form method="post" action="">
-                        <div class="form-group">
-                            <label for="update_fname" class="col-form-label">Vague:</label>
-                            <input type="text" class="form-control" id="hidden" readonly>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="update_fname" class="col-form-label">Date d'entré:</label><br>
-                            <input type="date" class="form-control" id="dateup" />
-
-                        </div>
-
-
-                        <div class="modal-footer d-flex justify-content-center">
-
-                            <input type="submit" id="modifier" class="btn btn-primary" value="Modifier" />
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div>
-        <h1 class="m-4">Liste d'admission</h1>
+   
+    <div><br>
+        <h1 class="mt-5">Liste d'admission</h1>
 
     </div>
     <div class="response"></div>

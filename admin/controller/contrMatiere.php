@@ -72,7 +72,7 @@ if (isset($_POST['search'])) {
             </tbody>';
         }
     }
-    $table .= '</table>';
+    $table .= '</table></div>';
     echo $table;
 }
 

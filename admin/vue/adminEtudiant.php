@@ -29,27 +29,27 @@ if (!isset($_SESSION['matriculeadmin'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/adminEtudiant.css" type="text/css" />
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" href="css/adminEtudiant.css" type="text/css" />
     <title>Document</title>
 </head>
 
 <body>
     <?php include("navadmin.php"); ?>
 
-    <div>
-        <h1 class="m-4">etudiants</h1>
+    <div><br>
+        <h1 class="mt-5">etudiants</h1>
     </div>
 
     <!--Ajout date-->
-    <div class="row divAjoutDate">
-        <div class="ajoutdate dropdown ml-5 mb-3">
+    <div class="row divAjoutDate" > 
+        <div class="ajoutdate dropdown ml-5 mb-3" >
             <a class="nav-link dropdown-toggle" style="cursor :pointer;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ajout date d'entrée</a>
-            <div class="dropdown-menu mt-5" aria-labelldby="dropdownMenuLink">
+            <div class="dropdown-menu mt-5" aria-labelldby="dropdownMenuLink" >
                 <form method="post" id="formdatedentrer">
-                    <input type="text" id="vague" class="form-control vague m-3" placeholder="vague" />
+                    <input type="text" id="vague" class="form-control vague" placeholder="vague" />
                     <input type="submit" id="ajoutvague" class="btn btn-primary m-3 btnAjoutDate" value="Ajouter">
                 </form>
                
@@ -61,7 +61,7 @@ if (!isset($_SESSION['matriculeadmin'])) {
                                 <thead>
                                     <tr>
                                         <th>Vague</th>
-                                        <th>Date d\'entrée</th>
+                                        <th>Date d'entrée</th>
                                         <th>Modifier</th>
 
                                     </tr>
@@ -97,9 +97,7 @@ if (!isset($_SESSION['matriculeadmin'])) {
 
             </div>
         </div>
-        <div style="margin: -20px auto;">
-            <h1 class="m-4">Liste des étudiants</h1>
-        </div>
+    
     </div>
     <div class="modal fade" id="UpdataDate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

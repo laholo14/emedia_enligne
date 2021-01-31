@@ -14,7 +14,7 @@ if (!isset($_SESSION['matriculeadmin'])) {
 function loadclass($class)
 {
 
-    require "../../model/" . $class . '.class.php';
+    require "../../model/" . $class . '.class.php'; 
 }
 
 spl_autoload_register("loadclass");
@@ -31,10 +31,10 @@ $connexion = new Connexion();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="admin/vue/css/admin.css" type="text/css" />
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-
+    <link rel="stylesheet" href="admin/vue/css/admin.css" type="text/css" />
     <title>Document</title>
 </head>
 
@@ -78,7 +78,7 @@ $connexion = new Connexion();
                                 <a class="nav-link" href="admin/vue/adminNote.php">Resultat & Note</a>
                                 <a class="nav-link" href="admin/vue/AdminRepechage.php">Liste repéchage</a>
                                 <a class="nav-link" href="admin/vue/examenSpecifique.php">Insértion Examen Spécifique</a>
-                                <a class="nav-link" id='rlv' href="admin/vue/adminReleve.php">Relevés de notes</a>
+                                <!-- <a class="nav-link" id='rlv' href="admin/vue/adminReleve.php">Relevés de notes</a> -->
                             </div>
                         </div>
                     </li>
