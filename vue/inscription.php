@@ -9,11 +9,11 @@ session_destroy();
 require_once("../model/Connexion.class.php");
 
 ?>
-    <?php
-    require('head.html');
-    ?>
-    <link rel="stylesheet" href="vue/css/inscription.css">
-    <title>Inscription</title>
+<?php
+require('head.html');
+?>
+<link rel="stylesheet" href="vue/css/inscription.css">
+<title>Inscription</title>
 </head>
 
 <body>
@@ -80,9 +80,16 @@ require_once("../model/Connexion.class.php");
                     <div>
                         <label for="start" class="titre">Obtenir un diplôme de:</label>
                         <select class="form-control" id="obtenir" name="obtenir" required>
-                            <option selected disabled>Choisissez ci</option>
+                            <option selected disabled>Choisissez ici</option>
                             <option value="LICENCE">Licence</option>
                             <option value="MASTER">Master</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="start" class="titre">Choix du Niveau:</label>
+                        <select class="form-control" id="niveau" name="niveau" required>
+
                         </select>
                     </div>
 
@@ -287,6 +294,7 @@ require_once("../model/Connexion.class.php");
     <script src="vue/js/inscription.js"></script>
     <script src="vue/js/inscriptionJS.js"></script>
 </body>
+
 </html>
 
 <?php

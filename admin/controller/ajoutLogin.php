@@ -251,7 +251,7 @@ if (isset($_POST['LICENCE']) and isset($_POST['TIC'])) {
                 <th>Prénom</th>
                 <th>Diplome En</th>
                 <th>Filière</th>
-                <th>Parcours</th>
+                 <th>Parcours</th><th>Semestre</th>
                 <th>Contact</th>
                 <th>Nationalité</th>
                 <th>Date D\'inscriptions</th>
@@ -273,7 +273,7 @@ if (isset($_POST['LICENCE']) and isset($_POST['TIC'])) {
         <td>' . $resultat['PRENOM'] . '</td>
         <td>' . $resultat['DIPLOME'] . '</td>
         <td>' . $resultat['FILIERE'] . '</td>
-        <td>' . $resultat['PARCOURS'] . '</td>
+        <td>' . $resultat['PARCOURS'] . '</td><td>' . $resultat['SEMESTRE'] . '</td>
         <td>' . $resultat['NUMERO'] . '</td>
         <td>' . $resultat['NATIONALITE'] . '</td>
         <td>' . $datefr->dateToFrench($resultat['DATEDINSCRIPTION'], "l j F Y à H:i") . '</td>
@@ -301,7 +301,7 @@ if (isset($_POST['LICENCE']) and isset($_POST['CAN'])) {
                 <th>Prénom</th>
                 <th>Diplome En</th>
                 <th>Filière</th>
-                <th>Parcours</th>
+                 <th>Parcours</th><th>Semestre</th>
                 <th>Contact</th>
                 <th>Nationalité</th>
                 <th>Date D\'inscriptions</th>
@@ -323,7 +323,7 @@ if (isset($_POST['LICENCE']) and isset($_POST['CAN'])) {
         <td>' . $resultat['PRENOM'] . '</td>
         <td>' . $resultat['DIPLOME'] . '</td>
         <td>' . $resultat['FILIERE'] . '</td>
-        <td>' . $resultat['PARCOURS'] . '</td>
+        <td>' . $resultat['PARCOURS'] . '</td><td>' . $resultat['SEMESTRE'] . '</td>
         <td>' . $resultat['NUMERO'] . '</td>
         <td>' . $resultat['NATIONALITE'] . '</td>
         <td>' . $datefr->dateToFrench($resultat['DATEDINSCRIPTION'], "l j F Y à H:i") . '</td>
@@ -351,7 +351,7 @@ if (isset($_POST['LICENCE']) and isset($_POST['MPJ'])) {
                 <th>Prénom</th>
                 <th>Diplome En</th>
                 <th>Filière</th>
-                <th>Parcours</th>
+                 <th>Parcours</th><th>Semestre</th>
                 <th>Contact</th>
                 <th>Nationalité</th>
                 <th>Date D\'inscriptions</th>
@@ -373,7 +373,7 @@ if (isset($_POST['LICENCE']) and isset($_POST['MPJ'])) {
         <td>' . $resultat['PRENOM'] . '</td>
         <td>' . $resultat['DIPLOME'] . '</td>
         <td>' . $resultat['FILIERE'] . '</td>
-        <td>' . $resultat['PARCOURS'] . '</td>
+        <td>' . $resultat['PARCOURS'] . '</td><td>' . $resultat['SEMESTRE'] . '</td>
         <td>' . $resultat['NUMERO'] . '</td>
         <td>' . $resultat['NATIONALITE'] . '</td>
         <td>' . $datefr->dateToFrench($resultat['DATEDINSCRIPTION'], "l j F Y à H:i") . '</td>
@@ -401,7 +401,7 @@ if (isset($_POST['LICENCE']) and isset($_POST['MGT'])) {
                 <th>Prénom</th>
                 <th>Diplome En</th>
                 <th>Filière</th>
-                <th>Parcours</th>
+                 <th>Parcours</th><th>Semestre</th>
                 <th>Contact</th>
                 <th>Nationalité</th>
                 <th>Date D\'inscriptions</th>
@@ -423,7 +423,7 @@ if (isset($_POST['LICENCE']) and isset($_POST['MGT'])) {
         <td>' . $resultat['PRENOM'] . '</td>
         <td>' . $resultat['DIPLOME'] . '</td>
         <td>' . $resultat['FILIERE'] . '</td>
-        <td>' . $resultat['PARCOURS'] . '</td>
+        <td>' . $resultat['PARCOURS'] . '</td><td>' . $resultat['SEMESTRE'] . '</td>
         <td>' . $resultat['NUMERO'] . '</td>
         <td>' . $resultat['NATIONALITE'] . '</td>
         <td>' . $datefr->dateToFrench($resultat['DATEDINSCRIPTION'], "l j F Y à H:i") . '</td>
@@ -451,7 +451,7 @@ if (isset($_POST['LICENCE']) and isset($_POST['DRT'])) {
                 <th>Prénom</th>
                 <th>Diplome En</th>
                 <th>Filière</th>
-                <th>Parcours</th>
+                 <th>Parcours</th><th>Semestre</th>
                 <th>Contact</th>
                 <th>Nationalité</th>
                 <th>Date D\'inscriptions</th>
@@ -473,7 +473,7 @@ if (isset($_POST['LICENCE']) and isset($_POST['DRT'])) {
         <td>' . $resultat['PRENOM'] . '</td>
         <td>' . $resultat['DIPLOME'] . '</td>
         <td>' . $resultat['FILIERE'] . '</td>
-        <td>' . $resultat['PARCOURS'] . '</td>
+        <td>' . $resultat['PARCOURS'] . '</td><td>' . $resultat['SEMESTRE'] . '</td>
         <td>' . $resultat['NUMERO'] . '</td>
         <td>' . $resultat['NATIONALITE'] . '</td>
         <td>' . $datefr->dateToFrench($resultat['DATEDINSCRIPTION'], "l j F Y à H:i") . '</td>
@@ -501,7 +501,7 @@ if (isset($_POST['MASTER']) and isset($_POST['TICM'])) {
                 <th>Prénom</th>
                 <th>Diplome En</th>
                 <th>Filière</th>
-                <th>Parcours</th>
+                 <th>Parcours</th><th>Semestre</th>
                 <th>Contact</th>
                 <th>Nationalité</th>
                 <th>Date D\'inscriptions</th>
@@ -523,7 +523,7 @@ if (isset($_POST['MASTER']) and isset($_POST['TICM'])) {
         <td>' . $resultat['PRENOM'] . '</td>
         <td>' . $resultat['DIPLOME'] . '</td>
         <td>' . $resultat['FILIERE'] . '</td>
-        <td>' . $resultat['PARCOURS'] . '</td>
+        <td>' . $resultat['PARCOURS'] . '</td><td>' . $resultat['SEMESTRE'] . '</td>
         <td>' . $resultat['NUMERO'] . '</td>
         <td>' . $resultat['NATIONALITE'] . '</td>
         <td>' . $datefr->dateToFrench($resultat['DATEDINSCRIPTION'], "l j F Y à H:i") . '</td>
@@ -550,7 +550,7 @@ if (isset($_POST['MASTER']) and isset($_POST['AC'])) {
                 <th>Prénom</th>
                 <th>Diplome En</th>
                 <th>Filière</th>
-                <th>Parcours</th>
+                 <th>Parcours</th><th>Semestre</th>
                 <th>Contact</th>
                 <th>Nationalité</th>
                 <th>Date D\'inscriptions</th>
@@ -572,7 +572,7 @@ if (isset($_POST['MASTER']) and isset($_POST['AC'])) {
         <td>' . $resultat['PRENOM'] . '</td>
         <td>' . $resultat['DIPLOME'] . '</td>
         <td>' . $resultat['FILIERE'] . '</td>
-        <td>' . $resultat['PARCOURS'] . '</td>
+        <td>' . $resultat['PARCOURS'] . '</td><td>' . $resultat['SEMESTRE'] . '</td>
         <td>' . $resultat['NUMERO'] . '</td>
         <td>' . $resultat['NATIONALITE'] . '</td>
         <td>' . $datefr->dateToFrench($resultat['DATEDINSCRIPTION'], "l j F Y à H:i") . '</td>
@@ -601,7 +601,7 @@ if (isset($_POST['MASTER']) and isset($_POST['MPJM'])) {
                 <th>Prénom</th>
                 <th>Diplome En</th>
                 <th>Filière</th>
-                <th>Parcours</th>
+                 <th>Parcours</th><th>Semestre</th>
                 <th>Contact</th>
                 <th>Nationalité</th>
                 <th>Date D\'inscriptions</th>
@@ -623,7 +623,7 @@ if (isset($_POST['MASTER']) and isset($_POST['MPJM'])) {
         <td>' . $resultat['PRENOM'] . '</td>
         <td>' . $resultat['DIPLOME'] . '</td>
         <td>' . $resultat['FILIERE'] . '</td>
-        <td>' . $resultat['PARCOURS'] . '</td>
+        <td>' . $resultat['PARCOURS'] . '</td><td>' . $resultat['SEMESTRE'] . '</td>
         <td>' . $resultat['NUMERO'] . '</td>
         <td>' . $resultat['NATIONALITE'] . '</td>
         <td>' . $datefr->dateToFrench($resultat['DATEDINSCRIPTION'], "l j F Y à H:i") . '</td>
@@ -650,7 +650,7 @@ if (isset($_POST['MASTER']) and isset($_POST['MBA'])) {
                 <th>Prénom</th>
                 <th>Diplome En</th>
                 <th>Filière</th>
-                <th>Parcours</th>
+                 <th>Parcours</th><th>Semestre</th>
                 <th>Contact</th>
                 <th>Nationalité</th>
                 <th>Date D\'inscriptions</th>
@@ -672,7 +672,7 @@ if (isset($_POST['MASTER']) and isset($_POST['MBA'])) {
         <td>' . $resultat['PRENOM'] . '</td>
         <td>' . $resultat['DIPLOME'] . '</td>
         <td>' . $resultat['FILIERE'] . '</td>
-        <td>' . $resultat['PARCOURS'] . '</td>
+        <td>' . $resultat['PARCOURS'] . '</td><td>' . $resultat['SEMESTRE'] . '</td>
         <td>' . $resultat['NUMERO'] . '</td>
         <td>' . $resultat['NATIONALITE'] . '</td>
         <td>' . $datefr->dateToFrench($resultat['DATEDINSCRIPTION'], "l j F Y à H:i") . '</td>
@@ -700,7 +700,7 @@ if (isset($_POST['MASTER']) and isset($_POST['DRTM'])) {
                 <th>Prénom</th>
                 <th>Diplome En</th>
                 <th>Filière</th>
-                <th>Parcours</th>
+                 <th>Parcours</th><th>Semestre</th>
                 <th>Contact</th>
                 <th>Nationalité</th>
                 <th>Date D\'inscriptions</th>
@@ -722,7 +722,7 @@ if (isset($_POST['MASTER']) and isset($_POST['DRTM'])) {
         <td>' . $resultat['PRENOM'] . '</td>
         <td>' . $resultat['DIPLOME'] . '</td>
         <td>' . $resultat['FILIERE'] . '</td>
-        <td>' . $resultat['PARCOURS'] . '</td>
+        <td>' . $resultat['PARCOURS'] . '</td><td>' . $resultat['SEMESTRE'] . '</td>
         <td>' . $resultat['NUMERO'] . '</td>
         <td>' . $resultat['NATIONALITE'] . '</td>
         <td>' . $datefr->dateToFrench($resultat['DATEDINSCRIPTION'], "l j F Y à H:i") . '</td>
@@ -811,7 +811,7 @@ if (isset($_POST['vague']) and isset($_POST['semestre']) and isset($_POST['numer
             $headers .= 'Delivered-to: ' . $destinataire . "\n"; // Destinataire
             //$headers .= 'Cc: '.$copie."\n"; // Copie Cc
             //$headers .= 'Bcc: '.$copie_cachee."\n\n"; // Copie cachée Bcc        
-            $message = '<div style="width: 100%; text-align: center; font-weight: bold">Bonjour...<br>Voici votre Matricule et Mot de passe pour acceder a vos cours</div> <br> <br>
+            $message = '<div style="width: 100%; text-align: center; font-weight: bold">Bonjour, nous vous remercions de votre confiance à notre université en effectuant votre inscription</div> <br> <br>
              <div>
              <form action="e-media.mg/universite/" method="posts">
               <div>
@@ -829,7 +829,7 @@ if (isset($_POST['vague']) and isset($_POST['semestre']) and isset($_POST['numer
               Merci de nous contacter en cas de problème selon ses différents services:
               <tr>
               <br>
-              <td>Service Technique: emedia.servicetechnique@gmail.com , 261342805835</td>
+              <td>Service Technique: emedia.servicetechnique@gmail.com , 261345077707</td>
               </tr>
               <br>
               <tr>
@@ -837,19 +837,11 @@ if (isset($_POST['vague']) and isset($_POST['semestre']) and isset($_POST['numer
               </tr>
               <br>
               <tr>
-              <td>Service Pedagogie LICENCE: emediaenligne2020@gmail.com , 261349920407</td>
+              <td>Service Pedagogie LICENCE: emediaenligne2020@gmail.com , 261345677707</td>
               </tr>
               <br>
               <tr>
-              <td>Service Pedagogie MASTER: emediaenligne2020@gmail.com , 261344356977</td>
-              </tr>
-              <br>
-              <tr>
-              <td>Scolarité LICENCE: 261341799960</td>
-              </tr>
-              <br>
-              <tr>
-              <td>Scolarité MASTER: 261341177737</td>
+              <td>Service Pedagogie MASTER: emediaenligne2020@gmail.com , 261349077707</td>
               </tr>
               <br>
               </table>
@@ -892,7 +884,7 @@ if (isset($_POST['vague']) and isset($_POST['semestre']) and isset($_POST['numer
               Merci de nous contacter en cas de problème selon ses différents services:
                 <tr>
                 <br>
-                <td>Service Technique: emedia.servicetechnique@gmail.com , 261342805835</td>
+                <td>Service Technique: emedia.servicetechnique@gmail.com , 261345077707</td>
                 </tr>
                 <br>
                 <tr>
@@ -900,19 +892,11 @@ if (isset($_POST['vague']) and isset($_POST['semestre']) and isset($_POST['numer
                 </tr>
                 <br>
                 <tr>
-                <td>Service Pedagogie LICENCE: emediaenligne2020@gmail.com , 261349920407</td>
+                <td>Service Pedagogie LICENCE: emediaenligne2020@gmail.com , 261345677707</td>
                 </tr>
                 <br>
                 <tr>
-                <td>Service Pedagogie MASTER: emediaenligne2020@gmail.com , 261344356977</td>
-                </tr>
-                <br>
-                <tr>
-                <td>Scolarité LICENCE: 261341799960</td>
-                </tr>
-                <br>
-                <tr>
-                <td>Scolarité MASTER: 261341177737</td>
+                <td>Service Pedagogie MASTER: emediaenligne2020@gmail.com , 261349077707</td>
                 </tr>
                 <br>
               <i>Vous beneficier de 50% de reduction pour vos frais d\'inscriptions pour l\'un de vos filière</i>

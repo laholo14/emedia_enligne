@@ -166,7 +166,7 @@ if (isset($_POST['action']) and isset($_POST['idm']) and isset($_POST['idc']) an
 
     extract($_POST);
     if ($_POST["action"] == "update") {
-
+        $doc = new Dossier();
         $res = $doc->listDossier_ID($idm, $idc, $idt);
 
         foreach ($res as $row) {
