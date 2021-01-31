@@ -4,7 +4,7 @@ ob_start();
 session_start();
 
 require_once("../model/Connexion.class.php");
-require_once("../dompdf/autoload.inc.php");
+require_once("../../dompdf/autoload.inc.php");
 require_once("../model/Resultat.class.php");
 
 $db = new Connexion();

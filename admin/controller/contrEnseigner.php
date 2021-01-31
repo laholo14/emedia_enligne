@@ -87,7 +87,7 @@ if (isset($_POST['LICENCE']) and isset($_POST['TIC']) and isset($_POST['search']
     </tr>
  </tbody>';
     }
-    $table .= '</table>';
+    $table .= '</table></div>';
     echo $table;
 }
 
@@ -128,7 +128,7 @@ if (isset($_POST['LICENCE']) and isset($_POST['CAN']) and isset($_POST['search']
     </tr>
  </tbody>';
     }
-    $table .= '</table>';
+    $table .= '</table></div>';
     echo $table;
 }
 
@@ -169,7 +169,7 @@ if (isset($_POST['LICENCE']) and isset($_POST['MPJ']) and isset($_POST['search']
     </tr>
  </tbody>';
     }
-    $table .= '</table>';
+    $table .= '</table></div>';
     echo $table;
 }
 
@@ -210,7 +210,7 @@ if (isset($_POST['LICENCE']) and isset($_POST['DRT']) and isset($_POST['search']
     </tr>
  </tbody>';
     }
-    $table .= '</table>';
+    $table .= '</table></div>';
     echo $table;
 }
 
@@ -252,7 +252,7 @@ if (isset($_POST['LICENCE']) and isset($_POST['MGT']) and isset($_POST['search']
     </tr>
  </tbody>';
     }
-    $table .= '</table>';
+    $table .= '</table></div>';
     echo $table;
 }
 
@@ -293,7 +293,7 @@ if (isset($_POST['MASTER']) and isset($_POST['TICM']) and isset($_POST['search']
     </tr>
  </tbody>';
     }
-    $table .= '</table>';
+    $table .= '</table></div>';
     echo $table;
 }
 
@@ -334,7 +334,7 @@ if (isset($_POST['MASTER']) and isset($_POST['AC']) and isset($_POST['search']))
     </tr>
  </tbody>';
     }
-    $table .= '</table>';
+    $table .= '</table></div>';
     echo $table;
 }
 
@@ -376,7 +376,7 @@ if (isset($_POST['MASTER']) and isset($_POST['MPJM']) and isset($_POST['search']
     </tr>
  </tbody>';
     }
-    $table .= '</table>';
+    $table .= '</table></div>';
     echo $table;
 }
 
@@ -418,7 +418,7 @@ if (isset($_POST['MASTER']) and isset($_POST['MBA']) and isset($_POST['search'])
     </tr>
  </tbody>';
     }
-    $table .= '</table>';
+    $table .= '</table></div>';
     echo $table;
 }
 
@@ -461,7 +461,7 @@ if (isset($_POST['MASTER']) and isset($_POST['DRTM'])) {
     </tr>
  </tbody>';
     }
-    $table .= '</table>';
+    $table .= '</table></div>';
     echo $table;
 }
 if (isset($_POST['action'])) {

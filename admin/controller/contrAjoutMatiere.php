@@ -9,7 +9,7 @@ function loadclass($class)
 spl_autoload_register("loadclass");
 $matiere=new Matiere();
 
-$unite =new Ue();
+$unite =new UE();
     
 if (isset($_POST['intitule']) && isset($_POST['idue'])) {
 
