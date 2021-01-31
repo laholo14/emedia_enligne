@@ -12,7 +12,8 @@ function loadclass($class)
 
 spl_autoload_register("loadclass");
 
-$db = new Connexion;
+
+
 
 $suivre = new Suivre();
 
@@ -28,10 +29,10 @@ if (!isset($_SESSION['matriculeadmin'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/adminEtudiant.css" type="text/css" />
-    <link rel="stylesheet" href="css/animate.css" type="text/css" />
-    <link rel="stylesheet" href="fontawesome-free-5.6.3-web/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <title>Document</title>
 </head>
 
@@ -43,31 +44,63 @@ if (!isset($_SESSION['matriculeadmin'])) {
     </div>
 
     <!--Ajout date-->
-        <div class="row divAjoutDate">
-            <div class="ajoutdate dropdown ml-5 mb-3" style="height: 44px;">
-                <a class="nav-link dropdown-toggle" style="cursor :pointer;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ajout date d'entrée</a>
-                <div class="dropdown-menu" aria-labelldby="dropdownMenuLink">
-                    <form method="post" id="formdatedentrer">
-                        <input type="text" id="vague" class="form-control vague m-3" placeholder="vague" />
-                        <input type="submit" id="ajoutvague" class="btn btn-primary m-3 btnAjoutDate" value="Ajouter">
-                    </form>
-                    <div class="container">
+    <div class="row divAjoutDate">
+        <div class="ajoutdate dropdown ml-5 mb-3">
+            <a class="nav-link dropdown-toggle" style="cursor :pointer;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ajout date d'entrée</a>
+            <div class="dropdown-menu mt-5" aria-labelldby="dropdownMenuLink">
+                <form method="post" id="formdatedentrer">
+                    <input type="text" id="vague" class="form-control vague m-3" placeholder="vague" />
+                    <input type="submit" id="ajoutvague" class="btn btn-primary m-3 btnAjoutDate" value="Ajouter">
+                </form>
+               
 
-                        <form class="search m-3" method='POST'>
-                            <input class="p-1" class="form-control" type='search' id='search' placeholder='recherche' />
-                        </form>
 
-                        <div id="tabdate">
+                    <div id="tabdate">
+                        <div class="table-responsive mt-3">
+                            <table class="table table-border-danger table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Vague</th>
+                                        <th>Date d\'entrée</th>
+                                        <th>Modifier</th>
 
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $afficahge = new Code;
+                                   
+                                    if ($_SESSION['admin'] == 'licence') {
+                                        $res = $afficahge->read_licence();
+                                    } else {
+                                        $res = $afficahge->read_master();
+                                    }
+                                    foreach ($res as $resultat) {
+                                        if ($resultat['DATYFIDIRANA'] == "") {
+                                            $daty = "0000-00-00";
+                                        } else {
+                                            $daty = $resultat['DATYFIDIRANA'];
+                                        }
+
+                                    ?>
+                                        <tr>
+                                            <td class="col-2 text-center"><?php echo $resultat['CODE']; ?></td>
+                                            <input type="hidden" id="code" value="<?php echo $resultat['CODE']; ?>" />
+                                            <td class="col-8"><?php echo $daty; ?></td>
+                                            <td class="col-2" text-center><button data-toggle="modal" data-target="#UpdataDate" onclick="GetDaty(<?php echo $resultat['IDDATYFIDIRANA']; ?>,'<?php echo $resultat['DATYFIDIRANA'] ?>','<?php echo $resultat['CODE'] ?>')"><img src="image/edit.png" width="30px" height="30px" alt=""></button></td>
+
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
                         </div>
-
                     </div>
-                </div>
+
             </div>
+        </div>
         <div style="margin: -20px auto;">
             <h1 class="m-4">Liste des étudiants</h1>
         </div>
-        </div>
+    </div>
     <div class="modal fade" id="UpdataDate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -82,7 +115,8 @@ if (!isset($_SESSION['matriculeadmin'])) {
                     <form method="post" action="">
                         <div class="form-group">
                             <label for="update_fname" class="col-form-label">Vague:</label>
-                            <input type="text" class="form-control" id="hidden" readonly>
+                            <input type="text" class="form-control" id="hiddenvague" readonly>
+                            <input type="hidden" class="form-control" id="hiddenidvague" readonly>
                         </div>
 
                         <div class="form-group">
@@ -580,17 +614,16 @@ if (!isset($_SESSION['matriculeadmin'])) {
     </div>
 
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>
 
 <script>
     $(document).ready(function() {
-        recherche();
-        readDate();
+
         // setInterval(recherche, 1000);
 
         //manao click master
@@ -601,7 +634,7 @@ if (!isset($_SESSION['matriculeadmin'])) {
         } else if ($("#admin").val() == 'licence') {
             $("#v-pills-profile-tab").hide();
             $("#v-pills-home-tab").click();
-        }else{
+        } else {
             $("#v-pills-home-tab").hide();
             $("#v-pills-profile-tab").hide();
             $("#v-pills-licence").hide();
@@ -609,35 +642,15 @@ if (!isset($_SESSION['matriculeadmin'])) {
         }
     });
 
-    $(document).on("keyup", "#search", function() {
-        recherche();
-    });
 
-    $(document).on("click", "#dropdownMenuLink", function() {
-        recherche();
-    });
+    function GetDaty(idmat,daty,vague){
+        $("#hiddenvague").val(vague);
+        $("#hiddenidvague").val(idmat);
+        $("#dateup").val(daty);
+     
+    
 
-    function GetUser(idmat, chaine) {
-        $('#hidden').val(idmat);
-        $('#dateup').val(chaine);
-    };
-
-    readDate();
-
-    function readDate() {
-        let tabdate = '';
-
-        $.ajax({
-            url: "../Controller/contrCode.php",
-            type: "POST",
-            data: {
-                tabdate: tabdate
-            },
-            success: function(data) {
-                $("#tabdate").html(data);
-            }
-        });
-    }  
+    }
 
 
     $(document).on("click", "#ajoutvague", function(e) {
@@ -648,16 +661,15 @@ if (!isset($_SESSION['matriculeadmin'])) {
         if (vague != '') {
 
             $.ajax({
-                url: "../Controller/contrCode.php", //Controller
+                url: "../../mba_master/controller/controllerAjoutVague.php", //controller
                 method: "POST",
                 data: {
                     vague: vague
                 }, //valeur alefa
                 success: function(data) {
-                    alert("Ajout avec succces!!!");
+                    alert(data);
                     $('#vague').val('');
-                    readDate();
-                    recherche();
+                 
                 }
             });
             $('#vague').val('');
@@ -670,22 +682,24 @@ if (!isset($_SESSION['matriculeadmin'])) {
 
     $(document).on("click", "#modifier", function(e) {
         e.preventDefault();
-        let vagueup = $('#hidden').val();
+        let iddaty = $('#hiddenidvague').val();
         let dateup = $('#dateup').val();
-     
-        
+        let admin = $('#admin').val();
+
+
         if (dateup != '') {
             $.ajax({
-                url: "../Controller/contrCode.php", //Controller
+                url: "../../mba_master/controller/controllerAjoutDate.php", //controller
                 method: "POST",
                 data: {
-                    vagueup: vagueup,
-                    dateup: dateup
+                    iddaty: iddaty,
+                    datyvalue: dateup,
+                    admin: admin
                 }, //valeur alefa
                 success: function(data) {
-                    alert("Modification avec succces!!!");
-                    recherche();
-                    readDate();
+                    alert(data);
+                   
+
                 }
             });
 
@@ -693,26 +707,8 @@ if (!isset($_SESSION['matriculeadmin'])) {
             alert("Date obligatoire");
         }
 
-        
+
     });
-    recherche();
-
-    function recherche() {
-
-        let search = $('#search').val();
-        $.ajax({
-            url: "../Controller/contrCode.php",
-            type: "POST",
-            data: {
-                search: search
-            },
-            success: function(data) {
-                $("#tabdate").html(data);
-            }
-        });
-
-
-    }
 </script>
 
 <?php

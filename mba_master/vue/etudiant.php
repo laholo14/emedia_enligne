@@ -9,7 +9,7 @@ require('include/nav.php');
 <section id="Liste_etudiant">
     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
         <div class="titre_inscriptions mt-3 d-flex justify-content-center">
-            <h2 class="text-center">Listes des vagues</h2>
+            <h2 class="text-center">Listes des vagues</h2>  
         </div>
         <div class="bloc_list_etudiant mt-3">
             <div class="row">

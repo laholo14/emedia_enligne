@@ -151,7 +151,7 @@
 
                         <li id="active-notification"><a href="#"><i class="fal fa-bell mr-3"></i><span>Notifications <span class="badge badge-light">4</span></span></a></li>
 
-                        <li id="active-logout"><a href="#"><i class="fas fa-power-off mr-3"></i><span>Deconnexion </span></a></li>
+                        <li id="active-logout"><a href="vue/logout.php"><i class="fas fa-power-off mr-3"></i><span>Deconnexion </span></a></li>
                     </ul>
                 </div>
                 <!-- fin sidebar -->

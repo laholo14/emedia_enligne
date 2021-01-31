@@ -264,7 +264,7 @@ include("../controller/contrIEM.php");
         if (comment_content != '') {
 
             $.ajax({
-                url: "Controller/contrForum.php", //Controller
+                url: "controller/contrForum.php", //controller
                 method: "POST",
                 data: {
                     comment_content: comment_content,
@@ -289,7 +289,7 @@ include("../controller/contrIEM.php");
 
     function load_comment() {
         $.ajax({
-            url: "Controller/contrForum.php",
+            url: "controller/contrForum.php",
             method: "POST",
             success: function(data) {
                 $('#display_comment').html(data);

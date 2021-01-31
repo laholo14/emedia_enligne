@@ -76,7 +76,24 @@ class Code
         ));
         $st->closeCursor();
     }
+
+    public function read_licence()
+    {
+
+            $requete = "SELECT * FROM DATYFIDIRANA WHERE DIPLOME = 'LICENCE'";
+            $query = Connexion::getCx()->query($requete);
+            return $query->fetchAll();
+    }
+    
+    public function read_master()
+    {
+
+            $requete = "SELECT * FROM DATYFIDIRANA WHERE DIPLOME = 'MASTER'";
+            $query = Connexion::getCx()->query($requete);
+            return $query->fetchAll();
+    }
 }
+
 ?>
 <?php
 

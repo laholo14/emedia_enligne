@@ -31,9 +31,10 @@ $connexion = new Connexion();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="admin/vue/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="admin/vue/css/admin.css" type="text/css" />
-    <link rel="stylesheet" href="admin/vue/css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
     <title>Document</title>
 </head>
 
@@ -373,9 +374,9 @@ $connexion = new Connexion();
     </div>
     </div>
 
-    <script src="admin/vue/js/jquery.min.js"></script>
-    <script src="admin/vue/js/popper.js"></script>
-    <script src="admin/vue/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>
@@ -463,7 +464,7 @@ $connexion = new Connexion();
 
         let search = $('#searchmod').val();
         $.ajax({
-            url: "admin/Controller/ajoutLogin.php",
+            url: "admin/controller/ajoutLogin.php",
             type: "POST",
             data: {
                 search: search
@@ -548,7 +549,7 @@ $connexion = new Connexion();
         if (numero != '') {
 
             $.ajax({
-                url: "admin/Controller/ajoutLogin.php", //Controller
+                url: "admin/controller/ajoutLogin.php", //controller
                 method: "POST",
                 data: {
                     vague: vague,
@@ -589,7 +590,7 @@ $connexion = new Connexion();
         if (conf == true) {
             if (message != '') {
                 $.ajax({
-                    url: "admin/Controller/ajoutLogin.php", //Controller
+                    url: "admin/controller/ajoutLogin.php", //controller
                     method: "POST",
                     data: {
                         message: message,
@@ -634,7 +635,7 @@ $connexion = new Connexion();
     function update_last_activity() {
         var update_last_activity = "update_last_activity";
         $.ajax({
-            url: "admin/Controller/contrStatus.php",
+            url: "admin/controller/contrStatus.php",
             method: "POST",
             data: {
                 update_last_activity: update_last_activity
@@ -649,7 +650,7 @@ $connexion = new Connexion();
     function readNotifl() {
         let readNotifl = "readNotifl";
         $.ajax({
-            url: "admin/Controller/ajoutLogin.php",
+            url: "admin/controller/ajoutLogin.php",
             method: "POST",
             data: {
                 readNotifl: readNotifl
@@ -664,7 +665,7 @@ $connexion = new Connexion();
     function readNotifm() {
         let readNotifm = "readNotifm";
         $.ajax({
-            url: "admin/Controller/ajoutLogin.php",
+            url: "admin/controller/ajoutLogin.php",
             method: "POST",
             data: {
                 readNotifm: readNotifm
@@ -674,11 +675,11 @@ $connexion = new Connexion();
             }
         });
     };
-
+ 
     function readNotiftic() {
         let readNotiftic = "readNotiftic";
         $.ajax({
-            url: "admin/Controller/ajoutLogin.php",
+            url: "admin/controller/ajoutLogin.php",
             method: "POST",
             data: {
                 readNotiftic: readNotiftic
@@ -693,7 +694,7 @@ $connexion = new Connexion();
     function readNotifcan() {
         let readNotifcan = "readNotifcan";
         $.ajax({
-            url: "admin/Controller/ajoutLogin.php",
+            url: "admin/controller/ajoutLogin.php",
             method: "POST",
             data: {
                 readNotifcan: readNotifcan
@@ -707,7 +708,7 @@ $connexion = new Connexion();
     function readNotifmpj() {
         let readNotifmpj = "readNotifmpj";
         $.ajax({
-            url: "admin/Controller/ajoutLogin.php",
+            url: "admin/controller/ajoutLogin.php",
             method: "POST",
             data: {
                 readNotifmpj: readNotifmpj
@@ -721,7 +722,7 @@ $connexion = new Connexion();
     function readNotifmgt() {
         let readNotifmgt = "readNotifmgt";
         $.ajax({
-            url: "admin/Controller/ajoutLogin.php",
+            url: "admin/controller/ajoutLogin.php",
             method: "POST",
             data: {
                 readNotifmgt: readNotifmgt
@@ -736,7 +737,7 @@ $connexion = new Connexion();
     function readNotifdrt() {
         let readNotifdrt = "readNotifdrt";
         $.ajax({
-            url: "admin/Controller/ajoutLogin.php",
+            url: "admin/controller/ajoutLogin.php",
             method: "POST",
             data: {
                 readNotifdrt: readNotifdrt
@@ -751,7 +752,7 @@ $connexion = new Connexion();
     function readNotifticm() {
         let readNotifticm = "readNotifticm";
         $.ajax({
-            url: "admin/Controller/ajoutLogin.php",
+            url: "admin/controller/ajoutLogin.php",
             method: "POST",
             data: {
                 readNotifticm: readNotifticm
@@ -765,7 +766,7 @@ $connexion = new Connexion();
     function readNotifac() {
         let readNotifac = "readNotifac";
         $.ajax({
-            url: "admin/Controller/ajoutLogin.php",
+            url: "admin/controller/ajoutLogin.php",
             method: "POST",
             data: {
                 readNotifac: readNotifac
@@ -779,7 +780,7 @@ $connexion = new Connexion();
     function readNotifmpjm() {
         let readNotifmpjm = "readNotifmpjm";
         $.ajax({
-            url: "admin/Controller/ajoutLogin.php",
+            url: "admin/controller/ajoutLogin.php",
             method: "POST",
             data: {
                 readNotifmpjm: readNotifmpjm
@@ -794,7 +795,7 @@ $connexion = new Connexion();
     function readNotifmba() {
         let readNotifmba = "readNotifmba";
         $.ajax({
-            url: "admin/Controller/ajoutLogin.php",
+            url: "admin/controller/ajoutLogin.php",
             method: "POST",
             data: {
                 readNotifmba: readNotifmba
@@ -809,7 +810,7 @@ $connexion = new Connexion();
     function readNotifdrtm() {
         let readNotifdrtm = "readNotifdrtm";
         $.ajax({
-            url: "admin/Controller/ajoutLogin.php",
+            url: "admin/controller/ajoutLogin.php",
             method: "POST",
             data: {
                 readNotifdrtm: readNotifdrtm
@@ -828,7 +829,7 @@ $connexion = new Connexion();
         let LICENCE = "LICENCE";
         let TIC = "TIC";
         $.ajax({
-            url: "admin/Controller/ajoutLogin.php",
+            url: "admin/controller/ajoutLogin.php",
             type: "POST",
             data: {
                 LICENCE: LICENCE,
@@ -847,7 +848,7 @@ $connexion = new Connexion();
         let LICENCE = "LICENCE";
         let CAN = "CAN";
         $.ajax({
-            url: "admin/Controller/ajoutLogin.php",
+            url: "admin/controller/ajoutLogin.php",
             type: "POST",
             data: {
                 LICENCE: LICENCE,
@@ -865,7 +866,7 @@ $connexion = new Connexion();
         let LICENCE = "LICENCE";
         let MPJ = "MPJ";
         $.ajax({
-            url: "admin/Controller/ajoutLogin.php",
+            url: "admin/controller/ajoutLogin.php",
             type: "POST",
             data: {
                 LICENCE: LICENCE,
@@ -884,7 +885,7 @@ $connexion = new Connexion();
         let LICENCE = "LICENCE";
         let MGT = "MGT";
         $.ajax({
-            url: "admin/Controller/ajoutLogin.php",
+            url: "admin/controller/ajoutLogin.php",
             type: "POST",
             data: {
                 LICENCE: LICENCE,
@@ -902,7 +903,7 @@ $connexion = new Connexion();
         let LICENCE = "LICENCE";
         let DRT = "DRT";
         $.ajax({
-            url: "admin/Controller/ajoutLogin.php",
+            url: "admin/controller/ajoutLogin.php",
             type: "POST",
             data: {
                 LICENCE: LICENCE,
@@ -921,7 +922,7 @@ $connexion = new Connexion();
         let MASTER = "MASTER";
         let TICM = "TICM";
         $.ajax({
-            url: "admin/Controller/ajoutLogin.php",
+            url: "admin/controller/ajoutLogin.php",
             type: "POST",
             data: {
                 MASTER: MASTER,
@@ -941,7 +942,7 @@ $connexion = new Connexion();
         let MASTER = "MASTER";
         let AC = "AC";
         $.ajax({
-            url: "admin/Controller/ajoutLogin.php",
+            url: "admin/controller/ajoutLogin.php",
             type: "POST",
             data: {
                 MASTER: MASTER,
@@ -960,7 +961,7 @@ $connexion = new Connexion();
         let MASTER = "MASTER";
         let MPJM = "MPJM";
         $.ajax({
-            url: "admin/Controller/ajoutLogin.php",
+            url: "admin/controller/ajoutLogin.php",
             type: "POST",
             data: {
                 MASTER: MASTER,
@@ -980,7 +981,7 @@ $connexion = new Connexion();
         let MASTER = "MASTER";
         let MBA = "MBA";
         $.ajax({
-            url: "admin/Controller/ajoutLogin.php",
+            url: "admin/controller/ajoutLogin.php",
             type: "POST",
             data: {
                 MASTER: MASTER,
@@ -998,7 +999,7 @@ $connexion = new Connexion();
         let MASTER = "MASTER";
         let DRTM = "DRTM";
         $.ajax({
-            url: "admin/Controller/ajoutLogin.php",
+            url: "admin/controller/ajoutLogin.php",
             type: "POST",
             data: {
                 MASTER: MASTER,

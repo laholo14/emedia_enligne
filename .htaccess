@@ -19,7 +19,27 @@ RewriteRule ^Home$ vue/accueilMaster [L]
 RewriteRule ^Register$ vue/inscription [L]
 RewriteRule ^Salle_d_examen$ vue/epreuveLicence [L]
 RewriteRule ^Succes$ admin/vue/login [L]
+RewriteRule ^Commission$ paiement/Vue/index [L]
 RewriteRule ^Traitement$ paiement/Vue/paiement [L]
+RewriteRule ^Reussi$ paiement/Vue/paiement.php?error=0 [L]
+RewriteRule ^UneErreur$ paiement/Vue/paiement.php?error=1 [L]
+RewriteRule ^Mvola$ paiement/Vue/paiement.php?error=1&errtype=mvola [L]
+RewriteRule ^Western$ paiementVue/paiement.php?error=1&errtype=Western [L]
+RewriteRule ^Versement$ paiement/Vue/paiement.php?error=1&errtype=versement [L]
+RewriteRule ^Cheque$ paiement/Vue/paiement.php?error=1&errtype=cheque [L]
+RewriteRule ^Virement$ paiement/Vue/paiement.php?error=1&errtype=virement [L]
+RewriteRule ^MoneyGram$ paiement/Vue/paiement.php?error=1&errtype=moneygram [L]
+RewriteRule ^Formatpaiment$ Vue/paiement.php?error=1&errtype=formatpaiement [L]
+RewriteRule ^Sortir$ paiement/Vue/Deconnexion [L]
+RewriteRule ^Kesye$ paiement/Vue/logindashboard [L]
+RewriteRule ^Manager$ cm/index [L]  
+RewriteRule ^Voiture$ cm/suivi [L]  
+RewriteRule ^Home_cm$ cm/vue/accueil [L]
+
+
+
+
+
 RewriteRule ^Error$ vue/error_404.php [L]
 RewriteRule ^Error403$ vue/error_403.php [L]
 RewriteRule ^Error500$ vue/error_500.php [L]

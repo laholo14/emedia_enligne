@@ -125,7 +125,7 @@ $result = new Resultat();
     function Bulletin() {
         let semestre = $("#semestre").val();
         $.ajax({
-            url: "Controller/contrAffichageNoteLicence.php",
+            url: "controller/contrAffichageNoteLicence.php",
             type: "post",
             data: {
                 semestre: semestre

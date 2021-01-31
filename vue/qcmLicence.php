@@ -20,7 +20,7 @@ if (!isset($_SESSION['session_exam'])) {
 
 
 <?php
-include("../Controller/contrEpreuveLicence.php");
+include("../controller/contrEpreuveLicence.php");
 
 ?>
 
@@ -48,7 +48,7 @@ include("../Controller/contrEpreuveLicence.php");
 
 
         <div class="col-sm-12 col-md-8 col-xl-8 col-lg-8 overflow-auto qcm mt-5">
-            <form class="container" method="post" id="myform" action="Controller/contrreponse.php">
+            <form class="container" method="post" id="myform" action="controller/contrreponse.php">
                 <div class="form-group mt-4">
                     <input type="hidden" name="durre" id="durre" value="<?php echo $durre_post; ?>" readonly />
                     <input type="hidden" name="type_exam_reponse" value="<?php echo $id_type_exam; ?>" readonly />

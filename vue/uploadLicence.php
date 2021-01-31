@@ -20,7 +20,7 @@ if (!isset($_SESSION['session_exam'])) {
 
 
 <?php
-include("../Controller/contrEpreuveLicence.php");
+include("../controller/contrEpreuveLicence.php");
 
 ?>
 
@@ -48,7 +48,7 @@ include("../Controller/contrEpreuveLicence.php");
 
 
         <div class="col-sm-12 col-md-8 col-xl-8 col-lg-8 overflow-auto mt-5">
-            <form method="post" id="myform" action="Controller/contrreponseUploadLicence.php" enctype="multipart/form-data">
+            <form method="post" id="myform" action="controller/contrreponseUploadLicence.php" enctype="multipart/form-data">
                 <input type="hidden" name="durre" id="durre" value="<?php echo $durre_post; ?>" readonly />
                 <input type="hidden" name="type_exam_reponse" value="<?php echo $id_type_exam; ?>" readonly />
                 <input type="hidden" name="id_matiere_upload" value="<?php echo $id_matiere; ?>" readonly />
