@@ -251,7 +251,7 @@ if (isset($_POST['LICENCE']) and isset($_POST['TIC'])) {
                 <th>Prénom</th>
                 <th>Diplome En</th>
                 <th>Filière</th>
-                 <th>Parcours</th><th>Semestre</th>
+                 <th>Parcours</th><th>Demande d\'entrer en</th>
                 <th>Contact</th>
                 <th>Nationalité</th>
                 <th>Date D\'inscriptions</th>
@@ -301,7 +301,7 @@ if (isset($_POST['LICENCE']) and isset($_POST['CAN'])) {
                 <th>Prénom</th>
                 <th>Diplome En</th>
                 <th>Filière</th>
-                 <th>Parcours</th><th>Semestre</th>
+                 <th>Parcours</th><th>Demande d\'entrer en</th>
                 <th>Contact</th>
                 <th>Nationalité</th>
                 <th>Date D\'inscriptions</th>
@@ -351,7 +351,7 @@ if (isset($_POST['LICENCE']) and isset($_POST['MPJ'])) {
                 <th>Prénom</th>
                 <th>Diplome En</th>
                 <th>Filière</th>
-                 <th>Parcours</th><th>Semestre</th>
+                 <th>Parcours</th><th>Demande d\'entrer en</th>
                 <th>Contact</th>
                 <th>Nationalité</th>
                 <th>Date D\'inscriptions</th>
@@ -401,7 +401,7 @@ if (isset($_POST['LICENCE']) and isset($_POST['MGT'])) {
                 <th>Prénom</th>
                 <th>Diplome En</th>
                 <th>Filière</th>
-                 <th>Parcours</th><th>Semestre</th>
+                 <th>Parcours</th><th>Demande d\'entrer en</th>
                 <th>Contact</th>
                 <th>Nationalité</th>
                 <th>Date D\'inscriptions</th>
@@ -451,7 +451,7 @@ if (isset($_POST['LICENCE']) and isset($_POST['DRT'])) {
                 <th>Prénom</th>
                 <th>Diplome En</th>
                 <th>Filière</th>
-                 <th>Parcours</th><th>Semestre</th>
+                 <th>Parcours</th><th>Demande d\'entrer en</th>
                 <th>Contact</th>
                 <th>Nationalité</th>
                 <th>Date D\'inscriptions</th>
@@ -501,7 +501,7 @@ if (isset($_POST['MASTER']) and isset($_POST['TICM'])) {
                 <th>Prénom</th>
                 <th>Diplome En</th>
                 <th>Filière</th>
-                 <th>Parcours</th><th>Semestre</th>
+                 <th>Parcours</th><th>Demande d\'entrer en</th>
                 <th>Contact</th>
                 <th>Nationalité</th>
                 <th>Date D\'inscriptions</th>
@@ -550,7 +550,7 @@ if (isset($_POST['MASTER']) and isset($_POST['AC'])) {
                 <th>Prénom</th>
                 <th>Diplome En</th>
                 <th>Filière</th>
-                 <th>Parcours</th><th>Semestre</th>
+                 <th>Parcours</th><th>Demande d\'entrer en</th>
                 <th>Contact</th>
                 <th>Nationalité</th>
                 <th>Date D\'inscriptions</th>
@@ -601,7 +601,7 @@ if (isset($_POST['MASTER']) and isset($_POST['MPJM'])) {
                 <th>Prénom</th>
                 <th>Diplome En</th>
                 <th>Filière</th>
-                 <th>Parcours</th><th>Semestre</th>
+                 <th>Parcours</th><th>Demande d\'entrer en</th>
                 <th>Contact</th>
                 <th>Nationalité</th>
                 <th>Date D\'inscriptions</th>
@@ -650,7 +650,7 @@ if (isset($_POST['MASTER']) and isset($_POST['MBA'])) {
                 <th>Prénom</th>
                 <th>Diplome En</th>
                 <th>Filière</th>
-                 <th>Parcours</th><th>Semestre</th>
+                 <th>Parcours</th><th>Demande d\'entrer en</th>
                 <th>Contact</th>
                 <th>Nationalité</th>
                 <th>Date D\'inscriptions</th>
@@ -700,7 +700,7 @@ if (isset($_POST['MASTER']) and isset($_POST['DRTM'])) {
                 <th>Prénom</th>
                 <th>Diplome En</th>
                 <th>Filière</th>
-                 <th>Parcours</th><th>Semestre</th>
+                 <th>Parcours</th><th>Demande d\'entrer en</th>
                 <th>Contact</th>
                 <th>Nationalité</th>
                 <th>Date D\'inscriptions</th>
