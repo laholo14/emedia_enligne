@@ -1,4 +1,11 @@
     <?php
+     session_start();
+
+     if (!isset($_SESSION['matricule'])) {
+     
+         header("location: Connecter");
+     }
+     
         require('head.html');
     ?>
         <link rel="stylesheet" href="vue/css/accueilMaster.css">
