@@ -43,7 +43,7 @@
                 </div>
                 <!-- fin navbar -->
 
-                <!-- sidebar -->
+                <!-- dashboard -->
                 <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 dashboard dashboard_mobile" id="dashboard">
 
                     <div class="pdp d-flex justify-content-center pt-3">
@@ -85,7 +85,7 @@
 
                         <li id="active-calendrier"><a href="#"><i class="fal fa-calendar-alt mr-4"></i><span>Calendrier</span></a></li>
 
-                        <li class="cours">
+                        <li class="cours-menu">
                             <div class="panel-group">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
@@ -115,7 +115,7 @@
                             </div>
                         </li>
 
-                        <li class="exercice">
+                        <li class="exercice-menu">
                             <div class="panel-group">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
@@ -154,7 +154,7 @@
                         <li id="active-logout"><a href="#"><i class="fas fa-power-off mr-3"></i><span>Deconnexion </span></a></li>
                     </ul>
                 </div>
-                <!-- fin sidebar -->
+                <!-- fin dashboard -->
 
                 <!-- section -->
                 <div class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10 contenu overflow-auto" id="contenu">
@@ -502,81 +502,81 @@
 
                         <div class="col-12 row table-cours" id="table-cours">
                             <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-                                <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
+                                <div class="mb-2 pt-2 cours text-center">
                                     <h5 class="d-flex align-items-center">Algorithme Algorithme Algorithme Algorithme</h5>
-                                    <div class="button-cours">
-                                        <button class="btn pl-4 pr-4 mt-2" id="active-cours-pdf">PDF</button>
-                                        <button class="btn pl-3 pr-3 mt-2" id="active-cours-explication">Explication</button>
+                                    <div class="button-cours d-block">
+                                        <button class="btn mt-2" id="active-cours-pdf">PDF</button>
+                                        <button class="btn" id="active-cours-explication">Explication</button>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-                                <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
-                                    <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
-                                    <div class="button-cours">
-                                        <button class="btn pl-4 pr-4 mt-2">PDF</button>
-                                        <button class="btn pl-3 pr-3 mt-2">Explication</button>
+                                <div class="mb-2 pt-2 cours text-center">
+                                    <h5 class="d-flex align-items-center">Algorithme Algorithme Algorithme Algorithme</h5>
+                                    <div class="button-cours d-block">
+                                        <button class="btn mt-2">PDF</button>
+                                        <button class="btn">Explication</button>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-                                <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
-                                    <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
-                                    <div class="button-cours">
-                                        <button class="btn pl-4 pr-4 mt-2">PDF</button>
-                                        <button class="btn pl-3 pr-3 mt-2">Explication</button>
+                                <div class="mb-2 pt-2 cours text-center">
+                                    <h5 class="d-flex align-items-center">Algorithme Algorithme Algorithme Algorithme</h5>
+                                    <div class="button-cours d-block">
+                                        <button class="btn mt-2">PDF</button>
+                                        <button class="btn">Explication</button>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-                                <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
-                                    <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
-                                    <div class="button-cours">
-                                        <button class="btn pl-4 pr-4 mt-2">PDF</button>
-                                        <button class="btn pl-3 pr-3 mt-2">Explication</button>
+                                <div class="mb-2 pt-2 cours text-center">
+                                    <h5 class="d-flex align-items-center">Algorithme Algorithme Algorithme Algorithme</h5>
+                                    <div class="button-cours d-block">
+                                        <button class="btn mt-2">PDF</button>
+                                        <button class="btn">Explication</button>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-                                <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
-                                    <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
-                                    <div class="button-cours">
-                                        <button class="btn pl-4 pr-4 mt-2">PDF</button>
-                                        <button class="btn pl-3 pr-3 mt-2">Explication</button>
+                                <div class="mb-2 pt-2 cours text-center">
+                                    <h5 class="d-flex align-items-center">Algorithme Algorithme Algorithme Algorithme</h5>
+                                    <div class="button-cours d-block">
+                                        <button class="btn mt-2">PDF</button>
+                                        <button class="btn">Explication</button>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-                                <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
-                                    <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
-                                    <div class="button-cours">
-                                        <button class="btn pl-4 pr-4 mt-2">PDF</button>
-                                        <button class="btn pl-3 pr-3 mt-2">Explication</button>
+                                <div class="mb-2 pt-2 cours text-center">
+                                    <h5 class="d-flex align-items-center">Algorithme Algorithme Algorithme Algorithme</h5>
+                                    <div class="button-cours d-block">
+                                        <button class="btn mt-2">PDF</button>
+                                        <button class="btn">Explication</button>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-                                <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
-                                    <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
-                                    <div class="button-cours">
-                                        <button class="btn pl-4 pr-4 mt-2">PDF</button>
-                                        <button class="btn pl-3 pr-3 mt-2">Explication</button>
+                                <div class="mb-2 pt-2 cours text-center">
+                                    <h5 class="d-flex align-items-center">Algorithme Algorithme Algorithme Algorithme</h5>
+                                    <div class="button-cours d-block">
+                                        <button class="btn mt-2">PDF</button>
+                                        <button class="btn">Explication</button>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-                                <div class="mb-2 pt-2 pb-2 cours-pdf text-center">
-                                    <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
-                                    <div class="button-cours">
-                                        <button class="btn pl-4 pr-4 mt-2">PDF</button>
-                                        <button class="btn pl-3 pr-3 mt-2">Explication</button>
+                                <div class="mb-2 pt-2 cours text-center">
+                                    <h5 class="d-flex align-items-center">Algorithme Algorithme Algorithme Algorithme</h5>
+                                    <div class="button-cours d-block">
+                                        <button class="btn mt-2">PDF</button>
+                                        <button class="btn">Explication</button>
                                     </div>
                                 </div>
                             </div>
@@ -618,89 +618,89 @@
 
                         <div class="col-12 row table-exercice" id="table-exercice">
                             <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-                                <div class="mb-2 pt-2 pb-2 exercice-pdf text-center">
+                                <div class="mb-2 pt-2 exercice text-center">
                                     <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
                                     <div class="button-exercice">
-                                        <button class="btn pl-4 pr-4 mt-2" id="active-exercice-pdf">PDF</button>
-                                        <button class="btn pl-3 pr-3 mt-2" id="active-exercice-explication">Explication</button>
-                                        <button class="btn pl-3 pr-3 mt-2" id="active-exercice-corrige">Corrige</button>
+                                        <button class="btn mt-2" id="active-exercice-pdf">PDF</button>
+                                        <button class="btn" id="active-exercice-explication">Explication</button>
+                                        <button class="btn" id="active-exercice-corrige">Corrige</button>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-                                <div class="mb-2 pt-2 pb-2 exercice-pdf text-center">
+                                <div class="mb-2 pt-2 exercice text-center">
                                     <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
                                     <div class="button-exercice">
-                                        <button class="btn pl-4 pr-4 mt-2">PDF</button>
-                                        <button class="btn pl-3 pr-3 mt-2">Explication</button>
-                                        <button class="btn pl-3 pr-3 mt-2">Corrige</button>
+                                        <button class="btn mt-2">PDF</button>
+                                        <button class="btn">Explication</button>
+                                        <button class="btn">Corrige</button>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-                                <div class="mb-2 pt-2 pb-2 exercice-pdf text-center">
+                                <div class="mb-2 pt-2 exercice text-center">
                                     <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
                                     <div class="button-exercice">
-                                        <button class="btn pl-4 pr-4 mt-2">PDF</button>
-                                        <button class="btn pl-3 pr-3 mt-2">Explication</button>
-                                        <button class="btn pl-3 pr-3 mt-2">Corrige</button>
+                                        <button class="btn mt-2">PDF</button>
+                                        <button class="btn">Explication</button>
+                                        <button class="btn">Corrige</button>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-                                <div class="mb-2 pt-2 pb-2 exercice-pdf text-center">
+                                <div class="mb-2 pt-2 exercice text-center">
                                     <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
                                     <div class="button-exercice">
-                                        <button class="btn pl-4 pr-4 mt-2">PDF</button>
-                                        <button class="btn pl-3 pr-3 mt-2">Explication</button>
-                                        <button class="btn pl-3 pr-3 mt-2">Corrige</button>
+                                        <button class="btn mt-2">PDF</button>
+                                        <button class="btn">Explication</button>
+                                        <button class="btn">Corrige</button>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-                                <div class="mb-2 pt-2 pb-2 exercice-pdf text-center">
+                                <div class="mb-2 pt-2 exercice text-center">
                                     <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
                                     <div class="button-exercice">
-                                        <button class="btn pl-4 pr-4 mt-2">PDF</button>
-                                        <button class="btn pl-3 pr-3 mt-2">Explication</button>
-                                        <button class="btn pl-3 pr-3 mt-2">Corrige</button>
+                                        <button class="btn mt-2">PDF</button>
+                                        <button class="btn">Explication</button>
+                                        <button class="btn">Corrige</button>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-                                <div class="mb-2 pt-2 pb-2 exercice-pdf text-center">
+                                <div class="mb-2 pt-2 exercice text-center">
                                     <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
                                     <div class="button-exercice">
-                                        <button class="btn pl-4 pr-4 mt-2">PDF</button>
-                                        <button class="btn pl-3 pr-3 mt-2">Explication</button>
-                                        <button class="btn pl-3 pr-3 mt-2">Corrige</button>
+                                        <button class="btn mt-2">PDF</button>
+                                        <button class="btn">Explication</button>
+                                        <button class="btn">Corrige</button>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-                                <div class="mb-2 pt-2 pb-2 exercice-pdf text-center">
+                                <div class="mb-2 pt-2 exercice text-center">
                                     <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
                                     <div class="button-exercice">
-                                        <button class="btn pl-4 pr-4 mt-2">PDF</button>
-                                        <button class="btn pl-3 pr-3 mt-2">Explication</button>
-                                        <button class="btn pl-3 pr-3 mt-2">Corrige</button>
+                                        <button class="btn mt-2">PDF</button>
+                                        <button class="btn">Explication</button>
+                                        <button class="btn">Corrige</button>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-                                <div class="mb-2 pt-2 pb-2 exercice-pdf text-center">
+                                <div class="mb-2 pt-2 exercice text-center">
                                     <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
                                     <div class="button-exercice">
-                                        <button class="btn pl-4 pr-4 mt-2">PDF</button>
-                                        <button class="btn pl-3 pr-3 mt-2">Explication</button>
-                                        <button class="btn pl-3 pr-3 mt-2">Corrige</button>
+                                        <button class="btn mt-2">PDF</button>
+                                        <button class="btn">Explication</button>
+                                        <button class="btn">Corrige</button>
                                     </div>
                                 </div>
                             </div>
