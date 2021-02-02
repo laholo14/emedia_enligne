@@ -68,7 +68,7 @@ $result = new Resultat();
         </div>
       
         
-            <table border="1">
+            <!-- <table border="1">
                 <thead>
                     <tr>
                         <th rowspan="2" class="text-center">LISTE DES MATIERES</th>
@@ -97,12 +97,62 @@ $result = new Resultat();
 
 
                 </tbody>
+            </table> -->
+
+            <table border="1">
+                <thead>
+                    <th>Code</th>
+                    <th>Unite d'enseignement</th>
+                    <th>Credit</th>
+                    <th>Moyenne</th>
+                    <th>Mention</th>
+                    <th>Resultat</th>
+                    <th>Code EC</th>
+                    <th>Elemnts constitutifs</th>
+                    <th>Note</th>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td rowspan="3">UE1</td>
+                        <td rowspan="3">Informatique de base</td>
+                        <td rowspan="3">9</td>
+                        <td rowspan="3">13.80</td>
+                        <td rowspan="3">Assez-Bien</td>
+                        <td rowspan="3">9 sur 9</td>
+                        <td>EC1</td>
+                        <td>Algorithme</td>
+                        <td>15.5</td>
+                        <tr>
+                            <td>EC1</td>
+                            <td>Algorithme</td>
+                            <td>15.5</td>
+                        </tr>
+                        <tr>
+                            <td>EC1</td>
+                            <td>Algorithme</td>
+                            <td>15.5</td>
+                        </tr>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2">UE1</td>
+                        <td rowspan="2">Informatique de base</td>
+                        <td rowspan="2">9</td>
+                        <td rowspan="2">13.80</td>
+                        <td rowspan="2">Assez-Bien</td>
+                        <td rowspan="2">9 sur 9</td>
+                        <td>EC1</td>
+                        <td>Algorithme</td>
+                        <td>15.5</td>
+                        <tr>
+                            <td>EC1</td>
+                            <td>Algorithme</td>
+                            <td>15.5</td>
+                        </tr>
+                    </tr>
+                </tbody>
             </table>
-        
-
-
-
-
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
