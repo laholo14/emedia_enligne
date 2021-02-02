@@ -79,5 +79,21 @@ $(document).ready(function () {
 
     });
 
+    $("#ajout_dossier").submit(function(e){
+          e.preventDefault();
+          $.ajax({
+            url: "../controller/controllerAjoutDossier.php",
+            type: 'POST',
+            data: new FormData(this),
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function(data) {
+                alert(data);
+            }
+        });
+        
+    });
+
 });
 
