@@ -186,7 +186,6 @@ body {
 }
 
 .dashboard {
-    background-size: cover;
     height: auto;
     background: url("../image/calque.png");
     background-attachment: fixed;
@@ -270,9 +269,10 @@ body {
 .dashboard .cours-menu ul .active:hover, .dashboard .profil ul .active:active, .dashboard .exercice-menu ul .active:active {
     color: #fff !important;
 }
+corps-info span {
+  color: cornsilk;
+}
 
-.dashboard .cours-menu ul .list-group-item, .dashboard .profil ul .list-group-item, .dashboard .exercice-menu ul .list-group-item {
-    padding: 0rem !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.089);
     border-top: none;
     border-left: none;

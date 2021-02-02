@@ -88,6 +88,7 @@ include("../controller/contrIEM.php");
 
 
     });
+    
     $(document).ready(function() {
 
         let profile = document.getElementById('profile-blocs'),
