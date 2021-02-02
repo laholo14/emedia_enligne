@@ -1,0 +1,12 @@
+@mixin animation{
+    @keyframes show{
+        from{
+            display: none;
+            opacity: 0;
+        }
+        to{
+            display: block;
+            opacity: 1;
+        }
+    }
+}
