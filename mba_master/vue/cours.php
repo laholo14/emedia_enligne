@@ -167,16 +167,7 @@ $currentPage = 'cours';
 
                 </div>
                 <div class="form-group d-flex flex-column">
-                    <label>
-                        Selectionnez la categorie du cours
-                    </label>
-                    <div name="categorie" class="container-select">
-                        <select  name="categorie">
-                            <option value="1">Cours</option>
-                            <option selected disabled value="1">Exercice</option>
-                            <option selected disabled value="2">Type du corrigé</option>
-                        </select> </select>
-                    </div>
+                   <input type="hidden" name="categorie" value="1">
 
                 </div>
                 <div class="form-group d-flex flex-column">
@@ -184,7 +175,7 @@ $currentPage = 'cours';
                         Selectionnez le format du contenu
                     </label>
                     <div class="container-select">
-                        <select  name="type">
+                        <select id="formatchoosing" name="type">
                             <option value="1">Livre en pdf</option>
                             <option value="2">Video</option>
                             <option value="3">Audio</option>
@@ -192,31 +183,32 @@ $currentPage = 'cours';
                     </div>
 
                 </div>
-                <div class="form-group">
-                    <div class="container_field_import">
-                        <label for="file_book_mg">
-                            contenu pour les nationaux
-                        </label>
-                        <div class="boutton_file">
-                            choisir
+                <div class="containerinputforsenditformat">
+                    <div class="form-group">
+                        <div class="container_field_import">
+                            <label for="file_book_mg">
+                                contenu pour les nationaux
+                            </label>
+                            <div class="boutton_file">
+                                choisir
+                            </div>
+                            <input id="file_book_mg" class="file_book" type="file" />
+                            <span class="file_name">Aucune fichier selectionné</span>
                         </div>
-                        <input id="file_book_mg" class="file_book" type="file" />
-                        <span class="file_name">Aucune fichier selectionné</span>
+                    </div>
+                    <div class="form-group ">
+                        <div class="container_field_import">
+                            <label for="file_book_et">
+                                contenu pour les etrangers
+                            </label>
+                            <div class="boutton_file">
+                                choisir
+                            </div>
+                            <input id="file_book_et" class="file_book" type="file" />
+                            <span class="file_name">Aucune fichier selectionné</span>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group ">
-                    <div class="container_field_import">
-                        <label for="file_book_et">
-                            contenu pour les etrangers
-                        </label>
-                        <div class="boutton_file">
-                            choisir
-                        </div>
-                        <input id="file_book_et" class="file_book" type="file" />
-                        <span class="file_name">Aucune fichier selectionné</span>
-                    </div>
-                </div>
-
                 <input type="submit" value="croeez" id="btn_ajout_dossier" />
             </form>
             <div class="alert alert-success" role="alert">
