@@ -57,7 +57,7 @@ body{
     .container_field_import{
         @include container_field_import;
     }
-    input[type="button"]{
+    input[type="button"],input[type="submit"]{
         @include button;
     }
 }
