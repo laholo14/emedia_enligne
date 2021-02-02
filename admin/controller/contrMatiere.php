@@ -51,6 +51,7 @@ if (isset($_POST['search'])) {
                 <th>Numéro</th>
                 <th class="col-4">Intitulé</th>
                 <th class="col-4">Unité d\'enseignement</th>
+                <th class="col-2">Credit</th>
                 <th>Modifier</th>
                 
             </tr>
@@ -67,6 +68,7 @@ if (isset($_POST['search'])) {
                     <td>' . $resultat['IDMATIERE'] . '</td>
                     <td>' . $resultat['INTITULE'] . '</td>
                     <td>' . $resultat1['INTITULEUE'] . '</td>
+                    <td>' . $resultat['CREDIT'] . '</td>
                     <td> <button class="btn btn-outline-primary edit" data-toggle="modal" data-target="#Updata" onclick="GetUser(' . $resultat['IDMATIERE'] . ')"><img src="image/edit.png" width="30px" height="30px" alt=""></button></td>
                 </tr>
             </tbody>';
@@ -91,6 +93,7 @@ if (isset($_POST['action']) and isset($_POST['id'])) {
         foreach ($res as $row) {
             $output['ue']=$row['IDUE'];
             $output['matiere'] = $row['INTITULE'];
+            $output['credit']=$row['CREDIT'];
         }
 
         echo json_encode($output);
@@ -105,6 +108,7 @@ if (isset($_POST['intituleup']) and isset($_POST['idup']) and isset($_POST['upid
     $matiere->setIntitule($intituleup);
     $matiere->setId_matiere($idup);
     $matiere->setIdUe($upidue);
+    $matiere->setCredit($upcredit);
     $matiere->update();
 }
 ?>

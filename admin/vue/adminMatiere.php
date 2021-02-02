@@ -97,6 +97,8 @@ if (!isset($_SESSION['matriculeadmin'])) {
                     </select><br>
                             <label for="update_fname" class="col-form-label">Intitule</label>
                             <input type="text" class="form-control" id="matiereup">
+                            <label for="update_fname" class="col-form-label">Credit</label>
+                            <input type="text" class="form-control" id="creditup">
 
                         </div>
 
@@ -180,6 +182,7 @@ if (!isset($_SESSION['matriculeadmin'])) {
 
                 $('#matiereup').val(data.matiere);
                 $('#ue1').val(data.ue);
+                $('#creditup').val(data.credit);
 
             }
         });
@@ -192,6 +195,7 @@ if (!isset($_SESSION['matriculeadmin'])) {
         let idup = $('#hidden').val();
         let intituleup = $('#matiereup').val();
         let upidue = $('#ue1').val();
+        let upcredit=$('#creditup').val();
 
         if (intituleup != '') {
 
@@ -201,7 +205,8 @@ if (!isset($_SESSION['matriculeadmin'])) {
                 data: {
                     intituleup: intituleup,
                     idup: idup,
-                    upidue:upidue
+                    upidue:upidue,
+                    upcredit:upcredit
                 }, //valeur alefa
                 success: function(data) {
                     alert("Modification reussi...");

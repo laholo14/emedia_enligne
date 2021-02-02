@@ -5,12 +5,14 @@
         private $id_matiere;
         private $intitule;
         private $idUe;
+        private $credit;
    
 
         public function __construct(){
             $this->id_matiere;
             $this->intitule;
             $this->idUe;
+            $this->credit;
            
         }
 
@@ -24,6 +26,9 @@
         public function setIdUe($idUe){
             $this->idUe=$idUe;
         }
+        public function setCredit($credit){
+            $this->credit = $credit;
+        }
 
 
         
@@ -35,6 +40,9 @@
         }
         public function getIdUe(){
             return $this->idUe;
+        }
+        public function getCredit(){
+            return $this->credit;
         }
 
       
@@ -104,14 +112,15 @@
     public function update(){
         $db=Connexion::getCx();
 
-        $requete = 'UPDATE MATIERE SET INTITULE = :intitule, IDUE = :idue WHERE IDMATIERE = :idm';
+        $requete = 'UPDATE MATIERE SET INTITULE = :intitule, IDUE = :idue,CREDIT = :credit WHERE IDMATIERE = :idm';
         
         $st = $db->prepare($requete);
     
         $st->execute(array(
             "intitule"=> $this->getIntitule(),
             "idue" => $this->getIdue(),
-            "idm" => $this->getId_matiere()
+            "idm" => $this->getId_matiere(),
+            "credit" =>$this->getCredit()
                                                             
         ));
         $st->closeCursor();
