@@ -8,8 +8,6 @@ include '../controller/contrSessionExamLicence.php';
 
 Fin Calendrier-->
 
-
-
 <div class="calendar">
 
     <div class="modal fade" id="calendarPhoto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -69,7 +67,6 @@ Fin Calendrier-->
 
         <div class="sidebar_inner">
             <div class="profile">
-                <img src="vue/image/logoE-media.png" width="140px">
                 <div class="closse">
                     <i class="fa fa-times"></i>
                 </div>
@@ -77,8 +74,15 @@ Fin Calendrier-->
 
             <ul class="sidebar_menu">
                 <li class="active">
+                    <a href="#" id="open_tuto" class="clr">
+                        <div class="icon"><i class="fal fa-user-alt" aria-hidden="true"></i></div>
+                        <div class="title">Video tuto</div>
+                        <span class="bottom-solid"></span>
+                    </a>
+                </li>
+                <li>
                     <a href="#" id="open_profile" class="clr">
-                        <div class="icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+                        <div class="icon"><i class="fal fa-user-alt" aria-hidden="true"></i></div>
                         <div class="title">Profil</div>
                         <span class="bottom-solid"></span>
                     </a>
@@ -86,7 +90,7 @@ Fin Calendrier-->
                 <li id="side-licence" data-toggle="modal" data-target="#calendarPhoto">
                     <a href="#" id="calendar" class="clr">
                         <div class="row">
-                            <div class="icon ml-1"><i class="fa fa-calendar" aria-hidden="true"></i></div>
+                            <div class="icon"><i class="fal fa-calendar-alt" aria-hidden="true"></i></div>
                             <div class="title mt-1">Calendrier</div>
                             <span class="bottom-solid"></span>
                         </div>
@@ -95,28 +99,28 @@ Fin Calendrier-->
                 </li>
                 <li>
                     <a href="#" id="open_cours" class="clr">
-                        <div class="icon"><i class="fa fa-file-alt" aria-hidden="true"></i></div>
+                        <div class="icon"><i class="fal fa-books" aria-hidden="true"></i></div>
                         <div class="title">Cours</div>
                         <span class="bottom-solid"></span>
                     </a>
                 </li>
                 <li>
                     <a href="#" id="open_exo" class="clr">
-                        <div class="icon"><i class="fa fa-edit" aria-hidden="true"></i></div>
+                        <div class="icon"><i class="fal fa-edit" aria-hidden="true"></i></div>
                         <div class="title">Exercices</div>
                         <span class="bottom-solid"></span>
                     </a>
                 </li>
                 <li>
                     <a href="Bulletin" id="open_examen" class="clr">
-                        <div class="icon"><i class="fa fa-filter" aria-hidden="true"></i></div>
+                        <div class="icon"><i class="fal fa-clipboard" aria-hidden="true"></i></div>
                         <div class="title">Note</div>
                         <span class="bottom-solid"></span>
                     </a>
                 </li>
                 <li>
                     <a href="#" id="open_message" class="clr">
-                        <div class="icon"><i class="fa fa-comments" aria-hidden="true"></i></div>
+                        <div class="icon"><i class="fal fa-comments-alt" aria-hidden="true"></i></div>
                         <div class="title">Messages</div>
                         <span class="bottom-solid"></span>
                     </a>
@@ -125,7 +129,7 @@ Fin Calendrier-->
                 <li id="open_licence">
                     <a href="apTjay661lo" id="" class="clr">
                         <div class="row">
-                            <div class="icon ml-3"><i class="fa fa-building-o" aria-hidden="true"></i></div>
+                            <div class="icon"><i class="fal fa-book-reader" aria-hidden="true"></i></div>
                             <div class="title mt-1">Anciens Cours</div>
                             <span class="bottom-solid"></span>
                         </div>
@@ -133,42 +137,38 @@ Fin Calendrier-->
                     </a>
                 </li>
 
-
-
-
                 <li>
                     <a href="Traitement" class="clr">
-                        <div class="icon"><i class="fa fa-credit-card" aria-hidden="true"></i></div>
+                        <div class="icon"><i class="fal fa-credit-card" aria-hidden="true"></i></div>
                         <div class="title">Paiement</div>
                         <span class="bottom-solid"></span>
                     </a>
                 </li>
-                <!--  <p class="deconnection-text text-center m-2">N’OUBLIEZ PAS DE VOUS DÉCONNECTER AVANT DE QUITTER</p>
-                <div class="pt-2 pb-2 pr-2 pl-3 deconnection">
-                    <a href="vue/logout.php">
-                        <div class="title">Deconnexion <i class="fa fa-power-off"></i></div>
+
+                <li>
+                    <a href="vue/logout.php" class="clr">
+                        <div class="icon"><i class="fa fa-power-off" aria-hidden="true"></i></div>
+                        <div class="title">Deconnexion</div>
+                        <span class="bottom-solid"></span>
                     </a>
-                </div>-->
-
-                <!-- Button trigger modal -->
-
-
+                </li>
 
             </ul>
         </div>
     </div>
-
     <!--Sidebar tapitra-->
-    <!--header-->
+    
     <div class="content">
         <div class="wrappers">
+            <!--header-->
             <div class="nabar fixed-top">
                 <div class="nabar_left">
+                    <img src="vue/image/logo/logo_E-media_enligne.png" class="img-fluid logo_emedia" alt="">
                     <div class="hamburger">
                         <i class="fa fa-bars" aria-hidden="true"></i>
                     </div>
                     <div class="logo">
-                        <a href="#"></a>
+                        <img src="" alt="">
                     </div>
                 </div>
                 <div class="nabar_right">
@@ -185,111 +185,106 @@ Fin Calendrier-->
 
                     </div>
 
-
-                    <div class="btn-group btn-group-parametre">
-                        <span class="name mt-1 mr-2"><?php echo $_SESSION['prenom']; ?></span>
-                        <a href="vue/logout.php" data-tooltip="Deconnexion"><i class="fa fa-power-off mr-2"
-                                aria-hidden="true"></i></a>
-                        <!--<img src="<?php echo $_SESSION['photo']; ?>" width="40px" alt="" class="fa fa-bars dropdown-toggle mb-4 imgparametre" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalScrollable"> <i class="fa fa-cog fa-spin fa-3x fa-fw mr-2" aria-hidden="true"></i><b class="para">Paramètre</b></a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="vue/logout.php"><i class="fa fa-power-off mr-2" aria-hidden="true"></i>Déconnexion</a>
-                        </div>-->
-                    </div>
-
-
-
-
                 </div>
             </div>
             <!--header tapitra-->
 
-            <!--modal-->
-            <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-scrollable" role="document">
-                    <div class="modal-content">
-                        <div class="en_tete d-flex justify-content-center p-2">
-                            <h5 class="modal-title" id="exampleModalScrollableTitle">Paramètre</h5>
-                            <button type="button" class="btn quitter_parametre" data-dismiss="modal">X</button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="dropFileForm" action="" method="post">
+            <!-- video tuto -->
+            <div class="col-12 video-tuto" id="video-tuto">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 video1">
+                        <?php if (isset($_SESSION['tutomg'])) {
+                            $lientuto = $_SESSION['tutomg'];
+                            } elseif (isset($_SESSION['tutofr'])) {
+                                $lientuto = $_SESSION['tutofr'];
+                            }
+                        ?>
 
-                                <input type="text" name="" id="fileInput" multiple>
-                                <label for="fileInput" class="d-flex align-items-center " id="fileLabel">
-                                    <img src="<?php echo $_SESSION['photo']; ?>" width="200px" alt="votre photo" />
-                                    <div class="icon_edit_profile ml-5">
-                                        <i class="fa fa-download fa-5x" id="fa_icons_dowload"></i><br>
-                                        <div class="titre_edit d-flex">
-                                            Fonction pas encore disponible <i class="fa fa-check ml-2 "
-                                                id="fa_icons"></i>
-                                        </div>
-                                    </div>
-                                </label>
-                                <input type="" value="Enregistrer" class="upload_button">
-                            </form>
-
+                        <iframe sandbox="allow-scripts allow-same-origin" width="100%"
+                            height="315" src="<?php echo $lientuto; ?>" frameborder="0"
+                            allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                        <div class="text-light text-center mt-1 mb-1 p-2">
+                            <a href="<?php echo $lientuto; ?>" target="_blank" class="">Manipulation site etudiants</a>
                         </div>
                     </div>
-                </div>
+
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 video2">
+                        <?php if (isset($_SESSION['tutomg'])) {
+                            $lientuto = $_SESSION['tutomg'];
+                            } elseif (isset($_SESSION['tutofr'])) {
+                                $lientuto = $_SESSION['tutofr'];
+                            }
+                        ?>
+
+                        <iframe sandbox="allow-scripts allow-same-origin" width="100%"
+                            height="315" src="<?php echo $lientuto; ?>" frameborder="0"
+                            allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                        <div class="text-light text-center mt-1 mb-1 p-2">
+                            <a href="<?php echo $lientuto; ?>" target="_blank" class="">Manipulation Examen</a>
+                        </div>
+                    </div>              
             </div>
-            <!--tapitra modal-->
+            <!-- fin video tuto -->
 
             <!--profile-->
             <div class="profile-blocs mt-5" id="profile-blocs">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-12 col-sm-12 col-md-8 col-lg-8">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-3">
+                            <h1 class="title-profil text-center">Profil</h1>
                             <div class="corps">
-                                <div class="cover-photo">
+                                <div class="cover-photo d-flex justify-content-center">
                                     <img src="<?php echo $_SESSION['photo']; ?>" alt="votre photo"
                                         class="img-profile" />
                                 </div>
-                                <div class="propos text-center pb-3 pt-3 ml-5">
-                                    <div class="profile-legend">
-                                        <h6 class=""><b>Nom:
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
-                                            <?php echo $_SESSION['nom']; ?></h6>
+                                <div class="propos pb-3 pt-3">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                        <div class="profile-legend">
+                                            <h6 class=""><b>Nom:</b><br>
+                                                <span class="ml-3"><?php echo $_SESSION['nom']; ?></span></h6>
+                                        </div>
+                                        <div class="profile-legend">
+                                            <h6 class=""><b>Prénom:</b><br>
+                                                <span class="ml-3"><?php echo $_SESSION['prenom']; ?></span></h6>
+                                        </div>
+                                        <div class="profile-legend">
+                                            <h6 class=""><b>Matricule:</b><br>
+                                                <span class="ml-3"><?php echo $_SESSION['matricule']; ?></span></h6>
+                                        </div>
+                                        <div class="profile-legend">
+                                            <h6 class=""><b>E-mail:</b><br>
+                                                <span class="ml-3"><?php echo $_SESSION['mail']; ?></span></h6>
+                                        </div>
+                                        <div class="profile-legend">
+                                            <h6 class=""><b>Pays d'origine: </b><br> 
+                                               <span class="ml-3"> <?php echo $_SESSION['pays']; ?></span></h6>
+                                        </div>
                                     </div>
-                                    <div class="profile-legend">
-                                        <h6 class=""><b>Prénom: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
-                                            <?php echo $_SESSION['prenom']; ?></h6>
-                                    </div>
-                                    <div class="profile-legend">
-                                        <h6 class=""><b>Matricule: &nbsp;&nbsp;&nbsp;&nbsp;</b>
-                                            <?php echo $_SESSION['matricule']; ?></h6>
-                                    </div>
-                                    <div class="profile-legend">
-                                        <h6 class=""><b>E-mail:
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
-                                            <?php echo $_SESSION['mail']; ?></h6>
-                                    </div>
-                                    <div class="profile-legend">
-                                        <h6 class=""><b>>Pays d'origine: &nbsp;</b> <?php echo $_SESSION['pays']; ?></h6>
-                                    </div>
-                                    <div class="profile-legend mention">
-                                        <h6 class=""><b>Mention: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
-                                            <?php echo $_SESSION['nomfiliere']; ?></h6>
-                                    </div>
-                                    <div class="profile-legend">
-                                        <h6 class=""><b>Parcours: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
-                                            <?php echo $_SESSION['nomparcours']; ?></h6>
-                                    </div>
-                                    <div class="profile-legend">
-                                        <h6 class=""><b>Niveau:
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
-                                            <?php echo $_SESSION['semestre']; ?> </h6>
-                                    </div>
-                                    <div class="profile-legend">
-                                        <h6 class=""><b>Mois:
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
-                                            <?php echo $_SESSION['mois']; ?>/8 </h6>
-                                    </div>
-                                    <div class="profile-legend">
-                                        <h6 class=""><b>Ecolage: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
-                                            <?php echo $_SESSION['ecolage']; ?>/8 </h6>
+
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                        <div class="profile-legend mention">
+                                            <h6 class=""><b>Mention:</b><br>
+                                                <span class="ml-3"><?php echo $_SESSION['nomfiliere']; ?></span></h6>
+                                        </div>
+                                        <div class="profile-legend">
+                                            <h6 class=""><b>Parcours:</b><br>
+                                                <span class="ml-3"><?php echo $_SESSION['nomparcours']; ?></span></h6>
+                                        </div>
+                                        <div class="profile-legend">
+                                            <h6 class=""><b>Niveau:</b><br>
+                                                <span class="ml-3"><?php echo $_SESSION['semestre']; ?></span> </h6>
+                                        </div>
+                                        <div class="profile-legend">
+                                            <h6 class=""><b>Mois:</b><br>
+                                                <span class="ml-3"><?php echo $_SESSION['mois']; ?>/8</span> </h6>
+                                        </div>
+                                        <div class="profile-legend">
+                                            <h6 class=""><b>Ecolage:</b><br>
+                                                <span class="ml-3"><?php echo $_SESSION['ecolage']; ?>/8</span> </h6>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -328,21 +323,6 @@ Fin Calendrier-->
                                         </div>
                                     </div>
 
-
-                                    <!--<li class="media my-3">
-                                            <i class="fa fa-envelope"></i>
-                                            <div class="media-body">
-                                                <h5 class="mt-0 mb-1">E-Media Madagascar</h5>
-                                                Bienvenue chez E-Media, votre formation commence ici...
-                                            </div>
-                                        </li>-->
-                                    <li class="media my-2">
-
-                                        <div class="media-body text-center">
-                                            <h5 class="mt-0 mb-1">Astuce</h5>-
-                                            Tutoriel manipulation de l'interface...
-                                        </div>
-                                    </li>
                                     <!--Manomboka eto ny video-->
                                     <li>
                                         <div class=" video_full mr-2">
@@ -370,13 +350,6 @@ Fin Calendrier-->
                                     </li>
                                     <!--Mifarana eto ny video-->
 
-                                    <!--<li class="media my-2">
-                                            <i class="fa fa-trophy"></i>
-                                            <div class="media-body">
-                                                <h5 class="mt-0 mb-1">Exploit</h5>
-                                                Félicitation vous montez au niveau L2...
-                                            </div>
-                                        </li>-->
                                 </ul>
                             </div>
                         </div>
@@ -384,9 +357,6 @@ Fin Calendrier-->
                 </div>
             </div>
             <!--tapitra profile-->
-
-
-
 
             <!--cours-->
             <div class="cours-blocs mt-5" id="cours_blocs">
@@ -567,8 +537,6 @@ Fin Calendrier-->
             </div>
             <!--tapitra ny cours-->
 
-
-
             <!--exercice-->
             <div class="exercice-blocs" id="exercice-blocs">
                 <div class="container-fluid">
@@ -691,7 +659,6 @@ Fin Calendrier-->
             </div>
             <!--tapitra exercice-->
 
-
             <!--messages-->
             <div class="message-blocs mt-5" id="message-blocs">
                 <div class="container-fluid">
@@ -772,11 +739,6 @@ Fin Calendrier-->
                 </div>
             </div>
             <!--tapitra messages-->
-
-            <!--forum-->
-
-
-            <!--tapitra furom-->
 
             <!--Examen-->
             <div class="EXAMEN" id="EXAMEN">
