@@ -77,5 +77,18 @@ class Dossier
         return $this->couverture;
     }
 
-
+    public function create()
+    {
+        $requete = "INSERT INTO DOSSIER VALUES(:idcat, :idmat, :idtype, :contenu_fr, :contenu_mg, NULL)";
+        $query = Connexion::getCx()->prepare($requete);
+        $query->execute(array(
+           "idcat" => $this->getCategorie(),
+           "idmat" => $this->getMatiere(),
+           "idtype" => $this->getType(),
+           "contenu_fr" => $this->getContenu_fr(),
+           "contenu_mg" => $this->getContenu_mg()
+        ));
+        $query->closeCursor();
+        return 1;
+    }
 }
