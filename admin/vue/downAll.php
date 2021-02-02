@@ -116,7 +116,7 @@ if (isset($_POST['down_all'])) {
                     $copie->setSessiondexam($resultatAll['IDSESSIONDEXAM']);
                     $res = $copie->Afficherlescopie();
                     foreach ($res as $resultat) {
-                        $zip->addFile("../Resultat/".$resultat['REPONSE']);
+                        $zip->addFile("../../Resultat/".$resultat['REPONSE']);
                     }
 
                     $zip->close();
