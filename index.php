@@ -1,6 +1,6 @@
 <?php
 
-//header("location: Connecter")
+header("location: Connecter")
 
 ?>
 
