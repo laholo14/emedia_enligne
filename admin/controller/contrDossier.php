@@ -223,7 +223,7 @@ if (isset($_POST['matiereup']) and isset($_POST['categorieup']) and isset($_POST
             // $filenameMg = $_FILES['contenu_mg']['name'][$i];
             $infos1[$i] = pathinfo($_FILES["contenu_mgup"]["name"][$i]);
             $extension1[$i] = $infos1[$i]["extension"];
-            move_uploaded_file($_FILES["contenu_mgup"]["tmp_name"][$i], "../Cours/" . $nomat . '_' . $c . '_MG_Part_' . $part . '.' . $extension1[$i]);
+            move_uploaded_file($_FILES["contenu_mgup"]["tmp_name"][$i], "../../Cours/" . $nomat . '_' . $c . '_MG_Part_' . $part . '.' . $extension1[$i]);
 
             $Cmg .= $nomat . '_' . $c . '_MG_Part_' . $part . '.' . $extension1[$i] . ',';
         }
@@ -233,7 +233,7 @@ if (isset($_POST['matiereup']) and isset($_POST['categorieup']) and isset($_POST
             $part = $j + 1;
             $infos2[$j] = pathinfo($_FILES["contenu_frup"]["name"][$j]);
             $extension2[$j] = $infos2[$j]["extension"];
-            move_uploaded_file($_FILES["contenu_frup"]["tmp_name"][$j], "../Cours/" . $nomat . '_' . $c . '_FR_Part_' . $part . '.' . $extension2[$j]);
+            move_uploaded_file($_FILES["contenu_frup"]["tmp_name"][$j], "../../Cours/" . $nomat . '_' . $c . '_FR_Part_' . $part . '.' . $extension2[$j]);
 
             $Cfr .= $nomat . '_' . $c . '_FR_Part_' . $part . '.' . $extension2[$j] . ',';
         }
