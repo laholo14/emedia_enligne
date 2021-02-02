@@ -35,7 +35,7 @@ $currentPage='cours';
         <div class="container-item d-flex justify-content-end px-5">
             <div class="setting align-self-center">
                 <i class="fas fa-cog fa-1x"></i>
-                <div class="dropdown">
+                <div class="mydropdown">
                     <ul>
                         <li><a href="../controller/controllerLogout">Deconnexion</a></li>
                         <li><a href="#">Paramètre</a></li>
@@ -50,15 +50,22 @@ $currentPage='cours';
         <nav>
 
             <div class="container-navigation">
-                <ul>
-                    <li><a href="inscription.php"> <i class="fas fa-user-plus"></i><span>Inscriptions</span> </a></li>
-                    <li><a href="etudiants.php"> <i class="fas fa-graduation-cap"></i><span>Etudiants</span></a></li>
-                    <li><a href="admission.php"> <i class="fas fa-book"></i><span>Admissions</span> </a></li>
+                <ul class="navigation-item">
+                    <li class="navigation-list-item"><a class="navigation-item-link" href="inscription.php"> <i class="fas fa-user-plus"></i><span>Inscriptions</span> </a></li>
+                    <li class="navigation-list-item"><a class="navigation-item-link" href="etudiants.php"> <i class="fas fa-graduation-cap"></i><span>Etudiants</span></a></li>
+                    <li class="navigation-list-item"><a class="navigation-item-link" href="admission.php"> <i class="fas fa-book"></i><span>Admissions</span> </a></li>
 
-                    <li><a href="#" class="active"><i class="fas fa-pen"></i><span>Cours</span></a></li>
-                    <li><a href="examens.php"><i class="fas fa-university"></i><span>Examen</span></a></li>
-                    <li><a href="status.php"> <i class="fas fa-users"></i><span>Status</span></a></li>
-                    <li><a href="message.php"> <i class="fas fa-envelope"></i><span>Message</span></a></li>
+                    <li class="navigation-list-item"><a  href="#" class="active navigation-item-link"><i class="fas fa-pen"></i><span>Cours </span></a>
+                        <div class="navigationdropdown">
+                            <ul>
+                                <li><a href="#">Deconnexion</a></li>
+                                <li><a href="#">Paramètre</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="navigation-list-item"><a class="navigation-item-link" href="examens.php"><i class="fas fa-university"></i><span>Examen</span></a></li>
+                    <li class="navigation-list-item"><a class="navigation-item-link" href="status.php"> <i class="fas fa-users"></i><span>Status</span></a></li>
+                    <li class="navigation-list-item"><a class="navigation-item-link" href="message.php"> <i class="fas fa-envelope"></i><span>Message</span></a></li>
                 </ul>
             </div>
         </nav>
@@ -214,10 +221,14 @@ $currentPage='cours';
 
                 <input type="button" value="creez" />
             </form>
+            <div class="alert alert-success" role="alert">
+  A simple success alert—check it out!
+</div>
         </section>
-
+        
     </div>
 
+  
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

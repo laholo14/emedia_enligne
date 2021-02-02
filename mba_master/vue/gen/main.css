@@ -1,9 +1,19 @@
 @charset "UTF-8";
-.dropdown li a {
+@keyframes show {
+  from {
+    display: none;
+    opacity: 0;
+  }
+  to {
+    display: block;
+    opacity: 1;
+  }
+}
+.mydropdown li a {
   color: unset;
   text-decoration: none;
 }
-.dropdown li a:hover {
+.mydropdown li a:hover {
   text-decoration: none;
   color: unset;
   cursor: pointer;
@@ -21,10 +31,11 @@ body {
   flex-direction: row;
 }
 #body section {
+  overflow-y: scroll;
+  height: 100vh;
   padding: 20px;
   flex-grow: 1;
   background-color: #fffefe;
-  height: 500px;
 }
 #body .fieldset {
   width: 90%;
@@ -141,7 +152,8 @@ body {
   bottom: 10px;
 }
 
-.dropdown {
+.mydropdown {
+  display: none;
   width: max-content;
   background-color: #deddfd;
   border: 1px solid #1805ff69;
@@ -150,10 +162,10 @@ body {
   top: 34px;
   z-index: 9;
 }
-.dropdown ul {
+.mydropdown ul {
   background-color: white;
 }
-.dropdown::before {
+.mydropdown::before {
   content: "";
   color: white;
   position: absolute;
@@ -164,27 +176,27 @@ body {
   border-right: 10px solid transparent;
   border-bottom: 10px solid white;
 }
-.dropdown li {
+.mydropdown li {
   padding: 5px 15px;
   border-bottom: 0.1px solid #1805ff69;
 }
-.dropdown li:hover {
+.mydropdown li:hover {
   background: #3743eeba;
 }
-.dropdown li:hover a {
+.mydropdown li:hover a {
   color: white;
 }
-.dropdown li a {
+.mydropdown li a {
   color: #1f3ddf;
   font-size: 12pt;
   font-weight: lighter;
 }
 
-.container-navigation ul li a {
+.container-navigation .navigation-item .navigation-list-item .navigation-item-link {
   color: unset;
   text-decoration: none;
 }
-.container-navigation ul li a:hover {
+.container-navigation .navigation-item .navigation-list-item .navigation-item-link:hover {
   text-decoration: none;
   color: unset;
   cursor: pointer;
@@ -196,6 +208,11 @@ body {
   background: linear-gradient(0deg, #1f1fecb3 80%, #2935eaad 100%);
   width: 100%;
   height: 50px;
+}
+.bar-navigation div.setting:hover .mydropdown {
+  display: block;
+  opacity: 1;
+  transition: all 1s 0s ease-in-out;
 }
 .bar-navigation .container-item {
   box-sizing: border-box;
@@ -224,7 +241,43 @@ body {
   position: relative;
   width: 157px;
 }
-.container-navigation ul {
+.container-navigation .navigationdropdown {
+  display: none;
+  opacity: 0;
+  z-index: 20;
+  position: absolute;
+  width: 120px;
+  left: 157px;
+  box-shadow: 0px 0px 6px #6161ea;
+  border-radius: 1px;
+  background-color: white;
+  transition: all 1s 0s ease;
+}
+.container-navigation .navigationdropdown ul {
+  text-align: center;
+  box-sizing: border-box;
+}
+.container-navigation .navigationdropdown ul li {
+  height: 33px;
+  padding-top: 8px;
+  border-bottom: 1px solid #6262f2;
+}
+.container-navigation .navigationdropdown ul li a {
+  color: #6262f2;
+}
+.container-navigation .navigationdropdown ul li:hover {
+  transition: all 0.2s 0s ease-out;
+  background-color: #3512d3;
+}
+.container-navigation .navigationdropdown ul li:hover a {
+  transition: all 1s 0s ease-out;
+  color: white;
+  text-decoration: none;
+}
+.container-navigation .navigationdropdown ul li:last-child {
+  border: none;
+}
+.container-navigation .navigation-item {
   display: block;
   position: relative;
   background: linear-gradient(180deg, #1f1fecb3 80%, #2935eaad 100%);
@@ -234,7 +287,7 @@ body {
   margin: 0;
   padding: 0;
 }
-.container-navigation ul li {
+.container-navigation .navigation-item .navigation-list-item {
   display: block;
   padding: 0px;
   list-style-type: none;
@@ -243,7 +296,7 @@ body {
   width: 100%;
   border-bottom: 0.1px solid #2423232e;
 }
-.container-navigation ul li a {
+.container-navigation .navigation-item .navigation-list-item .navigation-item-link {
   width: 137px;
   position: absolute;
   right: 0px;
@@ -253,12 +306,12 @@ body {
   height: 100%;
   padding-top: 4px;
 }
-.container-navigation ul li a:hover {
+.container-navigation .navigation-item .navigation-list-item .navigation-item-link:hover {
   color: #2f23bfd4;
   background-color: white;
   border-radius: 5px 0px 0px 5px;
 }
-.container-navigation ul li .active {
+.container-navigation .navigation-item .navigation-list-item .active {
   color: #2f23bfd4;
   background-color: white;
   border-radius: 5px 0px 0px 5px;
