@@ -47,8 +47,8 @@ RewriteRule ^Error500$ vue/error_500.php [L]
 
 
 
-ErrorDocument 404 https://e-media-madagascar.com/universite/Error
-ErrorDocument 403 https://e-media-madagascar.com/universite/Error403
-ErrorDocument 500 https://e-media-madagascar.com/universite/Error500
+#ErrorDocument 404 https://e-media-madagascar.com/universite/Error
+#ErrorDocument 403 https://e-media-madagascar.com/universite/Error403
+#ErrorDocument 500 https://e-media-madagascar.com/universite/Error500
 
 
