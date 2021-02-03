@@ -1,3 +1,18 @@
+@font-face {
+    font-family: "Raleway";
+    src: url("../FONT/Raleway-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Jajo";
+    src: url("../FONT/ResotYgPERSONALUSE.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Raleway ebold";
+    src: url("../FONT/Raleway-ExtraBold.ttf") format("truetype");
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden !important;
@@ -257,8 +272,11 @@ body {
 
 .dashboard .cours-menu ul li, .dashboard .profil ul li, .dashboard .exercice-menu ul li {
     background-color: transparent !important;
-    padding-left: 10px;
     border-radius: 0;
+    color: #fff;
+    border: none;
+    padding: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.089);
 }
 
 .dashboard .cours-menu ul .active, .dashboard .profil ul .active, .dashboard .exercice-menu ul .active {
@@ -268,16 +286,6 @@ body {
 
 .dashboard .cours-menu ul .active:hover, .dashboard .profil ul .active:active, .dashboard .exercice-menu ul .active:active {
     color: #fff !important;
-}
-corps-info span {
-  color: cornsilk;
-}
-
-    border-bottom: 1px solid rgba(255, 255, 255, 0.089);
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    color: #fff;
 }
 
 .profil .fa-angle-down, .cours-menu .fa-angle-down {
@@ -345,6 +353,7 @@ corps-info span {
 }
 
 .title-video h3 {
+    font-family: "Jajo";
     color: #000000b7;
     font-size: 40px;
     font-weight: bold;
@@ -410,6 +419,7 @@ corps-info span {
 }
 
 .title-profil h3 {
+    font-family: "Jajo";
     color: #000000b7;
     font-size: 40px;
     font-weight: bold;
@@ -510,6 +520,7 @@ corps-info span {
 }
 
 .title-note h3 {
+    font-family: "Jajo";
     color: #000000b7;
     font-size: 40px;
     font-weight: bold;
@@ -669,17 +680,18 @@ strong{
 }
 
 .title-calendrier h3 {
+    font-family: "Jajo";
     color: #000000b7;
     font-size: 40px;
     font-weight: bold;
 }
 
 .table-calendrier table {
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
+   
 }
 
 .table-calendrier h4 {
-    color: #0185b4;
+    color: #000000b7;
 }
 
 .table-calendrier table {
@@ -693,13 +705,13 @@ strong{
     padding: 1rem 1rem 0 1rem;
 }
 
-.table-calendrier .legende .cours {
+.table-calendrier .legende .cours-calendrier {
     color: rgb(24, 211, 24);
     border-bottom: 2px solid rgb(24, 211, 24);
 }
 
-.table-calendrier .cours {
-    color: rgb(24, 211, 24);
+.table-calendrier .cours-calendrier {
+    color: #000000b7;
 }
 
 .table-calendrier .legende .exercices {
@@ -708,7 +720,7 @@ strong{
 }
 
 .table-calendrier .exercices {
-    color: #e68b14;
+    color: #000000b7;
 }
 
 .table-calendrier .legende .corrige {
@@ -717,7 +729,7 @@ strong{
 }
 
 .table-calendrier .corrige {
-    color: rgb(28, 226, 226);
+    color: #000000b7;
 }
 
 .table-calendrier .legende .examen-mensuel {
@@ -726,7 +738,7 @@ strong{
 }
 
 .table-calendrier .examen-mensuel {
-    color: rgb(214, 41, 41);
+    color: #000000b7;
 }
 
 .table-calendrier .legende .examen-semestriel {
@@ -735,18 +747,17 @@ strong{
 }
 
 .table-calendrier .examen-semestriel {
-    color: rgba(79, 93, 173, 0.932);
+    color: #000000b7;
 }
 
 .table-calendrier table th,
 .table-calendrier table td {
     padding: 0.9375rem;
     text-align: left;
-    border-bottom: 1px  solid rgba(0, 0, 0, 0.1);
 }
 
 .table-calendrier table tbody tr {
-    background-color: rgba(255, 255, 255, 0.904);
+    color: #000000b7;
     transition: all .5s ease;
 }
 
@@ -821,6 +832,7 @@ strong{
 }
 
 .title-cours h3 {
+    font-family: "Jajo";
     color: #000000b7;
     font-size: 40px;
     font-weight: bold;
@@ -969,6 +981,7 @@ strong{
 }
 
 .title-exercice h3 {
+    font-family: "Jajo";
     color: #000000b7;
     font-size: 40px;
     font-weight: bold;
@@ -1118,6 +1131,7 @@ strong{
 }
 
 .title-chat h3 {
+    font-family: "Jajo";
     color: #000000b7;
     font-size: 40px;
     font-weight: bold;
@@ -1229,6 +1243,7 @@ strong{
 }
 
 .title-contact h3 {
+    font-family: "Jajo";
     color: #000000b7;
     font-size: 40px;
     font-weight: bold;

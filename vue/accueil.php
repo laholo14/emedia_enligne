@@ -108,7 +108,7 @@ require('head.html');
                                     <ul class="list-group ml-3">
                                         <li class="list-group-item" id="active-cours">
                                             <i class="fal fa-user-graduate ml-2 mr-2"></i>
-                                            <span>S1</span>
+                                            <span>Nouveau cours</span>
                                         </li>
                                         <li class="list-group-item" id="active-cours">
                                             <i class="fal fa-user-graduate ml-2 mr-2"></i>
@@ -116,7 +116,7 @@ require('head.html');
                                         </li>
                                         <li class="list-group-item" id="active-cours">
                                             <i class="fal fa-user-graduate ml-2 mr-2"></i>
-                                            <span>Nouveau cours</span>
+                                            <span>S1</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -138,7 +138,7 @@ require('head.html');
                                     <ul class="list-group ml-3">
                                         <li class="list-group-item" id="active-exercice">
                                             <i class="fal fa-user-graduate ml-2 mr-2"></i>
-                                            <span>S1</span>
+                                            <span>Nouveau exercice</span>
                                         </li>
                                         <li class="list-group-item" id="active">
                                             <i class="fal fa-user-graduate ml-2 mr-2"></i>
@@ -146,7 +146,7 @@ require('head.html');
                                         </li>
                                         <li class="list-group-item" id="active">
                                             <i class="fal fa-user-graduate ml-2 mr-2"></i>
-                                            <span>Nouveau exercice</span>
+                                            <span>S1</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -337,7 +337,7 @@ require('head.html');
                         <h4 class="text-center">"1er - 3eme mois" et "5eme - 7eme mois"</h4>
 
                         <div class="row legende d-flex justify-content-center">
-                            <div class="cours d-flex justify-content-center align-items-center mr-1">
+                            <div class="cours-calendrier d-flex justify-content-center align-items-center mr-1">
                                 Cours
                             </div>
 
@@ -360,20 +360,20 @@ require('head.html');
                                 <tr class="priority-300">
                                     <td class="text-center">1</td>
                                     <td class="text-center">2</td>
-                                    <td class="text-center cours">3</td>
-                                    <td class="text-center cours">4</td>
-                                    <td class="text-center cours">5</td>
-                                    <td class="text-center cours">6</td>
-                                    <td class="text-center cours">7</td>
-                                    <td class="text-center cours">8</td>
-                                    <td class="text-center cours">9</td>
-                                    <td class="text-center cours">10</td>
+                                    <td class="text-center cours-calendrier">3</td>
+                                    <td class="text-center cours-calendrier">4</td>
+                                    <td class="text-center cours-calendrier">5</td>
+                                    <td class="text-center cours-calendrier">6</td>
+                                    <td class="text-center cours-calendrier">7</td>
+                                    <td class="text-center cours-calendrier">8</td>
+                                    <td class="text-center cours-calendrier">9</td>
+                                    <td class="text-center cours-calendrier">10</td>
 
                                 </tr>
 
                                 <tr class="priority-300">
-                                    <td class="text-center cours">11</td>
-                                    <td class="text-center cours">12</td>
+                                    <td class="text-center cours-calendrier">11</td>
+                                    <td class="text-center cours-calendrier">12</td>
                                     <td class="text-center exercices">13</td>
                                     <td class="text-center exercices">14</td>
                                     <td class="text-center exercices">15</td>
@@ -412,7 +412,7 @@ require('head.html');
                         <h4 class="text-center">"4eme mois" et "9eme mois"</h4>
 
                         <div class="row legende d-flex justify-content-center">
-                            <div class="cours d-flex justify-content-center align-items-center mr-1">
+                            <div class="cours-calendrier d-flex justify-content-center align-items-center mr-1">
                                 Cours
                             </div>
 
@@ -439,20 +439,20 @@ require('head.html');
                                 <tr class="priority-300">
                                     <td class="text-center">1</td>
                                     <td class="text-center">2</td>
-                                    <td class="text-center cours">3</td>
-                                    <td class="text-center cours">4</td>
-                                    <td class="text-center cours">5</td>
-                                    <td class="text-center cours">6</td>
-                                    <td class="text-center cours">7</td>
-                                    <td class="text-center cours">8</td>
-                                    <td class="text-center cours">9</td>
-                                    <td class="text-center cours">10</td>
+                                    <td class="text-center cours-calendrier">3</td>
+                                    <td class="text-center cours-calendrier">4</td>
+                                    <td class="text-center cours-calendrier">5</td>
+                                    <td class="text-center cours-calendrier">6</td>
+                                    <td class="text-center cours-calendrier">7</td>
+                                    <td class="text-center cours-calendrier">8</td>
+                                    <td class="text-center cours-calendrier">9</td>
+                                    <td class="text-center cours-calendrier">10</td>
 
                                 </tr>
 
                                 <tr class="priority-300">
-                                    <td class="text-center cours">11</td>
-                                    <td class="text-center cours">12</td>
+                                    <td class="text-center cours-calendrier">11</td>
+                                    <td class="text-center cours-calendrier">12</td>
                                     <td class="text-center exercices">13</td>
                                     <td class="text-center exercices">14</td>
                                     <td class="text-center exercices">15</td>
