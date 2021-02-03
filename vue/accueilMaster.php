@@ -66,7 +66,7 @@
                                     <div class="panel-heading">
                                         <a data-toggle="collapse" href="#collapse1" class="active-profil">
                                             <i class="fal fa-user-circle mr-3"></i>
-                                            <span class="text-center">Santatra</span>
+                                            <span class="text-center"><?php echo $_SESSION['prenom']?></span>
                                             <i class="fad fa-angle-down float-right mt-3 mr-2"></i>
                                         </a>
                                     </div>
@@ -222,37 +222,37 @@
                                 <div class="col-12 d-md-flex d-lg-flex d-xl-flex propos-legende pt-3 pb-3">
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-5">
                                         <div class="profile-legend profile-legend-nom">
-                                            <h6>Nom <br><span> RATSITOHAINA </span></h6>
+                                            <h6>Nom <br><span><?php echo $_SESSION['nom']?></span></h6>
+                                        </div>
+                                          <div class="profile-legend">
+                                            <h6>Prénom<br><span><?php echo $_SESSION['prenom']?></span></h6>
                                         </div>
                                         <div class="profile-legend">
-                                            <h6>Prénom<br><span> Santatra </span></h6>
+                                            <h6>E-mail<br><span><?php echo $_SESSION['mail']?></span></h6>
                                         </div>
                                         <div class="profile-legend">
-                                            <h6>E-mail<br><span> santatra22ratsitohaina@gmail.com </span></h6>
-                                        </div>
-                                        <div class="profile-legend">
-                                            <h6>Nationalité<br><span> MADAGASCAR, MAHAJANGA </span></h6>
+                                            <h6>Nationalité<br><span><?php echo $_SESSION['nationalite']?></span></h6>
                                         </div>      
                                         <div class="profile-legend">
-                                            <h6>Mention<br><span> Marketing Publicité et Journalisme </span></h6>
+                                            <h6>Mention<br><span><?php echo $_SESSION['nomfiliere']?></span></h6>
                                         </div>
                                     </div>
 
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-md-5 mt-lg-5 mt-xl-5 ml-md-5 ml-lg-5 ml-xl-5">
                                         <div class="profile-legend">
-                                            <h6>Parcours<br><span> Réalisation Audiovisuelle </span></h6>
+                                            <h6>Parcours<br><span><?php echo $_SESSION['nomparcours']?></span></h6>
                                         </div>
                                         <div class="profile-legend">
-                                            <h6>Matricule<br><span> TIC-V1/000/MG </span></h6>
+                                            <h6>Matricule<br><span><?php echo $_SESSION['matricule']?></span></h6>
                                         </div>  
                                         <div class="profile-legend">
-                                            <h6>Niveau<br> <span> S2 </span> </h6>
+                                            <h6>Niveau<br> <span><?php echo $_SESSION['semestre']?></span> </h6>
                                         </div>
                                         <div class="profile-legend">
-                                            <h6>Mois<br> <span> 6/8 </span></h6>
+                                            <h6>Mois<br> <span>6/8 </span></h6>
                                         </div>
                                         <div class="profile-legend">
-                                            <h6>Ecolage<br> <span> 6/8 </span> </h6>
+                                            <h6>Ecolage<br> <span><?php echo $_SESSION['ecolage']?>/8 </span> </h6>
                                         </div> 
                                     </div>
 
