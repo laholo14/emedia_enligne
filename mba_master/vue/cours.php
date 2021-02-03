@@ -164,7 +164,7 @@ $currentPage = 'cours';
 
                         </select>
                     </div>
-
+ 
                 </div>
                 <div class="form-group d-flex flex-column">
                    <input type="hidden" name="categorie" value="1">

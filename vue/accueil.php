@@ -37,7 +37,8 @@ require('head.html');
 
                 <div class="col-8 d-flex justify-content-end select-langue">
                     <div class="dropdown mt-1 mr-5">
-                        <button class="dropbtn" id="langue-button">Version cours <i class="fad fa-angle-down float-right mt-1 ml-4"></i></button>
+                        <button class="dropbtn" id="langue-button">Version cours <i
+                                class="fad fa-angle-down float-right mt-1 ml-4"></i></button>
                         <div class="dropdown-content mt-2" id="langue-content">
                             <a href="#" id="francais">Francais</a>
                             <a href="#" id="malagasy">Malagasy</a>
@@ -56,11 +57,12 @@ require('head.html');
             <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 dashboard dashboard_mobile" id="dashboard">
 
                 <div class="pdp d-flex justify-content-center pt-3">
-                    <img src="vue/image/user.jpg" class="mr-3" alt="">
+                    <img src="<?php echo $_SESSION["photo"];?>" class="mr-3" alt="">
                 </div>
                 <ul class="overflow-auto liste_dashboard mt-1">
 
-                    <li id="active-video" class="active"><a href="#"><i class="fal fa-video-plus mr-3"></i><span>Video tuto</span></a></li>
+                    <li id="active-video" class="active"><a href="#"><i class="fal fa-video-plus mr-3"></i><span>Video
+                                tuto</span></a></li>
 
                     <li class="profil">
                         <div class="panel-group">
@@ -92,7 +94,8 @@ require('head.html');
                         </div>
                     </li>
 
-                    <li id="active-calendrier"><a href="#"><i class="fal fa-calendar-alt mr-4"></i><span>Calendrier</span></a></li>
+                    <li id="active-calendrier"><a href="#"><i
+                                class="fal fa-calendar-alt mr-4"></i><span>Calendrier</span></a></li>
 
                     <li class="cours-menu">
                         <div class="panel-group">
@@ -154,13 +157,17 @@ require('head.html');
                         </div>
                     </li>
 
-                    <li id="active-chat"><a href="#"><i class="fal fa-comments-alt mr-3"></i><span>Nous vous ecoutons</span></a></li>
+                    <li id="active-chat"><a href="#"><i class="fal fa-comments-alt mr-3"></i><span>Nous vous
+                                ecoutons</span></a></li>
 
-                    <li id="active-contact"><a href="#"><i class="fal fa-phone-volume mr-3"></i><span>Contacts</span></a></li>
+                    <li id="active-contact"><a href="#"><i
+                                class="fal fa-phone-volume mr-3"></i><span>Contacts</span></a></li>
 
-                    <li id="active-notification"><a href="#"><i class="fal fa-bell mr-3"></i><span>Notifications <span class="badge badge-light">4</span></span></a></li>
+                    <li id="active-notification"><a href="#"><i class="fal fa-bell mr-3"></i><span>Notifications <span
+                                    class="badge badge-light">4</span></span></a></li>
 
-                    <li id="active-logout"><a href="vue/logout.php"><i class="fas fa-power-off mr-3"></i><span>Deconnexion </span></a></li>
+                    <li id="active-logout"><a href="vue/logout.php"><i
+                                class="fas fa-power-off mr-3"></i><span>Deconnexion </span></a></li>
                 </ul>
             </div>
             <!-- fin dashboard -->
@@ -181,24 +188,33 @@ require('head.html');
 
                     <div class="col-12 mb-3 video1">
                         <div class="video1_text text-center mt-3 p-2">
-                            <a href="https://www.youtube.com/embed/HgIeckuG7cQ" target="blank" class="text-center">Pour connaitre le manipulation de l'interface etudiants.</a>
+                            <a href="https://www.youtube.com/embed/HgIeckuG7cQ" target="blank" class="text-center">Pour
+                                connaitre le manipulation de l'interface etudiants.</a>
                         </div>
-                        <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
                     </div>
 
                     <div class="row">
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 video2">
                             <div class="video1_text text-center p-2">
-                                <a href="https://www.youtube.com/embed/HgIeckuG7cQ" target="blank" class="text-center">Pour connaitre le manipulation de l'interface etudiants.</a>
+                                <a href="https://www.youtube.com/embed/HgIeckuG7cQ" target="blank"
+                                    class="text-center">Pour connaitre le manipulation de l'interface etudiants.</a>
                             </div>
-                            <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
                         </div>
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 video3">
                             <div class="video1_text text-center p-2">
-                                <a href="https://www.youtube.com/embed/HgIeckuG7cQ" target="blank" class="text-center">Pour connaitre le manipulation de l'interface etudiants.</a>
+                                <a href="https://www.youtube.com/embed/HgIeckuG7cQ" target="blank"
+                                    class="text-center">Pour connaitre le manipulation de l'interface etudiants.</a>
                             </div>
-                            <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
@@ -218,7 +234,7 @@ require('head.html');
                     <div class="corps mt-1">
                         <div class="propos">
                             <div class="propos-img d-flex justify-content-center">
-                                <img src="vue/image/user.jpg" class="img-fluid" alt="">
+                                <img src="<?php echo $_SESSION["photo"];?>" class="img-fluid" alt="">
                             </div>
 
                             <div class="col-12 d-md-flex d-lg-flex d-xl-flex propos-legende pt-3 pb-3">
@@ -233,14 +249,15 @@ require('head.html');
                                         <h6>E-mail<br><span><?php echo $_SESSION['mail'] ?></span></h6>
                                     </div>
                                     <div class="profile-legend">
-                                        <h6>Nationalité<br><span><?php echo $_SESSION['nationalite'] ?></span></h6>
+                                        <h6>Pays d'origine<br><span><?php echo $_SESSION['nationalite'] ?></span></h6>
                                     </div>
                                     <div class="profile-legend">
                                         <h6>Mention<br><span><?php echo $_SESSION['nomfiliere'] ?></span></h6>
                                     </div>
                                 </div>
 
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-md-5 mt-lg-5 mt-xl-5 ml-md-5 ml-lg-5 ml-xl-5">
+                                <div
+                                    class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-md-5 mt-lg-5 mt-xl-5 ml-md-5 ml-lg-5 ml-xl-5">
                                     <div class="profile-legend">
                                         <h6>Parcours<br><span><?php echo $_SESSION['nomparcours'] ?></span></h6>
                                     </div>
@@ -278,7 +295,8 @@ require('head.html');
 
                     <div class="d-flex justify-content-center select-semestre">
                         <div class="dropdown mt-1">
-                            <button class="dropbtn" id="semestre-button">Semestre <i class="fad fa-angle-down float-right mt-1 ml-4"></i></button>
+                            <button class="dropbtn" id="semestre-button">Semestre <i
+                                    class="fad fa-angle-down float-right mt-1 ml-4"></i></button>
                             <div class="dropdown-content mt-2" id="semestre-content">
                                 <a href="#" id="semestre1">S1</a>
                                 <a href="#" id="semestre2">S2</a>
@@ -601,7 +619,9 @@ require('head.html');
                         </div>
                     </div>
 
-                    <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                 </div>
 
                 <!-- fin cours -->
@@ -725,7 +745,9 @@ require('head.html');
                         </div>
                     </div>
 
-                    <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                 </div>
 
                 <!-- fin exercice -->
@@ -745,7 +767,7 @@ require('head.html');
                         <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 m-1 chat">
                             <div class="body-chat overflow-auto">
                                 <div class="ml-5  mt-3 user-chat d-flex">
-                                    <img src="vue/image/user.jpg" class="img-fluid" alt="">
+                                    <img src="<?php echo $_SESSION["photo"];?>" class="img-fluid" alt="">
                                     <div class="ml-2">Si vous avez des question a propos des cours lorem</div>
                                 </div>
 
@@ -755,7 +777,7 @@ require('head.html');
                                 </div>
 
                                 <div class="ml-5  mt-3 user-chat d-flex">
-                                    <img src="vue/image/user.jpg" class="img-fluid" alt="">
+                                    <img src="<?php echo $_SESSION["photo"];?>" class="img-fluid" alt="">
                                     <div class="ml-2">Si vous avez des question a propos des cours</div>
                                 </div>
 
@@ -765,7 +787,7 @@ require('head.html');
                                 </div>
 
                                 <div class="ml-5  mt-3 user-chat d-flex">
-                                    <img src="vue/image/user.jpg" class="img-fluid" alt="">
+                                    <img src="<?php echo $_SESSION["photo"];?>" class="img-fluid" alt="">
                                     <div class="ml-2">Si vous avez des question a propos des cours lorem</div>
                                 </div>
 
@@ -775,7 +797,7 @@ require('head.html');
                                 </div>
 
                                 <div class="ml-5  mt-3 user-chat d-flex">
-                                    <img src="vue/image/user.jpg" class="img-fluid" alt="">
+                                    <img src="<?php echo $_SESSION["photo"];?>" class="img-fluid" alt="">
                                     <div class="ml-2">Si vous avez des question a propos des cours</div>
                                 </div>
 
@@ -789,8 +811,10 @@ require('head.html');
                                 <form class="login-form mt-2" id="" method="post">
                                     <div class="d-flex input-chat">
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10 form-group">
-                                            <textarea type="text" name="message" class="text-input p-1" id="" placeholder="Votre message..."></textarea>
-                                            <button type="submit" class="btn"><i class="fas fa-paper-plane"></i></button>
+                                            <textarea type="text" name="message" class="text-input p-1" id=""
+                                                placeholder="Votre message..."></textarea>
+                                            <button type="submit" class="btn"><i
+                                                    class="fas fa-paper-plane"></i></button>
                                         </div>
                                     </div>
 
@@ -801,7 +825,8 @@ require('head.html');
                         <div class="col-4 m-1 astuce-chat">
                             <img src="vue/image/chat.png" class="img-fluid" alt="">
                             <div class="d-flex justify-content-center">
-                                <span>"Si vous avez des question a propos des cours , éxercice, éxamens n'égite pas envoyer votre question sur le messages..."</span>
+                                <span>"Si vous avez des question a propos des cours , éxercice, éxamens n'égite pas
+                                    envoyer votre question sur le messages..."</span>
                             </div>
                         </div>
                     </div>
@@ -891,67 +916,23 @@ require('head.html');
                 </div>
 
                 <div class="col-12 affiche-exercice-corrige overflow-auto mt-1 pt-3">
-                    <iframe width="100%" height="500" src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="100%" height="500" src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                 </div>
             </div>
 
             <!-- contenu-notification -->
             <div class="col-12 contenu-notification mt-5" id="contenu-notification">
                 <h4 class="d-flex justify-content-center mt-4">Examen dans:</h4>
-                <div class="d-flex justify-content-center">
-                    <div class="date text-center">
-                        <div class="bloc1 d-flex justify-content-center align-items-center" id="jours">20</div>
-                        <div class="bloc2">
-                            <p>Jours</p>
-                        </div>
-                    </div>
-                    <div class="date text-center">
-                        <div class="bloc1 d-flex justify-content-center align-items-center" id="heures">12</div>
-                        <div class="bloc2">
-                            <p>HR</p>
-                        </div>
-                    </div>
-                    <div class="date text-center">
-                        <div class="bloc1 d-flex justify-content-center align-items-center" id="minutes">53</div>
-                        <div class="bloc2">
-                            <p>MIN</p>
-                        </div>
-                    </div>
-                    <div class="date text-center">
-                        <div class="bloc1 d-flex justify-content-center align-items-center" id="secondes">23</div>
-                        <div class="bloc2">
-                            <p>SEC</p>
-                        </div>
-                    </div>
+                <div id="count_exam" class="d-flex justify-content-center">
+
                 </div>
                 <button class="btn-details-examen" id="btn-details-examen">Details</button>
 
                 <h4 class="d-flex justify-content-center mt-5">Paiments dans:</h4>
-                <div class="d-flex justify-content-center">
-                    <div class="date text-center">
-                        <div class="bloc1 d-flex justify-content-center align-items-center" id="jours">20</div>
-                        <div class="bloc2">
-                            <p>Jours</p>
-                        </div>
-                    </div>
-                    <div class="date text-center">
-                        <div class="bloc1 d-flex justify-content-center align-items-center" id="heures">12</div>
-                        <div class="bloc2">
-                            <p>HR</p>
-                        </div>
-                    </div>
-                    <div class="date text-center">
-                        <div class="bloc1 d-flex justify-content-center align-items-center" id="minutes">53</div>
-                        <div class="bloc2">
-                            <p>MIN</p>
-                        </div>
-                    </div>
-                    <div class="date text-center">
-                        <div class="bloc1 d-flex justify-content-center align-items-center" id="secondes">23</div>
-                        <div class="bloc2">
-                            <p>SEC</p>
-                        </div>
-                    </div>
+                <div id="count_ecolage" class="d-flex justify-content-center">
+                    
                 </div>
             </div>
 
@@ -962,6 +943,9 @@ require('head.html');
     require('script.html');
     ?>
     <script src="vue/js/accueilMaster.js"></script>
+    <script src="vue/js/jquery.countdown.min.js"></script>
+    <script src="vue/js/countdownCountExam.js"></script>
+    <script src="vue/js/countdownCountEcolage.js"></script>
 </body>
 
 </html>
