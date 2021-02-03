@@ -19,7 +19,7 @@
 
 
 
-                <h3 class="text-center maintenance">Bonjour <?php echo $_SESSION['nom'] . ' ' . $_SESSION['prenom'] . ' ';
+                <h3 class="text-center text-dark maintenance">Bonjour <?php echo $_SESSION['nom'] . ' ' . $_SESSION['prenom'] . ' ';
                                                             ?></br>Rendez vous le 3 <?php echo $moisDenter;?> 2021...</h3>
 
             </div>

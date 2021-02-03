@@ -1,10 +1,11 @@
     <?php
      session_start();
 
-    //  if (!isset($_SESSION['matricule'])) {
+     if (!isset($_SESSION['matricule'])) {
      
-    //      header("location: Connecter");
-    //  }
+         header("location: Connecter");
+     }
+     include("../controller/contrIEM.php");
      
         require('head.html');
     ?>
