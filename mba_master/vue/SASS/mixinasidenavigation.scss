@@ -4,7 +4,7 @@
     position: relative;
     width: 157px;
 
-    .navigationdropdown{
+    .navigationdropdown1{
         
         display: none;
         opacity: 0;
@@ -17,28 +17,68 @@
         background-color: white;
         transition:all 1s 0s ease;
     }
-    .navigationdropdown ul{
+    .navigationdropdown1 .ulnavigationdropdown1{
         text-align: center;
         box-sizing: border-box;
     }
-    .navigationdropdown ul li{
+    .navigationdropdown1 .ulnavigationdropdown1 .linavigationdropdown1{
         height: 33px;
         padding-top: 8px;
         border-bottom: 1px solid #6262f2;
-        a{
+        position: relative;
+        .anavigationdropdown1{
             color: #6262f2;
         }       
         &:hover{
-            a{
+            .anavigationdropdown1{
                 transition: all 1s 0s ease-out;
                 color: white;
                 text-decoration: none;  
             }
             transition: all 0.2s 0s ease-out;
-            background-color: rgb(53, 18, 211);
+            background-color: #6262f2;
         }
     }
-    .navigationdropdown ul li:last-child{
+
+
+
+    .navigationdropdown2{
+        display: none;
+        opacity: 0;
+        z-index: 20;
+        position: absolute;
+        width: 120px;
+        left: 120px;
+        bottom: 0;
+        box-shadow: 0px 0px 6px #6161ea;
+        border-radius: 1px;
+        background-color: white;
+        transition:all 1s 0s ease;
+    }
+    .navigationdropdown2 .ulnavigationdropdown2{
+        text-align: center;
+        box-sizing: border-box;
+    }
+    .navigationdropdown2 .ulnavigationdropdown2 .linavigationdropdown2{
+        height: 33px;
+        padding-top: 8px;
+        border-bottom: 1px solid #6262f2;
+        .anavigationdropdown2{
+            color: #6262f2;
+        }       
+        &:hover{
+            .anavigationdropdown2{
+                transition: all 1s 0s ease-out;
+                color: white;
+                text-decoration: none;  
+            }
+            transition: all 0.2s 0s ease-out;
+            background-color: #6262f2;
+        }
+    }
+
+
+    .navigationdropdown2 .ulnavigationdropdown2 .linavigationdropdown2:last-child{
         border: none;
     }
     
