@@ -67,8 +67,8 @@ $(document).ready(function () {
                 }
             })
         } else {
-            alert("fenoy aloha");
         }
+            alert("fenoy aloha");
     }
 
 

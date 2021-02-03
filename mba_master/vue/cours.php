@@ -160,7 +160,7 @@ $currentPage = 'cours';
                         Selectionnez un element constitutif
                     </label>
                     <div class="container-select">
-                        <select name="select_ec" id="select_ec">
+                        <select name="elementConstitutif" id="select_ec">
 
                         </select>
                     </div>
@@ -196,7 +196,7 @@ $currentPage = 'cours';
                             <span class="file_name">Aucune fichier selectionné</span>
                         </div>
                     </div>
-                    <div class="form-group ">
+                     <div class="form-group ">
                         <div class="container_field_import">
                             <label for="file_book_et">
                                 contenu pour les etrangers
