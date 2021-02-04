@@ -164,7 +164,7 @@ $currentPage = 'cours';
 
                         </select>
                     </div>
- 
+  
                 </div>
                 <div class="form-group d-flex flex-column">
                    <input type="hidden" name="categorie" value="1">
@@ -201,7 +201,7 @@ $currentPage = 'cours';
                             <label for="file_book_et">
                                 contenu pour les etrangers
                             </label>
-                            <div class="boutton_file">
+                            <div class="boutton_file"> 
                                 choisir
                             </div>
                             <input id="file_book_et" class="file_book" type="file" />
@@ -209,7 +209,7 @@ $currentPage = 'cours';
                         </div>
                     </div>
                 </div>
-                <input type="submit" value="croeez" id="btn_ajout_dossier" />
+                <input type="submit" value="créez" id="btn_ajout_dossier" />
             </form>
             <div class="alert alert-success" role="alert">
   A simple success alert—check it out!
