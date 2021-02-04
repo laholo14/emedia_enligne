@@ -5,113 +5,8 @@
 @include animation;
 $text-primary:rgb(4, 5, 24);
 $background: #3743eeba;
-
-%al{
-    color: unset;
-    text-decoration: none;
-    &:hover{
-        text-decoration: none;
-        color: unset;
-        cursor: pointer;
-    }
-}
-%form{
-    width:90%;
-    padding: 20px;
-    border: 1px solid grey;
-    box-sizing: border-box;
-    margin: 40px 0px;
-    position: relative;
-}
-body{
-    padding: 0;
-    margin:0;
-    box-sizing: border-box;
-    position: relative;
-}
-
-#body{
-    display: flex;
-    flex-direction: row;
-    
-
-    section{
-        overflow-y: scroll;
-        height: 100vh;
-        padding: 20px;
-        flex-grow: 1;
-        background-color: #fffefe;
-    }
-    .fieldset{
-        .form-group{
-            position: relative;
-        }
-        @include fieldset;
-    }
-    .fieldinput{
-        @include fieldinput;
-    }
-    .container-select{
-        @include oncontainer_createfieldset;
-    }
-    .container_field_import{
-        @include container_field_import;
-    }
-    input[type="button"],input[type="submit"]{
-        @include button;
-    }
-}
-
-.mydropdown{
-    //dropdown dans la deconnexion
-    display: none;
-    width: max-content;
-    background-color: rgb(222, 221, 253);
-    border: 1px solid #1805ff69;
-    position: absolute;
-    right: 0;
-    top: 34px;
-    z-index: 9;
-    ul{
-        background-color: white;
-    }
-    &::before{
-        content:"";
-        color: white;
-        position: absolute;
-        right: 0;
-        top: -19px;
-        border: {
-            top:10px solid transparent;
-            left:10px solid transparent;
-            right:10px solid transparent;
-            bottom:10px solid white;
-        };
-        
-    }
-    li{
-        padding: 5px 15px;
-        border-bottom:0.1px solid #1805ff69 ;
-        &:hover{
-            background:$background ;
-            a{
-                color:white;
-            }
-        }
-        a{
-            
-            color: #1f3ddf;
-            font-size: 12pt;
-            
-            font-weight: lighter;
-            
-            @extend %al;
-        }
-    }
-}
-
-    
-    %a{
+@media only screen and (min-width:720px){
+    %al{
         color: unset;
         text-decoration: none;
         &:hover{
@@ -120,11 +15,134 @@ body{
             cursor: pointer;
         }
     }
-    .bar-navigation{
-        @include barrehorizontale;
+    %form{
+        width:90%;
+        padding: 20px;
+        border: 1px solid grey;
+        box-sizing: border-box;
+        margin: 40px 0px;
+        position: relative;
     }
-    .container-navigation{
-       @include mixinasidenavigation;
+    body{
+        padding: 0;
+        margin:0;
+        box-sizing: border-box;
+        position: relative;
     }
     
+    #body{
+        display: flex;
+        flex-direction: row;
+        section{
+            overflow-y: scroll;
+            height: 100vh;
+            padding: 20px;
+            flex-grow: 1;
+            background-color: #fffefe;
+        }
+        .fieldset{
+            .form-group{
+                position: relative;
+            }
+            @include fieldset;
+        }
+        .fieldinput{
+            @include fieldinput;
+        }
+        .container-select{
+            @include oncontainer_createfieldset;
+        }
+        .container_field_import{
+            @include container_field_import;
+        }
+        input[type="button"],input[type="submit"]{
+            @include button;
+        }
+    }
+    
+    .mydropdown{
+        //dropdown dans la deconnexion
+        display: none;
+        width: max-content;
+        background-color: rgb(222, 221, 253);
+        border: 1px solid #1805ff69;
+        position: absolute;
+        right: 0;
+        top: 34px;
+        z-index: 9;
+        ul{
+            background-color: white;
+        }
+        &::before{
+            content:"";
+            color: white;
+            position: absolute;
+            right: 0;
+            top: -19px;
+            border: {
+                top:10px solid transparent;
+                left:10px solid transparent;
+                right:10px solid transparent;
+                bottom:10px solid white;
+            };
+            
+        }
+        li{
+            padding: 5px 15px;
+            border-bottom:0.1px solid #1805ff69 ;
+            &:hover{
+                background:$background ;
+                a{
+                    color:white;
+                }
+            }
+            a{
+                
+                color: #1f3ddf;
+                font-size: 12pt;
+                
+                font-weight: lighter;
+                
+                @extend %al;
+            }
+        }
+    }
+    
+        
+        %a{
+            color: unset;
+            text-decoration: none;
+            &:hover{
+                text-decoration: none;
+                color: unset;
+                cursor: pointer;
+            }
+        }
+        .bar-navigation{
+            @include barrehorizontale;
+        }
+        .container-navigation{
+           @include mixinasidenavigation;
+        }
+        
+    
+}
 
+@media only screen and (max-width:720px){
+    .bar-navigation{
+        display: flex;
+        align-content: end;
+        justify-content: end;
+        background-color: #1d28ceba;
+        &>.container-navigation:first-child(){
+       
+            
+            
+            width: 150px;
+            height: 70px;
+        
+    
+}
+    }
+    
+}
