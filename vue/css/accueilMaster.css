@@ -1,10 +1,25 @@
+@font-face {
+    font-family: "Raleway";
+    src: url("../FONT/Raleway-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Jajo";
+    src: url("../FONT/ResotYgPERSONALUSE.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Raleway ebold";
+    src: url("../FONT/Raleway-ExtraBold.ttf") format("truetype");
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden !important;
     background-color: #fff;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -12,6 +27,7 @@ body {
 }
 
 /* preloading */
+
 .preloading {
     overflow-x: hidden;
     background-color: #fff;
@@ -19,57 +35,85 @@ body {
 }
 
 .contenu-preloading {
-	position:relative;
+    position: relative;
     top: 40%;
     margin: 0 auto;
 }
 
 .contenu-preloading span {
-	position:absolute;
-	border: 8px solid #25b40100;
-	border-top: 8px solid transparent;
-	border-radius:999px;
+    position: absolute;
+    border: 8px solid #25b40100;
+    border-top: 8px solid transparent;
+    border-radius: 999px;
 }
 
-.contenu-preloading span:nth-child(1){
-	width:200px;
-	height:200px;
-	animation: spin-1 2s infinite linear;
+.contenu-preloading span:nth-child(1) {
+    width: 200px;
+    height: 200px;
+    animation: spin-1 2s infinite linear;
 }
 
-.contenu-preloading span:nth-child(2){
-	top: 20px;
-	left: 20px;
-	width: 160px;
-	height: 160px;
-	animation: spin-2 1s infinite linear;
+.contenu-preloading span:nth-child(2) {
+    top: 20px;
+    left: 20px;
+    width: 160px;
+    height: 160px;
+    animation: spin-2 1s infinite linear;
 }
 
-.contenu-preloading span:nth-child(3){
-	top: 40px;
-	left: 40px;
-	width: 120px;
-	height: 120px;
-	animation: spin-3 1s infinite linear;
+.contenu-preloading span:nth-child(3) {
+    top: 40px;
+    left: 40px;
+    width: 120px;
+    height: 120px;
+    animation: spin-3 1s infinite linear;
 }
 
 @keyframes spin-1 {
-	0% {transform: rotate(360deg); opacity: 1;}
-	50% {transform: rotate(180deg); opacity: 0.5;}
-	100% {transform: rotate(0deg); opacity: 1;}
+    0% {
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+    50% {
+        transform: rotate(180deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
 }
 
 @keyframes spin-2 {
-	0% {transform: rotate(0deg); opacity: 0.5;}
-	50% {transform: rotate(180deg); opacity: 1;}
-	100% {transform: rotate(360deg); opacity: 0.5;}
+    0% {
+        transform: rotate(0deg);
+        opacity: 0.5;
+    }
+    50% {
+        transform: rotate(180deg);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(360deg);
+        opacity: 0.5;
+    }
 }
 
 @keyframes spin-3 {
-	0% {transform: rotate(360deg); opacity: 1;}
-	50% {transform: rotate(180deg); opacity: 0.5;}
-	100% {transform: rotate(0deg); opacity: 1;}
+    0% {
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+    50% {
+        transform: rotate(180deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
 }
+
 /* fin preloading */
 
 .universite-Emedia {
@@ -77,6 +121,7 @@ body {
 }
 
 /* navbar */
+
 .nav_bar {
     background-color: #fff;
     height: auto;
@@ -105,21 +150,21 @@ body {
 .select-langue .dropbtn:focus {
     outline: none;
 }
-  
+
 .select-langue .dropdown {
     position: relative;
     display: inline-block;
 }
-  
+
 .select-langue .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
-  
+
 .select-langue .dropdown-content a {
     background-color: #0185b4;
     color: #fff;
@@ -127,7 +172,7 @@ body {
     text-decoration: none;
     display: block;
 }
-  
+
 .select-langue .dropdown-content a:hover {
     background-color: #fff;
     color: #0185b4;
@@ -155,28 +200,27 @@ body {
 }
 
 /* mobile navbar */
+
 @media (min-width: 200px) and (max-width: 991.9px) {
     .logo {
         display: none;
     }
-
     .nav_bar #fa-bars {
         display: block;
         position: absolute;
         font-size: 30px;
         color: #0185b4;
     }
-
     .nav_bar #fa-times {
         position: absolute;
         font-size: 30px;
         color: #0185b4;
     }
-
     .notification, .logout {
         display: none;
     }
 }
+
 /* fin navbar */
 
 /*dashboard*/
@@ -186,13 +230,12 @@ body {
 }
 
 .dashboard {
-    background-size: cover;
     height: auto;
     background: url("../image/calque.png");
     background-attachment: fixed;
     background-size: cover;
     background-color: rgb(0, 0, 0, 0.8);
-    transition:all .5s ease;
+    transition: all .5s ease;
     border-right: 1px solid #069dcf38;
     margin-top: 3rem;
     transition: 1s all ease;
@@ -258,8 +301,11 @@ body {
 
 .dashboard .cours-menu ul li, .dashboard .profil ul li, .dashboard .exercice-menu ul li {
     background-color: transparent !important;
-    padding-left: 10px;
     border-radius: 0;
+    color: #fff;
+    border: none;
+    padding: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.089);
 }
 
 .dashboard .cours-menu ul .active, .dashboard .profil ul .active, .dashboard .exercice-menu ul .active {
@@ -269,15 +315,6 @@ body {
 
 .dashboard .cours-menu ul .active:hover, .dashboard .profil ul .active:active, .dashboard .exercice-menu ul .active:active {
     color: #fff !important;
-}
-
-.dashboard .cours-menu ul .list-group-item, .dashboard .profil ul .list-group-item, .dashboard .exercice-menu ul .list-group-item {
-    padding: 0rem !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.089);
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    color: #fff;
 }
 
 .profil .fa-angle-down, .cours-menu .fa-angle-down {
@@ -304,25 +341,26 @@ body {
         position: fixed !important;
         z-index: 99999;
     }
-
     .dashboard_mobile {
         left: -100rem;
     }
-
     .dashboard #active-notification {
         display: block !important;
     }
 }
+
 /* fin dashboard */
 
 /*section*/
-.contenu {   
+
+.contenu {
     height: 90vh;
     margin-top: 3rem;
     overflow-x: hidden !important;
 }
 
 /* video tuto */
+
 .contenu-video {
     min-height: 90vh;
     border-radius: 10px 10px 0 0;
@@ -341,10 +379,10 @@ body {
 .icon-video i {
     color: #fff;
     font-size: 30px;
-   
 }
 
 .title-video h3 {
+    font-family: "Jajo";
     color: #000000b7;
     font-size: 40px;
     font-weight: bold;
@@ -353,7 +391,7 @@ body {
 .video1 iframe, .video2 iframe, .video3 iframe {
     width: 100%;
     height: 420px;
-} 
+}
 
 .video1_text {
     background-color: rgba(255, 255, 255, 0.5);
@@ -373,7 +411,6 @@ body {
     .title-video h3 {
         margin-top: 3rem;
     }
-
     .video3 {
         margin-top: 1.5rem;
     }
@@ -385,9 +422,11 @@ body {
         height: 300px;
     }
 }
+
 /* fin video tuto */
 
 /* profil */
+
 .contenu-profil {
     min-height: 82.5vh;
     border-radius: 10px 10px 0 0;
@@ -410,6 +449,7 @@ body {
 }
 
 .title-profil h3 {
+    font-family: "Jajo";
     color: #000000b7;
     font-size: 40px;
     font-weight: bold;
@@ -438,56 +478,53 @@ body {
 }
 
 .propos {
+    margin: 2rem 0 0 0;
     position: relative;
-    margin: 100px 0px 0px 0px;
     height: auto;
 }
 
+.propos-contenu {
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(90deg, #0185b4, #7ab4c9);
+}
+
 .propos-img img {
-    position: absolute;
-    margin-top: -80px;
-    height: 160px;
-    width: 160px;
-    padding: 5px;
+    height: 140px;
+    width: auto;
     border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.61);
+    box-shadow: 1px 1px 1px 1px rgba(252, 252, 252, 0.3), -1px -1px 1px 1px rgba(245, 243, 243, 0.1);
+    padding: 5px;
 }
 
-.propos-legende span {
-    padding-left: 2rem;
-    color: #0185b4;
-    font-size: 22px;
-    font-weight: bold;
+.propos-contenu .propos-details h6 {
+    color: rgb(153, 234, 245);
 }
 
-.profile-legend {
-    display: flex;
-}
-
-.profile-legend h6 {
-    color: #03455e;
-    font-size: 18px;
+.propos-contenu .propos-details span {
+    color: #fff;
+    font-size: 1.5rem;
 }
 
 @media (min-width: 100px) and (max-width: 575.9px) {
     .title-profil h3 {
         margin-top: 3rem;
     }
-
     .propos-legende span {
         font-size: 14px;
     }
-
     .profile-legend-nom {
         padding-top: 2rem !important;
     }
-
     .profile-legend h6 {
         font-size: 14px;
     }
 }
+
 /* fin profil */
 
 /* note */
+
 .contenu-note {
     min-height: 82.5vh;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
@@ -510,6 +547,7 @@ body {
 }
 
 .title-note h3 {
+    font-family: "Jajo";
     color: #000000b7;
     font-size: 40px;
     font-weight: bold;
@@ -529,21 +567,21 @@ body {
 .select-semestre .dropbtn:focus {
     outline: none;
 }
-  
+
 .select-semestre .dropdown {
     position: relative;
     display: inline-block;
 }
-  
+
 .select-semestre .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
-  
+
 .select-semestre .dropdown-content a {
     background-color: #0185b4;
     color: #fff;
@@ -551,7 +589,7 @@ body {
     text-decoration: none;
     display: block;
 }
-  
+
 .select-semestre .dropdown-content a:hover {
     background-color: #fff;
     color: #0185b4;
@@ -572,15 +610,14 @@ body {
     background-color: rgba(255, 255, 255, 0.87);
 }
 
-.table-note table th,
-.table-note table td {
+.table-note table th, .table-note table td {
     padding: 0.9375rem;
     text-align: left;
 }
 
 .table-note table tbody tr {
     background-color: rgba(255, 255, 255, 0.87);
-    border-bottom: 1px solid  rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
     color: #000000b7;
     transition: all .5s ease;
 }
@@ -620,25 +657,21 @@ body {
     color: var(--priority-600);
 }
 
-strong{
- font-size: 20px !important;
+strong {
+    font-size: 20px !important;
 }
 
 @media (min-width: 100px) and (max-width: 575.9px) {
     .title-note h3 {
         margin-top: 3rem;
     }
-
     .table-note table th {
         font-size: .6rem;
     }
-
-    .table-note table th,
-    .table-note table td {
+    .table-note table th, .table-note table td {
         padding: 0.3rem;
         text-align: left;
     }
-    
     .table-note table {
         font-size: .8rem;
     }
@@ -647,6 +680,7 @@ strong{
 /* fin note */
 
 /* calendrier */
+
 .contenu-calendrier {
     min-height: 82.5vh;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
@@ -669,17 +703,16 @@ strong{
 }
 
 .title-calendrier h3 {
+    font-family: "Jajo";
     color: #000000b7;
     font-size: 40px;
     font-weight: bold;
 }
 
-.table-calendrier table {
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
-}
+.table-calendrier table {}
 
 .table-calendrier h4 {
-    color: #0185b4;
+    color: #000000b7;
 }
 
 .table-calendrier table {
@@ -693,13 +726,13 @@ strong{
     padding: 1rem 1rem 0 1rem;
 }
 
-.table-calendrier .legende .cours {
+.table-calendrier .legende .cours-calendrier {
     color: rgb(24, 211, 24);
     border-bottom: 2px solid rgb(24, 211, 24);
 }
 
-.table-calendrier .cours {
-    color: rgb(24, 211, 24);
+.table-calendrier .cours-calendrier {
+    color: #000000b7;
 }
 
 .table-calendrier .legende .exercices {
@@ -708,7 +741,7 @@ strong{
 }
 
 .table-calendrier .exercices {
-    color: #e68b14;
+    color: #000000b7;
 }
 
 .table-calendrier .legende .corrige {
@@ -717,7 +750,7 @@ strong{
 }
 
 .table-calendrier .corrige {
-    color: rgb(28, 226, 226);
+    color: #000000b7;
 }
 
 .table-calendrier .legende .examen-mensuel {
@@ -726,7 +759,7 @@ strong{
 }
 
 .table-calendrier .examen-mensuel {
-    color: rgb(214, 41, 41);
+    color: #000000b7;
 }
 
 .table-calendrier .legende .examen-semestriel {
@@ -735,18 +768,16 @@ strong{
 }
 
 .table-calendrier .examen-semestriel {
-    color: rgba(79, 93, 173, 0.932);
+    color: #000000b7;
 }
 
-.table-calendrier table th,
-.table-calendrier table td {
+.table-calendrier table th, .table-calendrier table td {
     padding: 0.9375rem;
     text-align: left;
-    border-bottom: 1px  solid rgba(0, 0, 0, 0.1);
 }
 
 .table-calendrier table tbody tr {
-    background-color: rgba(255, 255, 255, 0.904);
+    color: #000000b7;
     transition: all .5s ease;
 }
 
@@ -786,11 +817,9 @@ strong{
     .title-calendrier h3 {
         margin-top: 3rem;
     }
-
     .table-calendrier table {
         font-size: 0.9rem;
     }
-
     .table-calendrier table td {
         padding: .3rem;
     }
@@ -799,6 +828,7 @@ strong{
 /* fin calendrier */
 
 /* cours */
+
 .contenu-cours {
     min-height: 82.5vh;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
@@ -821,6 +851,7 @@ strong{
 }
 
 .title-cours h3 {
+    font-family: "Jajo";
     color: #000000b7;
     font-size: 40px;
     font-weight: bold;
@@ -840,7 +871,7 @@ strong{
     left: 0;
     width: 100%;
     height: 100%;
-    background:  #0184b446;
+    background: #0184b446;
     clip-path: circle(150px at 70% 0%);
     transition: .5s ease-in-out;
 }
@@ -852,7 +883,7 @@ strong{
     left: 0;
     width: 100%;
     height: 100%;
-    background:  #0000007a;
+    background: #0000007a;
     clip-path: circle(30px at 0% 105%);
     transition: .5s ease-in-out;
 }
@@ -886,6 +917,7 @@ strong{
 }
 
 /* contenu-cours pdf & explication */
+
 .contenu-cours-pdf, .contenu-cours-explication {
     display: none;
 }
@@ -935,18 +967,18 @@ strong{
     .title-cours h3 {
         margin-top: 3rem;
     }
-
     .cours {
         margin-left: 1rem;
     }
-
     .contenu-cours-explication iframe {
         height: 320px;
     }
 }
+
 /* fin cours */
 
 /* exercice */
+
 .contenu-exercice {
     min-height: 82.5vh;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
@@ -969,6 +1001,7 @@ strong{
 }
 
 .title-exercice h3 {
+    font-family: "Jajo";
     color: #000000b7;
     font-size: 40px;
     font-weight: bold;
@@ -988,7 +1021,7 @@ strong{
     left: 0;
     width: 100%;
     height: 100%;
-    background:  #920f0f50;
+    background: #920f0f50;
     clip-path: circle(150px at 70% 0%);
     transition: .5s ease-in-out;
 }
@@ -1000,7 +1033,7 @@ strong{
     left: 0;
     width: 100%;
     height: 100%;
-    background:  #920f0f50;
+    background: #920f0f50;
     clip-path: circle(30px at 0% 105%);
     transition: .5s ease-in-out;
 }
@@ -1041,6 +1074,7 @@ strong{
 }
 
 /* contenu-exercice pdf & explication & corrige */
+
 .contenu-exercice-pdf, .contenu-exercice-explication, .contenu-exercice-corrige {
     display: none;
 }
@@ -1084,18 +1118,18 @@ strong{
     .title-exercice h3 {
         margin-top: 3rem;
     }
-
     .exercice {
         margin-left: 1rem;
     }
-
     .contenu-exercice-explication iframe {
         height: 320px;
     }
 }
+
 /* fin exercice */
 
 /* nous vous ecoutons */
+
 .contenu-chat {
     min-height: 82.5vh;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
@@ -1118,6 +1152,7 @@ strong{
 }
 
 .title-chat h3 {
+    font-family: "Jajo";
     color: #000000b7;
     font-size: 40px;
     font-weight: bold;
@@ -1133,7 +1168,7 @@ strong{
 
 .user-chat img {
     position: relative;
-    height: 40px !important; 
+    height: 40px !important;
     min-width: 40px !important;
     border-radius: 50%;
 }
@@ -1198,7 +1233,6 @@ strong{
         margin-top: 3rem;
         margin-left: 3rem;
     }
-
     .body-chat {
         height: 45vh !important;
     }
@@ -1207,6 +1241,7 @@ strong{
 /* fin nous vous ecoutons */
 
 /* contact */
+
 .contenu-contact {
     min-height: 82.5vh;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
@@ -1229,6 +1264,7 @@ strong{
 }
 
 .title-contact h3 {
+    font-family: "Jajo";
     color: #000000b7;
     font-size: 40px;
     font-weight: bold;
@@ -1249,11 +1285,12 @@ strong{
     .title-contact h3 {
         margin-top: 3rem;
     }
-
 }
+
 /* fin contact */
 
 /* contenu-notification */
+
 .contenu-notification {
     display: none;
     background-color: #fff;

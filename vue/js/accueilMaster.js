@@ -48,7 +48,7 @@ $(document).ready(function() {
         $("#active-profil").removeClass("active")
         $("#active-note").removeClass("active")
         $("#active-calendrier").removeClass("active")
-        $("#active-cours").removeClass("active")
+        $(".active-cours").removeClass("active")
         $("#active-exercice").removeClass("active")
         $("#active-chat").removeClass("active")
         $("#active-contact").removeClass("active")
@@ -86,7 +86,7 @@ $(document).ready(function() {
         $("#active-video").removeClass("active")
         $("#active-note").removeClass("active")
         $("#active-calendrier").removeClass("active")
-        $("#active-cours").removeClass("active")
+        $(".active-cours").removeClass("active")
         $("#active-exercice").removeClass("active")
         $("#active-chat").removeClass("active")
         $("#active-contact").removeClass("active")
@@ -124,7 +124,7 @@ $(document).ready(function() {
         $("#active-profil").removeClass("active")
         $("#active-video").removeClass("active")
         $("#active-calendrier").removeClass("active")
-        $("#active-cours").removeClass("active")
+        $(".active-cours").removeClass("active")
         $("#active-exercice").removeClass("active")
         $("#active-chat").removeClass("active")
         $("#active-contact").removeClass("active")
@@ -162,7 +162,7 @@ $(document).ready(function() {
         $("#active-profil").removeClass("active")
         $("#active-note").removeClass("active")
         $("#active-video").removeClass("active")
-        $("#active-cours").removeClass("active")
+        $(".active-cours").removeClass("active")
         $("#active-exercice").removeClass("active")
         $("#active-chat").removeClass("active")
         $("#active-contact").removeClass("active")
@@ -170,7 +170,7 @@ $(document).ready(function() {
     });
 
     //afficher contenu-cours
-    $("#active-cours").click(function(){
+    $(".active-cours").click(function(){
         $("#contenu-video").fadeOut();
         $("#contenu-video").fadeOut("slow");
         $("#contenu-video").fadeOut(1000);
@@ -204,7 +204,10 @@ $(document).ready(function() {
         $("#active-exercice").removeClass("active")
         $("#active-chat").removeClass("active")
         $("#active-contact").removeClass("active")
-        $("#active-cours").addClass("active");
+        $(".active-cours").addClass("active");
+        
+       
+
     });
 
     //afficher contenu-exercice
@@ -238,7 +241,7 @@ $(document).ready(function() {
         $("#active-profil").removeClass("active")
         $("#active-note").removeClass("active")
         $("#active-calendrier").removeClass("active")
-        $("#active-cours").removeClass("active")
+        $(".active-cours").removeClass("active")
         $("#active-video").removeClass("active")
         $("#active-chat").removeClass("active")
         $("#active-contact").removeClass("active")
@@ -276,7 +279,7 @@ $(document).ready(function() {
         $("#active-profil").removeClass("active")
         $("#active-note").removeClass("active")
         $("#active-calendrier").removeClass("active")
-        $("#active-cours").removeClass("active")
+        $(".active-cours").removeClass("active")
         $("#active-exercice").removeClass("active")
         $("#active-video").removeClass("active")
         $("#active-contact").removeClass("active")
@@ -314,7 +317,7 @@ $(document).ready(function() {
         $("#active-profil").removeClass("active")
         $("#active-note").removeClass("active")
         $("#active-calendrier").removeClass("active")
-        $("#active-cours").removeClass("active")
+        $(".active-cours").removeClass("active")
         $("#active-exercice").removeClass("active")
         $("#active-chat").removeClass("active")
         $("#active-video").removeClass("active")
@@ -353,7 +356,7 @@ $(document).ready(function() {
     });
 
     //active-cours 
-    $("#active-cours-pdf").click(function () {
+    $(".active-cours-pdf").click(function () {
         $("#contenu").fadeOut();
         $("#contenu").fadeOut("slow");
         $("#contenu").fadeOut(1000);
@@ -531,7 +534,7 @@ $(document).ready(function() {
             $("#fa-times").fadeOut(200);
         });
 
-        $("#active-cours").click(function () {
+        $(".active-cours").click(function () {
             $("#dashboard").css({ "left": "-100rem" });
             $("#fa-bars").fadeIn();
             $("#fa-bars").fadeIn("slow");

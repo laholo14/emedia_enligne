@@ -167,11 +167,11 @@ $currentPage = 'cours';
                         Selectionnez un element constitutif
                     </label>
                     <div class="container-select">
-                        <select name="select_ec" id="select_ec">
+                        <select name="elementConstitutif" id="select_ec">
 
                         </select>
                     </div>
-
+  
                 </div>
                 <div class="form-group d-flex flex-column">
                    <input type="hidden" name="categorie" value="1">
@@ -199,24 +199,24 @@ $currentPage = 'cours';
                             <div class="boutton_file">
                                 choisir
                             </div>
-                            <input id="file_book_mg" class="file_book" type="file" />
+                            <input id="file_book_mg" class="file_book" name="contenu_mg[]" type="file" accept="audio/* , application/vnd.openxmlformats-officedocument.wordprocessingml.document , application/msword , application/pdf" multiple />
                             <span class="file_name">Aucune fichier selectionné</span>
                         </div>
                     </div>
-                    <div class="form-group ">
+                     <div class="form-group ">
                         <div class="container_field_import">
                             <label for="file_book_et">
                                 contenu pour les etrangers
                             </label>
-                            <div class="boutton_file">
+                            <div class="boutton_file"> 
                                 choisir
                             </div>
-                            <input id="file_book_et" class="file_book" type="file" />
+                            <input id="file_book_et" class="file_book" name="contenu_fr[]" type="file" accept="audio/* , application/vnd.openxmlformats-officedocument.wordprocessingml.document , application/msword , application/pdf" multiple />
                             <span class="file_name">Aucune fichier selectionné</span>
                         </div>
                     </div>
                 </div>
-                <input type="submit" value="croeez" id="btn_ajout_dossier" />
+                <input type="submit" value="créez" id="btn_ajout_dossier" />
             </form>
             <div class="alert alert-success" role="alert">
   A simple success alert—check it out!
