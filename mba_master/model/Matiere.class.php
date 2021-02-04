@@ -59,6 +59,18 @@ class Matiere
         return $res;
     }
 
+    public function readById()
+    {
+        $requete = "SELECT * FROM MATIERE WHERE IDMATIERE = :idmat";
+        $query = Connexion::getCx()->prepare($requete);
+        $query->execute(array(
+            "idmat" => $this->getId_matiere()
+        ));
+        $res = $query->fetchAll();
+        $query->closeCursor();
+        return $res;
+    }
+
     public function readAll()
     {
         $requete = "SELECT * FROM MATIERE NATURAL JOIN ENSEIGNER WHERE PARCOURS = 'FCM' OR PARCOURS = 'CIM' OR PARCOURS = 'ADAM'";

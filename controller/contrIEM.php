@@ -1,6 +1,6 @@
 <?php
 
-require_once("../model/DateFr.class.php");
+
 
 $datefr = new DateFr();
 
