@@ -59,10 +59,10 @@ let inputvideomg=document.createElement("div");
 let containerinputforsenditformat=document.querySelectorAll(".containerinputforsenditformat")[0];
 
 inputvideomg.classList="form-group d-flex flex-column";
-inputvideomg.innerHTML='<label>Ajouter une lien vers une video youtube en malgache</label><input class="lienVideoMg" type="text" placeholder="lien vers une video youtube"/>';
+inputvideomg.innerHTML='<label>Ajouter une lien vers une video youtube en malgache</label><input name="lienVideoMg" type="text" placeholder="lien vers une video youtube"/>';
 let inputvideofr=document.createElement("div");
 inputvideofr.classList="form-group d-flex flex-column";
-inputvideofr.innerHTML='<label>Ajouter une lien vers une video youtube en français</label><input class="lienVideoFr" type="text" placeholder="lien vers une video youtube en français"/>';
+inputvideofr.innerHTML='<label>Ajouter une lien vers une video youtube en français</label><input name="lienVideoFr" type="text" placeholder="lien vers une video youtube en français"/>';
 let inputlivremg=document.createElement("div");
 inputlivremg.classList="form-group";
 inputlivremg.innerHTML='<div class="container_field_import"><label for="file_book_mg">contenu pour les nationaux<div class="boutton_file">choisir</div><input id="file_book_mg" class="file_book" type="file" /><span class="file_name">Aucune fichier selectionné</span></div>';
@@ -72,11 +72,11 @@ inputlivrefr.classList='form-group';
 inputlivrefr.innerHTML='<div class="container_field_import"><label for="file_book_et">contenu pour les etrangers</label><div class="boutton_file">choisir</div><input id="file_book_et" class="file_book" type="file" /><span class="file_name">Aucune fichier selectionné</span></div>'
 
 let inputaudiomg=document.createElement('div');
-inputaudiomg.classList="form-group d-flex flex-column";
-inputaudiomg.innerHTML='<label>Ajouter une lien vers une audio en malgache</label><input class="lienAudioMg" type="text" placeholder="lien vers une audio"/>';
+inputaudiomg.classList="form-group";
+inputaudiomg.innerHTML='<div class="container_field_import"><label for="file_book_mg">contenu pour les nationaux<div class="boutton_file">choisir</div><input id="file_book_mg" class="file_book" name="contenu_mg[]" type="file" accept="audio/* , application/vnd.openxmlformats-officedocument.wordprocessingml.document , application/msword , application/pdf" multiple /><span class="file_name">Aucune fichier selectionné</span></div>';
 let inputaudiofr=document.createElement("div");
-inputaudiofr.classList="form-group d-flex flex-column";
-inputaudiofr.innerHTML='<label>Ajouter une lien vers une audio en français</label><input class="lienAudioFr" type="text" placeholder="lien vers audio en français"/>';
+inputaudiofr.classList='form-group';
+inputaudiofr.innerHTML='<div class="container_field_import"><label for="file_book_et">contenu pour les etrangers</label><div class="boutton_file">choisir</div><input id="file_book_mg" class="file_book" name="contenu_fr[]" type="file" accept="audio/* , application/vnd.openxmlformats-officedocument.wordprocessingml.document , application/msword , application/pdf" multiple /><span class="file_name">Aucune fichier selectionné</span></div>'
 
 selectformat.addEventListener("change",function (event) {
     if(event.target.value==2){

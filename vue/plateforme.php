@@ -3,902 +3,891 @@
 
 include '../controller/contrSessionExamLicence.php';
 
+
+require('head.html');
+
 ?>
-<!-- Modal 
 
-Fin Calendrier-->
+<link rel="stylesheet" href="vue/css/accueilMaster.css">
+</head>
 
-<div class="calendar">
+<body>
 
-    <div class="modal fade" id="calendarPhoto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-md" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">CALENDRIER</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+    <!-- preloading -->
+    <div class="container-fluid preloading" id="preloading">
+        <div class="contenu-preloading text-center">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <!-- fin preloading -->
+
+    <div class="container-fluid universite-Emedia" id="universite-Emedia">
+        <div class="row">
+
+            <!-- navbar -->
+            <div class="row d-flex fixed-top nav_bar" id="nav_bar">
+                <div class="col-4">
+                    <img src="vue/image/logo/logo_E-media_enligne.png" class="img-fluid ml-4 logo" alt="">
+                    <div id="fa-bars"><i class="fas fa-bars pt-2 pl-4"></i></div>
+                    <div id="fa-times"><i class="fas fa-times pt-2 pl-4"></i></div>
+                </div>
+
+                <div class="col-8 d-flex justify-content-end select-langue">
+                    <button type="button" class="btn-notification mr-3" id="active-notification">
+                        <i class="fal fa-bell"></i> <span class="badge badge-light">4</span>
                     </button>
+
                 </div>
-                <div class="modal-body">
-                    <div class="bd-example">
-                        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="vue/image/page1.png" class="d-block w-100" alt="img 1">
+            </div>
+            <!-- fin navbar -->
 
+            <!-- dashboard -->
+            <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 dashboard dashboard_mobile" id="dashboard">
+
+                <div class="pdp d-flex justify-content-center pt-3">
+                    <img src="<?php echo $_SESSION["photo"]; ?>" class="mr-3" alt="">
+                </div>
+                <ul class="overflow-auto liste_dashboard mt-1">
+
+                    <li id="active-video" class="active"><a href="#"><i class="fal fa-video-plus mr-3"></i><span>Video
+                                tuto</span></a></li>
+
+                    <li class="profil">
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <a data-toggle="collapse" href="#collapse1" class="active-profil">
+                                        <i class="fal fa-user-circle mr-3"></i>
+                                        <span class="text-center"><?php echo $_SESSION['prenom'] ?></span>
+                                        <i class="fad fa-angle-down float-right mt-3 mr-2"></i>
+                                    </a>
                                 </div>
-                                <div class="carousel-item">
-                                    <img src="vue/image/page2.png" class="d-block w-100" alt="img 2">
+                                <div id="collapse1" class="panel-collapse collapse">
+                                    <ul class="list-group ml-3">
+                                        <li class="list-group-item" id="active-profil">
+                                            <i class="fal fa-user ml-2 mr-3"></i>
+                                            <span>Profil</span>
+                                        </li>
+                                        <li class="list-group-item" id="active-note">
+                                            <i class="fal fa-clipboard ml-2 mr-3"></i>
+                                            <span>Note</span>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <i class="fal fa-credit-card ml-2 mr-3"></i>
+                                            <span>Paiement</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
 
+                    <li id="active-calendrier"><a href="#"><i class="fal fa-calendar-alt mr-4"></i><span>Calendrier</span></a></li>
+
+                    <li class="cours-menu">
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <a data-toggle="collapse" href="#collapse2">
+                                        <i class="fal fa-books mr-3"></i>
+                                        <span>Cours</span>
+                                        <i class="fad fa-angle-down float-right mt-3 mr-2"></i>
+                                    </a>
+                                </div>
+                                <div id="collapse2" class="panel-collapse collapse">
+                                    <ul class="list-group ml-3">
+                                        <?php
+                                        $formation = new Formation();
+                                        foreach ($formation->selectNumSemestre($_SESSION['semestre']) as $d) {
+                                            $numsemestre = $d['NUM'];
+                                        }
+                                        if ($_SESSION['diplome'] == "LICENCE") {
+                                            $requete = $formation->listliensemestre($numsemestre);
+                                        } else {
+                                            $requete = $formation->listliensemestreMaster($numsemestre);
+                                        }
+                                        foreach ($requete as $resultat) {
+                                        ?>
+                                            <li class="list-group-item active-cours" onclick="GetSemestreCours('<?php echo $resultat['SEMESTRE']; ?>')">
+                                                <i class="fal fa-user-graduate ml-2 mr-2"></i>
+                                                <span><?php echo $resultat['SEMESTRE']; ?></span>
+                                                <input type="hidden" id="<?php echo "lien" . $resultat['SEMESTRE']; ?>" value="<?php echo $resultat['SEMESTRE']; ?>" />
+                                            </li>
+                                        <?php } ?>
+                                        <input type="hidden" id="valuesemestrecours" value="" />
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <?php if ($_SESSION['filiere'] != 'MBA') { ?>
+                        <li class="exercice-menu">
+                            <div class="panel-group">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <a data-toggle="collapse" href="#collapse3">
+                                            <i class="fal fa-edit mr-3"></i>
+                                            <span>Exercices</span>
+                                            <i class="fad fa-angle-down float-right mt-3 mr-2"></i>
+                                        </a>
+                                    </div>
+                                    <div id="collapse3" class="panel-collapse collapse">
+                                        <ul class="list-group ml-3">
+                                            <?php
+                                            $formation = new Formation();
+                                            foreach ($formation->selectNumSemestre($_SESSION['semestre']) as $d) {
+                                                $numsemestre = $d['NUM'];
+                                            }
+                                            if ($_SESSION['diplome'] == "LICENCE") {
+                                                $requete = $formation->listliensemestre($numsemestre);
+                                            } else {
+                                                $requete = $formation->listliensemestreMaster($numsemestre);
+                                            }
+                                            foreach ($requete as $resultat) {
+                                            ?>
+                                                <li class="list-group-item active-exercice">
+                                                    <i class="fal fa-user-graduate ml-2 mr-2"></i>
+                                                    <span><?php echo $resultat['SEMESTRE']; ?></span>
+
+                                                </li>
+                                            <?php } ?>
+                                            <input type="hidden" id="" value="" />
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    <?php } ?>
+                    <li id="active-chat"><a href="#"><i class="fal fa-comments-alt mr-3"></i><span>Nous vous
+                                ecoutons</span></a></li>
+
+                    <li id="active-contact"><a href="#"><i class="fal fa-phone-volume mr-3"></i><span>Contacts</span></a></li>
+
+                    <li id="active-notification"><a href="#"><i class="fal fa-bell mr-3"></i><span>Notifications <span class="badge badge-light">4</span></span></a></li>
+
+                    <li id="active-logout"><a href="vue/logout.php"><i class="fas fa-power-off mr-3"></i><span>Deconnexion </span></a></li>
+                </ul>
+            </div>
+            <!-- fin dashboard -->
+
+            <!-- section -->
+            <div class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10 contenu overflow-auto" id="contenu">
+
+                <!-- video tuto -->
+                <div class="col-12 contenu-video mt-5 pb-3 mb-2" id="contenu-video">
+                    <div class="head-video">
+                        <div class="icon-video d-flex justify-content-center align-items-center">
+                            <i class="fal fa-video-plus"></i>
+                        </div>
+                        <div class="title-video d-flex justify-content-center pt-3">
+                            <h3>Video tuto</h3>
+                        </div>
+                    </div>
+
+                    <div class="col-12 mb-3 video1">
+                        <div class="video1_text text-center mt-3 p-2">
+                            <a href="https://www.youtube.com/embed/HgIeckuG7cQ" target="blank" class="text-center">Pour
+                                connaitre le manipulation de l'interface etudiants.</a>
+                        </div>
+                        <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 video2">
+                            <div class="video1_text text-center p-2">
+                                <a href="https://www.youtube.com/embed/HgIeckuG7cQ" target="blank" class="text-center">Pour connaitre le manipulation de l'interface etudiants.</a>
+                            </div>
+                            <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 video3">
+                            <div class="video1_text text-center p-2">
+                                <a href="https://www.youtube.com/embed/HgIeckuG7cQ" target="blank" class="text-center">Pour connaitre le manipulation de l'interface etudiants.</a>
+                            </div>
+                            <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <!-- fin video tuto -->
+
+                <!-- profil -->
+                <div class="col-12 mt-5 contenu-profil pb-3 mb-2" id="contenu-profil">
+                    <div class="head-profil">
+                        <div class="icon-profil d-flex justify-content-center align-items-center">
+                            <i class="fal fa-user"></i>
+                        </div>
+                        <div class="title-profil d-flex justify-content-center pt-3">
+                            <h3>Profil</h3>
+                        </div>
+                    </div>
+
+                    <div class="corps">
+                        <div class="propos">
+                            <div class="row propos-contenu d-flex p-3">
+                                <div class="col-12 col-lg-2 col-xl-2 propos-img d-flex align-items-center">
+                                    <img src="<?php echo $_SESSION["photo"]; ?>" class="img-fluid" alt="">
+                                </div>
+
+                                <div class="col-12 col-lg-5 col-xl-5 propos-details">
+                                    <h6 class="">Nom<br><span><?php echo $_SESSION['nom'] ?></span></h6>
+                                    <h6 class="">Prenom<br><span><?php echo $_SESSION['prenom'] ?></span></h6>
+                                    <h6>E-mail<br><span><?php echo $_SESSION['mail'] ?></span></h6>
+                                    <h6>Parcours<br><span><?php echo $_SESSION['nomparcours'] ?></span></h6>
+                                    <h6>Mention<br><span><?php echo $_SESSION['nomfiliere'] ?></span></h6>
+                                </div>
+
+                                <div class="col-12 col-lg-5 col-xl-5 propos-details">
+                                    <h6>Niveau<br> <span><?php echo $_SESSION['semestre'] ?></span> </h6>
+                                    <h6>Matricule<br><span><?php echo $_SESSION['matricule'] ?></span></h6>
+                                    <h6>Mois<br> <span><?php echo $_SESSION['mois'] ?>/8</span> </h6>
+                                    <h6>Ecolage<br> <span><?php echo $_SESSION['ecolage'] ?>/8 </span> </h6>
                                 </div>
 
                             </div>
-                            <a class="carousel-control-prev" href="#carouselExampleCaptions"
-                                style="color:#000!important;" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" style="background-color:black;"
-                                    aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleCaptions"
-                                style="color:#000!important;" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" style="background-color:black;"
-                                    aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
+                <!-- fin profil -->
 
-<input type="hidden" id="button_ancien" value="<?php echo $_SESSION['semestre']; ?>">
-<!--Sidebar sy header-->
-<div class="wrapper">
-    <!--Sidebar Manomboka-->
-    <div class="sidebar">
-        <div class="bg_shadow"></div>
+                <!-- note -->
+                <div class="col-12 mt-5 contenu-note mb-2" id="contenu-note">
+                    <div class="head-note">
+                        <div class="icon-note d-flex justify-content-center align-items-center">
+                            <i class="fal fa-clipboard"></i>
+                        </div>
+                        <div class="title-note d-flex justify-content-center pt-3">
+                            <h3>Notes d'examen</h3>
+                        </div>
+                    </div>
 
-        <div class="sidebar_inner">
-            <div class="profile">
-                <div class="closse">
-                    <i class="fa fa-times"></i>
+
+                    <div class="d-flex justify-content-center select-semestre">
+                        <div class="dropdown mt-1">
+                            <button class="dropbtn" id="semestre-button">Semestre <i class="fad fa-angle-down float-right mt-1 ml-4"></i></button>
+                            <div class="dropdown-content mt-2" id="semestre-content">
+                                <a href="#" id="semestre1">S1</a>
+                                <a href="#" id="semestre2">S2</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-note mt-3 pb-3 d-flex justify-content-center">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th rowspan="2" class="text-center">LISTE DES MATIERES</th>
+                                    <th colspan="2" class="text-center">NOTES /20</th>
+                                    <th colspan="2" class="text-center">DECISION</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">Mensuel</th>
+                                    <th class="text-center">Semestriel</th>
+                                    <th class="text-center">Moyenne des notes</th>
+                                    <th class="text-center">Validation</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="tabnote">
+
+                                <tr class="priority-300 ">
+                                    <td class="matiere text-center">Matiere</td>
+                                    <td class="note1 text-center">Note M</td>
+                                    <td class="note1 text-center">Note S</td>
+                                    <td class="note1 text-center">Moyenne</td>
+                                    <td class="note1 text-center">Validation</td>
+
+                                </tr>
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
+                <!-- fin note -->
 
-            <ul class="sidebar_menu">
-                <li class="active">
-                    <a href="#" id="open_tuto" class="clr">
-                        <div class="icon"><i class="fal fa-user-alt" aria-hidden="true"></i></div>
-                        <div class="title">Video tuto</div>
-                        <span class="bottom-solid"></span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" id="open_profile" class="clr">
-                        <div class="icon"><i class="fal fa-user-alt" aria-hidden="true"></i></div>
-                        <div class="title">Profil</div>
-                        <span class="bottom-solid"></span>
-                    </a>
-                </li>
-                <li id="side-licence" data-toggle="modal" data-target="#calendarPhoto">
-                    <a href="#" id="calendar" class="clr">
-                        <div class="row">
-                            <div class="icon"><i class="fal fa-calendar-alt" aria-hidden="true"></i></div>
-                            <div class="title mt-1">Calendrier</div>
-                            <span class="bottom-solid"></span>
+                <!-- calendrier -->
+                <div class="col-12 mt-5 contenu-calendrier mb-2" id="contenu-calendrier">
+                    <div class="head-calendrier">
+                        <div class="icon-calendrier d-flex justify-content-center align-items-center">
+                            <i class="fal fa-calendar-alt"></i>
+                        </div>
+                        <div class="title-calendrier d-flex justify-content-center pt-3">
+                            <h3>Calendrier</h3>
+                        </div>
+                    </div>
+
+                    <div class="col-12 table-calendrier mt-3 pb-3">
+                        <h4 class="text-center">"1er - 3eme mois" et "5eme - 7eme mois"</h4>
+
+                        <div class="row legende d-flex justify-content-center">
+                            <div class="cours-calendrier d-flex justify-content-center align-items-center mr-1">
+                                Cours
+                            </div>
+
+                            <div class="exercices d-flex justify-content-center align-items-center mr-1">
+                                Exercices
+                            </div>
+
+                            <div class="corrige d-flex justify-content-center align-items-center mr-1">
+                                Corrige
+                            </div>
+
+                            <div class="examen-mensuel d-flex justify-content-center align-items-center mr-1">
+                                Examen Mensuel
+                            </div>
                         </div>
 
-                    </a>
-                </li>
-                <li>
-                    <a href="#" id="open_cours" class="clr">
-                        <div class="icon"><i class="fal fa-books" aria-hidden="true"></i></div>
-                        <div class="title">Cours</div>
-                        <span class="bottom-solid"></span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" id="open_exo" class="clr">
-                        <div class="icon"><i class="fal fa-edit" aria-hidden="true"></i></div>
-                        <div class="title">Exercices</div>
-                        <span class="bottom-solid"></span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Bulletin" id="open_examen" class="clr">
-                        <div class="icon"><i class="fal fa-clipboard" aria-hidden="true"></i></div>
-                        <div class="title">Note</div>
-                        <span class="bottom-solid"></span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" id="open_message" class="clr">
-                        <div class="icon"><i class="fal fa-comments-alt" aria-hidden="true"></i></div>
-                        <div class="title">Messages</div>
-                        <span class="bottom-solid"></span>
-                    </a>
-                </li>
+                        <table class="mt-4">
+                            <tbody id="tabcalendrier">
 
-                <li id="open_licence">
-                    <a href="apTjay661lo" id="" class="clr">
-                        <div class="row">
-                            <div class="icon"><i class="fal fa-book-reader" aria-hidden="true"></i></div>
-                            <div class="title mt-1">Anciens Cours</div>
-                            <span class="bottom-solid"></span>
+                                <tr class="priority-300">
+                                    <td class="text-center">1</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center cours-calendrier">3</td>
+                                    <td class="text-center cours-calendrier">4</td>
+                                    <td class="text-center cours-calendrier">5</td>
+                                    <td class="text-center cours-calendrier">6</td>
+                                    <td class="text-center cours-calendrier">7</td>
+                                    <td class="text-center cours-calendrier">8</td>
+                                    <td class="text-center cours-calendrier">9</td>
+                                    <td class="text-center cours-calendrier">10</td>
+
+                                </tr>
+
+                                <tr class="priority-300">
+                                    <td class="text-center cours-calendrier">11</td>
+                                    <td class="text-center cours-calendrier">12</td>
+                                    <td class="text-center exercices">13</td>
+                                    <td class="text-center exercices">14</td>
+                                    <td class="text-center exercices">15</td>
+                                    <td class="text-center exercices">16</td>
+                                    <td class="text-center exercices">17</td>
+                                    <td class="text-center exercices">18</td>
+                                    <td class="text-center exercices">19</td>
+                                    <td class="text-center corrige">20</td>
+
+                                </tr>
+
+                                <tr class="priority-300">
+                                    <td class="text-center corrige">21</td>
+                                    <td class="text-center corrige">22</td>
+                                    <td class="text-center examen-mensuel">23</td>
+                                    <td class="text-center examen-mensuel">24</td>
+                                    <td class="text-center">25</td>
+                                    <td class="text-center">26</td>
+                                    <td class="text-center">27</td>
+                                    <td class="text-center">28</td>
+                                    <td class="text-center">29</td>
+                                    <td class="text-center">30</td>
+
+                                </tr>
+
+                                <tr class="priority-300">
+                                    <td class="text-center">31</td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="col-12 table-calendrier mt-3 pb-3">
+                        <h4 class="text-center">"4eme mois" et "9eme mois"</h4>
+
+                        <div class="row legende d-flex justify-content-center">
+                            <div class="cours-calendrier d-flex justify-content-center align-items-center mr-1">
+                                Cours
+                            </div>
+
+                            <div class="exercices d-flex justify-content-center align-items-center mr-1">
+                                Exercices
+                            </div>
+
+                            <div class="corrige d-flex justify-content-center align-items-center mr-1">
+                                Corrige
+                            </div>
+
+                            <div class="examen-mensuel d-flex justify-content-center align-items-center mr-1">
+                                Examen Mensuel
+                            </div>
+
+                            <div class="examen-semestriel d-flex justify-content-center align-items-center mr-1">
+                                Examen Semestriel
+                            </div>
                         </div>
 
-                    </a>
-                </li>
+                        <table class="mt-4">
+                            <tbody id="tabcalendrier">
 
-                <li>
-                    <a href="Traitement" class="clr">
-                        <div class="icon"><i class="fal fa-credit-card" aria-hidden="true"></i></div>
-                        <div class="title">Paiement</div>
-                        <span class="bottom-solid"></span>
-                    </a>
-                </li>
+                                <tr class="priority-300">
+                                    <td class="text-center">1</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center cours-calendrier">3</td>
+                                    <td class="text-center cours-calendrier">4</td>
+                                    <td class="text-center cours-calendrier">5</td>
+                                    <td class="text-center cours-calendrier">6</td>
+                                    <td class="text-center cours-calendrier">7</td>
+                                    <td class="text-center cours-calendrier">8</td>
+                                    <td class="text-center cours-calendrier">9</td>
+                                    <td class="text-center cours-calendrier">10</td>
 
-                <li>
-                    <a href="vue/logout.php" class="clr">
-                        <div class="icon"><i class="fa fa-power-off" aria-hidden="true"></i></div>
-                        <div class="title">Deconnexion</div>
-                        <span class="bottom-solid"></span>
-                    </a>
-                </li>
+                                </tr>
 
-            </ul>
-        </div>
-    </div>
-    <!--Sidebar tapitra-->
-    
-    <div class="content">
-        <div class="wrappers">
-            <!--header-->
-            <div class="nabar fixed-top">
-                <div class="nabar_left">
-                    <img src="vue/image/logo/logo_E-media_enligne.png" class="img-fluid logo_emedia" alt="">
-                    <div class="hamburger">
-                        <i class="fa fa-bars" aria-hidden="true"></i>
+                                <tr class="priority-300">
+                                    <td class="text-center cours-calendrier">11</td>
+                                    <td class="text-center cours-calendrier">12</td>
+                                    <td class="text-center exercices">13</td>
+                                    <td class="text-center exercices">14</td>
+                                    <td class="text-center exercices">15</td>
+                                    <td class="text-center exercices">16</td>
+                                    <td class="text-center exercices">17</td>
+                                    <td class="text-center exercices">18</td>
+                                    <td class="text-center exercices">19</td>
+                                    <td class="text-center corrige">20</td>
+
+                                </tr>
+
+                                <tr class="priority-300">
+                                    <td class="text-center corrige">21</td>
+                                    <td class="text-center corrige">22</td>
+                                    <td class="text-center examen-mensuel">23</td>
+                                    <td class="text-center examen-mensuel">24</td>
+                                    <td class="text-center examen-semestriel">25</td>
+                                    <td class="text-center examen-semestriel">26</td>
+                                    <td class="text-center examen-semestriel">27</td>
+                                    <td class="text-center examen-semestriel">28</td>
+                                    <td class="text-center examen-semestriel">29</td>
+                                    <td class="text-center examen-semestriel">30</td>
+
+                                </tr>
+
+                                <tr class="priority-300">
+                                    <td class="text-center">31</td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="logo">
-                        <img src="" alt="">
-                    </div>
+
                 </div>
-                <div class="nabar_right">
-                    <div class="form-group select_langue mt-1 mr-5">
-                        <select class="form-control oplangue" id="langue">
-                            <option selected disabled>Version cours</option>
-                            <option class="oplangue">Français</option>
-                            <option class="oplangue">Malagasy</option>
-                        </select>
+                <!-- fin calendrier -->
+
+                <!-- cours -->
+                <div class="col-12 mt-5 contenu-cours mb-2" id="contenu-cours">
+                    <div class="head-cours">
+                        <div class="icon-cours d-flex justify-content-center alrgb(26, 24, 24)ign-items-center">
+                            <i class="fal fa-books"></i>
+                        </div>
+                        <div class="title-cours d-flex justify-content-center pt-3">
+                            <h3>Cours <span id="titreSemestre">S1 </span></h3>
+                        </div>
+                        <!-- <div class="col-12 d-flex menu-cours mt-3">
+                                        <div class="col-6 d-flex justify-content-center pt-2">
+                                            <h4>PDF</h4>
+                                        </div>
+                                        <div class="col-6 d-flex justify-content-center pt-2">
+                                            <h4>Video</h4>
+                                        </div>
+                                    </div> -->
                     </div>
 
+                    <div class="col-12 row table-cours" id="table-cours">
+                        <?php
+                        $cours = new Formation();
+                        $cours->setSemetre($_SESSION['semestre']);
+                        $cours->setFiliere($_SESSION['filiere']);
+                        $cours->setMois($_SESSION['mois']);
+                        $cours->setCategorie(1);
+                        $cours->setType(1);
+                        if ($_SESSION['semestre'] != 'S4' or $_SESSION['semestre'] != 'S5' or $_SESSION['semestre'] != 'S9' or $_SESSION['semestre'] != 'S10') {
+                            $res = $cours->formationL1L2M1();
+                        } else {
+                            //L3 M2 
+                            $res = $cours->formationL3M2();
+                        }
 
-                    <div class="icon_wrap mr-2 ">
+                        foreach ($res as $resultat) {
+                            $contenuTab = explode(",", $resultat['CONTENU_FR']);
+                            $contenuTabSize = sizeof($contenuTab);
 
-                    </div>
-
-                </div>
-            </div>
-            <!--header tapitra-->
-
-            <!-- video tuto -->
-            <div class="col-12 video-tuto" id="video-tuto">
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 video1">
-                        <?php if (isset($_SESSION['tutomg'])) {
-                            $lientuto = $_SESSION['tutomg'];
-                            } elseif (isset($_SESSION['tutofr'])) {
-                                $lientuto = $_SESSION['tutofr'];
+                            if ($contenuTabSize == 1) {
+                                $tabsize = $contenuTabSize;
+                            } else {
+                                $tabsize = $contenuTabSize - 1;
                             }
+                            for ($i = 0; $i < $tabsize; $i++) {
+                                $courslivres = $contenuTab[$i];
+
+                                if ($contenuTabSize <= 2) {
+                                    $partie = '';
+                                    $part = '';
+                                } else {
+                                    $part = $i + 1;
+                                    $partie = ' Partie';
+                                }
                         ?>
+                                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
+                                    <div class="mb-2 pt-2 cours text-center">
+                                        <h5 class="d-flex justify-content-center align-items-center"><?php echo $resultat['INTITULE']; ?></h5>
+                                        <div class="button-cours d-block">
+                                            <button class="btn mt-2 active-cours-pdf" onclick="GetPDF('<?php echo $courslivres; ?>','<?php echo $resultat['INTITULE'] . $partie . ' ' . $part; ?>')">PDF</button>
+                                            <?php
 
-                        <iframe sandbox="allow-scripts allow-same-origin" width="100%"
-                            height="315" src="<?php echo $lientuto; ?>" frameborder="0"
-                            allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
-                        <div class="text-light text-center mt-1 mb-1 p-2">
-                            <a href="<?php echo $lientuto; ?>" target="_blank" class="">Manipulation site etudiants</a>
-                        </div>
-                    </div>
+                                            $cours->setType(2);
+                                            $res2 = $cours->formationL1L2M1();
+                                            foreach ($res2 as $resultat2) {
 
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 video2">
-                        <?php if (isset($_SESSION['tutomg'])) {
-                            $lientuto = $_SESSION['tutomg'];
-                            } elseif (isset($_SESSION['tutofr'])) {
-                                $lientuto = $_SESSION['tutofr'];
-                            }
-                        ?>
-
-                        <iframe sandbox="allow-scripts allow-same-origin" width="100%"
-                            height="315" src="<?php echo $lientuto; ?>" frameborder="0"
-                            allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
-                        <div class="text-light text-center mt-1 mb-1 p-2">
-                            <a href="<?php echo $lientuto; ?>" target="_blank" class="">Manipulation Examen</a>
-                        </div>
-                    </div>              
-            </div>
-            <!-- fin video tuto -->
-
-            <!--profile-->
-            <div class="profile-blocs mt-5" id="profile-blocs">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-3">
-                            <h1 class="title-profil text-center">Profil</h1>
-                            <div class="corps">
-                                <div class="cover-photo d-flex justify-content-center">
-                                    <img src="<?php echo $_SESSION['photo']; ?>" alt="votre photo"
-                                        class="img-profile" />
-                                </div>
-                                <div class="propos pb-3 pt-3">
-                                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                                        <div class="profile-legend">
-                                            <h6 class=""><b>Nom:</b><br>
-                                                <span class="ml-3"><?php echo $_SESSION['nom']; ?></span></h6>
-                                        </div>
-                                        <div class="profile-legend">
-                                            <h6 class=""><b>Prénom:</b><br>
-                                                <span class="ml-3"><?php echo $_SESSION['prenom']; ?></span></h6>
-                                        </div>
-                                        <div class="profile-legend">
-                                            <h6 class=""><b>Matricule:</b><br>
-                                                <span class="ml-3"><?php echo $_SESSION['matricule']; ?></span></h6>
-                                        </div>
-                                        <div class="profile-legend">
-                                            <h6 class=""><b>E-mail:</b><br>
-                                                <span class="ml-3"><?php echo $_SESSION['mail']; ?></span></h6>
-                                        </div>
-                                        <div class="profile-legend">
-                                            <h6 class=""><b>Pays d'origine: </b><br> 
-                                               <span class="ml-3"> <?php echo $_SESSION['pays']; ?></span></h6>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                                        <div class="profile-legend mention">
-                                            <h6 class=""><b>Mention:</b><br>
-                                                <span class="ml-3"><?php echo $_SESSION['nomfiliere']; ?></span></h6>
-                                        </div>
-                                        <div class="profile-legend">
-                                            <h6 class=""><b>Parcours:</b><br>
-                                                <span class="ml-3"><?php echo $_SESSION['nomparcours']; ?></span></h6>
-                                        </div>
-                                        <div class="profile-legend">
-                                            <h6 class=""><b>Niveau:</b><br>
-                                                <span class="ml-3"><?php echo $_SESSION['semestre']; ?></span> </h6>
-                                        </div>
-                                        <div class="profile-legend">
-                                            <h6 class=""><b>Mois:</b><br>
-                                                <span class="ml-3"><?php echo $_SESSION['mois']; ?>/8</span> </h6>
-                                        </div>
-                                        <div class="profile-legend">
-                                            <h6 class=""><b>Ecolage:</b><br>
-                                                <span class="ml-3"><?php echo $_SESSION['ecolage']; ?>/8</span> </h6>
+                                            ?>
+                                                <button class="btn" id="active-cours-explication"><?php echo $resultat2['CONTENU_FR']; ?></button>
+                                            <?php } ?>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="p-3 corps-info d">
-                                <h4 class="text-danger"><b>
-                                        Information
-                                    </b>
-                                </h4>
-                                <span>
-                                    Veuillez vous connecter sur youtube via <i> <?php echo $_SESSION['mail']; ?></i>
-                                    s'il vous plait (sur votre navigateur et non l'application).
-                                </span>
-                                <br>
-                                <br>
-                                <span>N’OUBLIEZ PAS DE VOUS DÉCONNECTER AVANT DE QUITTER</span>
-                            </div>
-                        </div>
+                        <?php }
+                        } ?>
 
 
-                        <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-                            <div class="description">
-
-                                <ul class="list-unstyled">
-
-
-                                    <div class="mx-auto">
-                                        <div class="rounded bg-gradient-4 mt-4 text-white shadow p-1 text-center mb-2">
-                                            <h3>Examen dans</h3>
-                                            <div id="count_exam"
-                                                class="countdown-circles d-flex flex-wrap justify-content-center">
-                                            </div>
-                                            <h3>Paiement</h3>
-                                            <div id="count_ecolage"
-                                                class="countdown-circles d-flex flex-wrap justify-content-center">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!--Manomboka eto ny video-->
-                                    <li>
-                                        <div class=" video_full mr-2">
-
-                                            <div class="video_ambony ">
-                                                <?php if (isset($_SESSION['tutomg'])) {
-                                                    $lientuto = $_SESSION['tutomg'];
-                                                } elseif (isset($_SESSION['tutofr'])) {
-                                                    $lientuto = $_SESSION['tutofr'];
-                                                }
-
-                                                ?>
-
-                                                <iframe sandbox="allow-scripts allow-same-origin" width="100%"
-                                                    height="315" src="<?php echo $lientuto; ?>" frameborder="0"
-                                                    allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-                                                    allowfullscreen></iframe>
-                                                <div class="text-light text-center mt-1 mb-1 p-2">
-                                                    <a href="<?php echo $lientuto; ?>" target="_blank" class="">Lien
-                                                        vers la Video</a>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!--Mifarana eto ny video-->
-
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--tapitra profile-->
-
-            <!--cours-->
-            <div class="cours-blocs mt-5" id="cours_blocs">
-                <div class="container-fluid">
-                    <div class="row">
-
-                        <!--liste matiere-->
-
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-1 text-center">
-                            <div class="matiere ">
-                                <div class="mt-3">
-                                    <h4 class="liste-cours-s">
-                                        <!--Pour faciliter l'accès aux fichiers, on va procéder à une maintenance du site de 21h à 23h.<br><i>Désolé du désagrément</i>-->Programme
-                                        du <?php echo $_SESSION['semestre']; ?>
-                                    </h4>
-                                </div>
-                                <div class="matiere-blocs overflow-auto" id="listmatiere">
-
-                                </div>
-
-                            </div>
-                        </div>
-
-
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="cours-tabs overflow-auto p-3">
-                                <!--<span class="cours-titre"><i class="fa fa-mortar-board mr-2 mt-2"></i>COURS</span>-->
-                                <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-                                    <li class="nav-item mr-5">
-                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
-                                            role="tab" aria-controls="home" aria-selected="true">Livres</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile"
-                                            role="tab" aria-controls="profile" aria-selected="false">Explication</a>
-                                    </li>
-                                </ul>
-                                <div class="tab-content" id="myTabContent">
-                                    <!--tabs documents-->
-                                    <div class="tab-pane fade show active" id="home" role="tabpanel"
-                                        aria-labelledby="home-tab">
-
-                                        <div class="cours-doc overflow-auto" id="gradient">
-                                            <div class="row contenu_cours_livres">
-                                                <!--eto ny contenu cours livres-->
-                                                <div class="col-12" id="contenu_cours_livres">
-
-                                                </div>
-
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                    <!--tapitra tabs documents-->
-
-                                    <!--tabs video-->
-
-                                    <div class="tab-pane fade" id="profile" role="tabpanel"
-                                        aria-labelledby="profile-tab">
-
-                                        <div class="cours-video">
-                                            <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-                                                <li class="nav-item mr-5">
-                                                    <a class="nav-link active" id="profile-tab" data-toggle="tab"
-                                                        href="#SousVideo" role="tab" aria-controls="home"
-                                                        aria-selected="true">Video</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" id="profile-tab" data-toggle="tab"
-                                                        href="#SousAudio" role="tab" aria-controls="profile"
-                                                        aria-selected="false">Audio</a>
-                                                </li>
-                                            </ul>
-
-                                            <div class="tab-content" id="myTabContent">
-                                                <div class="tab-pane fade show active" id="SousVideo" role="tabpanel"
-                                                    aria-labelledby="home-tab">
-                                                    <!--explication video-->
-                                                    <div class="explication_video overflow-auto">
-                                                        <div class="row" id="contenu_cours_video">
-
-                                                        </div>
-                                                    </div>
-                                                    <!--tapitra video-->
-                                                </div>
-
-
-                                                <div class="tab-pane fade" id="SousAudio" role="tabpanel"
-                                                    aria-labelledby="profile-tab">
-                                                    <!--explication audio-->
-                                                    <div class="explication_audio">
-                                                        <div class="row mt-4">
-                                                            <div class="rond col-12 col-sm-12 col-md-4 col-lg-4">
-                                                                <div class="text-content">
-                                                                    <audio id="audioplayer" ontimeupdate="update(this)">
-                                                                        <source src="" type="audio/mp3">
-                                                                    </audio>
-                                                                    <span class="text" id="titremp3"></span>
-                                                                    <br>
-                                                                    <div class="playback_controls"
-                                                                        style="display: flex;">
-                                                                        <button class="preview"
-                                                                            onclick="preview('audioplayer')"><i
-                                                                                class="fa fa-angle-double-left"></i></button>
-                                                                        <button class="controlplay" id="cplay"
-                                                                            onclick="play('audioplayer',this)"><i
-                                                                                class="fa fa-play"></i></button>
-                                                                        <button class="peview"
-                                                                            onclick="next('audioplayer')"><i
-                                                                                class="fa fa-angle-double-right"></i></button>
-                                                                    </div>
-                                                                    <br>
-                                                                    <div class="col-12 justify-content-center"
-                                                                        id="progressBarControl" style="display: none;">
-                                                                        <div id="progressBar"
-                                                                            onclick="clickProgress('audioplayer',this,event)">
-                                                                            lecture
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-12">
-                                                                        <span id="progressTime"><b>00:00</b></span>
-                                                                    </div>
-                                                                    <br>
-                                                                    <div class="volume_controls" style="display:flex;">
-                                                                        <button class="moins"
-                                                                            onclick="moins('audioplayer')"><i
-                                                                                class="fa fa-minus"></i></button>
-                                                                        <button class="mute"
-                                                                            onclick="mute('audioplayer',this)"><i
-                                                                                class="fa fa-volume-up"></i></button>
-                                                                        <button class="plus"
-                                                                            onclick="plus('audioplayer')"><i
-                                                                                class="fa fa-plus"></i></button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-12 col-sm-12 col-md-8 col-lg-8"
-                                                                id="contenu_cours_audio">
-
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                    <!--tapitra audio-->
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                    <!--tapitra tabs video-->
-
-                                </div>
-                            </div>
-                        </div>
-                        <!--liste matiere-->
-
-                        <!--<div class="col-12 col-sm-12 col-md-3 col-lg-3 mt-5 text-center">
-                                <div class="matiere ">
-                                    <span class="cours-titre p-2">Semestre</span>
-                                    <div class="matiere-blocs  overflow-auto" id="listmatiere">
-
-
-                                    </div>
-                                </div>
-                            </div>-->
-
-
-
-
-                        <!--tapitra matiere-->
                     </div>
 
                 </div>
-            </div>
-            <!--tapitra ny cours-->
 
-            <!--exercice-->
-            <div class="exercice-blocs" id="exercice-blocs">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="cours-tabs overflow-auto p-3 mt-5">
-
-                                <ul class="nav nav-tabs nav-justified mt-2" id="myTab" role="tablist">
-                                    <li class="nav-item mr-3">
-                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#exoDoc"
-                                            role="tab" aria-controls="home" aria-selected="true">EXERCICES</a>
-                                    </li>
-                                    <li class="nav-item mr-3">
-                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#exoVid" role="tab"
-                                            aria-controls="profile" aria-selected="false">EXPLICATIONS</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#exoCorect"
-                                            role="tab" aria-controls="profile" aria-selected="false"
-                                            style="text-transform:uppercase;">CORRIGéS</a>
-                                    </li>
-                                </ul>
-                                <div class="tab-content" id="myTabContent">
-                                    <!--tabs exercice-->
-                                    <div class="tab-pane fade show active" id="exoDoc" role="tabpanel"
-                                        aria-labelledby="home-tab">
-
-                                        <div class="exo-doc overflow-auto">
-                                            <div class="row contenu_exercice_livres">
-
-                                                <div class="col-12" id="contenu_exercice_livres">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <!--tapitra tabs exercice-->
-
-                                    <!--tabs exercice-video-->
-
-                                    <div class="tab-pane fade" id="exoVid" role="tabpanel"
-                                        aria-labelledby="profile-tab">
-
-                                        <div class="exo-video">
-
-                                            <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-                                                <li class="nav-item mr-5">
-                                                    <a class="nav-link active" id="home-tab" data-toggle="tab"
-                                                        href="#SousVideoExo" role="tab" aria-controls="home"
-                                                        aria-selected="true">Video</a>
-                                                </li>
-
-                                            </ul>
-
-                                            <div class="tab-content" id="myTabContent">
-                                                <div class="tab-pane fade show active" id="SousVideoExo" role="tabpanel"
-                                                    aria-labelledby="home-tab">
-                                                    <!--explication videoExo-->
-                                                    <div class="explication_video overflow-auto">
-                                                        <div class="row" id="contenu_exercice_video">
-
-
-
-
-
-                                                        </div>
-                                                    </div>
-                                                    <!--tapitra videoExo-->
-                                                </div>
-
-
-                                                <div class="tab-pane fade" id="SousAudioExo" role="tabpanel"
-                                                    aria-labelledby="profile-tab">
-                                                    <!--explication audioExo-->
-                                                    <div class="explication_audio overflow-auto">
-                                                        <div class="row">
-
-
-
-
-
-                                                        </div>
-
-                                                    </div>
-                                                    <!--tapitra audioExo-->
-                                                </div>
-
-                                            </div>
-
-
-                                        </div>
-
-
-                                    </div>
-                                    <!--tapitra exercice-video-->
-                                    <!-- exercice-corrections-->
-                                    <div class="tab-pane fade" id="exoCorect" role="tabpanel"
-                                        aria-labelledby="profile-tab">
-                                        <div class="exo-correct overflow-auto">
-                                            <div class="row contenu_corrige_livres">
-                                                <div class="col-12" id="contenu_corrige_livres">
-
-                                                </div>
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--tapitra exercice-corrections-->
-                                </div>
-
-                            </div>
+                <!-- contenu-cours-explication -->
+                <div class="row contenu-cours-explication mt-5 pb-3" id="contenu-cours-explication">
+                    <div class="head d-flex">
+                        <div class="col-12 title d-flex justify-content-center pt-1">
+                            <h3>Algorithme</h3>
                         </div>
-                        <!--exeo-right-->
-
-                        <!--exeo-right-->
                     </div>
+
+                    <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-            </div>
-            <!--tapitra exercice-->
+                <!-- fin cours -->
 
-            <!--messages-->
-            <div class="message-blocs mt-5" id="message-blocs">
-                <div class="container-fluid">
-                    <div class="row">
-
-
-                        <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-message">
-                            <div class="messsage-titre mt-2">
-                                <h1 class="text-center"><i class="fa fa-comments-o"></i> MESSAGES</h1>
-                            </div>
-                            <div class="message">
-                                <div class="corp_message">
-                                    <div class="header_message pl-3 pt-2 ">
-                                        <div class="row">
-                                            <div class="image">
-                                                <img src="<?php echo $_SESSION['photo']; ?>" width="3%" alt=""
-                                                    class="profil">
-                                            </div>
-                                            <div class="prenom">
-                                                <p class=" ml-1 profil_nom"><?php echo $_SESSION['prenom']; ?></p>
-                                            </div>
+                <!-- exercice -->
+                <div class="col-12 mt-5 contenu-exercice mb-2" id="contenu-exercice">
+                    <div class="head-exercice">
+                        <div class="icon-exercice d-flex justify-content-center align-items-center">
+                            <i class="fal fa-edit"></i>
+                        </div>
+                        <div class="title-exercice d-flex justify-content-center pt-3">
+                            <h3>Exercice</h3>
+                        </div>
+                        <!-- <div class="col-12 d-flex menu-cours mt-3">
+                                        <div class="col-6 d-flex justify-content-center pt-2">
+                                            <h4>PDF</h4>
                                         </div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <div class="body_message overflow-auto mt-2">
-                                            <div class="response mt-1">
-
-
-
-                                            </div>
+                                        <div class="col-6 d-flex justify-content-center pt-2">
+                                            <h4>Video</h4>
                                         </div>
-                                        <form class="login-form text-center mt-2" id="form" method="post">
-                                            <div class="input_message">
-                                                <div class="form-group mr-3">
-                                                    <textarea type="text" name="message" class="text-white"
-                                                        id="messageContenu" placeholder="Votre message..."
-                                                        rows="5"></textarea>
+                                    </div> -->
+                    </div>
 
-                                                </div>
-                                            </div>
-                                            <input type="hidden" id="idetudiant" value="<?php echo $_SESSION['id']; ?>">
-                                            <input type="hidden" id="filiere"
-                                                value="<?php echo $_SESSION['nomfiliere']; ?>" />
-                                            <input type="hidden" id="diplome"
-                                                value="<?php echo $_SESSION['semestre']; ?>" />
-                                            <input type="hidden" id="vague"
-                                                value="<?php echo $_SESSION['matricule']; ?>" />
-                                            <div class="button_message">
-                                                <button type="submit" id="MessageAjouter" class="p-1 m-0 btn-login"><i
-                                                        class="fas fa-paper-plane"
-                                                        style="color:#0698cb !important;"></i></button>
-                                            </div>
-                                        </form>
-                                    </div>
+                    <div class="col-12 row table-exercice" id="table-exercice">
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
+                            <div class="mb-2 pt-2 exercice text-center">
+                                <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
+                                <div class="button-exercice">
+                                    <button class="btn mt-2" id="active-exercice-pdf">PDF</button>
+                                    <button class="btn" id="active-exercice-explication">Explication</button>
+                                    <button class="btn" id="active-exercice-corrige">Corrige</button>
                                 </div>
                             </div>
                         </div>
 
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
+                            <div class="mb-2 pt-2 exercice text-center">
+                                <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
+                                <div class="button-exercice">
+                                    <button class="btn mt-2">PDF</button>
+                                    <button class="btn">Explication</button>
+                                    <button class="btn">Corrige</button>
+                                </div>
+                            </div>
+                        </div>
 
-                        <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-                            <div class="message-right">
-                                <ul class="list-unstyled mt-3">
-                                    <li class="media my-2">
-                                        <i class="fa fa-tint astuce"></i>
-                                        <div class="media-body">
-                                            <h5 class="mt-0 mb-1">Astuce</h5>
-                                            Si vous avez des questions à propos des cours ou des exercices,n'hésitez pas
-                                            à les envoyer par message.
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="messge-image mt-5 p-3">
-                                    <img src="vue/image/Questions-.png" width="100%" alt="">
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
+                            <div class="mb-2 pt-2 exercice text-center">
+                                <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
+                                <div class="button-exercice">
+                                    <button class="btn mt-2">PDF</button>
+                                    <button class="btn">Explication</button>
+                                    <button class="btn">Corrige</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
+                            <div class="mb-2 pt-2 exercice text-center">
+                                <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
+                                <div class="button-exercice">
+                                    <button class="btn mt-2">PDF</button>
+                                    <button class="btn">Explication</button>
+                                    <button class="btn">Corrige</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
+                            <div class="mb-2 pt-2 exercice text-center">
+                                <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
+                                <div class="button-exercice">
+                                    <button class="btn mt-2">PDF</button>
+                                    <button class="btn">Explication</button>
+                                    <button class="btn">Corrige</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
+                            <div class="mb-2 pt-2 exercice text-center">
+                                <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
+                                <div class="button-exercice">
+                                    <button class="btn mt-2">PDF</button>
+                                    <button class="btn">Explication</button>
+                                    <button class="btn">Corrige</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
+                            <div class="mb-2 pt-2 exercice text-center">
+                                <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
+                                <div class="button-exercice">
+                                    <button class="btn mt-2">PDF</button>
+                                    <button class="btn">Explication</button>
+                                    <button class="btn">Corrige</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
+                            <div class="mb-2 pt-2 exercice text-center">
+                                <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
+                                <div class="button-exercice">
+                                    <button class="btn mt-2">PDF</button>
+                                    <button class="btn">Explication</button>
+                                    <button class="btn">Corrige</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!--tapitra messages-->
 
-            <!--Examen-->
-            <div class="EXAMEN" id="EXAMEN">
-
-            </div>
-            <!--tapitra Examen-->
-        </div>
-
-
-    </div>
-</div>
-<div class="modal fade" id="pdfmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content text-center">
-            <div class="modal-header">
-                <h5 class="modal-title" id="titrepdf"></h5>
-                <button type="button" class="close" id="pdfmodalclose" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-
-            </div>
-            <div class="modal-body" id="pdfload">
-                <div id="loading">
-
-                    <svg id="loader" xmlns:dc="http://purl.org/dc/elements/1.1/"
-                        xmlns:cc="http://creativecommons.org/ns#"
-                        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
-                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-                        xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" sodipodi:docname="Loader.svg"
-                        inkscape:version="1.0 (6e3e5246a0, 2020-05-07)" id="svg8" version="1.1" viewBox="0 0 297 92"
-                        height="92mm" width="297mm">
-                        <defs id="defs2">
-                            <linearGradient id="linearGradient24" inkscape:collect="always">
-                                <stop id="stop20" offset="0" style="stop-color:#0000d1;stop-opacity:1" />
-                                <stop style="stop-color:#2c2ae3;stop-opacity:1" offset="0.2490395" id="stop30" />
-                                <stop style="stop-color:#690e41;stop-opacity:0.89803922" offset="0.74368078"
-                                    id="stop28" />
-                                <stop id="stop22" offset="1" style="stop-color:#6d001b;stop-opacity:0.98823529" />
-                            </linearGradient>
-                            <rect id="rect12" height="33.568283" width="117.24554" y="61.503849" x="67.447067" />
-                            <linearGradient gradientUnits="userSpaceOnUse" y2="79.050186" x2="171.81123" y1="73.175713"
-                                x1="75.364067" id="linearGradient26" xlink:href="#linearGradient24"
-                                inkscape:collect="always" />
-                        </defs>
-                        <sodipodi:namedview inkscape:window-maximized="1" inkscape:window-y="34" inkscape:window-x="0"
-                            inkscape:window-height="781" inkscape:window-width="1600" height="209mm" showgrid="false"
-                            inkscape:document-rotation="0" inkscape:current-layer="text10" inkscape:document-units="mm"
-                            inkscape:cy="363.92656" inkscape:cx="840.4063" inkscape:zoom="0.7" inkscape:pageshadow="2"
-                            inkscape:pageopacity="0.0" borderopacity="1.0" bordercolor="#666666" pagecolor="#ffffff"
-                            id="base" />
-                        <metadata id="metadata5">
-                            <rdf:RDF>
-                                <cc:Work rdf:about="">
-                                    <dc:format>image/svg+xml</dc:format>
-                                    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-                                    <dc:title></dc:title>
-                                </cc:Work>
-                            </rdf:RDF>
-                        </metadata>
-                        <g id="layer1" inkscape:groupmode="layer" inkscape:label="Calque 1">
-                            <g id="ground"
-                                style="font-size:25.4px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';white-space:pre;fill:#11d13b05;fill-opacity:1"
-                                id="text10" transform="matrix(2.1121103,0,0,2.1121103,-106.13642,-112.61819)"
-                                aria-label="E-MEDIA">
-                                <path id="path857"
-                                    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.4px;font-family:Loma;-inkscape-font-specification:'Loma, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-                                    stroke-width="0.2" stroke="rgb(42, 45, 190)"
-                                    d="M 69.530859,84.993945 V 67.010547 h 13.146485 v 2.108398 H 71.763281 v 5.692676 h 8.421191 v 2.108398 h -8.421191 v 5.965528 h 10.914063 v 2.108398 z" />
-                                <path id="path859" stroke-width="0.2" stroke="rgb(42, 45, 190)"
-                                    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.4px;font-family:Loma;-inkscape-font-specification:'Loma, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-                                    d="m 84.67412,79.4625 v -2.108399 h 6.858496 V 79.4625 Z" />
-                                <path id="path861" stroke-width="0.2" stroke="rgb(42, 45, 190)"
-                                    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.4px;font-family:Loma;-inkscape-font-specification:'Loma, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-                                    d="M 94.236326,84.993945 V 67.010547 h 2.232422 l 6.436812,16.333886 6.43682,-16.333886 h 2.23242 v 17.983398 h -2.23242 V 73.038086 l -4.63848,11.955859 h -3.59668 L 96.468748,73.038086 v 11.955859 z" />
-                                <path id="path863" stroke-width="0.2" stroke="rgb(42, 45, 190)"
-                                    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.4px;font-family:Loma;-inkscape-font-specification:'Loma, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-                                    d="M 115.61797,84.993945 V 67.010547 h 13.14648 v 2.108398 h -10.91406 v 5.692676 h 8.42119 v 2.108398 h -8.42119 v 5.965528 h 10.91406 v 2.108398 z" />
-                                <path id="path865" stroke-width="0.2" stroke="rgb(42, 45, 190)"
-                                    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.4px;font-family:Loma;-inkscape-font-specification:'Loma, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-                                    d="m 147.07031,75.903027 q 0,9.090918 -8.4708,9.090918 h -6.56084 V 67.010547 h 6.26318 q 2.05879,0 3.59668,0.446484 1.55029,0.446485 2.51768,1.21543 0.97978,0.768945 1.57509,1.922363 0.60772,1.153418 0.84336,2.430859 0.23565,1.265039 0.23565,2.877344 z m -2.23242,-0.03721 q 0,-1.562695 -0.37207,-2.75332 -0.37207,-1.203028 -0.99219,-1.947168 -0.60772,-0.744141 -1.47588,-1.21543 -0.86816,-0.471289 -1.77354,-0.644922 -0.90537,-0.186035 -1.95957,-0.186035 h -3.99355 v 13.766602 h 4.05557 q 1.46347,0 2.61689,-0.384473 1.16582,-0.396875 2.04639,-1.203027 0.89297,-0.818555 1.36426,-2.195215 0.48369,-1.37666 0.48369,-3.237012 z" />
-                                <path id="path867" stroke-width="0.2" stroke="rgb(42, 45, 190)"
-                                    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.4px;font-family:Loma;-inkscape-font-specification:'Loma, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-                                    d="m 156.06201,82.885547 v 2.108398 h -7.4414 v -2.108398 h 2.60449 V 69.118945 h -2.60449 v -2.108398 h 7.4414 v 2.108398 h -2.60449 v 13.766602 z" />
-                                <path id="path869" stroke-width="0.2" stroke="rgb(42, 45, 190)"
-                                    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.4px;font-family:Loma;-inkscape-font-specification:'Loma, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-                                    d="m 173.31367,84.993945 h -2.54248 l -2.35645,-5.915918 h -7.10654 l -2.35644,5.915918 h -2.54248 l 7.18095,-17.983398 h 2.54248 z m -8.4584,-14.795996 -2.70371,6.77168 h 5.41983 z" />
-                            </g>
-                        </g>
-                    </svg>
                 </div>
 
-                <iframe id="pdf" sandbox="allow-scripts allow-same-origin" src="" width="100%" height="800px"
-                    frameborder="0" allowfullscreen></iframe>
+                <!-- contenu-exercice-explication -->
+                <div class="row contenu-exercice-explication mt-5 pb-3" id="contenu-exercice-explication">
+                    <div class="head d-flex">
+                        <div class="col-12 title d-flex justify-content-center pt-1">
+                            <h3>Algorithme</h3>
+                        </div>
+                    </div>
+
+                    <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+                <!-- fin exercice -->
+
+                <!-- nous vous ecoutons -->
+                <div class="col-12 mt-5 contenu-chat mb-2 pb-2" id="contenu-chat">
+                    <div class="head-chat">
+                        <div class="icon-chat d-flex justify-content-center align-items-center">
+                            <i class="fal fa-comments-alt"></i>
+                        </div>
+                        <div class="title-chat d-flex justify-content-center pt-3">
+                            <h3>Nous vous ecoutons</h3>
+                        </div>
+                    </div>
+
+                    <div class="col-12 d-flex mt-3 table-chat overflow-auto">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 m-1 chat">
+                            <div class="body-chat overflow-auto">
+                                <div class="ml-5  mt-3 user-chat d-flex">
+                                    <img src="<?php echo $_SESSION["photo"]; ?>" class="img-fluid" alt="">
+                                    <div class="ml-2">Si vous avez des question a propos des cours lorem</div>
+                                </div>
+
+                                <div class="mt-3 ml-1 admin-chat d-flex">
+                                    <img src="vue/image/logo/logo_E-media_enligne_rond.png" class="img-fluid" alt="">
+                                    <div class="ml-2">Si vous avez des question a propos des cours</div>
+                                </div>
+
+                                <div class="ml-5  mt-3 user-chat d-flex">
+                                    <img src="<?php echo $_SESSION["photo"]; ?>" class="img-fluid" alt="">
+                                    <div class="ml-2">Si vous avez des question a propos des cours</div>
+                                </div>
+
+                                <div class="mt-3 ml-1 admin-chat d-flex">
+                                    <img src="vue/image/logo/logo_E-media_enligne_rond.png" class="img-fluid" alt="">
+                                    <div class="ml-2">Si vous avez des question a propos des cours</div>
+                                </div>
+
+                                <div class="ml-5  mt-3 user-chat d-flex">
+                                    <img src="<?php echo $_SESSION["photo"]; ?>" class="img-fluid" alt="">
+                                    <div class="ml-2">Si vous avez des question a propos des cours lorem</div>
+                                </div>
+
+                                <div class="mt-3 ml-1 admin-chat d-flex">
+                                    <img src="vue/image/logo/logo_E-media_enligne_rond.png" class="img-fluid" alt="">
+                                    <div class="ml-2">Si vous avez des question a propos des cours</div>
+                                </div>
+
+                                <div class="ml-5  mt-3 user-chat d-flex">
+                                    <img src="<?php echo $_SESSION["photo"]; ?>" class="img-fluid" alt="">
+                                    <div class="ml-2">Si vous avez des question a propos des cours</div>
+                                </div>
+
+                                <div class="mt-3 ml-1 admin-chat d-flex">
+                                    <img src="vue/image/logo/logo_E-media_enligne_rond.png" class="img-fluid" alt="">
+                                    <div class="ml-2">Si vous avez des question a propos des cours</div>
+                                </div>
+                            </div>
+
+                            <div class="form-chat">
+                                <form class="login-form mt-2" id="" method="post">
+                                    <div class="d-flex input-chat">
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10 form-group">
+                                            <textarea type="text" name="message" class="text-input p-1" id="" placeholder="Votre message..."></textarea>
+                                            <button type="submit" class="btn"><i class="fas fa-paper-plane"></i></button>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-4 m-1 astuce-chat">
+                            <img src="vue/image/chat.png" class="img-fluid" alt="">
+                            <div class="d-flex justify-content-center">
+                                <span>"Si vous avez des question a propos des cours , éxercice, éxamens n'égite pas
+                                    envoyer votre question sur le messages..."</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- fin nous vous ecoutons  -->
+
+                <!-- contact -->
+                <div class="col-12 mt-5 contenu-contact mb-2 pb-2" id="contenu-contact">
+                    <div class="head-contact">
+                        <div class="icon-contact d-flex justify-content-center align-items-center">
+                            <i class="fal fa-phone-volume"></i>
+                        </div>
+                        <div class="title-contact d-flex justify-content-center pt-3">
+                            <h3>Contact</h3>
+                        </div>
+                    </div>
+
+                    <div class="col-12 row table-contact">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-5 contact">
+                            <h6>Pedagogique License <br> <span>0347626108</span></h6>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-5 contact">
+                            <h6>Pedagogique Master <br> <span>0347626108</span></h6>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-5 contact">
+                            <h6>Pedagogique MBA <br> <span>0347626108</span></h6>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-5 contact">
+                            <h6>Finance <br> <span>0347626108</span></h6>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-5 contact">
+                            <h6>Technique <br> <span>0347626108</span></h6>
+                        </div>
+                    </div>
+                </div>
+                <!-- fin contact -->
 
             </div>
+            <!-- fin section -->
+
+            <!-- contenu-cours-pdf -->
+            <div class="col-12 contenu-cours-pdf pb-3" id="contenu-cours-pdf">
+                <div class="head d-flex">
+                    <div class="col-11 title d-flex justify-content-center pt-1">
+                        <h3 id="titre-cours"></h3>
+                    </div>
+                    <div class="col-1 exit d-flex justify-content-center" id="exit-cours-pdf">
+                        <span><i class="fas fa-times ml-lg-5 ml-xl-5"></i></span>
+                    </div>
+                </div>
+
+                <div class="col-12 affiche-cours-pdf overflow-auto mt-1">
+                    <iframe id="cours-pdf" sandbox="allow-scripts allow-same-origin" src="" width="100%" height="800px" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- contenu-exercice-pdf -->
+            <div class="col-12 contenu-exercice-pdf pb-3" id="contenu-exercice-pdf">
+                <div class="head d-flex">
+                    <div class="col-11 title d-flex justify-content-center pt-1">
+                        <h3>Algorithme</h3>
+                    </div>
+                    <div class="col-1 exit d-flex justify-content-center" id="exit-exercice-pdf">
+                        <span><i class="fas fa-times ml-lg-5 ml-xl-5"></i></span>
+                    </div>
+                </div>
+
+                <div class="col-12 affiche-exercice-pdf overflow-auto mt-1">
+
+                </div>
+            </div>
+
+            <!-- contenu-exercice-corrige -->
+            <div class="col-12 contenu-exercice-corrige pb-3" id="contenu-exercice-corrige">
+                <div class="head d-flex">
+                    <div class="col-11 title d-flex justify-content-center pt-1">
+                        <h3>Algorithme</h3>
+                    </div>
+                    <div class="col-1 exit d-flex justify-content-center" id="exit-exercice-corrige">
+                        <span><i class="fas fa-times ml-lg-5 ml-xl-5"></i></span>
+                    </div>
+                </div>
+
+                <div class="col-12 affiche-exercice-corrige overflow-auto mt-1 pt-3">
+                    <iframe width="100%" height="500" src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- contenu-notification -->
+            <div class="col-12 contenu-notification mt-5" id="contenu-notification">
+                <h4 class="d-flex justify-content-center mt-4">Examen dans:</h4>
+                <div id="count_exam" class="d-flex justify-content-center">
+
+                </div>
+                <button class="btn-details-examen" id="btn-details-examen">Details</button>
+
+                <h4 class="d-flex justify-content-center mt-5">Paiments dans:</h4>
+                <div id="count_ecolage" class="d-flex justify-content-center">
+
+                </div>
+            </div>
+
         </div>
     </div>
-</div>
-<div class="row">
-
-    <div class="col-lg-12">
-
-        <p class="text-center text-white">&copy; Copyright E-MEDIA 2020</p>
-
-    </div>
-
-</div>
-
-
-<!--Prise de contact-->
+</body>
 <?php
-
-if (isset($_SESSION['prisedecontactfr'])) {
+require('script.html');
 ?>
-<input type="hidden" id="priseclick" data-toggle="modal" data-target="#prisedecontact" />
-<div class="modal fade" id="prisedecontact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
-            <div class="modal-header text-center ">
-                <h5 class="modal-title">Présentation de l'Université E-media</h5>
-                <button type="button" class="close" id="closePresentation" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+<script src="vue/js/accueilMaster.js"></script>
+<script src="vue/js/accueil.js"></script>
+<script src="vue/js/jquery.countdown.min.js"></script>
+<script src="vue/js/countdownCountExam.js"></script>
+<script src="vue/js/countdownCountEcolage.js"></script>
 
-            </div>
-            <div class="modal-body">
-                <iframe id="srcpre" width="100%" height="600px" src="<?php echo $_SESSION['prisedecontactfr']; ?>"
-                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-</div>
-<?php
-} elseif (isset($_SESSION['prisedecontactmg'])) {
-?>
-<input type="hidden" id="priseclick" data-toggle="modal" data-target="#prisedecontact" />
-<div class="modal fade" id="prisedecontact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
-            <div class="modal-header text-center ">
-                <h5 class="modal-title">Présentation de l'Université E-media</h5>
-                <button type="button" class="close" id="closePresentation" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
 
-            </div>
-            <div class="modal-body">
-                <iframe id="srcpre" width="100%" height="600px" src="<?php echo $_SESSION['prisedecontactmg']; ?>"
-                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-</div>
+</html>
 
-<?php
-}
-?>
+</html>
+
+</html>
+
+</html>

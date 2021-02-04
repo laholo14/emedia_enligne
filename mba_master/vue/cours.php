@@ -192,7 +192,7 @@ $currentPage = 'cours';
                             <div class="boutton_file">
                                 choisir
                             </div>
-                            <input id="file_book_mg" class="file_book" type="file" />
+                            <input id="file_book_mg" class="file_book" name="contenu_mg[]" type="file" accept="audio/* , application/vnd.openxmlformats-officedocument.wordprocessingml.document , application/msword , application/pdf" multiple />
                             <span class="file_name">Aucune fichier selectionné</span>
                         </div>
                     </div>
@@ -204,7 +204,7 @@ $currentPage = 'cours';
                             <div class="boutton_file"> 
                                 choisir
                             </div>
-                            <input id="file_book_et" class="file_book" type="file" />
+                            <input id="file_book_et" class="file_book" name="contenu_fr[]" type="file" accept="audio/* , application/vnd.openxmlformats-officedocument.wordprocessingml.document , application/msword , application/pdf" multiple />
                             <span class="file_name">Aucune fichier selectionné</span>
                         </div>
                     </div>
