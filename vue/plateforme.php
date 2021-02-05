@@ -36,7 +36,7 @@ require('head.html');
 
                 <div class="col-8 d-flex justify-content-end select-langue">
                     <button type="button" class="btn-notification mr-3" id="active-notification">
-                        <i class="fal fa-bell"></i> <span class="badge badge-light">4</span>
+                        <i class="fad fa-alarm-clock"></i> <span class="badge badge-light">4</span>
                     </button>
 
                 </div>
@@ -276,32 +276,64 @@ require('head.html');
                     <div class="table-note mt-3 pb-3 d-flex justify-content-center">
                         <table>
                             <thead>
-                                <tr>
-                                    <th rowspan="2" class="text-center">LISTE DES MATIERES</th>
-                                    <th colspan="2" class="text-center">NOTES /20</th>
-                                    <th colspan="2" class="text-center">DECISION</th>
-                                </tr>
-                                <tr>
-                                    <th class="text-center">Mensuel</th>
-                                    <th class="text-center">Semestriel</th>
-                                    <th class="text-center">Moyenne des notes</th>
-                                    <th class="text-center">Validation</th>
-                                </tr>
+                                <th>Code</th>
+                                <th>Unite d'enseignement</th>
+                                <th>Credit</th>
+                                <th>Moyenne</th>
+                                <th>Mention</th>
+                                <th>Resultat</th>
+                                <th>Code EC</th>
+                                <th>Elemnts constitutifs</th>
+                                <th>Note</th>
                             </thead>
 
-                            <tbody id="tabnote">
-
-                                <tr class="priority-300 ">
-                                    <td class="matiere text-center">Matiere</td>
-                                    <td class="note1 text-center">Note M</td>
-                                    <td class="note1 text-center">Note S</td>
-                                    <td class="note1 text-center">Moyenne</td>
-                                    <td class="note1 text-center">Validation</td>
-
+                            <tbody>
+                                <tr>
+                                    <td rowspan="3">UE1</td>
+                                    <td rowspan="3">Informatique de base</td>
+                                    <td rowspan="3">9</td>
+                                    <td rowspan="3">13.80</td>
+                                    <td rowspan="3">Assez-Bien</td>
+                                    <td rowspan="3">9 sur 9</td>
+                                    <td>EC1</td>
+                                    <td>Algorithme</td>
+                                    <td>15.5</td>
+                                    <tr>
+                                        <td>EC1</td>
+                                        <td>Algorithme</td>
+                                        <td>15.5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>EC1</td>
+                                        <td>Algorithme</td>
+                                        <td>15.5</td>
+                                    </tr>
                                 </tr>
 
+                                <tr>
+                                    <td rowspan="2">UE1</td>
+                                    <td rowspan="2">Informatique de base</td>
+                                    <td rowspan="2">9</td>
+                                    <td rowspan="2">13.80</td>
+                                    <td rowspan="2">Assez-Bien</td>
+                                    <td rowspan="2">9 sur 9</td>
+                                    <td>EC1</td>
+                                    <td>Algorithme</td>
+                                    <td>15.5</td>
+                                    <tr>
+                                        <td>EC1</td>
+                                        <td>Algorithme</td>
+                                        <td>15.5</td>
+                                    </tr>
+                                </tr>
 
-
+                                <tr>
+                                    <td colspan="2">Total</td>
+                                    <td>33</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>33 sur 33</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -318,159 +350,270 @@ require('head.html');
                             <h3>Calendrier</h3>
                         </div>
                     </div>
+                    
+                    <!-- calendrier-licence -->
+                    <div class="calendrier-licence d-flex">
+                        <div class="col-12 col-lg-8 col-xl-8 calendrier-corps">
+                            <div class="col-12 table-calendrier mt-3 pb-3">
+                                <h4 class="text-center">"1er - 3eme mois" et "5eme - 7eme mois"</h4>
+                                <table class="mt-4">
+                                    <tbody id="tabcalendrier">
 
-                    <div class="col-12 table-calendrier mt-3 pb-3">
-                        <h4 class="text-center">"1er - 3eme mois" et "5eme - 7eme mois"</h4>
+                                        <tr class="priority-300">
+                                            <td class="text-center">1</td>
+                                            <td class="text-center">2</td>
+                                            <td class="text-center cours-calendrier">3</td>
+                                            <td class="text-center">4</td>
+                                            <td class="text-center">5</td>
+                                            <td class="text-center">6</td>
+                                            <td class="text-center">7</td>
+                                            <td class="text-center">8</td>
+                                            <td class="text-center">9</td>
+                                            <td class="text-center">10</td>
 
-                        <div class="row legende d-flex justify-content-center">
-                            <div class="cours-calendrier d-flex justify-content-center align-items-center mr-1">
-                                Cours
+                                        </tr>
+
+                                        <tr class="priority-300">
+                                            <td class="text-center">11</td>
+                                            <td class="text-center">12</td>
+                                            <td class="text-center exercices-calendrier">13</td>
+                                            <td class="text-center">14</td>
+                                            <td class="text-center">15</td>
+                                            <td class="text-center">16</td>
+                                            <td class="text-center">17</td>
+                                            <td class="text-center">18</td>
+                                            <td class="text-center">19</td>
+                                            <td class="text-center corrige-calendrier">20</td>
+
+                                        </tr>
+
+                                        <tr class="priority-300">
+                                            <td class="text-center">21</td>
+                                            <td class="text-center">22</td>
+                                            <td class="text-center examen-mensuel">23</td>
+                                            <td class="text-center examen-mensuel">24</td>
+                                            <td class="text-center">25</td>
+                                            <td class="text-center">26</td>
+                                            <td class="text-center">27</td>
+                                            <td class="text-center">28</td>
+                                            <td class="text-center">29</td>
+                                            <td class="text-center">30</td>
+
+                                        </tr>
+
+                                        <tr class="priority-300">
+                                            <td class="text-center">31</td>
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
                             </div>
 
-                            <div class="exercices d-flex justify-content-center align-items-center mr-1">
-                                Exercices
-                            </div>
+                            <div class="col-12 table-calendrier mt-3 pb-3">
+                                <h4 class="text-center">"4eme mois" et "9eme mois"</h4>
+                                <table class="mt-4">
+                                    <tbody id="tabcalendrier">
 
-                            <div class="corrige d-flex justify-content-center align-items-center mr-1">
-                                Corrige
-                            </div>
+                                        <tr class="priority-300">
+                                            <td class="text-center">1</td>
+                                            <td class="text-center">2</td>
+                                            <td class="text-center cours-calendrier">3</td>
+                                            <td class="text-center">4</td>
+                                            <td class="text-center">5</td>
+                                            <td class="text-center">6</td>
+                                            <td class="text-center">7</td>
+                                            <td class="text-center">8</td>
+                                            <td class="text-center">9</td>
+                                            <td class="text-center">10</td>
+                                        </tr>
 
-                            <div class="examen-mensuel d-flex justify-content-center align-items-center mr-1">
-                                Examen Mensuel
+                                        <tr class="priority-300">
+                                            <td class="text-center">11</td>
+                                            <td class="text-center">12</td>
+                                            <td class="text-center exercices-calendrier">13</td>
+                                            <td class="text-center">14</td>
+                                            <td class="text-center">15</td>
+                                            <td class="text-center">16</td>
+                                            <td class="text-center">17</td>
+                                            <td class="text-center">18</td>
+                                            <td class="text-center">19</td>
+                                            <td class="text-center corrige-calendrier">20</td>
+                                        </tr>
+
+                                        <tr class="priority-300">
+                                            <td class="text-center">21</td>
+                                            <td class="text-center">22</td>
+                                            <td class="text-center examen-mensuel">23</td>
+                                            <td class="text-center examen-mensuel">24</td>
+                                            <td class="text-center examen-semestriel">25</td>
+                                            <td class="text-center examen-semestriel">26</td>
+                                            <td class="text-center examen-semestriel">27</td>
+                                            <td class="text-center examen-semestriel">28</td>
+                                            <td class="text-center examen-semestriel">29</td>
+                                            <td class="text-center examen-semestriel">30</td>
+                                        </tr>
+
+                                        <tr class="priority-300">
+                                            <td class="text-center">31</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
 
-                        <table class="mt-4">
-                            <tbody id="tabcalendrier">
-
-                                <tr class="priority-300">
-                                    <td class="text-center">1</td>
-                                    <td class="text-center">2</td>
-                                    <td class="text-center cours-calendrier">3</td>
-                                    <td class="text-center cours-calendrier">4</td>
-                                    <td class="text-center cours-calendrier">5</td>
-                                    <td class="text-center cours-calendrier">6</td>
-                                    <td class="text-center cours-calendrier">7</td>
-                                    <td class="text-center cours-calendrier">8</td>
-                                    <td class="text-center cours-calendrier">9</td>
-                                    <td class="text-center cours-calendrier">10</td>
-
-                                </tr>
-
-                                <tr class="priority-300">
-                                    <td class="text-center cours-calendrier">11</td>
-                                    <td class="text-center cours-calendrier">12</td>
-                                    <td class="text-center exercices">13</td>
-                                    <td class="text-center exercices">14</td>
-                                    <td class="text-center exercices">15</td>
-                                    <td class="text-center exercices">16</td>
-                                    <td class="text-center exercices">17</td>
-                                    <td class="text-center exercices">18</td>
-                                    <td class="text-center exercices">19</td>
-                                    <td class="text-center corrige">20</td>
-
-                                </tr>
-
-                                <tr class="priority-300">
-                                    <td class="text-center corrige">21</td>
-                                    <td class="text-center corrige">22</td>
-                                    <td class="text-center examen-mensuel">23</td>
-                                    <td class="text-center examen-mensuel">24</td>
-                                    <td class="text-center">25</td>
-                                    <td class="text-center">26</td>
-                                    <td class="text-center">27</td>
-                                    <td class="text-center">28</td>
-                                    <td class="text-center">29</td>
-                                    <td class="text-center">30</td>
-
-                                </tr>
-
-                                <tr class="priority-300">
-                                    <td class="text-center">31</td>
-
-                                </tr>
-
-                            </tbody>
-                        </table>
+                        <div class="col-12 col-lg-4 col-xl-4 d-flex flex-column justify-content-center calendrier-legende pl-3">
+                            <div class="cours-legende d-flex align-items-center">
+                                <span class="d-flex justify-content-center align-items-center">3</span><p class="ml-2">Debut cours</p>
+                            </div>
+                            <div class="exercice-legende d-flex align-items-center mt-2">
+                                <span class="d-flex justify-content-center align-items-center">13</span><p class="ml-2">Debut exercice</p>
+                            </div>
+                            <div class="corrige-legende d-flex align-items-center mt-2">
+                                <span class="d-flex justify-content-center align-items-center">20</span><p class="ml-2">Debut correction</p>
+                            </div>
+                            <div class="examen-mensuel-legende d-flex align-items-center mt-2">
+                                <span class="d-flex justify-content-center align-items-center">23</span><span class="d-flex justify-content-center align-items-center">24</span><p class="ml-2">Examen mensuel</p>
+                            </div>
+                            <div class="examen-semestriel-legende d-flex align-items-center mt-2">
+                                <span class="d-flex justify-content-center align-items-center">25 a</span><span class="d-flex justify-content-center align-items-center">30</span><p class="ml-2">Examen semestriel</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="col-12 table-calendrier mt-3 pb-3">
-                        <h4 class="text-center">"4eme mois" et "9eme mois"</h4>
+                    <!-- calendrier-master -->
+                    <div class="calendrier-master d-flex">
+                        <div class="col-12 col-lg-8 col-xl-8 calendrier-corps">
+                            <div class="col-12 table-calendrier mt-3 pb-3">
+                                <h4 class="text-center">"1er - 4eme mois" et "6eme - 8eme mois"</h4>
+                                <table class="mt-4">
+                                    <tbody id="tabcalendrier">
 
-                        <div class="row legende d-flex justify-content-center">
-                            <div class="cours-calendrier d-flex justify-content-center align-items-center mr-1">
-                                Cours
+                                        <tr class="priority-300">
+                                            <td class="text-center">1</td>
+                                            <td class="text-center">2</td>
+                                            <td class="text-center cours-calendrier">3</td>
+                                            <td class="text-center">4</td>
+                                            <td class="text-center">5</td>
+                                            <td class="text-center">6</td>
+                                            <td class="text-center">7</td>
+                                            <td class="text-center">8</td>
+                                            <td class="text-center">9</td>
+                                            <td class="text-center question-calendrier">10</td>
+
+                                        </tr>
+
+                                        <tr class="priority-300">
+                                            <td class="text-center question-calendrier">11</td>
+                                            <td class="text-center question-calendrier">12</td>
+                                            <td class="text-center">13</td>
+                                            <td class="text-center">14</td>
+                                            <td class="text-center">15</td>
+                                            <td class="text-center">16</td>
+                                            <td class="text-center reponse-calendrier">17</td>
+                                            <td class="text-center">18</td>
+                                            <td class="text-center">19</td>
+                                            <td class="text-center">20</td>
+
+                                        </tr>
+
+                                        <tr class="priority-300">
+                                            <td class="text-center">21</td>
+                                            <td class="text-center">22</td>
+                                            <td class="text-center">23</td>
+                                            <td class="text-center">24</td>
+                                            <td class="text-center examen-mensuel">25</td>
+                                            <td class="text-center examen-mensuel">26</td>
+                                            <td class="text-center">27</td>
+                                            <td class="text-center">28</td>
+                                            <td class="text-center">29</td>
+                                            <td class="text-center">30</td>
+
+                                        </tr>
+
+                                        <tr class="priority-300">
+                                            <td class="text-center">31</td>
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
                             </div>
 
-                            <div class="exercices d-flex justify-content-center align-items-center mr-1">
-                                Exercices
-                            </div>
+                            <div class="col-12 table-calendrier mt-3 pb-3">
+                                <h4 class="text-center">"5eme mois" et "10eme mois"</h4>
+                                <table class="mt-4">
+                                    <tbody id="tabcalendrier">
 
-                            <div class="corrige d-flex justify-content-center align-items-center mr-1">
-                                Corrige
-                            </div>
+                                        <tr class="priority-300">
+                                            <td class="text-center">1</td>
+                                            <td class="text-center">2</td>
+                                            <td class="text-center cours-calendrier">3</td>
+                                            <td class="text-center">4</td>
+                                            <td class="text-center">5</td>
+                                            <td class="text-center">6</td>
+                                            <td class="text-center">7</td>
+                                            <td class="text-center">8</td>
+                                            <td class="text-center">9</td>
+                                            <td class="text-center question-calendrier">10</td>
 
-                            <div class="examen-mensuel d-flex justify-content-center align-items-center mr-1">
-                                Examen Mensuel
-                            </div>
+                                        </tr>
 
-                            <div class="examen-semestriel d-flex justify-content-center align-items-center mr-1">
-                                Examen Semestriel
+                                        <tr class="priority-300">
+                                            <td class="text-center question-calendrier">11</td>
+                                            <td class="text-center question-calendrier">12</td>
+                                            <td class="text-center">13</td>
+                                            <td class="text-center">14</td>
+                                            <td class="text-center">15</td>
+                                            <td class="text-center">16</td>
+                                            <td class="text-center reponse-calendrier">17</td>
+                                            <td class="text-center">18</td>
+                                            <td class="text-center">19</td>
+                                            <td class="text-center examen-semestriel">20</td>
+
+                                        </tr>
+
+                                        <tr class="priority-300">
+                                            <td class="text-center examen-semestriel">21</td>
+                                            <td class="text-center examen-semestriel">22</td>
+                                            <td class="text-center examen-semestriel">23</td>
+                                            <td class="text-center examen-semestriel">24</td>
+                                            <td class="text-center examen-semestriel">25</td>
+                                            <td class="text-center examen-semestriel">26</td>
+                                            <td class="text-center examen-semestriel">27</td>
+                                            <td class="text-center">28</td>
+                                            <td class="text-center">29</td>
+                                            <td class="text-center">30</td>
+
+                                        </tr>
+
+                                        <tr class="priority-300">
+                                            <td class="text-center">31</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
 
-                        <table class="mt-4">
-                            <tbody id="tabcalendrier">
-
-                                <tr class="priority-300">
-                                    <td class="text-center">1</td>
-                                    <td class="text-center">2</td>
-                                    <td class="text-center cours-calendrier">3</td>
-                                    <td class="text-center cours-calendrier">4</td>
-                                    <td class="text-center cours-calendrier">5</td>
-                                    <td class="text-center cours-calendrier">6</td>
-                                    <td class="text-center cours-calendrier">7</td>
-                                    <td class="text-center cours-calendrier">8</td>
-                                    <td class="text-center cours-calendrier">9</td>
-                                    <td class="text-center cours-calendrier">10</td>
-
-                                </tr>
-
-                                <tr class="priority-300">
-                                    <td class="text-center cours-calendrier">11</td>
-                                    <td class="text-center cours-calendrier">12</td>
-                                    <td class="text-center exercices">13</td>
-                                    <td class="text-center exercices">14</td>
-                                    <td class="text-center exercices">15</td>
-                                    <td class="text-center exercices">16</td>
-                                    <td class="text-center exercices">17</td>
-                                    <td class="text-center exercices">18</td>
-                                    <td class="text-center exercices">19</td>
-                                    <td class="text-center corrige">20</td>
-
-                                </tr>
-
-                                <tr class="priority-300">
-                                    <td class="text-center corrige">21</td>
-                                    <td class="text-center corrige">22</td>
-                                    <td class="text-center examen-mensuel">23</td>
-                                    <td class="text-center examen-mensuel">24</td>
-                                    <td class="text-center examen-semestriel">25</td>
-                                    <td class="text-center examen-semestriel">26</td>
-                                    <td class="text-center examen-semestriel">27</td>
-                                    <td class="text-center examen-semestriel">28</td>
-                                    <td class="text-center examen-semestriel">29</td>
-                                    <td class="text-center examen-semestriel">30</td>
-
-                                </tr>
-
-                                <tr class="priority-300">
-                                    <td class="text-center">31</td>
-
-                                </tr>
-
-                            </tbody>
-                        </table>
+                        <div class="col-12 col-lg-4 col-xl-4 d-flex flex-column justify-content-center calendrier-legende pl-3">
+                            <div class="cours-legende d-flex align-items-center">
+                                <span class="d-flex justify-content-center align-items-center">3</span><p class="ml-2">Debut cours</p>
+                            </div>
+                            <div class="exercice-legende d-flex align-items-center mt-2">
+                                <span class="d-flex justify-content-center align-items-center">10 a</span><span class="d-flex justify-content-center align-items-center">12</span><p class="ml-2">Depot questions</p>
+                            </div>
+                            <div class="corrige-legende d-flex align-items-center mt-2">
+                                <span class="d-flex justify-content-center align-items-center">17</span><p class="ml-2">Reponse au question</p>
+                            </div>
+                            <div class="examen-mensuel-legende d-flex align-items-center mt-2">
+                                <span class="d-flex justify-content-center align-items-center">25</span><span class="d-flex justify-content-center align-items-center">26</span><p class="ml-2">Examen mensuel</p>
+                            </div>
+                            <div class="examen-semestriel-legende d-flex align-items-center mt-2">
+                                <span class="d-flex justify-content-center align-items-center">20 a</span><span class="d-flex justify-content-center align-items-center">27</span><p class="ml-2">Examen semestriel</p>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -479,7 +622,7 @@ require('head.html');
                 <!-- cours -->
                 <div class="col-12 mt-5 contenu-cours mb-2" id="contenu-cours">
                     <div class="head-cours">
-                        <div class="icon-cours d-flex justify-content-center alrgb(26, 24, 24)ign-items-center">
+                        <div class="icon-cours d-flex justify-content-center align-items-center">
                             <i class="fal fa-books"></i>
                         </div>
                         <div class="title-cours d-flex justify-content-center pt-3">
