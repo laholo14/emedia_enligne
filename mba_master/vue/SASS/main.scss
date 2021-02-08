@@ -131,18 +131,25 @@ $background: #3743eeba;
 @media only screen and (max-width:720px){
     .bar-navigation{
         display: flex;
-        align-content: end;
-        justify-content: end;
+        justify-content: start;
         background-color: #1d28ceba;
-        &>.container-navigation:first-child(){
-       
-            
-            
-            width: 150px;
-            height: 70px;
-        
-    
-}
+        height: 80px;
+    }
+    .bar-navigation>.container-item .brand{
+            width: 130px;
+            height: 80px;
+    }
+    .menu {
+        color: white;
+        flex-grow: 1;
+        text-align: end;
+        &>i{
+            padding-top: 24px;
+            padding-right: 32px;
+        }
+    }
+    .container-item:last-child{
+        display: none;
     }
     
 }
