@@ -1,19 +1,24 @@
 <?php
 
-require_once("../model/DateFr.class.php");
+
 
 $datefr = new DateFr();
 
 $date = Date('Y-m-d');
 
 $datedentrer = new DateTime($_SESSION['datedenter']);
-//$datedaujourdhui = new DateTime("2021-02-03");
+//$datedaujourdhui = new DateTime("2021-03-03");
 $datedaujourdhui = new DateTime($date);
 
 
 $diff = $datedentrer->diff($datedaujourdhui);
-$mois = ($diff->m);
 
+
+if ($diff->invert == 1) {
+    $mois = 0;
+} else {
+    $mois = ($diff->m);
+}
 
 if (isset($_SESSION['matricule']) and $_SESSION['inscription'] == 0) {
 
@@ -48,3 +53,6 @@ if (isset($_SESSION['matricule']) and $_SESSION['inscription'] == 0) {
         $_SESSION['finduprisedecontact'] = 'tapitra';
     }
 }
+
+?>
+<?php ?>

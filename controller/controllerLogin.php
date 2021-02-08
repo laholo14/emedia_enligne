@@ -112,10 +112,11 @@ if (isset($_POST["matricule"]) and isset($_POST["password"])) {
 
         if (isset($_SESSION['matricule']) and $matricule === $_SESSION['matricule'] and $mdp === $_SESSION['mdp']){
             // if($_SESSION['diplome'] == 'LICENCE'){
-                 header('Location: ../Accueil'); 
+            //      header('Location: ../Accueil'); 
             // }else{
             //     header('Location: ../Home'); 
             // } 
+            header('Location: ../Accueil'); 
         } else {
     
             $_SESSION['erreur'] = "Matricule ou mot de passe incorrect";
@@ -127,3 +128,5 @@ if (isset($_POST["matricule"]) and isset($_POST["password"])) {
     }
 ob_end_flush();
 ?>
+
+<?php ?>

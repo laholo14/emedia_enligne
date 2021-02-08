@@ -1,14 +1,15 @@
 $(function () {
 
-    $('#count_exam').countdown("2021/02/23").on('update.countdown', function (event) {
-      let $this = $(this).html(event.strftime(''
-        + '<div class="holder m-2"><span class="h1 font-weight-bold">%D</span> Jours</div>'
-        + '<div class="holder m-2"><span class="h1 font-weight-bold">%H</span> Hr</div>'
-        + '<div class="holder m-2"><span class="h1 font-weight-bold">%M</span> Min</div>'
-        + '<div class="holder m-2"><span class="h1 font-weight-bold">%S</span> Sec</div>'));
-    });
-
-  
-  
+  $('#count_exam').countdown("2021/02/23").on('update.countdown', function (event) {
+    let $this = $(this).html(event.strftime(''
+      + '<div class="date text-center"><div class="bloc1 d-flex justify-content-center align-items-center" id="jours">%D</div><div class="bloc2"><p>JOURS</p></div></div>'
+      + '<div class="date text-center"><div class="bloc1 d-flex justify-content-center align-items-center" id="jours">%H</div><div class="bloc2"><p>HR</p></div></div>'
+      + '<div class="date text-center"><div class="bloc1 d-flex justify-content-center align-items-center" id="jours">%M</div><div class="bloc2"><p>MIN</p></div></div>'
+      + '<div class="date text-center"><div class="bloc1 d-flex justify-content-center align-items-center" id="jours">%S</div><div class="bloc2"><p>SEC</p></div></div>'
+    ));
   });
-  
+
+
+
+
+});

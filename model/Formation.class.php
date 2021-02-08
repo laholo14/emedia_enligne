@@ -82,12 +82,12 @@ class Formation
 
     public function formationL1L2M1()
     {
-        $db=Connexion::getCx();
-        $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN PARCOURS  NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE SEMESTRE = :sem AND FILIERE = :fil AND MOIS <= :mois AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
-        $st = $db->prepare($requete);
+        
+        $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN emediam_highschool.PARCOURS  NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE SEMESTRE = :sem AND FILIERE = :fil AND MOIS <= :mois AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
+        $st = Connexion::getCxEtudiant()->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
-            "fil" => $this->getFiliere(),
+            "fil" => $this->getFiliere(),   
             "mois" => $this->getMois(),
             "cat" => $this->getCategorie(),
             "typ" => $this->getType()
@@ -99,9 +99,9 @@ class Formation
 
     public function formationAncienL1L2M1()
     {
-        $db=Connexion::getCx();
-        $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN SEMESTRE NATURAL JOIN PARCOURS  NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE num <= :sem AND FILIERE = :fil  AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
-        $st = $db->prepare($requete);
+        
+        $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN SEMESTRE NATURAL JOIN  emediam_highschool.PARCOURS  NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE num <= :sem AND FILIERE = :fil  AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
+        $st = Connexion::getCxEtudiant()->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
             "fil" => $this->getFiliere(),
@@ -117,9 +117,9 @@ class Formation
 
     public function formationExamenMensuel()
     {
-        $db=Connexion::getCx();
+        
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN PARCOURS  NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE SEMESTRE = :sem AND FILIERE = :fil AND MOIS = :mois AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
-        $st = $db->prepare($requete);
+        $st = Connexion::getCxEtudiant()->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
             "fil" => $this->getFiliere(),
@@ -135,9 +135,9 @@ class Formation
 
     public function formationL3M2()
     {
-        $db=Connexion::getCx();
+        
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN PARCOURS  NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE SEMESTRE = :sem AND PARCOURS = :par AND MOIS <= :mois AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
-        $st = $db->prepare($requete);
+        $st = Connexion::getCxEtudiant()->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
             "par" => $this->getParcours(),
@@ -151,9 +151,9 @@ class Formation
     }
     public function formationAncienL3M2()
     {
-        $db=Connexion::getCx();
+        
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN SEMESTRE NATURAL JOIN PARCOURS  NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE num < :sem AND PARCOURS = :par AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
-        $st = $db->prepare($requete);
+        $st = Connexion::getCxEtudiant()->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
             "par" => $this->getParcours(),
@@ -164,12 +164,12 @@ class Formation
         $st->closeCursor();
         return $res;
     }
-    
+
     public function listMatSemestriel()
     {
-        $db=Connexion::getCx();
+        
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN PARCOURS  NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE SEMESTRE = :sem AND FILIERE = :par AND MOIS <= :mois AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
-        $st = $db->prepare($requete);
+        $st = Connexion::getCxEtudiant()->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
             "par" => $this->getFiliere(),
@@ -185,10 +185,11 @@ class Formation
 
 
 
-    public function listmat(){
-        $db=Connexion::getCx();
+    public function listmat()
+    {
+        
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN PARCOURS  WHERE SEMESTRE = :sem AND FILIERE = :fil ORDER BY MOIS,INTITULE ASC";
-        $st = $db->prepare($requete);
+        $st = Connexion::getCxEtudiant()->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
             "fil" => $this->getFiliere()
@@ -197,6 +198,38 @@ class Formation
         $st->closeCursor();
         return $res;
     }
+
+
+    public function selectNumSemestre($sem)
+    {
+        $requete = "SELECT NUM FROM SEMESTRE WHERE SEMESTRE = :sem";
+        $query = Connexion::getCx()->prepare($requete);
+        $query->execute(array(
+            "sem" => $sem
+        ));
+        return $query->fetchAll();
+    }
+    public function listliensemestre($num)
+    {
+        $requete = "SELECT * FROM SEMESTRE WHERE NUM <= :num AND NUM != 0  ORDER BY NUM DESC";
+        $query = Connexion::getCx()->prepare($requete);
+        $query->execute(array(
+            "num" => $num
+        ));
+        return $query->fetchAll();
+    }
+
+    public function listliensemestreMaster($num)
+    {
+        $requete = "SELECT * FROM SEMESTRE WHERE NUM <= :num AND NUM != 0 AND NUM >=7  ORDER BY NUM DESC";
+        $query = Connexion::getCx()->prepare($requete);
+        $query->execute(array(
+            "num" => $num
+        ));
+        return $query->fetchAll();
+    }
+
 }
 
-?>
+?> 
+<?php ?>

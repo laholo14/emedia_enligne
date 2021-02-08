@@ -151,6 +151,14 @@ $result = new Resultat();
                             <td>15.5</td>
                         </tr>
                     </tr>
+
+                    <tr>
+                        <td colspan="2">Total</td>
+                        <td>33</td>
+                        <td></td>
+                        <td></td>
+                        <td>33 sur 33</td>
+                    </tr>
                 </tbody>
             </table>
     </div>

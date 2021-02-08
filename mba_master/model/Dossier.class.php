@@ -79,16 +79,19 @@ class Dossier
 
     public function create()
     {
-        $requete = "INSERT INTO DOSSIER VALUES(:idcat, :idmat, :idtype, :contenu_fr, :contenu_mg, NULL)";
-        $query = Connexion::getCx()->prepare($requete);
-        $query->execute(array(
-           "idcat" => $this->getCategorie(),
-           "idmat" => $this->getMatiere(),
-           "idtype" => $this->getType(),
-           "contenu_fr" => $this->getContenu_fr(),
-           "contenu_mg" => $this->getContenu_mg()
+        $db=Connexion::getCx();
+        $requete = "INSERT INTO DOSSIER VALUES(:idm, :cat, :typ, :cont_mg, :cont_fr, NULL)";
+
+        $st = $db->prepare($requete);
+
+        $st->execute(array(
+            "idm" => $this->getMatiere(),
+            "cat" => $this->getCategorie(),
+            "typ" => $this->getType(),
+            "cont_mg" => $this->getContenu_mg(),
+            "cont_fr" => $this->getContenu_fr()
+
         ));
-        $query->closeCursor();
-        return 1;
+        $st->closeCursor();
     }
 }
