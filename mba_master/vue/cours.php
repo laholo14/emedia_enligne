@@ -30,8 +30,11 @@ $currentPage = 'cours';
                 <img src="image/logoE-media.png" alt="e-media" />
             </div>
         </div>
-        <div class="container-item d-flex justify-content-end px-5">
-            <div class="setting align-self-center">
+        <div class="menu">
+        <i class="fal fa-bars fa-2x"></i>
+    </div>
+        <div class="container-item">
+            <div class="setting">
                 <i class="fas fa-cog fa-1x"></i>
                 <div class="mydropdown">
                     <ul>
@@ -44,7 +47,7 @@ $currentPage = 'cours';
         </div>
 
     </div>
-    <div id="body" class="d-flex">
+    <div id="body">
         <nav>
 
             <div class="container-navigation">
@@ -54,10 +57,17 @@ $currentPage = 'cours';
                     <li class="navigation-list-item"><a class="navigation-item-link" href="admission.php"> <i class="fas fa-book"></i><span>Admissions</span> </a></li>
 
                     <li class="navigation-list-item"><a  href="#" class="active navigation-item-link"><i class="fas fa-pen"></i><span>Cours </span></a>
-                        <div class="navigationdropdown">
-                            <ul>
-                                <li><a href="#">Deconnexion</a></li>
-                                <li><a href="#">Paramètre</a></li>
+                        <div class="navigationdropdown1">
+                            <ul class="ulnavigationdropdown1">
+                                <li class="linavigationdropdown1" ><a class="anavigationdropdown1" href="#">Lister</a>
+                                    <div class="navigationdropdown2">
+                                        <ul class="ulnavigationdropdown2">
+                                            <li class="linavigationdropdown2"><a class="anavigationdropdown2" href="#">Lister</a></li>
+                                            <li class="linavigationdropdown2"><a class="anavigationdropdown2" href="#">Ajouter</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="linavigationdropdown1"><a class="anavigationdropdown1" href="#">Ajouter</a></li>
                             </ul>
                         </div>
                     </li>
@@ -192,7 +202,7 @@ $currentPage = 'cours';
                             <div class="boutton_file">
                                 choisir
                             </div>
-                            <input id="file_book_mg" class="file_book" type="file" />
+                            <input id="file_book_mg" class="file_book" name="contenu_mg[]" type="file" accept="audio/* , application/vnd.openxmlformats-officedocument.wordprocessingml.document , application/msword , application/pdf" multiple />
                             <span class="file_name">Aucune fichier selectionné</span>
                         </div>
                     </div>
@@ -204,7 +214,7 @@ $currentPage = 'cours';
                             <div class="boutton_file"> 
                                 choisir
                             </div>
-                            <input id="file_book_et" class="file_book" type="file" />
+                            <input id="file_book_et" class="file_book" name="contenu_fr[]" type="file" accept="audio/* , application/vnd.openxmlformats-officedocument.wordprocessingml.document , application/msword , application/pdf" multiple />
                             <span class="file_name">Aucune fichier selectionné</span>
                         </div>
                     </div>
