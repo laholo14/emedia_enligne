@@ -72,26 +72,7 @@ for (let iterate = 0; iterate < listitem.length; iterate++) {
 
 }
 
-//dsiplaying different format sendig when choosing the format
-let selectformat=document.querySelector("#formatchoosing");
-let inputvideomg=document.createElement("div");
-let containerinputforsenditformat=document.querySelectorAll(".containerinputforsenditformat")[0];
 
-inputvideomg.classList="form-group d-flex flex-column";
-inputvideomg.innerHTML='<label>Ajouter une lien vers une video youtube en malgache</label><input name="lienVideoMg" type="text" placeholder="lien vers une video youtube"/>';
-let inputvideofr=document.createElement("div");
-inputvideofr.classList="form-group d-flex flex-column";
-inputvideofr.innerHTML='<label>Ajouter une lien vers une video youtube en français</label><input name="lienVideoFr" type="text" placeholder="lien vers une video youtube en français"/>';
-let inputlivremg=document.createElement("div");
-inputlivremg.classList="form-group";
-inputlivremg.innerHTML='<div class="form-group"><div class="container_field_import"><label for="file_book_mg">contenu pour les nationaux<div class="boutton_file">choisir</div><input id="file_book_mg" name="contenu_mg[]" class="file_book" type="file" accept="audio/* , application/vnd.openxmlformats-officedocument.wordprocessingml.document , application/msword , application/pdf" multiple /><span class="file_name">Aucune fichier selectionné</span></div>';
-
-let inputlivrefr=document.createElement("div");
-inputlivrefr.classList='form-group';
-inputlivrefr.innerHTML='<div class="form-group"><div class="container_field_import"><label for="file_book_et">contenu pour les etrangers</label><div class="boutton_file">choisir</div><input id="file_book_et" class="file_book" name="contenu_fr[]" type="file" accept="audio/* , application/vnd.openxmlformats-officedocument.wordprocessingml.document , application/msword , application/pdf" multiple /><span class="file_name">Aucune fichier selectionné</span></div>'
-
-selectformat.addEventListener("change",function (event) {
-    if(event.target.value==2){
 
         $(".containerinputforsenditformat").empty();
         containerinputforsenditformat.appendChild(inputvideomg);
@@ -103,6 +84,5 @@ selectformat.addEventListener("change",function (event) {
     }
 
 
-    
-},true)
 
+}, true)

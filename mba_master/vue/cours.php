@@ -30,6 +30,9 @@ $currentPage = 'cours';
                 <img src="image/logoE-media.png" alt="e-media" />
             </div>
         </div>
+        <div class="menu">
+        <i class="fal fa-bars fa-2x"></i>
+    </div>
         <div class="container-item">
             <div class="setting">
                 <i class="fas fa-cog fa-1x"></i>

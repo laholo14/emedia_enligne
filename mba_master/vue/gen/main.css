@@ -242,6 +242,9 @@
   .bar-navigation .brand img {
     width: 80%;
   }
+  .bar-navigation .menu {
+    display: none;
+  }
 
   .container-navigation {
     display: block;
@@ -363,13 +366,28 @@
 @media only screen and (max-width: 720px) {
   .bar-navigation {
     display: flex;
-    align-content: end;
-    justify-content: end;
+    justify-content: start;
     background-color: #1d28ceba;
+    height: 80px;
   }
-  .bar-navigation > .container-navigation:first-child() {
-    width: 150px;
-    height: 70px;
+
+  .bar-navigation > .container-item .brand {
+    width: 130px;
+    height: 80px;
+  }
+
+  .menu {
+    color: white;
+    flex-grow: 1;
+    text-align: end;
+  }
+  .menu > i {
+    padding-top: 24px;
+    padding-right: 32px;
+  }
+
+  .container-item:last-child {
+    display: none;
   }
 }
 

@@ -189,7 +189,7 @@ body {
 
 .btn-notification i {
     font-size: 30px;
-    color: rgb(95, 93, 93);
+    color: #0185b4;
 }
 
 .btn-notification span {
@@ -249,8 +249,11 @@ body {
 
 .pdp img {
     border-radius: 50px;
-    height: 80px;
-    width: 80px;
+    height: 90px;
+    width: 90px;
+    border: 4px solid rgba(255, 255, 255, 0.61);
+    box-shadow: 1px 1px 1px 1px rgba(252, 252, 252, 0.3), -1px -1px 1px 1px rgba(245, 243, 243, 0.1);
+    padding: 5px;
 }
 
 .dashboard ul li {
@@ -498,7 +501,7 @@ body {
 }
 
 .propos-contenu .propos-details h6 {
-    color: rgb(153, 234, 245);
+    color: rgb(55, 70, 71);
 }
 
 .propos-contenu .propos-details span {
@@ -605,7 +608,7 @@ body {
 
 .table-note table th {
     font-size: 1rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(229, 229, 229);
     color: #0185b4;
     background-color: rgba(255, 255, 255, 0.87);
 }
@@ -613,11 +616,12 @@ body {
 .table-note table th, .table-note table td {
     padding: 0.9375rem;
     text-align: left;
+    border-right: 1px solid rgba(229, 229, 229);
 }
 
 .table-note table tbody tr {
     background-color: rgba(255, 255, 255, 0.87);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(229, 229, 229);
     color: #000000b7;
     transition: all .5s ease;
 }
@@ -709,8 +713,6 @@ strong {
     font-weight: bold;
 }
 
-.table-calendrier table {}
-
 .table-calendrier h4 {
     color: #000000b7;
 }
@@ -726,49 +728,74 @@ strong {
     padding: 1rem 1rem 0 1rem;
 }
 
-.table-calendrier .legende .cours-calendrier {
+.calendrier-licence .cours-calendrier, .calendrier-legende .cours-legende span, 
+.calendrier-master .cours-calendrier {
+    color: #fff;
+    background-color: rgb(24, 211, 24);
+    width: 50px;
+    height: 50px;
+    padding: 3px;
+}
+
+.calendrier-licence .exercices-calendrier, .calendrier-legende .exercice-legende span,
+.calendrier-master .question-calendrier {
+    color: #ffff;
+    background-color: #e68b14;
+    width: 50px !important;
+    height: 50px !important;
+    padding: 3px;
+}
+
+.calendrier-licence .corrige-calendrier, .calendrier-legende .corrige-legende span,
+.calendrier-master .reponse-calendrier {
+    color: #fff;
+    background-color: rgb(28, 226, 226);
+    width: 50px !important;
+    height: 50px !important;
+    padding: 3px;
+}
+
+.calendrier-licence .examen-mensuel, .calendrier-legende .examen-mensuel-legende span,
+.calendrier-master .examen-mensuel {
+    color: #fff;
+    background-color: rgb(214, 41, 41);
+    width: 50px !important;
+    height: 50px !important;
+    padding: 3px;
+}
+
+.calendrier-licence .examen-semestriel, .calendrier-legende .examen-semestriel-legende span,
+.calendrier-master .examen-semestriel {
+    color: #fff;
+    background-color: rgb(241, 196, 15);
+    width: 50px !important;
+    height: 50px !important;
+    padding: 3px;
+}
+
+.calendrier-legende .cours-legende {
+    border: 1px solid rgb(24, 211, 24);
     color: rgb(24, 211, 24);
-    border-bottom: 2px solid rgb(24, 211, 24);
 }
 
-.table-calendrier .cours-calendrier {
-    color: #000000b7;
-}
-
-.table-calendrier .legende .exercices {
+.calendrier-legende .exercice-legende, .calendrier-legende .question-legende {
+    border: 1px solid #e68b14;
     color: #e68b14;
-    border-bottom: 2px solid #e68b14;
 }
 
-.table-calendrier .exercices {
-    color: #000000b7;
-}
-
-.table-calendrier .legende .corrige {
+.calendrier-legende .corrige-legende, .calendrier-legende .reponse-legende {
+    border: 1px solid rgb(28, 226, 226);
     color: rgb(28, 226, 226);
-    border-bottom: 2px solid rgb(28, 226, 226);
 }
 
-.table-calendrier .corrige {
-    color: #000000b7;
-}
-
-.table-calendrier .legende .examen-mensuel {
+.calendrier-legende .examen-mensuel-legende {
+    border: 1px solid rgb(214, 41, 41);
     color: rgb(214, 41, 41);
-    border-bottom: 2px solid rgb(214, 41, 41);
 }
 
-.table-calendrier .examen-mensuel {
-    color: #000000b7;
-}
-
-.table-calendrier .legende .examen-semestriel {
-    color: rgba(79, 93, 173, 0.932);
-    border-bottom: 2px solid rgba(79, 93, 173, 0.932);
-}
-
-.table-calendrier .examen-semestriel {
-    color: #000000b7;
+.calendrier-legende .examen-semestriel-legende {
+    border: 1px solid rgb(241, 196, 15);
+    color: rgb(241, 196, 15);
 }
 
 .table-calendrier table th, .table-calendrier table td {
@@ -974,8 +1001,6 @@ strong {
         height: 320px;
     }
 }
-
-/* fin cours */
 
 /* exercice */
 
@@ -1189,8 +1214,8 @@ strong {
 
 .admin-chat div {
     border: 1px solid #3f3d3db7;
-    background-color: #3f3d3db7;
-    color: #fff;
+    background-color: #fff;
+    color: #3f3d3db7;
     border-radius: 30px;
     padding: .5rem;
 }
