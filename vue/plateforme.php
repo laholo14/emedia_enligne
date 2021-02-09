@@ -503,11 +503,25 @@ require('head.html');
                         $cours->setMois($_SESSION['mois']);
                         $cours->setCategorie(1);
                         $cours->setType(1);
-                        if ($_SESSION['semestre'] != 'S4' or $_SESSION['semestre'] != 'S5' or $_SESSION['semestre'] != 'S9' or $_SESSION['semestre'] != 'S10') {
-                            $res = $cours->formationL1L2M1();
+                        if ($_SESSION['semestre'] != 'S5' or $_SESSION['semestre'] != 'S6' or $_SESSION['semestre'] != 'S9' or $_SESSION['semestre'] != 'S10') {
+                            $tabvague = explode("V", $_SESSION['vague']);
+
+                            for ($i = 0; $i < count($tabvague); $i++) {
+                                $numvague = $tabvague[$i];
+                            }
+
+                            if ($numvague < 7) {
+                                $res = $cours->formationL1L2M1();
+                            } else {
+                                $res = $cours->formationMBAV7();
+                            }
                         } else {
                             //L3 M2 
-                            $res = $cours->formationL3M2();
+                            if ($numvague < 7) {
+                                $res = $cours->formationL3M2();
+                            } else {
+                                $res = $cours->formationMASTERM2();
+                            }
                         }
 
                         foreach ($res as $resultat) {
@@ -534,16 +548,10 @@ require('head.html');
                                     <div class="mb-2 pt-2 cours text-center">
                                         <h5 class="d-flex justify-content-center align-items-center"><?php echo $resultat['INTITULE']; ?></h5>
                                         <div class="button-cours d-block">
+
                                             <button class="btn mt-2 active-cours-pdf" onclick="GetPDF('<?php echo $courslivres; ?>','<?php echo $resultat['INTITULE'] . $partie . ' ' . $part; ?>')">PDF</button>
-                                            <?php
+                                            <button class="btn active-cours-explication" onclick="GetYOUTUBE(<?php echo $resultat['IDMATIERE']; ?>,'<?php echo $resultat['INTITULE']; ?>')">Explication</button>
 
-                                            $cours->setType(2);
-                                            $res2 = $cours->formationL1L2M1();
-                                            foreach ($res2 as $resultat2) {
-
-                                            ?>
-                                                <button class="btn" id="active-cours-explication"><?php echo $resultat2['CONTENU_FR']; ?></button>
-                                            <?php } ?>
                                         </div>
                                     </div>
                                 </div>
@@ -559,11 +567,11 @@ require('head.html');
                 <div class="row contenu-cours-explication mt-5 pb-3" id="contenu-cours-explication">
                     <div class="head d-flex">
                         <div class="col-12 title d-flex justify-content-center pt-1">
-                            <h3>Algorithme</h3>
+                            <h3 id="titre_video">Algorithme</h3>
                         </div>
                     </div>
 
-                    <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe id="cours_video" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <!-- fin cours -->
 
@@ -873,6 +881,8 @@ require('head.html');
 
         </div>
     </div>
+
+
 </body>
 <?php
 require('script.html');
