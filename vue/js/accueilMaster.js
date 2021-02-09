@@ -368,7 +368,7 @@ $(document).ready(function() {
         $("#contenu-cours-pdf").fadeIn(1200);
     });
 
-    $("#active-cours-explication").click(function () {
+    $(".active-cours-explication").click(function () {
         $("#contenu-cours-explication").modal({
             fadeDuration: 100
         }); 
