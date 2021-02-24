@@ -181,6 +181,7 @@ body {
 .btn-notification {
     background-color: #fff;
     border: none;
+    margin-right: 3rem;
 }
 
 .btn-notification:focus {
@@ -201,21 +202,24 @@ body {
 
 /* mobile navbar */
 
-@media (min-width: 200px) and (max-width: 991.9px) {
-    .logo {
-        display: none;
+@media (min-width: 100px) and (max-width: 991.9px) {
+    .btn-notification {
+        margin-right: 4rem !important;
     }
+
     .nav_bar #fa-bars {
         display: block;
         position: absolute;
         font-size: 30px;
         color: #0185b4;
     }
+
     .nav_bar #fa-times {
         position: absolute;
         font-size: 30px;
         color: #0185b4;
     }
+    
     .notification, .logout {
         display: none;
     }
@@ -413,6 +417,8 @@ body {
 @media (min-width: 100px) and (max-width: 767.9px) {
     .title-video h3 {
         margin-top: 3rem;
+        text-align: center;
+        font-size: 2rem;
     }
     .video3 {
         margin-top: 1.5rem;
@@ -461,6 +467,7 @@ body {
 .corps {
     border-radius: 10px 10px 0 0;
     width: 100%;
+    margin-top: 4rem;
 }
 
 .img-profile {
@@ -487,42 +494,41 @@ body {
 }
 
 .propos-contenu {
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3), -1px -1px 1px 1px rgba(0, 0, 0, 0.1);
-    background: linear-gradient(90deg, #0185b4, #7ab4c9);
+    background: linear-gradient(217deg, rgba(6, 176, 228, 0.623), rgba(255,0,0,0) 70.71%)
 }
 
 .propos-img img {
     height: 140px;
+    margin-top: -5rem;
+    background-color: #fff;
     width: auto;
     border-radius: 50%;
-    border: 4px solid rgba(255, 255, 255, 0.61);
     box-shadow: 1px 1px 1px 1px rgba(252, 252, 252, 0.3), -1px -1px 1px 1px rgba(245, 243, 243, 0.1);
     padding: 5px;
 }
 
 .propos-contenu .propos-details h6 {
-    color: rgb(55, 70, 71);
+    color: #0185b4;
 }
 
 .propos-contenu .propos-details span {
-    color: #fff;
+    color: #5a5959de;
     font-size: 1.5rem;
 }
 
 @media (min-width: 100px) and (max-width: 575.9px) {
     .title-profil h3 {
         margin-top: 3rem;
+        text-align: center;
+        font-size: 2rem;
     }
-    .propos-legende span {
-        font-size: 14px;
-    }
-    .profile-legend-nom {
-        padding-top: 2rem !important;
-    }
-    .profile-legend h6 {
-        font-size: 14px;
+
+    .propos-contenu .propos-details span {
+        font-size: 1rem;
     }
 }
+
+
 
 /* fin profil */
 
@@ -668,16 +674,38 @@ strong {
 @media (min-width: 100px) and (max-width: 575.9px) {
     .title-note h3 {
         margin-top: 3rem;
+        font-size: 2rem;
+        text-align: center;
     }
+}
+
+@media (min-width: 480px) and (max-width: 767.9px) {
     .table-note table th {
         font-size: .6rem;
     }
+
     .table-note table th, .table-note table td {
-        padding: 0.3rem;
+        padding: 1rem;
         text-align: left;
     }
+
     .table-note table {
         font-size: .8rem;
+    }
+}
+
+@media (min-width: 100px) and (max-width: 479.9px) {
+    .table-note table th {
+        font-size: .55rem;
+    }
+
+    .table-note table th, .table-note table td {
+        padding: 0.1rem;
+        text-align: left;
+    }
+
+    .table-note table {
+        font-size: .55rem;
     }
 }
 
@@ -768,34 +796,34 @@ strong {
 .calendrier-master .examen-semestriel {
     color: #fff;
     background-color: rgb(241, 196, 15);
-    width: 50px !important;
+    width: 70px !important;
     height: 50px !important;
     padding: 3px;
 }
 
 .calendrier-legende .cours-legende {
-    border: 1px solid rgb(24, 211, 24);
-    color: rgb(24, 211, 24);
+    background-color: rgb(24, 211, 24);
+    color: #fff;
 }
 
 .calendrier-legende .exercice-legende, .calendrier-legende .question-legende {
-    border: 1px solid #e68b14;
-    color: #e68b14;
+    background-color: #e68b14;
+    color: #fff;
 }
 
 .calendrier-legende .corrige-legende, .calendrier-legende .reponse-legende {
-    border: 1px solid rgb(28, 226, 226);
-    color: rgb(28, 226, 226);
+    background-color: rgb(28, 226, 226);
+    color: #fff;
 }
 
 .calendrier-legende .examen-mensuel-legende {
-    border: 1px solid rgb(214, 41, 41);
-    color: rgb(214, 41, 41);
+    background-color: rgb(214, 41, 41);
+    color: #fff;
 }
 
 .calendrier-legende .examen-semestriel-legende {
-    border: 1px solid rgb(241, 196, 15);
-    color: rgb(241, 196, 15);
+    background-color: rgb(241, 196, 15);
+    color: #fff;
 }
 
 .table-calendrier table th, .table-calendrier table td {
@@ -843,10 +871,13 @@ strong {
 @media (min-width: 100px) and (max-width: 575.9px) {
     .title-calendrier h3 {
         margin-top: 3rem;
+        font-size: 2rem;
     }
+
     .table-calendrier table {
         font-size: 0.9rem;
     }
+
     .table-calendrier table td {
         padding: .3rem;
     }
@@ -985,14 +1016,14 @@ strong {
 }
 
 .modal a.close-modal {
-    top: 15.5px;
-    right: 33.5px;
-    color: red !important;
+    top: -.5px;
+    right: .5px;
 }
 
 @media (min-width: 100px) and (max-width: 575.9px) {
     .title-cours h3 {
         margin-top: 3rem;
+        font-size: 2rem;
     }
     .cours {
         margin-left: 1rem;
@@ -1142,6 +1173,7 @@ strong {
 @media (min-width: 100px) and (max-width: 575.9px) {
     .title-exercice h3 {
         margin-top: 3rem;
+        font-size: 2rem;
     }
     .exercice {
         margin-left: 1rem;
@@ -1256,7 +1288,8 @@ strong {
 @media (min-width: 100px) and (max-width: 575px) {
     .title-chat h3 {
         margin-top: 3rem;
-        margin-left: 3rem;
+        text-align: center;
+        font-size: 2rem;
     }
     .body-chat {
         height: 45vh !important;
@@ -1295,6 +1328,10 @@ strong {
     font-weight: bold;
 }
 
+.contact {
+    text-align: center;
+}
+
 .contact h6 {
     font-size: 16px;
     color: #000000b7;
@@ -1309,6 +1346,7 @@ strong {
 @media (min-width: 100px) and (max-width: 575px) {
     .title-contact h3 {
         margin-top: 3rem;
+        font-size: 2rem;
     }
 }
 
@@ -1355,6 +1393,12 @@ strong {
     border: 1px solid #0184b4c5;
     color: #0184b4c5;
     outline: none;
+}
+
+@media (min-width: 100px) and (max-width: 470px) {
+    .contenu-notification .date .bloc1, .contenu-notification .date .bloc2 {
+        width: 60px;
+    }
 }
 
 /* fin section */
