@@ -78,7 +78,7 @@ $connexion = new Connexion();
                                 <a class="nav-link" href="admin/vue/adminNote.php">Resultat & Note</a>
                                 <a class="nav-link" href="admin/vue/AdminRepechage.php">Liste repéchage</a>
                                 <a class="nav-link" href="admin/vue/examenSpecifique.php">Insértion Examen Spécifique</a>
-                                <!-- <a class="nav-link" id='rlv' href="admin/vue/adminReleve.php">Relevés de notes</a> -->
+                                <a class="nav-link" id='rlv' href="admin/vue/adminReleve.php">Relevés de notes</a>
                             </div>
                         </div>
                     </li>
