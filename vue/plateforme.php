@@ -298,16 +298,16 @@ require('head.html');
                                     <td>EC1</td>
                                     <td>Algorithme</td>
                                     <td>15.5</td>
-                                    <tr>
-                                        <td>EC1</td>
-                                        <td>Algorithme</td>
-                                        <td>15.5</td>
-                                    </tr>
-                                    <tr>
-                                        <td>EC1</td>
-                                        <td>Algorithme</td>
-                                        <td>15.5</td>
-                                    </tr>
+                                <tr>
+                                    <td>EC1</td>
+                                    <td>Algorithme</td>
+                                    <td>15.5</td>
+                                </tr>
+                                <tr>
+                                    <td>EC1</td>
+                                    <td>Algorithme</td>
+                                    <td>15.5</td>
+                                </tr>
                                 </tr>
 
                                 <tr>
@@ -320,11 +320,11 @@ require('head.html');
                                     <td>EC1</td>
                                     <td>Algorithme</td>
                                     <td>15.5</td>
-                                    <tr>
-                                        <td>EC1</td>
-                                        <td>Algorithme</td>
-                                        <td>15.5</td>
-                                    </tr>
+                                <tr>
+                                    <td>EC1</td>
+                                    <td>Algorithme</td>
+                                    <td>15.5</td>
+                                </tr>
                                 </tr>
 
                                 <tr>
@@ -350,7 +350,7 @@ require('head.html');
                             <h3>Calendrier</h3>
                         </div>
                     </div>
-                    
+
                     <!-- calendrier-licence -->
                     <div class="calendrier-licence d-flex">
                         <div class="col-12 col-lg-8 col-xl-8 calendrier-corps">
@@ -465,19 +465,24 @@ require('head.html');
 
                         <div class="col-12 col-lg-4 col-xl-4 d-flex flex-column justify-content-center calendrier-legende pl-3">
                             <div class="cours-legende d-flex align-items-center">
-                                <span class="d-flex justify-content-center align-items-center">3</span><p class="ml-2">Debut cours</p>
+                                <span class="d-flex justify-content-center align-items-center">3</span>
+                                <p class="ml-2">Debut cours</p>
                             </div>
                             <div class="exercice-legende d-flex align-items-center mt-2">
-                                <span class="d-flex justify-content-center align-items-center">13</span><p class="ml-2">Debut exercice</p>
+                                <span class="d-flex justify-content-center align-items-center">13</span>
+                                <p class="ml-2">Debut exercice</p>
                             </div>
                             <div class="corrige-legende d-flex align-items-center mt-2">
-                                <span class="d-flex justify-content-center align-items-center">20</span><p class="ml-2">Debut correction</p>
+                                <span class="d-flex justify-content-center align-items-center">20</span>
+                                <p class="ml-2">Debut correction</p>
                             </div>
                             <div class="examen-mensuel-legende d-flex align-items-center mt-2">
-                                <span class="d-flex justify-content-center align-items-center">23</span><span class="d-flex justify-content-center align-items-center">24</span><p class="ml-2">Examen mensuel</p>
+                                <span class="d-flex justify-content-center align-items-center">23</span><span class="d-flex justify-content-center align-items-center">24</span>
+                                <p class="ml-2">Examen mensuel</p>
                             </div>
                             <div class="examen-semestriel-legende d-flex align-items-center mt-2">
-                                <span class="d-flex justify-content-center align-items-center">25 a</span><span class="d-flex justify-content-center align-items-center">30</span><p class="ml-2">Examen semestriel</p>
+                                <span class="d-flex justify-content-center align-items-center">25 a</span><span class="d-flex justify-content-center align-items-center">30</span>
+                                <p class="ml-2">Examen semestriel</p>
                             </div>
                         </div>
                     </div>
@@ -599,19 +604,24 @@ require('head.html');
 
                         <div class="col-12 col-lg-4 col-xl-4 d-flex flex-column justify-content-center calendrier-legende pl-3">
                             <div class="cours-legende d-flex align-items-center">
-                                <span class="d-flex justify-content-center align-items-center">3</span><p class="ml-2">Debut cours</p>
+                                <span class="d-flex justify-content-center align-items-center">3</span>
+                                <p class="ml-2">Debut cours</p>
                             </div>
                             <div class="exercice-legende d-flex align-items-center mt-2">
-                                <span class="d-flex justify-content-center align-items-center">10 a</span><span class="d-flex justify-content-center align-items-center">12</span><p class="ml-2">Depot questions</p>
+                                <span class="d-flex justify-content-center align-items-center">10 a</span><span class="d-flex justify-content-center align-items-center">12</span>
+                                <p class="ml-2">Depot questions</p>
                             </div>
                             <div class="corrige-legende d-flex align-items-center mt-2">
-                                <span class="d-flex justify-content-center align-items-center">17</span><p class="ml-2">Reponse au question</p>
+                                <span class="d-flex justify-content-center align-items-center">17</span>
+                                <p class="ml-2">Reponse au question</p>
                             </div>
                             <div class="examen-mensuel-legende d-flex align-items-center mt-2">
-                                <span class="d-flex justify-content-center align-items-center">25</span><span class="d-flex justify-content-center align-items-center">26</span><p class="ml-2">Examen mensuel</p>
+                                <span class="d-flex justify-content-center align-items-center">25</span><span class="d-flex justify-content-center align-items-center">26</span>
+                                <p class="ml-2">Examen mensuel</p>
                             </div>
                             <div class="examen-semestriel-legende d-flex align-items-center mt-2">
-                                <span class="d-flex justify-content-center align-items-center">20 a</span><span class="d-flex justify-content-center align-items-center">27</span><p class="ml-2">Examen semestriel</p>
+                                <span class="d-flex justify-content-center align-items-center">20 a</span><span class="d-flex justify-content-center align-items-center">27</span>
+                                <p class="ml-2">Examen semestriel</p>
                             </div>
                         </div>
                     </div>
@@ -646,11 +656,25 @@ require('head.html');
                         $cours->setMois($_SESSION['mois']);
                         $cours->setCategorie(1);
                         $cours->setType(1);
-                        if ($_SESSION['semestre'] != 'S4' or $_SESSION['semestre'] != 'S5' or $_SESSION['semestre'] != 'S9' or $_SESSION['semestre'] != 'S10') {
-                            $res = $cours->formationL1L2M1();
+                        if ($_SESSION['semestre'] != 'S5' or $_SESSION['semestre'] != 'S6' or $_SESSION['semestre'] != 'S9' or $_SESSION['semestre'] != 'S10') {
+                            $tabvague = explode("V", $_SESSION['vague']);
+
+                            for ($i = 0; $i < count($tabvague); $i++) {
+                                $numvague = $tabvague[$i];
+                            }
+
+                            if ($numvague < 7) {
+                                $res = $cours->formationL1L2M1();
+                            } else {
+                                $res = $cours->formationMBAV7();
+                            }
                         } else {
                             //L3 M2 
-                            $res = $cours->formationL3M2();
+                            if ($numvague < 7) {
+                                $res = $cours->formationL3M2();
+                            } else {
+                                $res = $cours->formationMASTERM2();
+                            }
                         }
 
                         foreach ($res as $resultat) {
@@ -677,16 +701,10 @@ require('head.html');
                                     <div class="mb-2 pt-2 cours text-center">
                                         <h5 class="d-flex justify-content-center align-items-center"><?php echo $resultat['INTITULE']; ?></h5>
                                         <div class="button-cours d-block">
+
                                             <button class="btn mt-2 active-cours-pdf" onclick="GetPDF('<?php echo $courslivres; ?>','<?php echo $resultat['INTITULE'] . $partie . ' ' . $part; ?>')">PDF</button>
-                                            <?php
+                                            <button class="btn active-cours-explication" onclick="GetYOUTUBE(<?php echo $resultat['IDMATIERE']; ?>,'<?php echo $resultat['INTITULE']; ?>')">Explication</button>
 
-                                            $cours->setType(2);
-                                            $res2 = $cours->formationL1L2M1();
-                                            foreach ($res2 as $resultat2) {
-
-                                            ?>
-                                                <button class="btn" id="active-cours-explication"><?php echo $resultat2['CONTENU_FR']; ?></button>
-                                            <?php } ?>
                                         </div>
                                     </div>
                                 </div>
@@ -702,11 +720,11 @@ require('head.html');
                 <div class="row contenu-cours-explication mt-5 pb-3" id="contenu-cours-explication">
                     <div class="head d-flex">
                         <div class="col-12 title d-flex justify-content-center pt-1">
-                            <h3>Algorithme</h3>
+                            <h3 id="titre_video">Algorithme</h3>
                         </div>
                     </div>
 
-                    <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe id="cours_video" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <!-- fin cours -->
 
@@ -1016,6 +1034,8 @@ require('head.html');
 
         </div>
     </div>
+
+
 </body>
 <?php
 require('script.html');

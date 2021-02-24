@@ -5,7 +5,7 @@ class ExamMBA{
    private $idmatiere;
    private $idsessiondexam;
    private $idtypedexam;
-   private $code;
+   private $code;   
    private $sujet;
    private $durre;
    private $qcm;
