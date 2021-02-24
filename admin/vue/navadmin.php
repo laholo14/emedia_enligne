@@ -36,7 +36,7 @@
                                 <a class="nav-link" href="adminNote.php">Resultat & Note</a>
                                 <a class="nav-link" href="AdminRepechage.php">Liste repéchage</a>
                                 <a class="nav-link" href="examenSpecifique.php">Insértion Examen Spécifique</a>
-                                <!-- <a class="nav-link" id='rlv' href="adminReleve.php">Relevés de notes</a> -->
+                                <a class="nav-link" id='rlv' href="adminReleve.php">Relevés de notes</a>
                             </div>
                         </div>
                     </li>

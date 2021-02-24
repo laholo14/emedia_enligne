@@ -296,16 +296,16 @@ require('head.html');
                                     <td>EC1</td>
                                     <td>Algorithme</td>
                                     <td>15.5</td>
-                                    <tr>
-                                        <td>EC1</td>
-                                        <td>Algorithme</td>
-                                        <td>15.5</td>
-                                    </tr>
-                                    <tr>
-                                        <td>EC1</td>
-                                        <td>Algorithme</td>
-                                        <td>15.5</td>
-                                    </tr>
+                                <tr>
+                                    <td>EC1</td>
+                                    <td>Algorithme</td>
+                                    <td>15.5</td>
+                                </tr>
+                                <tr>
+                                    <td>EC1</td>
+                                    <td>Algorithme</td>
+                                    <td>15.5</td>
+                                </tr>
                                 </tr>
 
                                 <tr>
@@ -318,11 +318,11 @@ require('head.html');
                                     <td>EC1</td>
                                     <td>Algorithme</td>
                                     <td>15.5</td>
-                                    <tr>
-                                        <td>EC1</td>
-                                        <td>Algorithme</td>
-                                        <td>15.5</td>
-                                    </tr>
+                                <tr>
+                                    <td>EC1</td>
+                                    <td>Algorithme</td>
+                                    <td>15.5</td>
+                                </tr>
                                 </tr>
 
                                 <tr>
@@ -348,7 +348,7 @@ require('head.html');
                             <h3>Calendrier</h3>
                         </div>
                     </div>
-                    
+
                     <!-- calendrier-licence -->
                     <div class="calendrier-licence d-block d-lg-flex d-xl-flex pb-2">
                         <div class="col-12 col-lg-8 col-xl-8 calendrier-corps">
@@ -480,6 +480,7 @@ require('head.html');
                             </div>
                             <div class="examen-semestriel-legende d-flex align-items-center mt-2">
                                 <div class="d-flex align-items-center p-2">25 au 30 : Examen semestriel</div>
+
                             </div>
                         </div>
                     </div>
@@ -601,8 +602,7 @@ require('head.html');
                         </div>
 
                         <div class="col-12 col-lg-4 col-xl-4 d-flex flex-column justify-content-center calendrier-legende pl-3">
-                            <div class="cours-legende d-flex align-items-center">
-                                <div class="d-flex align-items-center p-2">3 : Debut cours</div>
+                            <div class="cours-legende d-flex align-items-center">          <div class="d-flex align-items-center p-2">3 : Debut cours</div>
                             </div>
                             <div class="exercice-legende d-flex align-items-center mt-2">
                                 <div class="d-flex align-items-center p-2">10 au 12 : Depot questions</div>
@@ -615,6 +615,7 @@ require('head.html');
                             </div>
                             <div class="examen-semestriel-legende d-flex align-items-center mt-2">
                                 <div class="d-flex align-items-center p-2">20 au 27 : Examen semestriel</div>
+
                             </div>
                         </div>
                     </div>
