@@ -142,38 +142,19 @@ $suivre = new Suivre();
     <p>Matricule:<span style="margin-left:2px" id="matricule"></span></p>
 </div>
 
-
-
-    <table border="1">
-        <thead>
-            <tr>
-                <th rowspan="2" class="text-center">LISTE DES MATIERES</th>
-                <th colspan="2" class="text-center">NOTES /20</th>
-                <th colspan="2" class="text-center"><center>DECISION</center></th>
-            </tr>
-            <tr>
-                <th class="text-center">Mensuel</th>
-                <th class="text-center">Semestriel</th>
-                <th class="text-center">Moyenne des notes</th>
-                <th class="text-center">Validation</th>
-            </tr>
-        </thead>
-
-        <tbody id = "tabnote">
-
-            <tr class="priority-300">
-                <td class="matier">Matiere</td>
-                <td class="note1 text-center">Note M</td>
-                <td class="note1 text-center">Note S</td>
-                <td class="note1 text-center">Moyenne</td>
-                <td class="note1 text-center">Validation</td>
-
-            </tr>
-
-
-
-        </tbody>
-    </table>
+<table border="1">
+    <thead>
+        <tr>
+            <th class="text-center">Unité d'enseignement</th>
+            <th class="text-center">Crédit</th>
+            <th  class="text-center">Moyenne finale</th>
+            <th  class="text-center">Element Constitutif</th>
+            <th class="text-center">Note par EC</th>
+        </tr>
+    </thead>   
+    <tbody id="tabnote">
+    </tbody>
+</table>
     <br>
 
 

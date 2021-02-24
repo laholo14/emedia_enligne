@@ -51,6 +51,7 @@ if (!isset($_SESSION['matriculeadmin'])) {
 
                 <a href="#" id="mensuel" class="option list-group-item mt-4 list-group-item-action p-3 border-0"><i class="fas fa-file-alt lead mr-2"></i> Examen Mensuel</a>
                 <a href="#" id="semestriel" class="option list-group-item mt-3 list-group-item-action p-3 border-0"><i class="fas fa-file-word lead mr-2"></i> Examen Semestriel</a>
+                <a href="#" id="repechage" class="option list-group-item mt-3 list-group-item-action p-3 border-0"><i class="fas fa-file-word lead mr-2"></i>Repechage</a>
 
 
             </div>
@@ -276,6 +277,13 @@ if (!isset($_SESSION['matriculeadmin'])) {
             e.preventDefault();
             $('h1').text('Examen Semestriel');
             $('#session_exam').val('2');
+
+            listExam();
+        });
+        $("#repechage").click(function(e) {
+            e.preventDefault();
+            $('h1').text('Repechage');
+            $('#session_exam').val('3');
 
             listExam();
         });

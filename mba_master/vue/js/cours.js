@@ -85,11 +85,11 @@ inputvideofr.innerHTML = '<label>Ajouter une lien vers une video youtube en fran
 //create element for input book to local country
 let inputlivremg = document.createElement("div");
 inputlivremg.classList = "form-group";
-inputlivremg.innerHTML = '<div class="container_field_import"><label for="file_book_mg">contenu pour les nationaux<div class="boutton_file">choisir</div><input id="file_book_mg" class="file_book" type="file" /><span class="file_name">Aucune fichier selectionné</span></div>';
+inputlivremg.innerHTML = '<div class="container_field_import"><label for="file_book_mg">contenu pour les nationaux<div class="boutton_file">choisir</div><input id="file_book_mg" class="file_book" type="file" name="contenu_mg[]" type="file" accept="audio/* , application/vnd.openxmlformats-officedocument.wordprocessingml.document , application/msword , application/pdf"/><span class="file_name">Aucune fichier selectionné</span></div>';
 //create element for input book to foreigner country
 let inputlivrefr = document.createElement("div");
 inputlivrefr.classList = 'form-group';
-inputlivrefr.innerHTML = '<div class="container_field_import"><label for="file_book_et">contenu pour les etrangers</label><div class="boutton_file">choisir</div><input id="file_book_et" class="file_book" type="file" /><span class="file_name">Aucune fichier selectionné</span></div>'
+inputlivrefr.innerHTML = '<div class="container_field_import"><label for="file_book_et">contenu pour les etrangers</label><div class="boutton_file">choisir</div><input id="file_book_et" class="file_book" type="file" name="contenu_fr[]" type="file" accept="audio/* , application/vnd.openxmlformats-officedocument.wordprocessingml.document , application/msword , application/pdf"/><span class="file_name">Aucune fichier selectionné</span></div>'
 
 let inputaudiomg = document.createElement('div');
 inputaudiomg.classList = "form-group";
