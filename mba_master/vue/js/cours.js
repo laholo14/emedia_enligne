@@ -72,8 +72,6 @@ for (let iterate = 0; iterate < listitem.length; iterate++) {
 
 }
 
-
-
         $(".containerinputforsenditformat").empty();
         containerinputforsenditformat.appendChild(inputvideomg);
         containerinputforsenditformat.appendChild(inputvideofr);

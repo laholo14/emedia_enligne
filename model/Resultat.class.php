@@ -215,5 +215,18 @@ class Resultat
        return $res;
        
     }
+    public function selectMatiereARepecher(){
+        $db=Connexion::getCx();
+        $requete="SELECT * FROM RESULTAT where IDETUDIANTS=:idEtudiant and IDMATIERE=:idMatiere where  avg(NOTE)>10";
+        $st = $db->prepare($requete);
+       $st->execute(array(
+           "idEtudiant" =>  $this->getEtudiant(),
+           "idMatiere" => $this->getMatiere()
+       ));
+       $res=$st->fetchAll();
+       $st->closeCursor();
+       return $res;
+    }
+
 
 }

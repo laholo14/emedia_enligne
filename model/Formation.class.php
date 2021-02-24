@@ -156,7 +156,60 @@ class Formation
         return $res;
     }
 
-    
+
+    public function MoyenneParUe($idue,$idEtud){
+        $db=Connexion::getCx();
+        $requete = "SELECT ROUND(avg(NOTE),2) as MOYENNEFINALE FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN RESULTAT NATURAL JOIN PARCOURS NATURAL JOIN UE WHERE SEMESTRE = :sem AND FILIERE = :fil and IDUE=:idue AND IDETUDIANTS=:idEtud";
+        $st = $db->prepare($requete);
+        $st->execute(array(
+            "sem" => $this->getSemestre(),
+            "fil" => $this->getFiliere(),
+            "idue" => $idue,
+            "idEtud" =>$idEtud
+        ));
+        $res = $st->fetchAll();
+        $st->closeCursor();
+        return $res;
+    }
+
+    public function listmat(){
+        $db=Connexion::getCx();
+        $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN PARCOURS NATURAL JOIN UE  WHERE SEMESTRE = :sem AND FILIERE = :fil ORDER BY IDUE ASC";
+        $st = $db->prepare($requete);
+        $st->execute(array(
+            "sem" => $this->getSemestre(),
+            "fil" => $this->getFiliere()
+        ));
+        $res = $st->fetchAll();
+        $st->closeCursor();
+        return $res;
+    }
+    public function countUe($ue){
+        $db=Connexion::getCx();
+        $requete = "SELECT count(INTITULE) as ROWSPAN FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN PARCOURS NATURAL JOIN UE  WHERE SEMESTRE = :sem AND FILIERE = :fil AND INTITULEUE=:ue ORDER BY IDUE ASC";
+        $st = $db->prepare($requete);
+        $st->execute(array(
+            "sem" => $this->getSemestre(),
+            "fil" => $this->getFiliere(),
+            "ue"=>$ue
+        ));
+        $res = $st->fetchAll();
+        $st->closeCursor();
+        return $res;
+    }
+    public function totalCredit($ue){
+        $db=Connexion::getCx();
+        $requete = "SELECT sum(CREDIT) as TOTALCREDIT FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN PARCOURS NATURAL JOIN UE  WHERE SEMESTRE = :sem AND FILIERE = :fil AND INTITULEUE=:ue ORDER BY IDUE ASC";
+        $st = $db->prepare($requete);
+        $st->execute(array(
+            "sem" => $this->getSemestre(),
+            "fil" => $this->getFiliere(),
+            "ue"=>$ue
+        ));
+        $res = $st->fetchAll();
+        $st->closeCursor();
+        return $res;
+    }
 
     public function selectNumSemestre($sem)
     {
