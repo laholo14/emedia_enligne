@@ -481,7 +481,7 @@ $(document).ready(function() {
     });
 
     //mobile version 
-    var largeurEcran = $(window).width();
+    let largeurEcran = $(window).width();
 
     if (largeurEcran <= 991) {
         $("#active-video").click(function () {
@@ -574,5 +574,6 @@ $(document).ready(function() {
             $("#fa-times").fadeOut(200);
         });
     }
+
 });
 
