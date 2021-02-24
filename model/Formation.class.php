@@ -184,20 +184,6 @@ class Formation
 
 
 
-
-    public function listmat()
-    {
-        
-        $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN PARCOURS  WHERE SEMESTRE = :sem AND FILIERE = :fil ORDER BY MOIS,INTITULE ASC";
-        $st = Connexion::getCxEtudiant()->prepare($requete);
-        $st->execute(array(
-            "sem" => $this->getSemestre(),
-            "fil" => $this->getFiliere()
-        ));
-        $res = $st->fetchAll();
-        $st->closeCursor();
-        return $res;
-    }
     public function MoyenneParUe($idue,$idEtud){
         $db=Connexion::getCx();
         $requete = "SELECT ROUND(avg(NOTE),2) as MOYENNEFINALE FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN RESULTAT NATURAL JOIN PARCOURS NATURAL JOIN UE WHERE SEMESTRE = :sem AND FILIERE = :fil and IDUE=:idue AND IDETUDIANTS=:idEtud";
