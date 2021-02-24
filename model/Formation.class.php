@@ -156,7 +156,6 @@ class Formation
         return $res;
     }
 
-
     public function MoyenneParUe($idue,$idEtud){
         $db=Connexion::getCx();
         $requete = "SELECT ROUND(avg(NOTE),2) as MOYENNEFINALE FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN RESULTAT NATURAL JOIN PARCOURS NATURAL JOIN UE WHERE SEMESTRE = :sem AND FILIERE = :fil and IDUE=:idue AND IDETUDIANTS=:idEtud";
