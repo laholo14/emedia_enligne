@@ -77,6 +77,9 @@ $suivre = new Suivre();
                                 <!-- <th>Inscription</th>
                                 <th>Ecolage</th>-->
                                 <th>Date de validation</th>
+				
+				<th>Ecolage</th>
+				<th>Inscription</th>
                                 <th>Nom</th>
                                 <th>Prénom</th>
                                 <!-- <th>Diplome En</th> -->
@@ -88,8 +91,7 @@ $suivre = new Suivre();
                                 <th>Sexe</th>
                                 <th>Date de naissance</th>
                                 <th>Lieu de naissance</th>
-                                <th>Ecolage</th>
-
+                               
                             </tr>
                         </thead>
                         <tbody>
@@ -105,14 +107,16 @@ $suivre = new Suivre();
                                     <td><?php echo $resultat['MATRICULE']; ?></td>
                                     <td><?php echo $resultat['SEMESTRE']; ?></td>
                                     <!-- <td><?php/* echo $resultat['CODE'];*/ ?></td> -->
-                                    <!--    <td><?php if ($resultat['INSCRIPTION'] == 0) {
+				    <td><?php echo $datefr->dateToFrench($resultat['DATEDINSCRIPTION'],"l j F Y "); ?></td>
+				    <td><?php echo $resultat['ECOLAGE'].'/8';?></td>
+                                    <td><center><?php if ($resultat['INSCRIPTION'] == 0) {
                                                     echo "<b style='color:red;'>Non payé</b>";
                                                 } else {
                                                     echo "<b style='color:#0fcc19;'>Payé</b>";
                                                 }
-                                                ?></td>
-                                    <td><?php echo $resultat['ECOLAGE'] . '/8'; ?></td>-->
-                                    <td><?php echo $datefr->dateToFrench($resultat['DATEDINSCRIPTION'], "l j F Y ") ?></td>
+                                                ?></center></td>
+                                   
+                             
                                     <td><?php echo $resultat['NOM']; ?></td>
                                     <td><?php echo $resultat['PRENOM']; ?></td>
                                     <!-- <td><?php/* echo $resultat['DIPLOME'];*/ ?></td> -->
@@ -124,7 +128,6 @@ $suivre = new Suivre();
                                     <td><?php echo $resultat['SEXE']; ?></td>
                                     <td><?php echo $resultat['DATENAIS']; ?></td>
                                     <td><?php echo $resultat['LIEUNAISS']; ?></td>
-                                    <td><?php echo $resultat['ECOLAGE']; ?>/8</td>
 
                                 </tr>
                             <?php } ?>

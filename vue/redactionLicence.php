@@ -49,7 +49,7 @@ include("../controller/contrEpreuveLicence.php");
         </div>
 
         <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 overflow-auto redaction mt-5 mb-5">
-            <form class="container" method="post" id="myform" action="controller/contrreponse.php">
+            <form class="container" method="post" id="myform" action="controller/contrreponseLicence.php">
                 <div class="form-group mt-4">
                     <input type="hidden" name="durre" id="durre" value="<?php echo $durre_post; ?>" readonly />
                     <input type="hidden" name="type_exam_reponse" value="<?php echo $id_type_exam; ?>" readonly />
