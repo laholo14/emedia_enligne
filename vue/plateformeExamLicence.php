@@ -26,7 +26,7 @@ if (!isset($_SESSION['session_exam'])) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="vue/css/plateformeExamen.css">
     <link rel="stylesheet" href="vue/css/loading.css">
-    <link rel="stylesheet" href="vue/font-awesome/css/all.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <link rel="icon" href="vue/image/logo E-media copie.png" type="image/png" sizes="16x16">
     <title>Examen</title>
 </head>
@@ -63,15 +63,14 @@ if (!isset($_SESSION['session_exam'])) {
 
                 </div>
 
-                <div class="col-2 verification-lg">
+                <div class="col-1 verification-lg">
                     <a href="Bulletin" class="btn">Vérification</a>
                 </div>
-                <div class="col-2 verification-lg">
-                    <a href="Traitement" class="btn">Paiement</a>
-                </div>
+		<div class="col-1 verification-lg">
+			<a href="Traitement" class="btn ml-2">Paiement</a> </div>
 
                 <div class="col-2 power-off">
-                    <a href="vue/logout.php" class="btn float-right">Deconnexion</a>
+                    <a href="vue/logout.php" class="btn float-right"><i class="fas fa-power-off"></i></a>
                 </div>
 
                 <div class="col-12 text-center verification-sm">
