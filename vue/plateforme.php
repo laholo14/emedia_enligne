@@ -14,10 +14,9 @@ require('head.html');
 <body>
 
     <!-- preloading -->
-    <div class="container-fluid preloading" id="preloading">
-        <div class="contenu-preloading text-center">
-            <span></span>
-            <span></span>
+    <div class="container-preloading flex-column" id="preloading">
+        <img src="vue/image/logo/logo_E-media_enligne_rond.png" class="img-fluid logo" alt="">
+        <div class="preloading">  
             <span></span>
         </div>
     </div>
@@ -27,32 +26,30 @@ require('head.html');
         <div class="row">
 
             <!-- navbar -->
-            <div class="row d-flex fixed-top nav_bar" id="nav_bar">
+            <nav class="row d-flex fixed-top nav_bar" id="nav_bar">
                 <div class="col-4">
                     <img src="vue/image/logo/logo_E-media_enligne.png" class="img-fluid ml-4 logo" alt="">
-                    <div id="fa-bars"><i class="fas fa-bars pt-2 pl-4"></i></div>
-                    <div id="fa-times"><i class="fas fa-times pt-2 pl-4"></i></div>
                 </div>
 
                 <div class="col-8 d-flex justify-content-end select-langue">
-                    <button type="button" class="btn-notification mr-3" id="active-notification">
-                        <i class="fad fa-alarm-clock"></i> <span class="badge badge-light">4</span>
+                    <button type="button" class="btn-notification" id="active-notification">
+                        <i class="fad fa-alarm-clock"></i> <span class="badge badge-light">2</span>
                     </button>
-
+                    <div class="mr-3" id="fa-bars"><i class="fas fa-bars pt-2 pl-4"></i></div>
+                    <div class="mr-3" id="fa-times"><i class="fas fa-times pt-2 pl-4"></i></div>
                 </div>
-            </div>
+            </nav>
             <!-- fin navbar -->
 
             <!-- dashboard -->
-            <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 dashboard dashboard_mobile" id="dashboard">
+            <aside class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 dashboard dashboard_mobile" id="dashboard">
 
                 <div class="pdp d-flex justify-content-center pt-3">
                     <img src="<?php echo $_SESSION["photo"]; ?>" class="mr-3" alt="">
                 </div>
                 <ul class="overflow-auto liste_dashboard mt-1">
 
-                    <li id="active-video" class="active"><a href="#"><i class="fal fa-video-plus mr-3"></i><span>Video
-                                tuto</span></a></li>
+                    <li id="active-video" class="active"><a href="#"><i class="fal fa-hands-helping mr-3"></i><span>Aide</span></a></li>
 
                     <li class="profil">
                         <div class="panel-group">
@@ -71,8 +68,10 @@ require('head.html');
                                             <span>Profil</span>
                                         </li>
                                         <li class="list-group-item" id="active-note">
-                                            <i class="fal fa-clipboard ml-2 mr-3"></i>
-                                            <span>Note</span>
+                                            <a href="Bulletin">
+                                                <i class="fal fa-clipboard ml-2 mr-3"></i>
+                                                <span>Note</span>
+                                            </a>
                                         </li>
                                         <li class="list-group-item">
                                             <i class="fal fa-credit-card ml-2 mr-3"></i>
@@ -165,15 +164,13 @@ require('head.html');
 
                     <li id="active-contact"><a href="#"><i class="fal fa-phone-volume mr-3"></i><span>Contacts</span></a></li>
 
-                    <li id="active-notification"><a href="#"><i class="fal fa-bell mr-3"></i><span>Notifications <span class="badge badge-light">4</span></span></a></li>
-
                     <li id="active-logout"><a href="vue/logout.php"><i class="fas fa-power-off mr-3"></i><span>Deconnexion </span></a></li>
                 </ul>
-            </div>
+            </aside>
             <!-- fin dashboard -->
 
             <!-- section -->
-            <div class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10 contenu overflow-auto" id="contenu">
+            <section class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10 contenu overflow-auto" id="contenu">
 
                 <!-- video tuto -->
                 <div class="col-12 contenu-video mt-5 pb-3 mb-2" id="contenu-video">
@@ -225,24 +222,26 @@ require('head.html');
 
                     <div class="corps">
                         <div class="propos">
-                            <div class="row propos-contenu d-flex p-3">
-                                <div class="col-12 col-lg-2 col-xl-2 propos-img d-flex align-items-center">
+                            <div class="row propos-contenu p-3">
+                                <div class="col-12 col-lg-12 col-xl-12 propos-img d-flex justify-content-center">
                                     <img src="<?php echo $_SESSION["photo"]; ?>" class="img-fluid" alt="">
                                 </div>
 
-                                <div class="col-12 col-lg-5 col-xl-5 propos-details">
-                                    <h6 class="">Nom<br><span><?php echo $_SESSION['nom'] ?></span></h6>
-                                    <h6 class="">Prenom<br><span><?php echo $_SESSION['prenom'] ?></span></h6>
-                                    <h6>E-mail<br><span><?php echo $_SESSION['mail'] ?></span></h6>
-                                    <h6>Parcours<br><span><?php echo $_SESSION['nomparcours'] ?></span></h6>
-                                    <h6>Mention<br><span><?php echo $_SESSION['nomfiliere'] ?></span></h6>
-                                </div>
+                                <div class="col-12 d-block d-lg-flex d-xl-flex mt-4">
+                                    <div class="col-12 col-lg-6 col-xl-6 propos-details">
+                                        <h6 class="">Nom<br><span><?php echo $_SESSION['nom'] ?></span></h6>
+                                        <h6 class="">Prenom<br><span><?php echo $_SESSION['prenom'] ?></span></h6>
+                                        <h6>E-mail<br><span><?php echo $_SESSION['mail'] ?></span></h6>
+                                        <h6>Parcours<br><span><?php echo $_SESSION['nomparcours'] ?></span></h6>
+                                        <h6>Mention<br><span><?php echo $_SESSION['nomfiliere'] ?></span></h6>
+                                    </div>
 
-                                <div class="col-12 col-lg-5 col-xl-5 propos-details">
-                                    <h6>Niveau<br> <span><?php echo $_SESSION['semestre'] ?></span> </h6>
-                                    <h6>Matricule<br><span><?php echo $_SESSION['matricule'] ?></span></h6>
-                                    <h6>Mois<br> <span><?php echo $_SESSION['mois'] ?>/8</span> </h6>
-                                    <h6>Ecolage<br> <span><?php echo $_SESSION['ecolage'] ?>/8 </span> </h6>
+                                    <div class="col-12 col-lg-6 col-xl-6 propos-details">
+                                        <h6>Niveau<br> <span><?php echo $_SESSION['semestre'] ?></span> </h6>
+                                        <h6>Matricule<br><span><?php echo $_SESSION['matricule'] ?></span></h6>
+                                        <h6>Mois<br> <span><?php echo $_SESSION['mois'] ?>/8</span> </h6>
+                                        <h6>Ecolage<br> <span><?php echo $_SESSION['ecolage'] ?>/8 </span> </h6>
+                                    </div>
                                 </div>
 
                             </div>
@@ -250,95 +249,6 @@ require('head.html');
                     </div>
                 </div>
                 <!-- fin profil -->
-
-                <!-- note -->
-                <div class="col-12 mt-5 contenu-note mb-2" id="contenu-note">
-                    <div class="head-note">
-                        <div class="icon-note d-flex justify-content-center align-items-center">
-                            <i class="fal fa-clipboard"></i>
-                        </div>
-                        <div class="title-note d-flex justify-content-center pt-3">
-                            <h3>Notes d'examen</h3>
-                        </div>
-                    </div>
-
-
-                    <div class="d-flex justify-content-center select-semestre">
-                        <div class="dropdown mt-1">
-                            <button class="dropbtn" id="semestre-button">Semestre <i class="fad fa-angle-down float-right mt-1 ml-4"></i></button>
-                            <div class="dropdown-content mt-2" id="semestre-content">
-                                <a href="#" id="semestre1">S1</a>
-                                <a href="#" id="semestre2">S2</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="table-note mt-3 pb-3 d-flex justify-content-center">
-                        <table>
-                            <thead>
-                                <th>Code</th>
-                                <th>Unite d'enseignement</th>
-                                <th>Credit</th>
-                                <th>Moyenne</th>
-                                <th>Mention</th>
-                                <th>Resultat</th>
-                                <th>Code EC</th>
-                                <th>Elemnts constitutifs</th>
-                                <th>Note</th>
-                            </thead>
-
-                            <tbody>
-                                <tr>
-                                    <td rowspan="3">UE1</td>
-                                    <td rowspan="3">Informatique de base</td>
-                                    <td rowspan="3">9</td>
-                                    <td rowspan="3">13.80</td>
-                                    <td rowspan="3">Assez-Bien</td>
-                                    <td rowspan="3">9 sur 9</td>
-                                    <td>EC1</td>
-                                    <td>Algorithme</td>
-                                    <td>15.5</td>
-                                <tr>
-                                    <td>EC1</td>
-                                    <td>Algorithme</td>
-                                    <td>15.5</td>
-                                </tr>
-                                <tr>
-                                    <td>EC1</td>
-                                    <td>Algorithme</td>
-                                    <td>15.5</td>
-                                </tr>
-                                </tr>
-
-                                <tr>
-                                    <td rowspan="2">UE1</td>
-                                    <td rowspan="2">Informatique de base</td>
-                                    <td rowspan="2">9</td>
-                                    <td rowspan="2">13.80</td>
-                                    <td rowspan="2">Assez-Bien</td>
-                                    <td rowspan="2">9 sur 9</td>
-                                    <td>EC1</td>
-                                    <td>Algorithme</td>
-                                    <td>15.5</td>
-                                <tr>
-                                    <td>EC1</td>
-                                    <td>Algorithme</td>
-                                    <td>15.5</td>
-                                </tr>
-                                </tr>
-
-                                <tr>
-                                    <td colspan="2">Total</td>
-                                    <td>33</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>33 sur 33</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <!-- fin note -->
 
                 <!-- calendrier -->
                 <div class="col-12 mt-5 contenu-calendrier mb-2" id="contenu-calendrier">
@@ -350,9 +260,9 @@ require('head.html');
                             <h3>Calendrier</h3>
                         </div>
                     </div>
-
+                    
                     <!-- calendrier-licence -->
-                    <div class="calendrier-licence d-flex">
+                    <div class="calendrier-licence d-block d-lg-flex d-xl-flex pb-2">
                         <div class="col-12 col-lg-8 col-xl-8 calendrier-corps">
                             <div class="col-12 table-calendrier mt-3 pb-3">
                                 <h4 class="text-center">"1er - 3eme mois" et "5eme - 7eme mois"</h4>
@@ -426,6 +336,7 @@ require('head.html');
                                             <td class="text-center">8</td>
                                             <td class="text-center">9</td>
                                             <td class="text-center">10</td>
+
                                         </tr>
 
                                         <tr class="priority-300">
@@ -439,6 +350,7 @@ require('head.html');
                                             <td class="text-center">18</td>
                                             <td class="text-center">19</td>
                                             <td class="text-center corrige-calendrier">20</td>
+
                                         </tr>
 
                                         <tr class="priority-300">
@@ -452,10 +364,12 @@ require('head.html');
                                             <td class="text-center examen-semestriel">28</td>
                                             <td class="text-center examen-semestriel">29</td>
                                             <td class="text-center examen-semestriel">30</td>
+
                                         </tr>
 
                                         <tr class="priority-300">
                                             <td class="text-center">31</td>
+
                                         </tr>
 
                                     </tbody>
@@ -465,30 +379,25 @@ require('head.html');
 
                         <div class="col-12 col-lg-4 col-xl-4 d-flex flex-column justify-content-center calendrier-legende pl-3">
                             <div class="cours-legende d-flex align-items-center">
-                                <span class="d-flex justify-content-center align-items-center">3</span>
-                                <p class="ml-2">Debut cours</p>
+                                <div class="d-flex align-items-center p-2">3 : Debut cours</div>
                             </div>
                             <div class="exercice-legende d-flex align-items-center mt-2">
-                                <span class="d-flex justify-content-center align-items-center">13</span>
-                                <p class="ml-2">Debut exercice</p>
+                                <div class="d-flex align-items-center p-2">13 : Debut exercice</div>
                             </div>
                             <div class="corrige-legende d-flex align-items-center mt-2">
-                                <span class="d-flex justify-content-center align-items-center">20</span>
-                                <p class="ml-2">Debut correction</p>
+                                <div class="d-flex align-items-center p-2">20 : Debut correction</div>
                             </div>
                             <div class="examen-mensuel-legende d-flex align-items-center mt-2">
-                                <span class="d-flex justify-content-center align-items-center">23</span><span class="d-flex justify-content-center align-items-center">24</span>
-                                <p class="ml-2">Examen mensuel</p>
+                                <div class="d-flex align-items-center p-2">23 et 24 : Examen mensuel</div>
                             </div>
                             <div class="examen-semestriel-legende d-flex align-items-center mt-2">
-                                <span class="d-flex justify-content-center align-items-center">25 a</span><span class="d-flex justify-content-center align-items-center">30</span>
-                                <p class="ml-2">Examen semestriel</p>
+                                <div class="d-flex align-items-center p-2">25 au 30 : Examen semestriel</div>
                             </div>
                         </div>
                     </div>
 
                     <!-- calendrier-master -->
-                    <div class="calendrier-master d-flex">
+                    <div class="calendrier-master d-block d-lg-flex d-xl-flex pb-2">
                         <div class="col-12 col-lg-8 col-xl-8 calendrier-corps">
                             <div class="col-12 table-calendrier mt-3 pb-3">
                                 <h4 class="text-center">"1er - 4eme mois" et "6eme - 8eme mois"</h4>
@@ -595,6 +504,7 @@ require('head.html');
 
                                         <tr class="priority-300">
                                             <td class="text-center">31</td>
+
                                         </tr>
 
                                     </tbody>
@@ -604,24 +514,19 @@ require('head.html');
 
                         <div class="col-12 col-lg-4 col-xl-4 d-flex flex-column justify-content-center calendrier-legende pl-3">
                             <div class="cours-legende d-flex align-items-center">
-                                <span class="d-flex justify-content-center align-items-center">3</span>
-                                <p class="ml-2">Debut cours</p>
+                                <div class="d-flex align-items-center p-2">3 : Debut cours</div>
                             </div>
                             <div class="exercice-legende d-flex align-items-center mt-2">
-                                <span class="d-flex justify-content-center align-items-center">10 a</span><span class="d-flex justify-content-center align-items-center">12</span>
-                                <p class="ml-2">Depot questions</p>
+                                <div class="d-flex align-items-center p-2">10 au 12 : Depot questions</div>
                             </div>
                             <div class="corrige-legende d-flex align-items-center mt-2">
-                                <span class="d-flex justify-content-center align-items-center">17</span>
-                                <p class="ml-2">Reponse au question</p>
+                                <div class="d-flex align-items-center p-2">17 : Reponse au question</div>
                             </div>
                             <div class="examen-mensuel-legende d-flex align-items-center mt-2">
-                                <span class="d-flex justify-content-center align-items-center">25</span><span class="d-flex justify-content-center align-items-center">26</span>
-                                <p class="ml-2">Examen mensuel</p>
+                                <div class="d-flex align-items-center p-2">25 et 26 : Examen mensuel</div>
                             </div>
                             <div class="examen-semestriel-legende d-flex align-items-center mt-2">
-                                <span class="d-flex justify-content-center align-items-center">20 a</span><span class="d-flex justify-content-center align-items-center">27</span>
-                                <p class="ml-2">Examen semestriel</p>
+                                <div class="d-flex align-items-center p-2">20 au 27 : Examen semestriel</div>
                             </div>
                         </div>
                     </div>
@@ -943,31 +848,31 @@ require('head.html');
                         </div>
                     </div>
 
-                    <div class="col-12 row table-contact">
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-5 contact">
-                            <h6>Pedagogique License <br> <span>0347626108</span></h6>
+                    <div class="col-12 row table-contact texte-center">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-3 mt-lg-5 mt-xl-5 contact">
+                            <h6>Service Pedagogie License <br> <span>0347626108</span></h6>
                         </div>
 
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-5 contact">
-                            <h6>Pedagogique Master <br> <span>0347626108</span></h6>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-3 mt-lg-5 mt-xl-5 contact">
+                            <h6>Service Pedagogie Master <br> <span>0347626108</span></h6>
                         </div>
 
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-5 contact">
-                            <h6>Pedagogique MBA <br> <span>0347626108</span></h6>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-3 mt-lg-5 mt-xl-5 contact">
+                            <h6>Service Pedagogie MBA <br> <span>0347626108</span></h6>
                         </div>
 
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-5 contact">
-                            <h6>Finance <br> <span>0347626108</span></h6>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-3 mt-lg-5 mt-xl-5 contact">
+                            <h6>Service Finance <br> <span>0347626108</span></h6>
                         </div>
 
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-5 contact">
-                            <h6>Technique <br> <span>0347626108</span></h6>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-3 mt-lg-5 mt-xl-5 contact">
+                            <h6>Service Technique <br> <span>0347626108</span></h6>
                         </div>
                     </div>
                 </div>
                 <!-- fin contact -->
 
-            </div>
+            </section>
             <!-- fin section -->
 
             <!-- contenu-cours-pdf -->
@@ -1040,17 +945,11 @@ require('head.html');
 <?php
 require('script.html');
 ?>
-<script src="vue/js/accueilMaster.js"></script>
-<script src="vue/js/accueil.js"></script>
+
 <script src="vue/js/jquery.countdown.min.js"></script>
 <script src="vue/js/countdownCountExam.js"></script>
 <script src="vue/js/countdownCountEcolage.js"></script>
-
-
-</html>
-
-</html>
-
-</html>
+<script src="vue/js/accueilMaster.js"></script>
+<script src="vue/js/accueil.js"></script>
 
 </html>
