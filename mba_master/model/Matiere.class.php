@@ -78,4 +78,17 @@ class Matiere
         $res = $query->fetchAll();
         return $res;
     }
+
+    //wheree id != requete
+    public function readMatExamMBalatsisysujet($session)
+    {
+        $requete = "SELECT * FROM MATIERE NATURAL JOIN ENSEIGNER WHERE PARCOURS = 'FCM' OR PARCOURS = 'CIM' OR PARCOURS = 'ADAM' AND IDMATIERE != (SELECT IDMATIERE FROM EXAM WHERE IDSESSIONDEXAM = :session)";
+        $query = Connexion::getCx()->prepare($requete);
+        $query->execute((array(
+            "session" => $session
+        )));
+        $res = $query->fetchAll();
+        $query->closeCursor();
+        return $res;
+    }
 }

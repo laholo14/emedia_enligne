@@ -1,16 +1,28 @@
 <?php
+session_start();
+function loadclass($class)
+{
 
-    require('head.html');
+    require "../../model/" . $class . '.class.php';
+}
+
+spl_autoload_register("loadclass");
+
+if (!isset($_SESSION['matricule'])) {
+
+    header("location: Connecter");
+}
+require('head.html');
 ?>
-    <link rel="stylesheet" href="vue/css/note.css">
-    <link rel="stylesheet" href="vue/css/accueilMaster.css">
+<link rel="stylesheet" href="vue/css/note.css">
+<link rel="stylesheet" href="vue/css/accueilMaster.css">
 </head>
 
 <body>
     <!-- preloading -->
     <div class="container-preloading flex-column" id="preloading">
         <img src="vue/image/logo/logo_E-media_enligne_rond.png" class="img-fluid logo" alt="">
-        <div class="preloading">  
+        <div class="preloading">
             <span></span>
         </div>
     </div>
@@ -58,69 +70,70 @@
                     </div>
                 </div>
 
-                <div class="table-note mt-3 pb-3 d-flex justify-content-center">
-                    <table>
-                        <thead>
-                            <th>Code</th>
-                            <th>Unite d'enseignement</th>
-                            <th>Credit</th>
-                            <th>Moyenne</th>
-                            <th>Mention</th>
-                            <th>Resultat</th>
-                            <th>Code EC</th>
-                            <th>Elemnts constitutifs</th>
-                            <th>Note</th>
-                        </thead>
+                <div class="table-note mt-3 pb-3 d-flex justify-content-center"><table border="1">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Unité d'enseignement</th>
+                            <th class="text-center">Crédit</th>
+                            <th  class="text-center">Moyenne finale</th>
+                            <th  class="text-center">Element Constitutif</th>
+                            <th class="text-center">Note par EC</th>
+                        </tr>
+                    </thead>   
+                    <tbody id="tabnote"><?php
+$db = new Connexion();
+    $matiere = new  Formation();
+    $moyenne = new Resultat();
+    $matiere->setSemetre($_SESSION['SEMESTRE']);
+    $matiere->setFiliere($_SESSION['FILIERE']);
+    $res = $matiere->listmat();
+    $table = '';
+    $credit=0;
+    $a="";
+    $row=1;
+    foreach ($res as $resultat) {
+        $b=$resultat['INTITULEUE'];
+            if($a!=$b){
 
-                        <tbody>
-                            <tr>
-                                <td rowspan="3">UE1</td>
-                                <td rowspan="3">Informatique de base</td>
-                                <td rowspan="3">9</td>
-                                <td rowspan="3">13.80</td>
-                                <td rowspan="3">Assez-Bien</td>
-                                <td rowspan="3">9 sur 9</td>
-                                <td>EC1</td>
-                                <td>Algorithme</td>
-                                <td>15.5</td>
-                                <tr>
-                                    <td>EC1</td>
-                                    <td>Algorithme</td>
-                                    <td>15.5</td>
-                                </tr>
-                                <tr>
-                                    <td>EC1</td>
-                                    <td>Algorithme</td>
-                                    <td>15.5</td>
-                                </tr>
-                            </tr>
+                //listeUe
+                $resRows=$matiere->countUe($b);
+                foreach ($resRows as $resultat1) {
+                    $row=$resultat1['ROWSPAN'];
+                }
 
-                            <tr>
-                                <td rowspan="2">UE1</td>
-                                <td rowspan="2">Informatique de base</td>
-                                <td rowspan="2">9</td>
-                                <td rowspan="2">13.80</td>
-                                <td rowspan="2">Assez-Bien</td>
-                                <td rowspan="2">9 sur 9</td>
-                                <td>EC1</td>
-                                <td>Algorithme</td>
-                                <td>15.5</td>
-                                <tr>
-                                    <td>EC1</td>
-                                    <td>Algorithme</td>
-                                    <td>15.5</td>
-                                </tr>
-                            </tr>
+                $table .= '<tr class="priority-300"><td class="matier" rowspan="'.$row.'">' .$b. '</td>';
 
-                            <tr>
-                                <td colspan="2">Total</td>
-                                <td>33</td>
-                                <td></td>
-                                <td></td>
-                                <td>33 sur 33</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                //credit total
+                $resCredit=$matiere->totalCredit($b);
+                foreach ($resCredit as $resultat1) {
+                    $credit=$resultat1['TOTALCREDIT'];
+                }
+                $table .= '<td class="matier" rowspan="'.$row.'"><center>' .$credit. '</center></td>';
+
+                //moyenne(idUe,idEtud)
+                $resMoyenne=$matiere->MoyenneParUe($resultat['IDUE'],$idEtud);
+                foreach ($resMoyenne as $resultatFinale) {
+                    $table .= '<td class="matier" rowspan="'.$row.'"><center>'.$resultatFinale['MOYENNEFINALE'].'</center></td>';
+                }
+
+                
+                $a=$b;
+            }
+        $table .= '<td class="matier" rowspan="1">' . $resultat['INTITULE'] . '</td>';
+        //note
+        $moyenne->setEtudiant($_SESSION['IDETUDIANTS']);
+        $moyenne->setMatiere($resultat['IDMATIERE']);
+        $resNote=$moyenne->selectMoyenne();
+        foreach ($resNote as $resultatNote) {
+            $table .= '<td class="matier" rowspan="1"><center>'. $resultatNote['MOYENNE'] . '</center></td></tr>';
+        }
+    }
+    
+    echo $table;
+
+?>
+                    </tbody>
+                </table>
                 </div>
             </div>
             <!-- fin note -->
@@ -140,11 +153,11 @@
             </div>
 
             <!-- footer -->
-                <footer class="row justify-content-center"> 
-                    <div class="d-flex justify-content-center align-items-center">
-                        <p>Copyright © E-MEDIA 2021</p>
-                    </div>
-                </footer>
+            <footer class="row justify-content-center">
+                <div class="d-flex justify-content-center align-items-center">
+                    <p>Copyright © E-MEDIA 2021</p>
+                </div>
+            </footer>
 
         </div>
     </div>
