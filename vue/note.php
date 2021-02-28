@@ -1,5 +1,12 @@
 <?php
 session_start();
+function loadclass($class)
+{
+
+    require "../../model/" . $class . '.class.php';
+}
+
+spl_autoload_register("loadclass");
 
 if (!isset($_SESSION['matricule'])) {
 
@@ -54,78 +61,40 @@ require('head.html');
                 </div>
 
                 <div class="d-flex justify-content-center select-semestre">
-                    <div class="dropdown mt-1">
-                        <button class="dropbtn" id="semestre-button">Semestre <i class="fad fa-angle-down float-right mt-1 ml-4"></i></button>
-                        <div class="dropdown-content mt-2" id="semestre-content">
-                            <a href="#" id="semestre1">S1</a>
-                            <a href="#" id="semestre2">S2</a>
-                        </div>
+
+                    <div class="form-group select_langue mt-1 mr-5 ml-3">
+                        
+                        <select class="form-control" id="semestre">
+                            <?php if ($_SESSION['diplome'] == 'LICENCE') { ?>
+                                <option class="" value="S1">Semestre 1</option>
+                                <option class="" value="S2">Semestre 2</option>
+                                <option class="" value="S3">Semestre 3</option>
+                                <option class="" value="S4">Semestre 4</option>
+                                <option class="" value="S5">Semestre 5</option>
+                                <option class="" value="S6">Semestre 6</option>
+                            <?php } else { ?>
+                                <option class="" value="S7">Semestre 7</option>
+                                <option class="" value="S8">Semestre 8</option>
+                                <option class="" value="S9">Semestre 9</option>
+                                <option class="" value="S10">Semestre 10</option>
+                            <?php } ?>
+                        </select>
                     </div>
                 </div>
 
-                <div class="table-note mt-3 pb-3 d-flex justify-content-center">
-                    <table>
-                        <thead>
-                            <th>Code</th>
-                            <th>Unite d'enseignement</th>
-                            <th>Credit</th>
-                            <th>Moyenne</th>
-                            <th>Mention</th>
-                            <th>Resultat</th>
-                            <th>Code EC</th>
-                            <th>Elemnts constitutifs</th>
-                            <th>Note</th>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td rowspan="3">UE1</td>
-                                <td rowspan="3">Informatique de base</td>
-                                <td rowspan="3">9</td>
-                                <td rowspan="3">13.80</td>
-                                <td rowspan="3">Assez-Bien</td>
-                                <td rowspan="3">9 sur 9</td>
-                                <td>EC1</td>
-                                <td>Algorithme</td>
-                                <td>15.5</td>
-                            <tr>
-                                <td>EC1</td>
-                                <td>Algorithme</td>
-                                <td>15.5</td>
-                            </tr>
-                            <tr>
-                                <td>EC1</td>
-                                <td>Algorithme</td>
-                                <td>15.5</td>
-                            </tr>
-                            </tr>
-
-                            <tr>
-                                <td rowspan="2">UE1</td>
-                                <td rowspan="2">Informatique de base</td>
-                                <td rowspan="2">9</td>
-                                <td rowspan="2">13.80</td>
-                                <td rowspan="2">Assez-Bien</td>
-                                <td rowspan="2">9 sur 9</td>
-                                <td>EC1</td>
-                                <td>Algorithme</td>
-                                <td>15.5</td>
-                            <tr>
-                                <td>EC1</td>
-                                <td>Algorithme</td>
-                                <td>15.5</td>
-                            </tr>
-                            </tr>
-
-                            <tr>
-                                <td colspan="2">Total</td>
-                                <td>33</td>
-                                <td></td>
-                                <td></td>
-                                <td>33 sur 33</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="table-note mt-3 pb-3 d-flex justify-content-center"><table border="1">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Unité d'enseignement</th>
+                            <th class="text-center">Crédit</th>
+                            <th  class="text-center">Moyenne finale</th>
+                            <th  class="text-center">Element Constitutif</th>
+                            <th class="text-center">Note par EC</th>
+                        </tr>
+                    </thead>   
+                    <tbody id="tabnote">
+                    </tbody>
+                </table>
                 </div>
             </div>
             <!-- fin note -->
@@ -162,5 +131,6 @@ require('script.html');
 <script src="vue/js/countdownCountEcolage.js"></script>
 <script src="vue/js/accueilMaster.js"></script>
 <script src="vue/js/accueil.js"></script>
+<script src="vue/js/bulletin.js"></script>
 
 </html>

@@ -217,7 +217,7 @@ class Resultat
     }
     public function selectMatiereARepecher(){
         $db=Connexion::getCx();
-        $requete="SELECT * FROM RESULTAT where IDETUDIANTS=:idEtudiant and IDMATIERE=:idMatiere where  (SELECT avg(NOTE))>10";
+        $requete="SELECT * FROM RESULTAT where IDETUDIANTS=:idEtudiant and IDMATIERE=:idMatiere and (SELECT avg(NOTE))>10";
         $st = $db->prepare($requete);
        $st->execute(array(
            "idEtudiant" =>  $this->getEtudiant(),
