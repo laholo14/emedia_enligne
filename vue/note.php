@@ -61,12 +61,24 @@ require('head.html');
                 </div>
 
                 <div class="d-flex justify-content-center select-semestre">
-                    <div class="dropdown mt-1">
-                        <button class="dropbtn" id="semestre-button">Semestre <i class="fad fa-angle-down float-right mt-1 ml-4"></i></button>
-                        <div class="dropdown-content mt-2" id="semestre-content">
-                            <a href="#" id="semestre1">S1</a>
-                            <a href="#" id="semestre2">S2</a>
-                        </div>
+
+                    <div class="form-group select_langue mt-1 mr-5 ml-3">
+                        
+                        <select class="form-control" id="semestre">
+                            <?php if ($_SESSION['diplome'] == 'LICENCE') { ?>
+                                <option class="" value="S1">Semestre 1</option>
+                                <option class="" value="S2">Semestre 2</option>
+                                <option class="" value="S3">Semestre 3</option>
+                                <option class="" value="S4">Semestre 4</option>
+                                <option class="" value="S5">Semestre 5</option>
+                                <option class="" value="S6">Semestre 6</option>
+                            <?php } else { ?>
+                                <option class="" value="S7">Semestre 7</option>
+                                <option class="" value="S8">Semestre 8</option>
+                                <option class="" value="S9">Semestre 9</option>
+                                <option class="" value="S10">Semestre 10</option>
+                            <?php } ?>
+                        </select>
                     </div>
                 </div>
 
@@ -80,58 +92,7 @@ require('head.html');
                             <th class="text-center">Note par EC</th>
                         </tr>
                     </thead>   
-                    <tbody id="tabnote"><?php
-$db = new Connexion();
-    $matiere = new  Formation();
-    $moyenne = new Resultat();
-    $matiere->setSemetre($_SESSION['SEMESTRE']);
-    $matiere->setFiliere($_SESSION['FILIERE']);
-    $res = $matiere->listmat();
-    $table = '';
-    $credit=0;
-    $a="";
-    $row=1;
-    foreach ($res as $resultat) {
-        $b=$resultat['INTITULEUE'];
-            if($a!=$b){
-
-                //listeUe
-                $resRows=$matiere->countUe($b);
-                foreach ($resRows as $resultat1) {
-                    $row=$resultat1['ROWSPAN'];
-                }
-
-                $table .= '<tr class="priority-300"><td class="matier" rowspan="'.$row.'">' .$b. '</td>';
-
-                //credit total
-                $resCredit=$matiere->totalCredit($b);
-                foreach ($resCredit as $resultat1) {
-                    $credit=$resultat1['TOTALCREDIT'];
-                }
-                $table .= '<td class="matier" rowspan="'.$row.'"><center>' .$credit. '</center></td>';
-
-                //moyenne(idUe,idEtud)
-                $resMoyenne=$matiere->MoyenneParUe($resultat['IDUE'],$idEtud);
-                foreach ($resMoyenne as $resultatFinale) {
-                    $table .= '<td class="matier" rowspan="'.$row.'"><center>'.$resultatFinale['MOYENNEFINALE'].'</center></td>';
-                }
-
-                
-                $a=$b;
-            }
-        $table .= '<td class="matier" rowspan="1">' . $resultat['INTITULE'] . '</td>';
-        //note
-        $moyenne->setEtudiant($_SESSION['IDETUDIANTS']);
-        $moyenne->setMatiere($resultat['IDMATIERE']);
-        $resNote=$moyenne->selectMoyenne();
-        foreach ($resNote as $resultatNote) {
-            $table .= '<td class="matier" rowspan="1"><center>'. $resultatNote['MOYENNE'] . '</center></td></tr>';
-        }
-    }
-    
-    echo $table;
-
-?>
+                    <tbody id="tabnote">
                     </tbody>
                 </table>
                 </div>
@@ -170,5 +131,6 @@ require('script.html');
 <script src="vue/js/countdownCountEcolage.js"></script>
 <script src="vue/js/accueilMaster.js"></script>
 <script src="vue/js/accueil.js"></script>
+<script src="vue/js/bulletin.js"></script>
 
 </html>
