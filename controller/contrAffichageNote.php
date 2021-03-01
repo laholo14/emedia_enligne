@@ -47,7 +47,7 @@ $db = new Connexion();
                     //moyenne(idUe,idEtud)
                     $resMoyenne=$matiere->MoyenneParUe($resultat['IDUE'],$_SESSION['id']);
                     foreach ($resMoyenne as $resultatFinale) {
-                        if($resultatFinale['MOYENNEFINALE']>10){
+                        if($resultatFinale['MOYENNEFINALE']>=9.75){
                             $color='bg-success';
                         }else{
                             $color='bg-danger';
