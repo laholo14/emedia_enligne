@@ -22,14 +22,14 @@
                         <a class="nav-link <?php echo $currentPage == 'cours' ? 'active' : '' ?>" href="cours">Cours</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link <?php echo $currentPage == 'examens' ? 'active' : '' ?>" href="examens">Examens</a>
+                    <a class="nav-link <?php echo $currentPage == 'examens' ? 'active' : '' ?>" href="examens">Examen</a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link <?php echo $currentPage == 'admission' ? 'active' : '' ?>" href="admission">Admissions</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php echo $currentPage == 'status' ? 'active' : '' ?>" href="status">Status</a>
+                        <a class="nav-link <?php echo $currentPage == 'status' ? 'active' : '' ?>" href="status">Statuts</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php echo $currentPage == 'message' ? 'active' : '' ?>" href="message">Messages<span class="badge badge-primary">20</span></a>

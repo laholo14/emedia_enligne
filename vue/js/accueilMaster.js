@@ -15,7 +15,7 @@ $(document).ready(function () {
         $("#active-note").removeClass("active")
         $("#active-calendrier").removeClass("active")
         $(".active-cours").removeClass("active")
-        $("#active-exercice").removeClass("active")
+        $(".active-exercice").removeClass("active")
         $("#active-chat").removeClass("active")
         $("#active-contact").removeClass("active")
         $("#active-video").addClass("active");
@@ -37,7 +37,7 @@ $(document).ready(function () {
         $("#active-note").removeClass("active")
         $("#active-calendrier").removeClass("active")
         $(".active-cours").removeClass("active")
-        $("#active-exercice").removeClass("active")
+        $(".active-exercice").removeClass("active")
         $("#active-chat").removeClass("active")
         $("#active-contact").removeClass("active")
         $("#active-profil").addClass("active");
@@ -59,7 +59,7 @@ $(document).ready(function () {
         $("#active-note").removeClass("active")
         $("#active-video").removeClass("active")
         $(".active-cours").removeClass("active")
-        $("#active-exercice").removeClass("active")
+        $(".active-exercice").removeClass("active")
         $("#active-chat").removeClass("active")
         $("#active-contact").removeClass("active")
         $("#active-calendrier").addClass("active");
@@ -81,7 +81,7 @@ $(document).ready(function () {
         $("#active-note").removeClass("active")
         $("#active-calendrier").removeClass("active")
         $("#active-video").removeClass("active")
-        $("#active-exercice").removeClass("active")
+        $(".active-exercice").removeClass("active")
         $("#active-chat").removeClass("active")
         $("#active-contact").removeClass("active")
         $(".active-cours").addClass("active");
@@ -106,7 +106,7 @@ $(document).ready(function () {
         $("#active-video").removeClass("active")
         $("#active-chat").removeClass("active")
         $("#active-contact").removeClass("active")
-        $("#active-exercice").addClass("active");
+        $(".active-exercice").addClass("active");
     }
 
     //function acces contenu chat
@@ -125,7 +125,7 @@ $(document).ready(function () {
         $("#active-note").removeClass("active")
         $("#active-calendrier").removeClass("active")
         $(".active-cours").removeClass("active")
-        $("#active-exercice").removeClass("active")
+        $(".active-exercice").removeClass("active")
         $("#active-video").removeClass("active")
         $("#active-contact").removeClass("active")
         $("#active-chat").addClass("active");
@@ -147,7 +147,7 @@ $(document).ready(function () {
         $("#active-note").removeClass("active")
         $("#active-calendrier").removeClass("active")
         $(".active-cours").removeClass("active")
-        $("#active-exercice").removeClass("active")
+        $(".active-exercice").removeClass("active")
         $("#active-chat").removeClass("active")
         $("#active-video").removeClass("active")
         $("#active-contact").addClass("active");
@@ -193,7 +193,7 @@ $(document).ready(function () {
     });
 
     //afficher contenu-exercice
-    $("#active-exercice").click(function(){
+    $(".active-exercice").click(function(){
         acceContenuExercice();
     });
 
@@ -247,19 +247,19 @@ $(document).ready(function () {
     });
 
     //active-exercice
-    $("#active-exercice-pdf").click(function(){
+    $(".active-exercice-pdf").click(function(){
         $("#contenu").fadeOut(1000);
         $("#contenu-exercice-pdf").fadeIn(1200);
         $("#dashboard").fadeOut(1000);
     });
 
-    $("#active-exercice-explication").click(function () {
+    $(".active-exercice-explication").click(function () {
         $("#contenu-exercice-explication").modal({
             fadeDuration: 100
         }); 
     });
 
-    $("#active-exercice-corrige").click(function(){
+    $(".active-exercice-corrige").click(function(){
         $("#contenu").fadeOut(1000);
         $("#dashboard").fadeOut(1000);
         $("#contenu-exercice-corrige").fadeIn(1200);
@@ -324,7 +324,7 @@ $(document).ready(function () {
             desactiveDashboard();
         });
 
-        $("#active-exercice").click(function () {
+        $(".active-exercice").click(function () {
             desactiveDashboard();
         });
 

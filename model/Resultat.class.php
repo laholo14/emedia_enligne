@@ -215,13 +215,13 @@ class Resultat
        return $res;
        
     }
-    public function selectMatiereARepecher(){
+    public function selectMatiereARepecher($idUe){
         $db=Connexion::getCx();
-        $requete="SELECT * FROM RESULTAT where IDETUDIANTS=:idEtudiant and IDMATIERE=:idMatiere and (SELECT avg(NOTE))>10";
+        $requete="SELECT * FROM MATIERE NATURAL JOIN RESULTAT where IDETUDIANTS=:idEtudiant and IDUE=:idUe and (SELECT avg(NOTE))<10 ORDER BY INTITULE";
         $st = $db->prepare($requete);
        $st->execute(array(
            "idEtudiant" =>  $this->getEtudiant(),
-           "idMatiere" => $this->getMatiere()
+           "idUe" => $idUe
        ));
        $res=$st->fetchAll();
        $st->closeCursor();

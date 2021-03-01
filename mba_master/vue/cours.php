@@ -52,9 +52,9 @@ $currentPage = 'cours';
 
             <div class="container-navigation">
                 <ul class="navigation-item">
-                    <li class="navigation-list-item"><a class="navigation-item-link" href="inscription.php"> <i class="fas fa-user-plus"></i><span>Inscriptions</span> </a></li>
-                    <li class="navigation-list-item"><a class="navigation-item-link" href="etudiants.php"> <i class="fas fa-graduation-cap"></i><span>Etudiants</span></a></li>
-                    <li class="navigation-list-item"><a class="navigation-item-link" href="admission.php"> <i class="fas fa-book"></i><span>Admissions</span> </a></li>
+                    <li class="navigation-list-item"><a class="navigation-item-link" href="inscription"> <i class="fas fa-user-plus"></i><span>Inscriptions</span> </a></li>
+                    <li class="navigation-list-item"><a class="navigation-item-link" href="etudiant"> <i class="fas fa-graduation-cap"></i><span>Etudiants</span></a></li>
+                    <li class="navigation-list-item"><a class="navigation-item-link" href="admission"> <i class="fas fa-book"></i><span>Admissions</span> </a></li>
 
                     <li class="navigation-list-item"><a  href="#" class="active navigation-item-link"><i class="fas fa-pen"></i><span>Cours </span></a>
                         <div class="navigationdropdown1">
@@ -71,9 +71,9 @@ $currentPage = 'cours';
                             </ul>
                         </div>
                     </li>
-                    <li class="navigation-list-item"><a class="navigation-item-link" href="examens.php"><i class="fas fa-university"></i><span>Examen</span></a></li>
-                    <li class="navigation-list-item"><a class="navigation-item-link" href="status.php"> <i class="fas fa-users"></i><span>Status</span></a></li>
-                    <li class="navigation-list-item"><a class="navigation-item-link" href="message.php"> <i class="fas fa-envelope"></i><span>Message</span></a></li>
+                    <li class="navigation-list-item"><a class="navigation-item-link" href="examens"><i class="fas fa-university"></i><span>Examen</span></a></li>
+                    <li class="navigation-list-item"><a class="navigation-item-link" href="status"> <i class="fas fa-users"></i><span>Status</span></a></li>
+                    <li class="navigation-list-item"><a class="navigation-item-link" href="message"> <i class="fas fa-envelope"></i><span>Message</span></a></li>
                 </ul>
             </div>
         </nav>

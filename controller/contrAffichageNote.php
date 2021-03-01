@@ -25,6 +25,7 @@ $db = new Connexion();
         $a="";
         $row=1;
         $color='';
+        $matiereArepecher='';
         foreach ($res as $resultat) {
             $b=$resultat['INTITULEUE'];
                 if($a!=$b){
@@ -47,12 +48,31 @@ $db = new Connexion();
                     //moyenne(idUe,idEtud)
                     $resMoyenne=$matiere->MoyenneParUe($resultat['IDUE'],$_SESSION['id']);
                     foreach ($resMoyenne as $resultatFinale) {
-                        if($resultatFinale['MOYENNEFINALE']>10){
-                            $color='bg-success';
-                        }else{
+                        if($resultatFinale['MOYENNEFINALE']<=9.75 || $resultatFinale['MOYENNEFINALE']==0  ){
                             $color='bg-danger';
+                            $valiny =new Resultat();
+                            $valiny->setEtudiant($_SESSION['id']);
+                            $resMatiereArepecher=$valiny->selectMatiereARepecher($resultat['IDUE']);
+                            $c="";
+                            foreach ($resMatiereArepecher as $key) {
+                                echo var_dump($resMatiereArepecher);
+                                 if ($c!=$key['INTITULE']) {
+                                     $repecher=new Repecher();
+                                     $repecher->setIdEtudiant($_SESSION['id']);
+                                     $repecher->setIdMatiere($key['IDMATIERE']);
+                                     $repecher->setEtat(0);
+                                     $repecher->setMontant(15000);
+                                     $count=count($repecher->verify());
+                                     if ($count==0) {
+                                     $repecher->create();
+                                     }
+                                     $c=$key['INTITULE'];
+                                 }
+                            }
+                        }else{
+                            $color='bg-success';
                         }
-                        $table .= '<td class="'.$color.'" rowspan="'.$row.'"><center>'.$resultatFinale['MOYENNEFINALE'].'</center></td>';
+                        $table .= '<td class="'.$color.' text-light" rowspan="'.$row.'"><center>'.$resultatFinale['MOYENNEFINALE'].'</center></td>';
                     }
 
                     
@@ -64,16 +84,16 @@ $db = new Connexion();
             $moyenne->setMatiere($resultat['IDMATIERE']);
             $resNote=$moyenne->selectMoyenne();
             foreach ($resNote as $resultatNote) {
-                if($resultatNote['MOYENNE']>10){
-                    $color='bg-success';
-                }else{
+                if($resultatNote['MOYENNE']<10){
                     $color='bg-danger';
+                }else{
+                    $color='bg-success';
                 }
-                $table .= '<td class="'.$color.'" rowspan="1"><center>'. $resultatNote['MOYENNE'] . '</center></td></tr>';
+                $table .= '<td class="'.$color.' text-light" rowspan="1"><center>'. $resultatNote['MOYENNE'] . '</center></td></tr>';
             }
         }
         
-        echo $table;
+       echo $table;
 
 
     }

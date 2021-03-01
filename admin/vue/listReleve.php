@@ -63,7 +63,46 @@ $suivre = new Suivre();
             echo "<h1>Bulletin des Etudiants en:" . $resultat['DIPLOME'] . " " . $resultat['FILIERE'] . " " . $resultat['CODE'] ."</h1>";
 
 
-    ?>
+    ?> 
+    <div class="table-responsive mt-3">
+        <form action="../controller/controlAdmission.php" method="post">
+              <div class="d-inline-flex p-3 text-white" style="height: 86px;">  
+                <div class="p-2 bg-primary" style="border-radius: 0px 0px 0px 10px;"><label for="select" class="" style="font-size: 22px;">Envoyer les repechages en</label></div>
+                <div class="p-2 bg-primary">
+                    <select name="SEMESTRE" class="custom-select mb-3">
+                    <option>---</option>
+                        <?php
+                            if ($semestre == 'S1') {
+                                echo "<option>S2</option>";
+                            }elseif ($semestre == 'S2') {
+                                echo "<option>S3</option>";
+                            }elseif($semestre == 'S3') {
+                                echo "<option>S4</option>";
+                            }elseif ($semestre == 'S4') {
+                                echo "<option>S5</option>";
+                            }elseif($semestre == 'S5') {
+                                echo "<option>S6</option>";
+                            }elseif ($semestre == 'S6') {
+                                echo "<option>S7</option>";
+                            }elseif($semestre == 'S7') {
+                                echo "<option>S8</option>";
+                            }elseif ($semestre == 'S8') {
+                                echo "<option>S9</option>";
+                            }elseif($semestre == 'S9') {
+                                echo "<option>S10</option>";
+                            }elseif ($semestre == 'S10') {
+                                echo "<option>S11</option>";
+                            }elseif($semestre == 'S11') {
+                                echo "<option>S12</option>";
+                            }else{
+                                echo 'Erreur';
+                            }
+
+                        ?>
+                    </select>
+                </div>
+                <div class="p-2 bg-primary" style="border-radius: 0px 10px 0px 0px;"><input type="submit" class="btn btn-primary" value="Envoyer" /></div>
+              </div>
 
             <div class="table-responsive mt-3">
                 <form method="POST">

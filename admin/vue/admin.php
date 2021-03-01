@@ -83,7 +83,7 @@ $connexion = new Connexion();
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin/vue/statusEtudiants.php">Status des Etudiants</a>
+                        <a class="nav-link" href="admin/vue/statusEtudiants.php">Statuts des Etudiants</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="admin/vue/adminMessage.php">Message</a>

@@ -1,6 +1,7 @@
 //14-03-00
 $(document).ready(function () {
 
+
 });
 
 
@@ -9,8 +10,39 @@ function GetSemestreCours(semestre) {
    $("#valuesemestrecours").val(semestre);
    $("#titreSemestre").html(semestre);
 
+   // $.ajax({
+   //    url: "vue/coursVueCon.php",
+   //    type: "POST",
+   //    data: {
+   //       semestre: semestre
+   //    },
+   //    success: function (data) {
+   //       $("#table-cours").html(data);
+   //    }
+   // })
+
+  
+
 }
 
+function GetSemestreExo(semestre) {
+   $("#valuesemestreexo").val(semestre);
+  // $("#titreSemestre").html(semestre);
+
+   // $.ajax({
+   //    url: "vue/coursVueCon.php",
+   //    type: "POST",
+   //    data: {
+   //       semestre: semestre
+   //    },
+   //    success: function (data) {
+   //       $("#table-cours").html(data);
+   //    }
+   // })
+
+  
+
+}
 function GetPDF(intitule, titre) {
 
    $('#cours-pdf').attr('src', 'https://docs.google.com/viewer?url=https://e-media-madagascar.com/universite/Cours/' + intitule + '&embedded=true');
@@ -20,20 +52,20 @@ function GetPDF(intitule, titre) {
 }
 
 
-function GetYOUTUBE(idmatiere,intitule) {
+function GetYOUTUBE(idmatiere, intitule) {
 
    $.ajax({
       url: "controller/controllerVideoExplication.php",
       type: "POST",
       data: {
-         
-         idmatiere:idmatiere
+
+         idmatiere: idmatiere
       },
       success: function (data) {
-         $('#cours_video').attr('src', ''+data);
+         $('#cours_video').attr('src', '' + data);
          $('#titre_video').html(intitule);
       }
-  })
+   })
 
 
 }

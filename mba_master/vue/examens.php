@@ -45,7 +45,7 @@ require('include/nav.php');
                             <a class="nav-link active sous_tabs" id="pills-EXAMEN_MENSUEL-tab" data-toggle="pill" href="#pills-EXAMEN_MENSUEL" role="tab" aria-controls="pills-EXAMEN_MENSUEL" aria-selected="true">Examen Mensuel</a>
                         </li>
                         <li class="nav-item ml-5">
-                            <a class="nav-link sous_tabs" id="pills-EXAMEN_THEORIQUE-tab" data-toggle="pill" href="#pills-EXAMEN_THEORIQUE" role="tab" aria-controls="pills-EXAMEN_THEORIQUE" aria-selected="false">Examen Théorique</a>
+                            <a class="nav-link sous_tabs" id="pills-EXAMEN_THEORIQUE-tab" data-toggle="pill" href="#pills-EXAMEN_THEORIQUE" role="tab" aria-controls="pills-EXAMEN_THEORIQUE" aria-selected="false">Examen Semestriel</a>
                         </li>
 
                     </ul>
@@ -56,18 +56,21 @@ require('include/nav.php');
                         <!--bloc ajoute examens mensuel-->
                         <div class="tab-pane fade show active" id="pills-EXAMEN_MENSUEL" role="tabpanel" aria-labelledby="pills-EXAMEN_MENSUEL-tab">
                             <div class="form_examen_mensuel">
-                                <form method="POST" id="formAjoutExamMensuel" action="../controller/controllerAjoutExamMBAMensuel.php" enctype="multipart/form-data">
+                                <form method="POST" id="formAjoutExamMensuel" action="../controller/controllerAjoutExamMBA.php" enctype="multipart/form-data">
                                     <div class="form-group col-md-6">
-                                        <input type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="1">
+                                        <input type="hidden" class="form-control" id="session_exam" name="session_exam" value="1">
 
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="exampleInputEmail1">EC :</label>
                                         <select class="form-control form-control-sm" id="ec" name="ec">
-                                         <option selected disabled>...</option>
+                                            <option selected disabled>...</option>
                                             <?php
                                             $ecexammba = new Matiere();
-                                            foreach ($ecexammba->readMatExamMBalatsisysujet(1) as $resultat) {
+
+                                            $res1 = $ecexammba->readAll();
+
+                                            foreach ($res1 as $resultat) {
                                             ?>
                                                 <option value="<?php echo $resultat['IDMATIERE']; ?>"><?php echo $resultat['INTITULE']; ?></option>
                                             <?php
@@ -80,7 +83,7 @@ require('include/nav.php');
                                     <div class="form-group col-md-6">
                                         <label for="">Vague:</label>
                                         <select class="form-control" id="vague" name="vague">
-                                        <option selected disabled>...</option>
+                                            <option selected disabled>...</option>
                                             <?php
                                             $vagueexam = new Vague();
                                             foreach ($vagueexam->CountVague() as $resultat) {
@@ -92,13 +95,13 @@ require('include/nav.php');
                                         </select>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="">Durée:</label>
+                                        <label for="">Durée en minute:</label>
                                         <input type="number" class="form-control form-control-sm" id="duree" placeholder="Durée upload" name="duree" />
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="">Sujet:</label>
                                         <div class="custom-file form-control-sm">
-                                            <input type="file" class="" id="customFile" name="sujet">
+                                            <input type="file" class="" id="sujet" name="sujet" accept="application/pdf">
                                             <!-- <label class="custom-file-label" for="customFile">Choose file</label> -->
                                         </div>
                                     </div>
@@ -113,34 +116,39 @@ require('include/nav.php');
                                     </form>
                                 </div>
                                 <h2 class="text-center sous_titre">Examen Mensuel</h2>
-                                <div class="table-responsive examen_mensuel">
-                                    <table class="table">
+                                <div class="table-responsive examen_mensuel" id="div_mens">
+
+                                    <table class="table" id="table_mens">
                                         <thead class="thead">
                                             <tr>
                                                 <th scope="col">Intitulé</th>
                                                 <th scope="col">Session</th>
-                                                <th scope="col">Format</th>
+                                                <th scope="col">Vague</th>
                                                 <th scope="col">Sujet</th>
-                                                <th scope="col">Duré</th>
-                                                <th scope="col">QCM</th>
-                                                <th scope="col">Marina</th>
+                                                <th scope="col">Durée</th>
                                                 <th scope="col">Modifier</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                            <?php
+                                            $listemensuel = new Exam();
+                                            $listemensuel->setIdsessiondexam(1);
+                                            foreach ($listemensuel->listexam() as $resultat) {
+                                            ?>
+                                                <tr>
 
-                                                <td>Algorithme</td>
-                                                <td>Examen Mensuel</td>
-                                                <td>Upload</td>
-                                                <td>Algorithme_Exam_1.pdf</td>
-                                                <td>180</td>
-                                                <td></td>
-                                                <td></td>
-                                                <td align="center"><i class="fas fa-edit"></i></td>
+                                                    <td><?php echo $resultat['INTITULE']; ?></td>
+                                                    <td>Examen Mensuel</td>
+                                                    <td><?php echo $resultat['CODE']; ?></td>
+                                                    <td><?php echo $resultat['SUJET']; ?></td>
+                                                    <td><?php echo $resultat['DURRE']; ?></td>
+                                                    <td align="center"><i class="fas fa-edit"></i></td>
 
-                                            </tr>
+                                                </tr>
+                                            <?php
+                                            }
 
+                                            ?>
                                         </tbody>
                                     </table>
 
@@ -157,120 +165,57 @@ require('include/nav.php');
                         <div class="tab-pane fade" id="pills-EXAMEN_THEORIQUE" role="tabpanel" aria-labelledby="pills-EXAMEN_THEORIQUE-tab">
 
                             <div class="form_examen_theorique">
-                                <form>
-                                    <div class="form-group col-md-6">
-                                        <input type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="1">
+                                <form method="POST" id="formAjoutExamSemestriel" action="../controller/controllerAjoutExamMBA.php" enctype="multipart/form-data">
+                                    <div class=" form-group col-md-6">
+                                        <input type="hidden" class="form-control" id="session_exam_sem" name="session_exam_sem" value="2">
 
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="exampleInputEmail1">EC :</label>
-                                        <select class="form-control form-control-sm">
-                                            <option value="1">Libéralisation informatique</option>
-                                            <option value="2">Economie numérique</option>
-                                            <option value="3">Leadership</option>
-                                            <option value="4">Stratégie d’entreprise</option>
-                                            <option value="7">Management Stratégique</option>
-                                            <option value="6">Droit de Services Publics</option>
-                                            <option value="20">Théorie de l’information et de la Communication</option>
-                                            <option value="9">Droit Civil</option>
-                                            <option value="10">Introduction au droit</option>
-                                            <option value="11">Bases du Management</option>
-                                            <option value="12">Planification et Gestion de Projet Médiatique</option>
-                                            <option value="13">Comptabilité générale</option>
-                                            <option value="14">Comptabilité analytique</option>
-                                            <option value="15">Bases des systèmes numériques</option>
-                                            <option value="16">Algorithme</option>
-                                            <option value="17">Contrôle de Gestion</option>
-                                            <option value="18">Leadership spécifique</option>
-                                            <option value="19">Rappel du Système Numérique</option>
-                                            <option value="5">Reportage</option>
-                                            <option value="28">Architecture des ordinateurs</option>
-                                            <option value="27">Communication visuelle</option>
-                                            <option value="26">Montage vidéo</option>
-                                            <option value="25">Bases du Management 2</option>
-                                            <option value="29">Analyse et Algèbre</option>
-                                            <option value="30">JOURNALISME D'INVESTIGATION</option>
-                                            <option value="31">Rappel Algorithme</option>
-                                            <option value="32">ELEMENTS FONDAMENTAUX DU MANAGEMENT</option>
-                                            <option value="33">Geo-politique niveau Master</option>
-                                            <option value="34">Maîtrise du travail de caméra</option>
-                                            <option value="35">Montage Vidéo 2</option>
-                                            <option value="36">Théorie du journalisme</option>
-                                            <option value="37">Technique de rédaction journalistique</option>
-                                            <option value="38">Introduction au langage filmique</option>
-                                            <option value="39">Introduction à la communication</option>
-                                            <option value="40">Droit constitutionnel</option>
-                                            <option value="41">Observation et Lecture</option>
-                                            <option value="42">Management organisationnel</option>
-                                            <option value="43">Droit international</option>
-                                            <option value="44">Matlab 1</option>
-                                            <option value="45">Montage vidéo sur Adobe Premiere</option>
-                                            <option value="46">Mathématique appliquée</option>
-                                            <option value="47">Histoire des institutions</option>
-                                            <option value="48">Comptabilité générale 2</option>
-                                            <option value="49">Infographie 2D MASTER</option>
-                                            <option value="50">Marché Financier MASTER</option>
-                                            <option value="51">JRI Part 1</option>
-                                            <option value="52">Communication et développement</option>
-                                            <option value="53">GESTION DES RESSOURCES HUMAINES MASTER</option>
-                                            <option value="54">POO PHP</option>
-                                            <option value="66">Initiation infographie 2D</option>
-                                            <option value="56">Planification et Gestion de Projet Médiatique 2</option>
-                                            <option value="57">Droit de la Famille</option>
-                                            <option value="58">Sage SAARI</option>
-                                            <option value="59">Droit constitutionnel 2</option>
-                                            <option value="60">MANAGEMENT PUBLIC</option>
-                                            <option value="61">GESTION - SUIVI ET EVALUATION DE PROJET</option>
-                                            <option value="62">AUDIT INTERNE</option>
-                                            <option value="63">Infrastructures hertziennes2</option>
-                                            <option value="64">Probabilité statistique</option>
-                                            <option value="65">Matlab 2</option>
-                                            <option value="67">Théorie Information Communication 2</option>
-                                            <option value="68">Principe du Marketing</option>
-                                            <option value="69">Introduction au droit 2</option>
-                                            <option value="70">Introduction à la Communication 2</option>
-                                            <option value="71">Composants électroniques</option>
-                                            <option value="72">Système embarqué</option>
-                                            <option value="73">Structure et analyse de coûts</option>
-                                            <option value="74">Technique de recherche sur internet</option>
-                                            <option value="75">Liaisons spatiales</option>
-                                            <option value="76">ECONOMIE INTERNATIONALE</option>
-                                            <option value="77">les Fonctions de langage appliquées en Publicité Communautaire</option>
-                                            <option value="78">Voies d'exécution et profession judiciaire</option>
-                                            <option value="79">Quadripoles et filtres</option>
-                                            <option value="80">Introduction au son</option>
-                                            <option value="81">Bases du dessin</option>
-                                            <option value="82">Droit des affaires</option>
-                                            <option value="83">Mathématique financière</option>
-                                            <option value="84">Bases de la télécommunication</option>
+                                        <select class="form-control form-control-sm" id="ec_sem" name="ec_sem">
+                                            <option selected disabled>...</option>
+                                            <?php
+                                            $ecexammba2 = new Matiere();
+                                            $res2 = $ecexammba2->readAll();
+
+
+                                            foreach ($res2 as $resultat) {
+                                            ?>
+                                                <option value="<?php echo $resultat['IDMATIERE']; ?>"><?php echo $resultat['INTITULE']; ?></option>
+                                            <?php
+                                            }
+
+                                            ?>
                                         </select>
 
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="">Vague:</label>
-                                        <input type="text" class="form-control form-control-sm" placeholder="vague" />
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="exampleInputEmail1">Format :</label>
-                                        <select class="form-control form-control-sm">
-                                            <option value="1">Upload</option>
-                                            <option value="2">Rédaction</option>
-                                            <option value="3">QCM</option>
+                                        <select class="form-control" id="vague_sem" name="vague_sem">
+                                            <option selected disabled>...</option>
+                                            <?php
+                                            $vagueexam = new Vague();
+                                            foreach ($vagueexam->CountVague() as $resultat) {
+                                            ?>
+                                                <option value="<?php echo $resultat['CODE']; ?>"><?php echo $resultat['CODE']; ?></option>
+                                            <?php
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="">Duré:</label>
-                                        <input type="number" class="form-control form-control-sm" id="durre_upload" placeholder="Duré upload" name="durre_upload" />
+                                        <label for="">Durée en minute:</label>
+                                        <input type="number" class="form-control form-control-sm" id="duree_sem" placeholder="Durée upload" name="duree_sem" />
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="">Sujet:</label>
                                         <div class="custom-file form-control-sm">
-                                            <input type="file" class="custom-file-input " id="customFile">
-                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                            <input type="file" class="" id="sujet_sem" name="sujet_sem" accept="application/pdf">
+                                            <!-- <label class="custom-file-label" for="customFile">Choose file</label> -->
                                         </div>
                                     </div>
 
-                                    <button type="submit" class="btn ml-3 ajouter_examen_theorique">Ajouter</button>
+                                    <button type="submit" class="btn ml-3 ajouter_examen_theorique" id="btnAjouterExamSemestriel">Ajouter</button>
                                 </form>
 
 
@@ -279,34 +224,39 @@ require('include/nav.php');
                                         <input class="p-1" class="form-control" type='search' id='search' placeholder='recherche' />
                                     </form>
                                 </div>
-                                <h2 class="text-center sous_titre">Examen théorique</h2>
-                                <div class="table-responsive examen_theorique">
-                                    <table class="table">
+                                <h2 class="text-center sous_titre">Examen Semestriel</h2>
+                                <div class="table-responsive examen_theorique" id="div_sem">
+                                    <table class="table" id="table_sem">
                                         <thead class="thead">
                                             <tr>
                                                 <th scope="col">Intitulé</th>
                                                 <th scope="col">Session</th>
-                                                <th scope="col">Format</th>
+                                                <th scope="col">Vague</th>
                                                 <th scope="col">Sujet</th>
-                                                <th scope="col">Duré</th>
-                                                <th scope="col">QCM</th>
-                                                <th scope="col">Marina</th>
+                                                <th scope="col">Durée</th>
                                                 <th scope="col">Modifier</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                            <?php
+                                            $listemensuel = new Exam();
+                                            $listemensuel->setIdsessiondexam(2);
+                                            foreach ($listemensuel->listexam() as $resultat) {
+                                            ?>
+                                                <tr>
 
-                                                <td>Algorithme</td>
-                                                <td>Examen Mensuel</td>
-                                                <td>Upload</td>
-                                                <td>Algorithme_Exam_1.pdf</td>
-                                                <td>180</td>
-                                                <td></td>
-                                                <td></td>
-                                                <td align="center"><i class="fas fa-edit"></i></td>
+                                                    <td><?php echo $resultat['INTITULE']; ?></td>
+                                                    <td>Examen Semestriel</td>
+                                                    <td><?php echo $resultat['CODE']; ?></td>
+                                                    <td><?php echo $resultat['SUJET']; ?></td>
+                                                    <td><?php echo $resultat['DURRE']; ?></td>
+                                                    <td align="center"><i class="fas fa-edit"></i></td>
 
-                                            </tr>
+                                                </tr>
+                                            <?php
+                                            }
+
+                                            ?>
 
                                         </tbody>
                                     </table>
