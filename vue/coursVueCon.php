@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['matricule'])) {
+
+    header("location: Connecter");
+}
 
 function loadclass($class)
 {
@@ -6,11 +11,7 @@ function loadclass($class)
 }
 spl_autoload_register("loadclass");
 
-
+extract($_POST);
 
 
 ?>
-
-
-
-<?php ?>

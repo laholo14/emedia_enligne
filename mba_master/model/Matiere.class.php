@@ -80,9 +80,9 @@ class Matiere
     }
 
     //wheree id != requete
-    public function readMatExamMBalatsisysujet($session)
+    public function readMatExamMBolatsisysujet($session)
     {
-        $requete = "SELECT * FROM MATIERE NATURAL JOIN ENSEIGNER WHERE PARCOURS = 'FCM' OR PARCOURS = 'CIM' OR PARCOURS = 'ADAM' AND IDMATIERE != (SELECT IDMATIERE FROM EXAM WHERE IDSESSIONDEXAM = :session)";
+        $requete = "SELECT * FROM MATIERE NATURAL JOIN ENSEIGNER WHERE (PARCOURS = 'FCM' OR PARCOURS = 'CIM' OR PARCOURS = 'ADAM') AND  IDMATIERE != (SELECT IDMATIERE FROM EXAM WHERE IDSESSIONDEXAM = :session)";
         $query = Connexion::getCx()->prepare($requete);
         $query->execute((array(
             "session" => $session

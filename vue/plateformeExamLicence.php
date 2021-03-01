@@ -66,8 +66,9 @@ if (!isset($_SESSION['session_exam'])) {
                 <div class="col-1 verification-lg">
                     <a href="Bulletin" class="btn">Vérification</a>
                 </div>
-		<div class="col-1 verification-lg">
-			<a href="Traitement" class="btn ml-2">Paiement</a> </div>
+                <div class="col-1 verification-lg">
+                    <a href="Traitement" class="btn ml-2">Paiement</a>
+                </div>
 
                 <div class="col-2 power-off">
                     <a href="vue/logout.php" class="btn float-right"><i class="fas fa-power-off"></i></a>

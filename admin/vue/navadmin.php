@@ -41,7 +41,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="statusEtudiants.php">Status des Etudiants</a>
+                        <a class="nav-link" href="statusEtudiants.php">Statuts des Etudiants</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="adminMessage.php">Message</a>

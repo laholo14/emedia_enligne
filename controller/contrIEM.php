@@ -1,20 +1,23 @@
 
 <?php
 
-
-
+//classe mamadika date en Francais
 $datefr = new DateFr();
 
-$date = Date('Y-m-d');
 
+
+//date d'entrer
 $datedentrer = new DateTime($_SESSION['datedenter']);
-//$datedaujourdhui = new DateTime("2021-03-03");
+
+//date androany
+//$datedaujourdhui = new DateTime('2021-03-03');
+$date = Date('Y-m-d');
 $datedaujourdhui = new DateTime($date);
 
-
+//comparaison date androany sy date fidirana
 $diff = $datedentrer->diff($datedaujourdhui);
 
-
+//mijery oe efa lasa sa tsia ilay daty icomparena azy
 if ($diff->invert == 1) {
     $mois = 0;
 } else {
@@ -28,31 +31,18 @@ if (isset($_SESSION['matricule']) and $_SESSION['inscription'] == 0) {
 
     header("location: Traitement");
 } else {
-
+    
+    //rentrer le moisDenter
     $moisDenter =  $datefr->dateToFrench(date($_SESSION['datedenter']), " F ");
     $_SESSION['jourdaujourdhui'] = intval(Date('d')); //ito no tena maka ny date d'aujourdhui
     $diff = $datedentrer->diff($datedaujourdhui);
-
     $moisM = ($diff->m);
     $differencejour = ($diff->days);
 
-    $_SESSION['testInclude'] = ($diff->invert); //mijery oe efa miditra ve ny vague misy azy sa tsia amin alalan difference datedenter su datedoujourdhui 1mbola tsy miditra 0 efa midditra
+    //mijery oe efa miditra ve ny vague misy azy sa tsia amin alalan difference datedenter su datedoujourdhui 1mbola tsy miditra 0 efa midditra
+    $_SESSION['testInclude'] = ($diff->invert);
     $_SESSION['jour'] = $differencejour + 1;
     $_SESSION['mois'] = $moisM + 1;
-    $_SESSION['tutomg'] = 'https://www.youtube.com/embed/0r1zpCAbdNY';
-    $_SESSION['tutofr'] = 'https://www.youtube.com/embed/49jKRIdS2v4';
-
-    $_SESSION['jouravantexam'] = 23 - $_SESSION['jourdaujourdhui'];
-    //resaka prise de contac
-    if ($differencejour <= 7 and $_SESSION['nationalite'] == 'MG') {
-        $_SESSION['prisedecontactmg'] = 'https://www.youtube.com/embed/dzgRtzd0MvE';
-    } else if ($differencejour <= 7 and $_SESSION['nationalite'] != 'MG') {
-
-        $_SESSION['prisedecontactfr'] = 'https://www.youtube.com/embed/FqXzCzJR-y0';
-    } else {
-
-        $_SESSION['finduprisedecontact'] = 'tapitra';
-    }
 }
 
 ?>

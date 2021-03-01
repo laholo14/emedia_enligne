@@ -16,7 +16,7 @@ require('head.html');
     <!-- preloading -->
     <div class="container-preloading flex-column" id="preloading">
         <img src="vue/image/logo/logo_E-media_enligne_rond.png" class="img-fluid logo" alt="">
-        <div class="preloading">  
+        <div class="preloading">
             <span></span>
         </div>
     </div>
@@ -74,8 +74,10 @@ require('head.html');
                                             </a>
                                         </li>
                                         <li class="list-group-item">
-                                            <i class="fal fa-credit-card ml-2 mr-3"></i>
-                                            <span>Paiement</span>
+                                            <a href="Traitement">
+                                                <i class="fal fa-credit-card ml-2 mr-3"></i>
+                                                <span>Paiement</span>
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
@@ -98,23 +100,29 @@ require('head.html');
                                 <div id="collapse2" class="panel-collapse collapse">
                                     <ul class="list-group ml-3">
                                         <?php
-                                        $formation = new Formation();
-                                        foreach ($formation->selectNumSemestre($_SESSION['semestre']) as $d) {
-                                            $numsemestre = $d['NUM'];
-                                        }
-                                        if ($_SESSION['diplome'] == "LICENCE") {
-                                            $requete = $formation->listliensemestre($numsemestre);
-                                        } else {
-                                            $requete = $formation->listliensemestreMaster($numsemestre);
-                                        }
-                                        foreach ($requete as $resultat) {
+                                        // $formation = new Formation();
+                                        // foreach ($formation->selectNumSemestre($_SESSION['semestre']) as $d) {
+                                        //     $numsemestre = $d['NUM'];
+                                        // }
+                                        // if ($_SESSION['diplome'] == "LICENCE") {
+                                        //     $requete = $formation->listliensemestre($numsemestre);
+                                        // } else {
+                                        //     $requete = $formation->listliensemestreMaster($numsemestre);
+                                        // }
+                                        // foreach ($requete as $resultat) {
                                         ?>
-                                            <li class="list-group-item active-cours" onclick="GetSemestreCours('<?php echo $resultat['SEMESTRE']; ?>')">
-                                                <i class="fal fa-user-graduate ml-2 mr-2"></i>
-                                                <span><?php echo $resultat['SEMESTRE']; ?></span>
-                                                <input type="hidden" id="<?php echo "lien" . $resultat['SEMESTRE']; ?>" value="<?php echo $resultat['SEMESTRE']; ?>" />
-                                            </li>
-                                        <?php } ?>
+                                        <li class="list-group-item active-cours" onclick="GetSemestreCours('<?php echo $_SESSION['semestre']; ?>')">
+                                            <i class="fal fa-user-graduate ml-2 mr-2"></i>
+                                            <span><?php echo $_SESSION['semestre']; ?></span>
+                                            <input type="hidden" id="<?php echo "lien" . $_SESSION['semestre']; ?>" value="<?php echo $_SESSION['semestre']; ?>" />
+                                        </li>
+                                        <li class="list-group-item">
+                                            <i class="fal fa-user-graduate ml-2 mr-2"></i>
+                                            <span>...</span>
+
+                                        </li>
+                                        <?php //} 
+                                        ?>
                                         <input type="hidden" id="valuesemestrecours" value="" />
                                     </ul>
                                 </div>
@@ -135,24 +143,31 @@ require('head.html');
                                     <div id="collapse3" class="panel-collapse collapse">
                                         <ul class="list-group ml-3">
                                             <?php
-                                            $formation = new Formation();
-                                            foreach ($formation->selectNumSemestre($_SESSION['semestre']) as $d) {
-                                                $numsemestre = $d['NUM'];
-                                            }
-                                            if ($_SESSION['diplome'] == "LICENCE") {
-                                                $requete = $formation->listliensemestre($numsemestre);
-                                            } else {
-                                                $requete = $formation->listliensemestreMaster($numsemestre);
-                                            }
-                                            foreach ($requete as $resultat) {
+                                            // $formation1 = new Formation();
+                                            // foreach ($formation1->selectNumSemestre($_SESSION['semestre']) as $d) {
+                                            //     $numsemestre = $d['NUM'];
+                                            // }
+                                            // if ($_SESSION['diplome'] == "LICENCE") {
+                                            //     $requete = $formation1->listliensemestre($numsemestre);
+                                            // } else {
+                                            //     $requete = $formation1->listliensemestreMaster($numsemestre);
+                                            // }
+                                            // foreach ($requete as $resultat) {
                                             ?>
-                                                <li class="list-group-item active-exercice">
-                                                    <i class="fal fa-user-graduate ml-2 mr-2"></i>
-                                                    <span><?php echo $resultat['SEMESTRE']; ?></span>
+                                            <li class="list-group-item active-exercice" onclick="GetSemestreExo('<?php echo $_SESSION['semestre']; ?>')">
+                                                <i class="fal fa-user-graduate ml-2 mr-2"></i>
+                                                <span><?php echo $_SESSION['semestre']; ?></span>
+                                                <input type="hidden" id="<?php echo "lienexo" . $_SESSION['semestre']; ?>" value="<?php echo $_SESSION['semestre']; ?>" />
 
-                                                </li>
-                                            <?php } ?>
-                                            <input type="hidden" id="" value="" />
+                                            </li>
+                                            <li class="list-group-item">
+                                                <i class="fal fa-user-graduate ml-2 mr-2"></i>
+                                                <span>...</span>
+
+                                            </li>
+                                            <?php //} 
+                                            ?>
+                                            <input type="hidden" id="valuesemestreexo" value="" />
                                         </ul>
                                     </div>
                                 </div>
@@ -185,25 +200,25 @@ require('head.html');
 
                     <div class="col-12 mb-3 video1">
                         <div class="video1_text text-center mt-3 p-2">
-                            <a href="https://www.youtube.com/embed/HgIeckuG7cQ" target="blank" class="text-center">Pour
+                            <a href="" target="blank" class="text-center">Pour
                                 connaitre le manipulation de l'interface etudiants.</a>
                         </div>
-                        <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
 
                     <div class="row">
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 video2">
                             <div class="video1_text text-center p-2">
-                                <a href="https://www.youtube.com/embed/HgIeckuG7cQ" target="blank" class="text-center">Pour connaitre le manipulation de l'interface etudiants.</a>
+                                <a href="" target="blank" class="text-center">Pour connaitre le manipulation de l'interface etudiants.</a>
                             </div>
-                            <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 video3">
                             <div class="video1_text text-center p-2">
-                                <a href="https://www.youtube.com/embed/HgIeckuG7cQ" target="blank" class="text-center">Pour connaitre le manipulation de l'interface etudiants.</a>
+                                <a href="" target="blank" class="text-center">Pour connaitre le manipulation de l'interface etudiants.</a>
                             </div>
-                            <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
@@ -260,279 +275,287 @@ require('head.html');
                             <h3>Calendrier</h3>
                         </div>
                     </div>
-                    
+
                     <!-- calendrier-licence -->
-                    <div class="calendrier-licence d-block d-lg-flex d-xl-flex pb-2">
-                        <div class="col-12 col-lg-8 col-xl-8 calendrier-corps">
-                            <div class="col-12 table-calendrier mt-3 pb-3">
-                                <h4 class="text-center">"1er - 3eme mois" et "5eme - 7eme mois"</h4>
-                                <table class="mt-4">
-                                    <tbody id="tabcalendrier">
+                    <?php
+                    if ($_SESSION['diplome'] == 'LICENCE') {
+                    ?>
+                        <div class="calendrier-licence d-block d-lg-flex d-xl-flex pb-2">
+                            <div class="col-12 col-lg-8 col-xl-8 calendrier-corps">
+                                <div class="col-12 table-calendrier mt-3 pb-3">
+                                    <h4 class="text-center">"1er - 3ème mois" et "5ème - 7ème mois"</h4>
+                                    <table class="mt-4">
+                                        <tbody id="tabcalendrier">
 
-                                        <tr class="priority-300">
-                                            <td class="text-center">1</td>
-                                            <td class="text-center">2</td>
-                                            <td class="text-center cours-calendrier">3</td>
-                                            <td class="text-center">4</td>
-                                            <td class="text-center">5</td>
-                                            <td class="text-center">6</td>
-                                            <td class="text-center">7</td>
-                                            <td class="text-center">8</td>
-                                            <td class="text-center">9</td>
-                                            <td class="text-center">10</td>
+                                            <tr class="priority-300">
+                                                <td class="text-center">1</td>
+                                                <td class="text-center">2</td>
+                                                <td class="text-center cours-calendrier">3</td>
+                                                <td class="text-center">4</td>
+                                                <td class="text-center">5</td>
+                                                <td class="text-center">6</td>
+                                                <td class="text-center">7</td>
+                                                <td class="text-center">8</td>
+                                                <td class="text-center">9</td>
+                                                <td class="text-center">10</td>
 
-                                        </tr>
+                                            </tr>
 
-                                        <tr class="priority-300">
-                                            <td class="text-center">11</td>
-                                            <td class="text-center">12</td>
-                                            <td class="text-center exercices-calendrier">13</td>
-                                            <td class="text-center">14</td>
-                                            <td class="text-center">15</td>
-                                            <td class="text-center">16</td>
-                                            <td class="text-center">17</td>
-                                            <td class="text-center">18</td>
-                                            <td class="text-center">19</td>
-                                            <td class="text-center corrige-calendrier">20</td>
+                                            <tr class="priority-300">
+                                                <td class="text-center">11</td>
+                                                <td class="text-center">12</td>
+                                                <td class="text-center exercices-calendrier">13</td>
+                                                <td class="text-center">14</td>
+                                                <td class="text-center">15</td>
+                                                <td class="text-center">16</td>
+                                                <td class="text-center">17</td>
+                                                <td class="text-center">18</td>
+                                                <td class="text-center">19</td>
+                                                <td class="text-center corrige-calendrier">20</td>
 
-                                        </tr>
+                                            </tr>
 
-                                        <tr class="priority-300">
-                                            <td class="text-center">21</td>
-                                            <td class="text-center">22</td>
-                                            <td class="text-center examen-mensuel">23</td>
-                                            <td class="text-center examen-mensuel">24</td>
-                                            <td class="text-center">25</td>
-                                            <td class="text-center">26</td>
-                                            <td class="text-center">27</td>
-                                            <td class="text-center">28</td>
-                                            <td class="text-center">29</td>
-                                            <td class="text-center">30</td>
+                                            <tr class="priority-300">
+                                                <td class="text-center">21</td>
+                                                <td class="text-center">22</td>
+                                                <td class="text-center examen-mensuel">23</td>
+                                                <td class="text-center examen-mensuel">24</td>
+                                                <td class="text-center">25</td>
+                                                <td class="text-center">26</td>
+                                                <td class="text-center">27</td>
+                                                <td class="text-center">28</td>
+                                                <td class="text-center">29</td>
+                                                <td class="text-center">30</td>
 
-                                        </tr>
+                                            </tr>
 
-                                        <tr class="priority-300">
-                                            <td class="text-center">31</td>
+                                            <tr class="priority-300">
+                                                <td class="text-center">31</td>
 
-                                        </tr>
+                                            </tr>
 
-                                    </tbody>
-                                </table>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="col-12 table-calendrier mt-3 pb-3">
+                                    <h4 class="text-center">"4ème mois" et "8ème mois"</h4>
+                                    <table class="mt-4">
+                                        <tbody id="tabcalendrier">
+
+                                            <tr class="priority-300">
+                                                <td class="text-center">1</td>
+                                                <td class="text-center">2</td>
+                                                <td class="text-center cours-calendrier">3</td>
+                                                <td class="text-center">4</td>
+                                                <td class="text-center">5</td>
+                                                <td class="text-center">6</td>
+                                                <td class="text-center">7</td>
+                                                <td class="text-center">8</td>
+                                                <td class="text-center">9</td>
+                                                <td class="text-center">10</td>
+
+                                            </tr>
+
+                                            <tr class="priority-300">
+                                                <td class="text-center">11</td>
+                                                <td class="text-center">12</td>
+                                                <td class="text-center exercices-calendrier">13</td>
+                                                <td class="text-center">14</td>
+                                                <td class="text-center">15</td>
+                                                <td class="text-center">16</td>
+                                                <td class="text-center">17</td>
+                                                <td class="text-center">18</td>
+                                                <td class="text-center">19</td>
+                                                <td class="text-center corrige-calendrier">20</td>
+
+                                            </tr>
+
+                                            <tr class="priority-300">
+                                                <td class="text-center">21</td>
+                                                <td class="text-center">22</td>
+                                                <td class="text-center examen-mensuel">23</td>
+                                                <td class="text-center examen-mensuel">24</td>
+                                                <td class="text-center examen-semestriel">25</td>
+                                                <td class="text-center examen-semestriel">26</td>
+                                                <td class="text-center examen-semestriel">27</td>
+                                                <td class="text-center examen-semestriel">28</td>
+                                                <td class="text-center examen-semestriel">29</td>
+                                                <td class="text-center examen-semestriel">30</td>
+
+                                            </tr>
+
+                                            <tr class="priority-300">
+                                                <td class="text-center">31</td>
+
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
 
-                            <div class="col-12 table-calendrier mt-3 pb-3">
-                                <h4 class="text-center">"4eme mois" et "9eme mois"</h4>
-                                <table class="mt-4">
-                                    <tbody id="tabcalendrier">
-
-                                        <tr class="priority-300">
-                                            <td class="text-center">1</td>
-                                            <td class="text-center">2</td>
-                                            <td class="text-center cours-calendrier">3</td>
-                                            <td class="text-center">4</td>
-                                            <td class="text-center">5</td>
-                                            <td class="text-center">6</td>
-                                            <td class="text-center">7</td>
-                                            <td class="text-center">8</td>
-                                            <td class="text-center">9</td>
-                                            <td class="text-center">10</td>
-
-                                        </tr>
-
-                                        <tr class="priority-300">
-                                            <td class="text-center">11</td>
-                                            <td class="text-center">12</td>
-                                            <td class="text-center exercices-calendrier">13</td>
-                                            <td class="text-center">14</td>
-                                            <td class="text-center">15</td>
-                                            <td class="text-center">16</td>
-                                            <td class="text-center">17</td>
-                                            <td class="text-center">18</td>
-                                            <td class="text-center">19</td>
-                                            <td class="text-center corrige-calendrier">20</td>
-
-                                        </tr>
-
-                                        <tr class="priority-300">
-                                            <td class="text-center">21</td>
-                                            <td class="text-center">22</td>
-                                            <td class="text-center examen-mensuel">23</td>
-                                            <td class="text-center examen-mensuel">24</td>
-                                            <td class="text-center examen-semestriel">25</td>
-                                            <td class="text-center examen-semestriel">26</td>
-                                            <td class="text-center examen-semestriel">27</td>
-                                            <td class="text-center examen-semestriel">28</td>
-                                            <td class="text-center examen-semestriel">29</td>
-                                            <td class="text-center examen-semestriel">30</td>
-
-                                        </tr>
-
-                                        <tr class="priority-300">
-                                            <td class="text-center">31</td>
-
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-lg-4 col-xl-4 d-flex flex-column justify-content-center calendrier-legende pl-3">
-                            <div class="cours-legende d-flex align-items-center">
-                                <div class="d-flex align-items-center p-2">3 : Debut cours</div>
-                            </div>
-                            <div class="exercice-legende d-flex align-items-center mt-2">
-                                <div class="d-flex align-items-center p-2">13 : Debut exercice</div>
-                            </div>
-                            <div class="corrige-legende d-flex align-items-center mt-2">
-                                <div class="d-flex align-items-center p-2">20 : Debut correction</div>
-                            </div>
-                            <div class="examen-mensuel-legende d-flex align-items-center mt-2">
-                                <div class="d-flex align-items-center p-2">23 et 24 : Examen mensuel</div>
-                            </div>
-                            <div class="examen-semestriel-legende d-flex align-items-center mt-2">
-                                <div class="d-flex align-items-center p-2">25 au 30 : Examen semestriel</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- calendrier-master -->
-                    <div class="calendrier-master d-block d-lg-flex d-xl-flex pb-2">
-                        <div class="col-12 col-lg-8 col-xl-8 calendrier-corps">
-                            <div class="col-12 table-calendrier mt-3 pb-3">
-                                <h4 class="text-center">"1er - 4eme mois" et "6eme - 8eme mois"</h4>
-                                <table class="mt-4">
-                                    <tbody id="tabcalendrier">
-
-                                        <tr class="priority-300">
-                                            <td class="text-center">1</td>
-                                            <td class="text-center">2</td>
-                                            <td class="text-center cours-calendrier">3</td>
-                                            <td class="text-center">4</td>
-                                            <td class="text-center">5</td>
-                                            <td class="text-center">6</td>
-                                            <td class="text-center">7</td>
-                                            <td class="text-center">8</td>
-                                            <td class="text-center">9</td>
-                                            <td class="text-center question-calendrier">10</td>
-
-                                        </tr>
-
-                                        <tr class="priority-300">
-                                            <td class="text-center question-calendrier">11</td>
-                                            <td class="text-center question-calendrier">12</td>
-                                            <td class="text-center">13</td>
-                                            <td class="text-center">14</td>
-                                            <td class="text-center">15</td>
-                                            <td class="text-center">16</td>
-                                            <td class="text-center reponse-calendrier">17</td>
-                                            <td class="text-center">18</td>
-                                            <td class="text-center">19</td>
-                                            <td class="text-center">20</td>
-
-                                        </tr>
-
-                                        <tr class="priority-300">
-                                            <td class="text-center">21</td>
-                                            <td class="text-center">22</td>
-                                            <td class="text-center">23</td>
-                                            <td class="text-center">24</td>
-                                            <td class="text-center examen-mensuel">25</td>
-                                            <td class="text-center examen-mensuel">26</td>
-                                            <td class="text-center">27</td>
-                                            <td class="text-center">28</td>
-                                            <td class="text-center">29</td>
-                                            <td class="text-center">30</td>
-
-                                        </tr>
-
-                                        <tr class="priority-300">
-                                            <td class="text-center">31</td>
-
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <div class="col-12 table-calendrier mt-3 pb-3">
-                                <h4 class="text-center">"5eme mois" et "10eme mois"</h4>
-                                <table class="mt-4">
-                                    <tbody id="tabcalendrier">
-
-                                        <tr class="priority-300">
-                                            <td class="text-center">1</td>
-                                            <td class="text-center">2</td>
-                                            <td class="text-center cours-calendrier">3</td>
-                                            <td class="text-center">4</td>
-                                            <td class="text-center">5</td>
-                                            <td class="text-center">6</td>
-                                            <td class="text-center">7</td>
-                                            <td class="text-center">8</td>
-                                            <td class="text-center">9</td>
-                                            <td class="text-center question-calendrier">10</td>
-
-                                        </tr>
-
-                                        <tr class="priority-300">
-                                            <td class="text-center question-calendrier">11</td>
-                                            <td class="text-center question-calendrier">12</td>
-                                            <td class="text-center">13</td>
-                                            <td class="text-center">14</td>
-                                            <td class="text-center">15</td>
-                                            <td class="text-center">16</td>
-                                            <td class="text-center reponse-calendrier">17</td>
-                                            <td class="text-center">18</td>
-                                            <td class="text-center">19</td>
-                                            <td class="text-center examen-semestriel">20</td>
-
-                                        </tr>
-
-                                        <tr class="priority-300">
-                                            <td class="text-center examen-semestriel">21</td>
-                                            <td class="text-center examen-semestriel">22</td>
-                                            <td class="text-center examen-semestriel">23</td>
-                                            <td class="text-center examen-semestriel">24</td>
-                                            <td class="text-center examen-semestriel">25</td>
-                                            <td class="text-center examen-semestriel">26</td>
-                                            <td class="text-center examen-semestriel">27</td>
-                                            <td class="text-center">28</td>
-                                            <td class="text-center">29</td>
-                                            <td class="text-center">30</td>
-
-                                        </tr>
-
-                                        <tr class="priority-300">
-                                            <td class="text-center">31</td>
-
-                                        </tr>
-
-                                    </tbody>
-                                </table>
+                            <div class="col-12 col-lg-4 col-xl-4 d-flex flex-column justify-content-center calendrier-legende pl-3">
+                                <div class="cours-legende d-flex align-items-center">
+                                    <div class="d-flex align-items-center p-2">3 : Début cours</div>
+                                </div>
+                                <div class="exercice-legende d-flex align-items-center mt-2">
+                                    <div class="d-flex align-items-center p-2">13 : Début exercice</div>
+                                </div>
+                                <div class="corrige-legende d-flex align-items-center mt-2">
+                                    <div class="d-flex align-items-center p-2">20 : Début correction</div>
+                                </div>
+                                <div class="examen-mensuel-legende d-flex align-items-center mt-2">
+                                    <div class="d-flex align-items-center p-2">23 et 24 : Examen mensuel</div>
+                                </div>
+                                <div class="examen-semestriel-legende d-flex align-items-center mt-2">
+                                    <div class="d-flex align-items-center p-2">25 au 30 : Examen semestriel</div>
+                                </div>
                             </div>
                         </div>
+                    <?php } else { ?>
+                        <!-- calendrier-master -->
+                        <div class="calendrier-master d-block d-lg-flex d-xl-flex pb-2">
+                            <div class="col-12 col-lg-8 col-xl-8 calendrier-corps">
+                                <div class="col-12 table-calendrier mt-3 pb-3">
+                                    <h4 class="text-center">"1er - 4ème mois" et "6ème - 8ème mois"</h4>
+                                    <table class="mt-4">
+                                        <tbody id="tabcalendrier">
 
-                        <div class="col-12 col-lg-4 col-xl-4 d-flex flex-column justify-content-center calendrier-legende pl-3">
-                            <div class="cours-legende d-flex align-items-center">
-                                <div class="d-flex align-items-center p-2">3 : Debut cours</div>
+                                            <tr class="priority-300">
+                                                <td class="text-center">1</td>
+                                                <td class="text-center">2</td>
+                                                <td class="text-center cours-calendrier">3</td>
+                                                <td class="text-center">4</td>
+                                                <td class="text-center">5</td>
+                                                <td class="text-center">6</td>
+                                                <td class="text-center">7</td>
+                                                <td class="text-center">8</td>
+                                                <td class="text-center">9</td>
+                                                <td class="text-center question-calendrier">10</td>
+
+                                            </tr>
+
+                                            <tr class="priority-300">
+                                                <td class="text-center question-calendrier">11</td>
+                                                <td class="text-center question-calendrier">12</td>
+                                                <td class="text-center">13</td>
+                                                <td class="text-center">14</td>
+                                                <td class="text-center">15</td>
+                                                <td class="text-center">16</td>
+                                                <td class="text-center reponse-calendrier">17</td>
+                                                <td class="text-center">18</td>
+                                                <td class="text-center">19</td>
+                                                <td class="text-center">20</td>
+
+                                            </tr>
+
+                                            <tr class="priority-300">
+                                                <td class="text-center">21</td>
+                                                <td class="text-center">22</td>
+                                                <td class="text-center">23</td>
+                                                <td class="text-center">24</td>
+                                                <td class="text-center examen-mensuel">25</td>
+                                                <td class="text-center examen-mensuel">26</td>
+                                                <td class="text-center">27</td>
+                                                <td class="text-center">28</td>
+                                                <td class="text-center">29</td>
+                                                <td class="text-center">30</td>
+
+                                            </tr>
+
+                                            <tr class="priority-300">
+                                                <td class="text-center">31</td>
+
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="col-12 table-calendrier mt-3 pb-3">
+                                    <h4 class="text-center">"5ème mois" et "10ème mois"</h4>
+                                    <table class="mt-4">
+                                        <tbody id="tabcalendrier">
+
+                                            <tr class="priority-300">
+                                                <td class="text-center">1</td>
+                                                <td class="text-center">2</td>
+                                                <td class="text-center cours-calendrier">3</td>
+                                                <td class="text-center">4</td>
+                                                <td class="text-center">5</td>
+                                                <td class="text-center">6</td>
+                                                <td class="text-center">7</td>
+                                                <td class="text-center">8</td>
+                                                <td class="text-center">9</td>
+                                                <td class="text-center question-calendrier">10</td>
+
+                                            </tr>
+
+                                            <tr class="priority-300">
+                                                <td class="text-center question-calendrier">11</td>
+                                                <td class="text-center question-calendrier">12</td>
+                                                <td class="text-center">13</td>
+                                                <td class="text-center">14</td>
+                                                <td class="text-center">15</td>
+                                                <td class="text-center">16</td>
+                                                <td class="text-center reponse-calendrier">17</td>
+                                                <td class="text-center">18</td>
+                                                <td class="text-center">19</td>
+                                                <td class="text-center examen-semestriel">20</td>
+
+                                            </tr>
+
+                                            <tr class="priority-300">
+                                                <td class="text-center examen-semestriel">21</td>
+                                                <td class="text-center examen-semestriel">22</td>
+                                                <td class="text-center examen-semestriel">23</td>
+                                                <td class="text-center examen-semestriel">24</td>
+                                                <td class="text-center examen-semestriel">25</td>
+                                                <td class="text-center examen-semestriel">26</td>
+                                                <td class="text-center examen-semestriel">27</td>
+                                                <td class="text-center">28</td>
+                                                <td class="text-center">29</td>
+                                                <td class="text-center">30</td>
+
+                                            </tr>
+
+                                            <tr class="priority-300">
+                                                <td class="text-center">31</td>
+
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                            <div class="exercice-legende d-flex align-items-center mt-2">
-                                <div class="d-flex align-items-center p-2">10 au 12 : Depot questions</div>
-                            </div>
-                            <div class="corrige-legende d-flex align-items-center mt-2">
-                                <div class="d-flex align-items-center p-2">17 : Reponse au question</div>
-                            </div>
-                            <div class="examen-mensuel-legende d-flex align-items-center mt-2">
-                                <div class="d-flex align-items-center p-2">25 et 26 : Examen mensuel</div>
-                            </div>
-                            <div class="examen-semestriel-legende d-flex align-items-center mt-2">
-                                <div class="d-flex align-items-center p-2">20 au 27 : Examen semestriel</div>
+
+                            <div class="col-12 col-lg-4 col-xl-4 d-flex flex-column justify-content-center calendrier-legende pl-3">
+                                <div class="cours-legende d-flex align-items-center">
+                                    <div class="d-flex align-items-center p-2">3 : Début cours</div>
+                                </div>
+                                <div class="exercice-legende d-flex align-items-center mt-2">
+                                    <div class="d-flex align-items-center p-2">10 au 12 : Dépot questions</div>
+                                </div>
+                                <div class="corrige-legende d-flex align-items-center mt-2">
+                                    <div class="d-flex align-items-center p-2">17 : Réponse au question</div>
+                                </div>
+                                <div class="examen-mensuel-legende d-flex align-items-center mt-2">
+                                    <div class="d-flex align-items-center p-2">25 et 26 : Examen mensuel</div>
+                                </div>
+                                <div class="examen-semestriel-legende d-flex align-items-center mt-2">
+                                    <div class="d-flex align-items-center p-2">20 au 27 : Examen semestriel</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    <?php } ?>
 
                 </div>
                 <!-- fin calendrier -->
+
+
+
+
 
                 <!-- cours -->
                 <div class="col-12 mt-5 contenu-cours mb-2" id="contenu-cours">
@@ -561,28 +584,25 @@ require('head.html');
                         $cours->setMois($_SESSION['mois']);
                         $cours->setCategorie(1);
                         $cours->setType(1);
-                        if ($_SESSION['semestre'] != 'S5' or $_SESSION['semestre'] != 'S6' or $_SESSION['semestre'] != 'S9' or $_SESSION['semestre'] != 'S10') {
-                            $tabvague = explode("V", $_SESSION['vague']);
 
+                        if ($_SESSION['semestre'] != 'S5' or $_SESSION['semestre'] != 'S6' or $_SESSION['semestre'] != 'S9' or $_SESSION['semestre'] != 'S10') {
+
+                            $tabvague = explode("V", $_SESSION['vague']);
                             for ($i = 0; $i < count($tabvague); $i++) {
                                 $numvague = $tabvague[$i];
                             }
 
-                            if ($numvague < 7) {
-                                $res = $cours->formationL1L2M1();
-                            } else {
-                                $res = $cours->formationMBAV7();
+                            if ($numvague >= 7 and $_SESSION['filiere'] === 'MBA') {
+                                $tableaucours = $cours->formationMBAV7();
+                            } else if ($numvague <= 7) {
+                                $tableaucours = $cours->formationL1L2M1();
                             }
                         } else {
-                            //L3 M2 
-                            if ($numvague < 7) {
-                                $res = $cours->formationL3M2();
-                            } else {
-                                $res = $cours->formationMASTERM2();
-                            }
+
+                            $tableaucours = $cours->formationL3M2();
                         }
 
-                        foreach ($res as $resultat) {
+                        foreach ($tableaucours as $resultat) {
                             $contenuTab = explode(",", $resultat['CONTENU_FR']);
                             $contenuTabSize = sizeof($contenuTab);
 
@@ -591,6 +611,8 @@ require('head.html');
                             } else {
                                 $tabsize = $contenuTabSize - 1;
                             }
+
+
                             for ($i = 0; $i < $tabsize; $i++) {
                                 $courslivres = $contenuTab[$i];
 
@@ -600,23 +622,23 @@ require('head.html');
                                 } else {
                                     $part = $i + 1;
                                     $partie = ' Partie';
-                                }
-                        ?>
+                                } ?>
+
                                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
                                     <div class="mb-2 pt-2 cours text-center">
                                         <h5 class="d-flex justify-content-center align-items-center"><?php echo $resultat['INTITULE']; ?></h5>
                                         <div class="button-cours d-block">
 
-                                            <button class="btn mt-2 active-cours-pdf" onclick="GetPDF('<?php echo $courslivres; ?>','<?php echo $resultat['INTITULE'] . $partie . ' ' . $part; ?>')">PDF</button>
+                                            <button class="btn mt-2 active-cours-pdf" onclick="GetPDF('<?php echo $courslivres;  ?>','<?php echo $resultat['INTITULE'] . $partie . ' ' . $part; ?>')">PDF</button>
                                             <button class="btn active-cours-explication" onclick="GetYOUTUBE(<?php echo $resultat['IDMATIERE']; ?>,'<?php echo $resultat['INTITULE']; ?>')">Explication</button>
 
                                         </div>
                                     </div>
                                 </div>
-                        <?php }
-                        } ?>
-
-
+                        <?php
+                            }
+                        }
+                        ?>
                     </div>
 
                 </div>
@@ -653,93 +675,68 @@ require('head.html');
                     </div>
 
                     <div class="col-12 row table-exercice" id="table-exercice">
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-                            <div class="mb-2 pt-2 exercice text-center">
-                                <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
-                                <div class="button-exercice">
-                                    <button class="btn mt-2" id="active-exercice-pdf">PDF</button>
-                                    <button class="btn" id="active-exercice-explication">Explication</button>
-                                    <button class="btn" id="active-exercice-corrige">Corrige</button>
-                                </div>
-                            </div>
-                        </div>
+                        <?php
+                        $cours = new Formation();
+                        $cours->setSemetre($_SESSION['semestre']);
+                        $cours->setFiliere($_SESSION['filiere']);
+                        $cours->setMois($_SESSION['mois']);
+                        $cours->setCategorie(2);
+                        $cours->setType(1);
 
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-                            <div class="mb-2 pt-2 exercice text-center">
-                                <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
-                                <div class="button-exercice">
-                                    <button class="btn mt-2">PDF</button>
-                                    <button class="btn">Explication</button>
-                                    <button class="btn">Corrige</button>
-                                </div>
-                            </div>
-                        </div>
+                        if ($_SESSION['semestre'] != 'S5' or $_SESSION['semestre'] != 'S6' or $_SESSION['semestre'] != 'S9' or $_SESSION['semestre'] != 'S10') {
 
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-                            <div class="mb-2 pt-2 exercice text-center">
-                                <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
-                                <div class="button-exercice">
-                                    <button class="btn mt-2">PDF</button>
-                                    <button class="btn">Explication</button>
-                                    <button class="btn">Corrige</button>
-                                </div>
-                            </div>
-                        </div>
+                            $tabvague = explode("V", $_SESSION['vague']);
+                            for ($i = 0; $i < count($tabvague); $i++) {
+                                $numvague = $tabvague[$i];
+                            }
 
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-                            <div class="mb-2 pt-2 exercice text-center">
-                                <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
-                                <div class="button-exercice">
-                                    <button class="btn mt-2">PDF</button>
-                                    <button class="btn">Explication</button>
-                                    <button class="btn">Corrige</button>
-                                </div>
-                            </div>
-                        </div>
+                            if ($numvague >= 7 and $_SESSION['filiere'] === 'MBA') {
+                                $tableaucours = $cours->formationMBAV7();
+                            } else if ($numvague <= 7) {
+                                $tableaucours = $cours->formationL1L2M1();
+                            }
+                        } else {
 
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-                            <div class="mb-2 pt-2 exercice text-center">
-                                <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
-                                <div class="button-exercice">
-                                    <button class="btn mt-2">PDF</button>
-                                    <button class="btn">Explication</button>
-                                    <button class="btn">Corrige</button>
-                                </div>
-                            </div>
-                        </div>
+                            $tableaucours = $cours->formationL3M2();
+                        }
 
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-                            <div class="mb-2 pt-2 exercice text-center">
-                                <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
-                                <div class="button-exercice">
-                                    <button class="btn mt-2">PDF</button>
-                                    <button class="btn">Explication</button>
-                                    <button class="btn">Corrige</button>
-                                </div>
-                            </div>
-                        </div>
+                        foreach ($tableaucours as $resultat) {
+                            $contenuTab = explode(",", $resultat['CONTENU_FR']);
+                            $contenuTabSize = sizeof($contenuTab);
 
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-                            <div class="mb-2 pt-2 exercice text-center">
-                                <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
-                                <div class="button-exercice">
-                                    <button class="btn mt-2">PDF</button>
-                                    <button class="btn">Explication</button>
-                                    <button class="btn">Corrige</button>
-                                </div>
-                            </div>
-                        </div>
+                            if ($contenuTabSize == 1) {
+                                $tabsize = $contenuTabSize;
+                            } else {
+                                $tabsize = $contenuTabSize - 1;
+                            }
 
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-                            <div class="mb-2 pt-2 exercice text-center">
-                                <h5 class="d-flex align-items-center">Algorithme Algorithme</h5>
-                                <div class="button-exercice">
-                                    <button class="btn mt-2">PDF</button>
-                                    <button class="btn">Explication</button>
-                                    <button class="btn">Corrige</button>
+
+                            for ($i = 0; $i < $tabsize; $i++) {
+                                $courslivres = $contenuTab[$i];
+
+                                if ($contenuTabSize <= 2) {
+                                    $partie = '';
+                                    $part = '';
+                                } else {
+                                    $part = $i + 1;
+                                    $partie = ' Partie';
+                                } ?>
+
+                                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
+                                    <div class="mb-2 pt-2 exercice text-center">
+                                        <h5 class="d-flex justify-content-center align-items-center"><?php echo $resultat['INTITULE']; ?></h5>
+                                        <div class="button-exercice d-block">
+
+                                            <button class="btn mt-2 active-cours-pdf" onclick="GetPDF('<?php echo $courslivres;  ?>','<?php echo $resultat['INTITULE'] . $partie . ' ' . $part; ?>')">PDF</button>
+
+
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                        <?php
+                            }
+                        }
+                        ?>
                     </div>
 
                 </div>
@@ -752,7 +749,7 @@ require('head.html');
                         </div>
                     </div>
 
-                    <iframe src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
 
                 <!-- fin exercice -->
@@ -771,7 +768,7 @@ require('head.html');
                     <div class="col-12 d-flex mt-3 table-chat overflow-auto">
                         <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 m-1 chat">
                             <div class="body-chat overflow-auto">
-                                <div class="ml-5  mt-3 user-chat d-flex">
+                                <!-- <div class="ml-5  mt-3 user-chat d-flex">
                                     <img src="<?php echo $_SESSION["photo"]; ?>" class="img-fluid" alt="">
                                     <div class="ml-2">Si vous avez des question a propos des cours lorem</div>
                                 </div>
@@ -809,11 +806,11 @@ require('head.html');
                                 <div class="mt-3 ml-1 admin-chat d-flex">
                                     <img src="vue/image/logo/logo_E-media_enligne_rond.png" class="img-fluid" alt="">
                                     <div class="ml-2">Si vous avez des question a propos des cours</div>
-                                </div>
+                                </div> -->
                             </div>
 
                             <div class="form-chat">
-                                <form class="login-form mt-2" id="" method="post">
+                                <!-- <form class="login-form mt-2" id="" method="post">
                                     <div class="d-flex input-chat">
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10 form-group">
                                             <textarea type="text" name="message" class="text-input p-1" id="" placeholder="Votre message..."></textarea>
@@ -821,7 +818,7 @@ require('head.html');
                                         </div>
                                     </div>
 
-                                </form>
+                                </form> -->
                             </div>
                         </div>
 
@@ -850,23 +847,23 @@ require('head.html');
 
                     <div class="col-12 row table-contact texte-center">
                         <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-3 mt-lg-5 mt-xl-5 contact">
-                            <h6>Service Pedagogie License <br> <span>0347626108</span></h6>
+                            <h6>Service Pedagogie Licence <br> <span>0345677707</span></h6>
                         </div>
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-3 mt-lg-5 mt-xl-5 contact">
-                            <h6>Service Pedagogie Master <br> <span>0347626108</span></h6>
+                            <h6>Service Pedagogie Master <br> <span>0349177707</span></h6>
                         </div>
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-3 mt-lg-5 mt-xl-5 contact">
-                            <h6>Service Pedagogie MBA <br> <span>0347626108</span></h6>
+                            <h6>Service Pedagogie MBA <br> <span>0340349177707</span></h6>
                         </div>
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-3 mt-lg-5 mt-xl-5 contact">
-                            <h6>Service Finance <br> <span>0347626108</span></h6>
+                            <h6>Service Finance <br> <span>0344013064</span></h6>
                         </div>
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-3 mt-lg-5 mt-xl-5 contact">
-                            <h6>Service Technique <br> <span>0347626108</span></h6>
+                            <h6>Service Technique <br> <span>0345077707</span></h6>
                         </div>
                     </div>
                 </div>
@@ -919,17 +916,14 @@ require('head.html');
                 </div>
 
                 <div class="col-12 affiche-exercice-corrige overflow-auto mt-1 pt-3">
-                    <iframe width="100%" height="500" src="https://www.youtube.com/embed/HgIeckuG7cQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="100%" height="500" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
 
             <!-- contenu-notification -->
             <div class="col-12 contenu-notification mt-5" id="contenu-notification">
-                <h4 class="d-flex justify-content-center mt-4">Examen dans:</h4>
-                <div id="count_exam" class="d-flex justify-content-center">
-
-                </div>
-                <button class="btn-details-examen" id="btn-details-examen">Details</button>
+                    <h4 class="d-flex justify-content-center mt-4">Examen dans:</h4>
+                    <div id="count_exam" class="d-flex justify-content-center"></div>
 
                 <h4 class="d-flex justify-content-center mt-5">Paiments dans:</h4>
                 <div id="count_ecolage" class="d-flex justify-content-center">
@@ -939,7 +933,7 @@ require('head.html');
 
         </div>
     </div>
-
+<input type="hidden" value="<?php echo $_SESSION['diplome']?>" id="diplf">
 
 </body>
 <?php
