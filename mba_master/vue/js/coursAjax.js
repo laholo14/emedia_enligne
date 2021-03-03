@@ -1,6 +1,7 @@
 $(document).ready(function () {
     selectEC();
     selectUE();
+    
     function ajoutUE() {
         if ($("#text_ue").val() != "") {
             $.ajax({
@@ -43,7 +44,7 @@ $(document).ready(function () {
             url: "../controller/controllerSelectEC.php",
             type: "POST",
             data: {
-                select_ec: ""
+                select_ec: "mba"
             },
             success: function (data) {
                 $("#select_ec").html(data);
@@ -52,7 +53,7 @@ $(document).ready(function () {
     }
 
     function ajoutEC() {
-        if ($("#text_ec").val() != "") {
+        if ($("#text_ec").val() != "" || $("#text_credit").val() != "") {
             $.ajax({
                 url: "../controller/controllerAjoutEC.php",
                 type: "POST",
@@ -60,7 +61,9 @@ $(document).ready(function () {
                     select_ue: $("#select_ue").val(),
                     text_ec: $("#text_ec").val(),
                     semestre: $("#select_semestre").val(),
-                    mois: $("#select_mois").val()
+                    mois: $("#select_mois").val(),
+                    credit: $("#text_credit").val(),
+                    parcours:"FCM"
                 },
                 success: function (data) {
                     alert(data);

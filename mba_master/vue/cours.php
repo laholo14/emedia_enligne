@@ -31,8 +31,8 @@ $currentPage = 'cours';
             </div>
         </div>
         <div class="menu">
-        <i class="fal fa-bars fa-2x"></i>
-    </div>
+            <i class="fal fa-bars fa-2x"></i>
+        </div>
         <div class="container-item">
             <div class="setting">
                 <i class="fas fa-cog fa-1x"></i>
@@ -56,10 +56,10 @@ $currentPage = 'cours';
                     <li class="navigation-list-item"><a class="navigation-item-link" href="etudiant"> <i class="fas fa-graduation-cap"></i><span>Etudiants</span></a></li>
                     <li class="navigation-list-item"><a class="navigation-item-link" href="admission"> <i class="fas fa-book"></i><span>Admissions</span> </a></li>
 
-                    <li class="navigation-list-item"><a  href="#" class="active navigation-item-link"><i class="fas fa-pen"></i><span>Cours </span></a>
+                    <li class="navigation-list-item"><a href="#" class="active navigation-item-link"><i class="fas fa-pen"></i><span>Cours </span></a>
                         <div class="navigationdropdown1">
                             <ul class="ulnavigationdropdown1">
-                                <li class="linavigationdropdown1" ><a class="anavigationdropdown1" href="#">Lister</a>
+                                <li class="linavigationdropdown1"><a class="anavigationdropdown1" href="#">Lister</a>
                                     <div class="navigationdropdown2">
                                         <ul class="ulnavigationdropdown2">
                                             <li class="linavigationdropdown2"><a class="anavigationdropdown2" href="#">Lister</a></li>
@@ -86,7 +86,7 @@ $currentPage = 'cours';
                 <h3 class="fieldsetTitle">Unite d'enseignement</h3>
                 <div class="form-group field-group d-flex flex-column">
                     <label>Ajouter une unité d'enseignement</label>
-                    <input class="fieldinput" type="text" placeholder="unite d'enseignement" />
+                    <input class="fieldinput" type="text" placeholder="unite d'enseignement" id="text_ue" />
                 </div>
 
                 <input type="button" value="creez" id="btn_ajout_ue" />
@@ -100,6 +100,14 @@ $currentPage = 'cours';
                         Ajouter une element constitutif
                     </label>
                     <input class="fieldinput" type="text" placeholder="ajouter une Element constitutif" id="text_ec" />
+                </div>
+
+               
+                <div class="form-group d-flex flex-column">
+                    <label>
+                    Credit
+                    </label>
+                    <input class="fieldinput" type="text" placeholder="credit" id="text_credit" />
                 </div>
 
 
@@ -174,10 +182,10 @@ $currentPage = 'cours';
 
                         </select>
                     </div>
-  
+
                 </div>
                 <div class="form-group d-flex flex-column">
-                   <input type="hidden" name="categorie" value="1">
+                    <input type="hidden" name="categorie" value="1">
 
                 </div>
                 <div class="form-group d-flex flex-column">
@@ -186,49 +194,56 @@ $currentPage = 'cours';
                     </label>
                     <div class="container-select">
                         <select id="formatchoosing" name="type">
+                        <option selected disabled>...</option>
                             <option value="1">Livre en pdf</option>
                             <option value="2">Video</option>
-                            <option value="3">Audio</option>
                         </select>
                     </div>
 
                 </div>
-                <div class="containerinputforsenditformat">
-                    <div class="form-group">
-                        <div class="container_field_import">
-                            <label for="file_book_mg">
-                                contenu pour les nationaux
-                            </label>
-                            <div class="boutton_file">
-                                choisir
+                <div id="file">
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-4">contenu pour les nationaux:</label>
+                            <div class="col-8">
+                                <input type="file" name="contenu_mg[]" type="file" accept="application/pdf" multiple />
                             </div>
-                            <input id="file_book_mg" class="file_book" name="contenu_mg[]" type="file" accept="audio/* , application/vnd.openxmlformats-officedocument.wordprocessingml.document , application/msword , application/pdf" multiple />
-                            <span class="file_name">Aucune fichier selectionné</span>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-4">contenu pour les etrangers:</label>
+                            <div class="col-8">
+                                <input type="file" name="contenu_fr[]" type="file" accept="application/pdf" multiple />
+                            </div>
                         </div>
                     </div>
-                     <div class="form-group ">
-                        <div class="container_field_import">
-                            <label for="file_book_et">
-                                contenu pour les etrangers
-                            </label>
-                            <div class="boutton_file"> 
-                                choisir
+
+                    <div id="video">
+                        <div class="form-group row ">
+                            <label for="inputEmail3" class="col-4">contenu pour les nationaux:</label>
+                            <div class="col-8">
+                                <input type="text" class="form-control " id="lienVideoMg" name="lienVideoMg" placeholder="Lien video">
                             </div>
-                            <input id="file_book_et" class="file_book" name="contenu_fr[]" type="file" accept="audio/* , application/vnd.openxmlformats-officedocument.wordprocessingml.document , application/msword , application/pdf" multiple />
-                            <span class="file_name">Aucune fichier selectionné</span>
+                        </div>
+
+
+                        <div class="form-group row ">
+                            <label for="inputEmail3" class="col-4">contenu pour les etrangers:</label>
+                            <div class="col-8">
+                                <input type="text" class="form-control " name="lienVideoFr" placeholder="Lien video">
+                            </div>
                         </div>
                     </div>
-                </div>
                 <input type="submit" value="créez" id="btn_ajout_dossier" />
             </form>
             <div class="alert alert-success" role="alert">
-  A simple success alert—check it out!
-</div>
+                A simple success alert—check it out!
+            </div>
         </section>
-        
+
     </div>
 
-  
+
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
