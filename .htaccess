@@ -8,7 +8,9 @@ RewriteRule ^(.*)$ $1\.php
 
 
 RewriteRule ^Abm$ mba_master/vue/login [L]
+RewriteRule ^gourde$ master/vue/login [L]
 RewriteRule ^Accueil_mba$ mba_master/vue/index [L]
+RewriteRule ^Accueil_master$ master/vue/index [L]
 RewriteRule ^Accueil$ vue/accueil [L]    
 RewriteRule ^apTjay661lo$ vue/ancien [L]
 RewriteRule ^Bulletin$ vue/note [L]
@@ -47,7 +49,7 @@ RewriteRule ^Error500$ vue/error_500.php [L]
 
 
 #ErrorDocument 404 https://e-media-madagascar.com/universite/Error
-#ErrorDocument 403 https://e-media-madagascar.com/universite/Error403
-#   ErrorDocument 500 https://e-media-madagascar.com/universite/Error500
+ErrorDocument 403 https://e-media-madagascar.com/universite/Error403
+ErrorDocument 500 https://e-media-madagascar.com/universite/Error500
 
 

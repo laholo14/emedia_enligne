@@ -27,7 +27,7 @@ if (isset($_POST['matricule'], $_POST['pass'])) {
         $_SESSION['mdpmba'] = $resultat['MDP'];
     }
 
-    if (isset($_SESSION['matriculemba']) and $_SESSION['matriculemba'] === $matricule) {
+    if (isset($_SESSION['matriculemba'],$_SESSION['mdpmba']) and $_SESSION['matriculemba'] === $matricule) {
         header("location: ../../Accueil_mba");
     } else {
         $_SESSION['erreuradmin'] = "Matricule ou mot de passe incorrect";

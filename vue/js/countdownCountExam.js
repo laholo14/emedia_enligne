@@ -1,7 +1,7 @@
 $(function () {
   
   let date;
-  if($('#diplaoma').val()=='LICENCE'){
+  if($('#cal_examen').val()=='23'){
      date="2021/03/23";
   }else{
     date="2021/03/25";

@@ -27,6 +27,7 @@ body {
 }
 
 /* preloading */
+
 .container-preloading {
     margin: 0;
     padding: 0;
@@ -51,7 +52,7 @@ body {
     position: relative;
     width: 200px;
     height: 200px;
-    border-radius: 50%; 
+    border-radius: 50%;
     -moz-animation: animatePreloading 2s linear infinite;
     -webkit-animation: animatePreloading 2s linear infinite;
     animation: animatePreloading 2s linear infinite;
@@ -80,27 +81,18 @@ body {
     border-bottom-left-radius: 100px;
 }
 
-.preloading::after  {
+.preloading::after {
     content: '';
     position: absolute;
     top: 0;
-    left: 50% ;
+    left: 50%;
     transform: translateX(-50%);
     width: 20px;
     height: 20px;
     background-color: #00fff9;
     border-radius: 50%;
     z-index: 99;
-    box-shadow: 0 0 10px #00fff9,
-                0 0 20px #00fff9,
-                0 0 30px #00fff9,
-                0 0 40px #00fff9,
-                0 0 50px #00fff9,
-                0 0 60px #00fff9,
-                0 0 70px #00fff9,
-                0 0 80px #00fff9,
-                0 0 90px #00fff9,
-                0 0 100px #00fff9;
+    box-shadow: 0 0 10px #00fff9, 0 0 20px #00fff9, 0 0 30px #00fff9, 0 0 40px #00fff9, 0 0 50px #00fff9, 0 0 60px #00fff9, 0 0 70px #00fff9, 0 0 80px #00fff9, 0 0 90px #00fff9, 0 0 100px #00fff9;
 }
 
 .preloading span {
@@ -206,24 +198,20 @@ body {
     .btn-notification {
         margin-right: 4rem !important;
     }
-
     .btn-notificationNote {
         margin-right: 1rem;
     }
-
     .nav_bar #fa-bars {
         display: block;
         position: absolute;
         font-size: 30px;
         color: #0185b4;
     }
-
     .nav_bar #fa-times {
         position: absolute;
         font-size: 30px;
         color: #0185b4;
     }
-    
     .notification, .logout {
         display: none;
     }
@@ -498,7 +486,7 @@ body {
 }
 
 .propos-contenu {
-    background: linear-gradient(217deg, rgba(6, 176, 228, 0.623), rgba(255,0,0,0) 70.71%)
+    background: linear-gradient(217deg, rgba(6, 176, 228, 0.623), rgba(255, 0, 0, 0) 70.71%)
 }
 
 .propos-img img {
@@ -526,13 +514,10 @@ body {
         text-align: center;
         font-size: 2rem;
     }
-
     .propos-contenu .propos-details span {
         font-size: 1rem;
     }
 }
-
-
 
 /* fin profil */
 
@@ -581,8 +566,7 @@ body {
     padding: 1rem 1rem 0 1rem;
 }
 
-.calendrier-licence .cours-calendrier, .calendrier-legende .cours-legende span, 
-.calendrier-master .cours-calendrier {
+.calendrier-licence .cours-calendrier, .calendrier-legende .cours-legende span, .calendrier-master .cours-calendrier {
     color: #fff;
     background-color: rgb(24, 211, 24);
     width: 50px;
@@ -590,8 +574,7 @@ body {
     padding: 3px;
 }
 
-.calendrier-licence .exercices-calendrier, .calendrier-legende .exercice-legende span,
-.calendrier-master .question-calendrier {
+.calendrier-licence .exercices-calendrier, .calendrier-legende .exercice-legende span, .calendrier-master .question-calendrier {
     color: #ffff;
     background-color: #e68b14;
     width: 50px !important;
@@ -599,8 +582,7 @@ body {
     padding: 3px;
 }
 
-.calendrier-licence .corrige-calendrier, .calendrier-legende .corrige-legende span,
-.calendrier-master .reponse-calendrier {
+.calendrier-licence .corrige-calendrier, .calendrier-legende .corrige-legende span, .calendrier-master .reponse-calendrier {
     color: #fff;
     background-color: rgb(28, 226, 226);
     width: 50px !important;
@@ -608,8 +590,7 @@ body {
     padding: 3px;
 }
 
-.calendrier-licence .examen-mensuel, .calendrier-legende .examen-mensuel-legende span,
-.calendrier-master .examen-mensuel {
+.calendrier-licence .examen-mensuel, .calendrier-legende .examen-mensuel-legende span, .calendrier-master .examen-mensuel {
     color: #fff;
     background-color: rgb(214, 41, 41);
     width: 50px !important;
@@ -617,8 +598,7 @@ body {
     padding: 3px;
 }
 
-.calendrier-licence .examen-semestriel, .calendrier-legende .examen-semestriel-legende span,
-.calendrier-master .examen-semestriel {
+.calendrier-licence .examen-semestriel, .calendrier-legende .examen-semestriel-legende span, .calendrier-master .examen-semestriel {
     color: #fff;
     background-color: rgb(241, 196, 15);
     width: 70px !important;
@@ -698,11 +678,9 @@ body {
         margin-top: 3rem;
         font-size: 2rem;
     }
-
     .table-calendrier table {
         font-size: 0.9rem;
     }
-
     .table-calendrier table td {
         padding: .3rem;
     }
@@ -1042,6 +1020,12 @@ body {
 
 .table-chat {
     background-color: rgba(255, 255, 255, 0.658);
+    display: flex;
+    justify-content: center;
+}
+
+.chat {
+    display: none;
 }
 
 .body-chat {
@@ -1104,8 +1088,44 @@ body {
     color: #000000b7;
 }
 
+.importChat {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.importChat input[type=file] {
+    left: 0;
+    top: 0;
+    opacity: 0;
+    position: absolute;
+    font-size: 90px;
+}
+
+.btnImportChat {
+    border: none;
+    border: 1px solid #0185b4;
+    color: #0185b4;
+    border-radius: 5px;
+    margin-top: .5rem;
+    padding: .3rem;
+}
+
+.btnEnvoyerImportChat input {
+    border: none;
+    border: 1px solid #139c0f;
+    color: #fff;
+    background: #139c0f;
+    border-radius: 5px;
+    margin-top: .5rem;
+    padding: .3rem;
+}
+
 @media (min-width: 100px) and (max-width: 991px) {
-    .astuce-chat {
+    .table-chat {
+        display: block;
+    }
+    .astuce-chat img {
         display: none;
     }
 }
