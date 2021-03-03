@@ -1,6 +1,7 @@
 
     $(document).ready(function() {
         Bulletin();
+        Repechage();
         $("#semestre").change(function() {
             Bulletin();
             Repechage();

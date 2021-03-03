@@ -52,7 +52,7 @@ $db = new Connexion();
                             $color='bg-danger';
                             $valiny =new Resultat();
                             $valiny->setEtudiant($_SESSION['id']);
-                            $resMatiereArepecher=$valiny->selectMatiereARepecher($resultat['IDUE']);
+                            $resMatiereArepecher=$valiny->selectMatiereARepecher($resultat['IDUE'],$semestre);
                             $c="";
                             foreach ($resMatiereArepecher as $key) {
                                 echo var_dump($resMatiereArepecher);
