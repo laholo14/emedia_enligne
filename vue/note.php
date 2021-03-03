@@ -115,26 +115,7 @@ require('head.html');
                     <th class="text">Montant à payer</th>
                 </tr>
             </thead>   
-            <tbody>
-                
-                <?php
-                    $repecher=new Repecher();
-                    $res=$repecher->readEtudById($_SESSION['id']);
-                    foreach ($res as $resRepechage) {
-                        echo "<tr><td>".$resRepechage['INTITULE']."</td><td>".$resRepechage['MONTANT']."Ariary</td></tr>";
-                    }
-                ?>
-                    
-                    
-                
-                
-                <?php
-                    $repecher=new Repecher();
-                    $res=$repecher->readTotal($_SESSION['id']);
-                    foreach ($res as $resRepechage) {
-                        echo "<tr><td><b>TOTAL<b></td><td><b>".$resRepechage['MONTANT']."Ariary</b></td></tr>";
-                    }
-                ?>
+            <tbody id="tabrepechage">
                 
             </tbody>
         </table>

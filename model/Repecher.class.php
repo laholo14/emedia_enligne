@@ -3,6 +3,7 @@
 class Repecher{
     private $idEtudiant;
     private $idMatiere;
+    private $semestre;
     private $montant;
     private $etat;
 
@@ -10,6 +11,7 @@ class Repecher{
     {
         $this->idEtudiant;
         $this->idMatiere;
+        $this->semestre;
         $this->montant;
         $this->etat;
     }
@@ -19,6 +21,10 @@ class Repecher{
     }
     public function setIdMatiere($idMatiere){
       $this->idMatiere=$idMatiere;
+
+    }
+    public function setSemestre($semestre){
+      $this->idMatiere=$semestre;
 
     }
     public function setMontant($montant){
@@ -36,6 +42,9 @@ class Repecher{
     public function getIdMatiere(){
       return $this->idMatiere;
     }
+    public function getSemestre(){
+      return $this->semestre;
+    }
     public function getMontant(){
       return $this->montant;
     }
@@ -46,11 +55,12 @@ class Repecher{
 
    public function create(){
       $db=Connexion::getCx();
-       $requete = "INSERT INTO REPECHER VALUES(:idEtudiant , :idMatiere, :montant, :etat)";
+       $requete = "INSERT INTO REPECHER VALUES(:idEtudiant , :idMatiere,:semestre, :montant, :etat)";
        $st = $db->prepare($requete);
        $st->execute(array(
            "idEtudiant" => $this->getIdEtudiant(),
            "idMatiere" => $this->getIdMatiere(),
+           "semestre" => $this->getSemestre(),
            "montant" => $this->getMontant(),
            "etat" => $this->getEtat()
        ));
@@ -65,20 +75,20 @@ class Repecher{
      ));
      $st->closeCursor();
  }
- public function readEtudById($idEtudiant)
+ public function readEtudById($idEtudiant,$semestre)
  {
   $db=Connexion::getCx();
-  $sql = "SELECT * FROM REPECHER NATURAL JOIN MATIERE WHERE IDETUDIANTS ='".$idEtudiant."'";
+  $sql = "SELECT * FROM REPECHER NATURAL JOIN MATIERE WHERE IDETUDIANTS ='".$idEtudiant."' AND SEMESTRE ='".$semestre."'";
   $st =$db->query($sql);
   $res = $st->fetchAll();
   $st->closeCursor();
   return $res;
 
  }
- public function readTotal($idEtudiant)
+ public function readTotal($idEtudiant,$semestre)
  {
   $db=Connexion::getCx();
-  $sql = "SELECT sum(MONTANT) as MONTANT FROM REPECHER NATURAL JOIN MATIERE WHERE IDETUDIANTS ='".$idEtudiant."'";
+  $sql = "SELECT sum(MONTANT) as MONTANT FROM REPECHER NATURAL JOIN MATIERE WHERE IDETUDIANTS ='".$idEtudiant."' AND SEMESTRE ='".$semestre."'";
   $st =$db->query($sql);
   $res = $st->fetchAll();
   $st->closeCursor();
