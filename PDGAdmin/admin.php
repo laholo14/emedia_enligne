@@ -11,19 +11,7 @@ if (!isset($_SESSION['matriculeadmin'])) {
     header("location: Succes");
 }
 
-function loadclass($class)
-{
-
-    require "../../model/" . $class . '.class.php'; 
-}
-
-spl_autoload_register("loadclass");
-
-
-$connexion = new Connexion();
-
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -31,10 +19,9 @@ $connexion = new Connexion();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="admin/vue/css/admin.css" type="text/css" />
+    <link rel="stylesheet" href="../vue/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../vue/css/admin.css" type="text/css" />
+    <link rel="stylesheet" href="../vue/css/animate.css" type="text/css" />
     <title>Document</title>
 </head>
 
@@ -42,31 +29,27 @@ $connexion = new Connexion();
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <img src="admin/vue/image/logo E-media.png" height="40" alt="">
+            <img src="../vue/image/logo E-media.png" height="40" alt="">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto"> 
+                <ul class="navbar-nav ml-auto">
 
                     <li class="nav-item active">
-                        <a class="nav-link" href="Bureau">Inscription<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="admin.php">Inscription<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin/vue/adminEtudiant.php">Etudiant</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="admin/vue/admission.php">Admission</a>
+                        <a class="nav-link" href="adminEtudiant.php">Etudiant</a>
                     </li>
                     <li class="nav-item active">
                         <div class="dropdown">
                             <a class="nav-link dropdown-toggle" style="cursor :pointer;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cours</a>
                             <div class="dropdown-menu" aria-labelldby="dropdownMenuLink">
-                            <a class="dropdown-item" href="admin/vue/adminUE.php">Ajout UE</a>
-                                <a class="dropdown-item" href="admin/vue/adminMatiere.php">Ajout EC</a>
-                                <a class="dropdown-item" href="admin/vue/adminEnseigner.php">Ajout EC par Mention</a>
-                                <a class="dropdown-item" href="admin/vue/adminDossier.php">Ajout des Formations</a>
+                                <a class="dropdown-item" href="adminMatiere.php">Ajout EC</a>
+                                <a class="dropdown-item" href="adminEnseigner.php">Ajout EC par Mention</a>
+                                <a class="dropdown-item" href="adminDossier.php">Ajout des Formations</a>
                             </div>
                         </div>
                     </li>
@@ -74,23 +57,18 @@ $connexion = new Connexion();
                         <div class="dropdown">
                             <a class="nav-link dropdown-toggle" style="cursor :pointer;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Examen</a>
                             <div class="dropdown-menu" aria-labelldby="dropdownMenuLink">
-                                <a class="nav-link" href="admin/vue/adminExam.php">Ajout Examen</a>
-                                <a class="nav-link" href="admin/vue/adminNote.php">Resultat & Note</a>
-                                <a class="nav-link" href="admin/vue/AdminRepechage.php">Liste repéchage</a>
-                                <a class="nav-link" href="admin/vue/examenSpecifique.php">Insértion Examen Spécifique</a>
-                                <a class="nav-link" id='rlv' href="admin/vue/adminReleve.php">Relevés de notes</a>
+                            <a class="nav-link" href="adminExam.php">Ajout Examen</a>
+                               
+                                
                             </div>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin/vue/statusEtudiants.php">Statuts des Etudiants</a>
+                        <a class="nav-link" href="adminMessage.php">Message</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin/vue/adminMessage.php">Message</a>
-                    </li>
-                    <li class="nav-item">
-                        <!-- <a class="btn btn-danger" href="admin/vue/logoutadmin.php">Se deconnecter</a>-->
-                        <a href="admin/vue/logoutadmin.php">
+                        <!-- <a class="btn btn-danger" href="../vue/logoutadmin.php">Se deconnecter</a>-->
+                        <a href="logoutadmin.php">
                             <button type="button" class="btn btn-danger">Se deconnecter</button>
                         </a>
                     </li>
@@ -104,7 +82,7 @@ $connexion = new Connexion();
             <input class="btn btn-primary" data-toggle="modal" data-target="#modsearch" class="form-control" type='button' id='search' placeholder='recherche' value="Rechercher" />
         </form>
     </div>
-    <div class="modal fade" id="modsearch" tabindex="" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade"  id="modsearch" tabindex="" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header text-center ">
@@ -131,7 +109,7 @@ $connexion = new Connexion();
 
     </div>
 
-    <input type="hidden" id="admin" value="<?php echo $_SESSION['admin'] ?>" />
+
     <div class="row mt-2">
         <div class="col-2">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -270,113 +248,14 @@ $connexion = new Connexion();
 
 
 
-    <div class="modal fade" id="Updata" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header text-center ">
-                    <h5 class="modal-title text-capitalize" id="exampleModalLabel">Ajouter inscritpion</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+    
 
-                </div>
-                <div class="modal-body">
-                    <form method="post" action="">
-                        <div class="form-group">
-                            <label for="update_fname" class="col-form-label">Semestre</label><br>
-                            <select name="semestre" id="semestre">
-                                <option selected disabled>....</option>
-                                <option class="semestreLicence" value="S1">S1</option>
-                                <option class="semestreLicence" value="S2">S2</option>
-                                <option class="semestreLicence" value="S3">S3</option>
-                                <option class="semestreLicence" value="S4">S4</option>
-                                <option class="semestreLicence" value="S5">S5</option>
-                                <option class="semestreLicence" value="S6">S6</option>
-                                <option class="semestreMaster" value="S7">S7</option>
-                                <option class="semestreMaster" value="S8">S8</option>
-                                <option class="semestreMaster" value="S9">S9</option>
-                                <option class="semestreMaster" value="S10">S10</option>
-                                <option class="semestreMaster" value="S11">S11</option>
-                                <option class="semestreMaster" value="S12">S12</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="update_fname" class="col-form-label">Vague</label><br>
-                            <select name="vague" id="vague">
-                                <?php
-                                $requete = Connexion::getCx()->query("SELECT COUNT(*) AS ISA FROM CODECLASSE");
-                                $res = $requete->fetchAll();
-                                foreach ($res as $co) {
-                                    $count = $co["ISA"];
-                                }
-                                //$count =2;
-                                for ($i = 1; $i <= $count; $i++) {
-                                ?>
-                                    <option value="<?php echo 'V' . $i; ?>"><?php echo 'V' . $i; ?></option>
-                                <?php }
-                                $requete->closeCursor();
-                                ?>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="update_fname" class="col-form-label">Numero</label>
-                            <input type="text" class="form-control" id="numero" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="update_fname" class="col-form-label">ID</label>
-
-                            <input type="text" class="form-control" id="hidden" readonly>
-                            <label for="update_fname" class="col-form-label">Message d erreur</label>
-                            <input type="text" class="form-control" id="alert" readonly>
-                        </div>
-                        <div class="modal-footer d-flex justify-content-center">
-
-                            <input type="submit" id="ajouter" class="btn btn-primary" value="Valider" />
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+    
     </div>
 
-
-    <div class="modal fade" id="Delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header text-center ">
-                    <h5 class="modal-title text-capitalize" id="exampleModalLabel">Effacer un Inscription </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-
-                </div>
-                <div class="modal-body">
-                    <form method="post" action="">
-                        <div class="form-group purple-border">
-                            <label for="message" class="col-form-label">Message:</label><br>
-                            <textarea class="form-control" id="message" rows="3"></textarea>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="hiddensup" class="col-form-label">ID</label>
-                            <input type="text" class="form-control" id="hiddensup" readonly>
-                        </div>
-                        <div class="modal-footer d-flex justify-content-center">
-
-                            <input type="submit" id="delete" class="btn btn-primary" value="Supprimer" />
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../vue/js/jquery.min.js"></script>
+    <script src="../vue/js/popper.js"></script>
+    <script src="../vue/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 
 </html>
@@ -424,30 +303,10 @@ $connexion = new Connexion();
         setInterval(readNotifdrtm, 1000);
         setInterval(update_last_activity, 1000);
 
-        //manao click master
-        if ($("#admin").val() == 'master') {
-            $("#rlv").hide();
-            $("#v-pills-home-tab").hide();
-            $("#v-pills-profile-tab").click();
-            $(".semestreLicence").hide();
-        } else if ($("#admin").val() == 'licence') {
-            $("#v-pills-profile-tab").hide();
-            $("#v-pills-home-tab").click();
-            $(".semestreMaster").hide();
-        } else {
-            $("#v-pills-home-tab").hide();
-            $("#v-pills-profile-tab").hide();
-            $("#v-pills-licence").hide();
-            $("#v-pills-master").hide();
-        }
+
 
 
     });
-
-
-
-
-
 
     $(document).on("keyup", "#searchmod", function() {
         recherche();
@@ -464,7 +323,7 @@ $connexion = new Connexion();
 
         let search = $('#searchmod').val();
         $.ajax({
-            url: "admin/controller/ajoutLogin.php",
+            url: "ajoutLogin.php",
             type: "POST",
             data: {
                 search: search
@@ -476,52 +335,6 @@ $connexion = new Connexion();
 
 
     }
-
-    function GetUser(idEtudiants) {
-        $('#hiddensup').val(idEtudiants);
-    };
-
-    function GetUserLtic(idEtudiants) {
-        $('#hidden').val(idEtudiants);
-    };
-
-    function GetUserLcan(idEtudiants) {
-        $('#hidden').val(idEtudiants);
-    };
-
-    function GetUserLmpj(idEtudiants) {
-        $('#hidden').val(idEtudiants);
-    };
-
-    function GetUserLmgt(idEtudiants) {
-        $('#hidden').val(idEtudiants);
-    };
-
-    function GetUserLdrt(idEtudiants) {
-        $('#hidden').val(idEtudiants);
-    };
-
-    function GetUserMticm(idEtudiants) {
-        $('#hidden').val(idEtudiants);
-    };
-
-    function GetUserMac(idEtudiants) {
-        $('#hidden').val(idEtudiants);
-    };
-
-    function GetUserMmpjm(idEtudiants) {
-        $('#hidden').val(idEtudiants);
-    };
-
-    function GetUserMmbm(idEtudiants) {
-        $('#hidden').val(idEtudiants);
-    };
-
-    function GetUserMdrtm(idEtudiants) {
-        $('#hidden').val(idEtudiants);
-    };
-
-
 
     $(document).on("click", ".list", function() {
         readLTIC();
@@ -537,84 +350,7 @@ $connexion = new Connexion();
     });
 
 
-    $(document).on("click", "#ajouter", function(e) {
 
-        e.preventDefault(); //mamono submit
-
-        let vague = $('#vague').val();
-        let semestre = $('#semestre').val();
-        let numero = $('#numero').val();
-        let hidden = $('#hidden').val();
-
-        if (numero != '') {
-
-            $.ajax({
-                url: "admin/controller/ajoutLogin.php", //controller
-                method: "POST",
-                data: {
-                    vague: vague,
-                    semestre: semestre,
-                    numero: numero,
-                    ide: hidden
-                }, //valeur alefa
-                dataType: "json",
-                success: function(data) {
-                    $('#alert').val(data.alert);
-                    readLTIC();
-                    readLCAN();
-                    readLMPJ();
-                    readLMGT();
-                    readLDRT();
-                    readMTICM();
-                    readMAC();
-                    readMMPJM()
-                    readMMBA();
-                    readMDRTM();
-                }
-            });
-        } else {
-            alert("Numero obligatoire");
-        }
-    });
-
-
-
-    $(document).on("click", "#delete", function(e) {
-
-        e.preventDefault(); //mamono submit
-
-        let message = $('#message').val();
-        let hiddensup = $('#hiddensup').val();
-
-        let conf = confirm("Vous êtes sur de le supprimer?");
-        if (conf == true) {
-            if (message != '') {
-                $.ajax({
-                    url: "admin/controller/ajoutLogin.php", //controller
-                    method: "POST",
-                    data: {
-                        message: message,
-                        hiddensup: hiddensup
-                    }, //valeur alefa
-                    success: function(data) {
-                        alert("Supression avec succces!!!");
-                        readLTIC();
-                        readLCAN();
-                        readLMPJ();
-                        readLMGT();
-                        readLDRT();
-                        readMTICM();
-                        readMAC();
-                        readMMPJM()
-                        readMMBA();
-                        readMDRTM();
-                    }
-                });
-            } else {
-                alert("Message obligatoire");
-            }
-        }
-    });
 
 
     readNotifl();
@@ -629,28 +365,26 @@ $connexion = new Connexion();
     readNotifmba();
     readNotifdrtm();
 
-    //update last activity
+//update last activity
     update_last_activity();
 
     function update_last_activity() {
         var update_last_activity = "update_last_activity";
-        $.ajax({
-            url: "admin/controller/contrStatus.php",
-            method: "POST",
-            data: {
-                update_last_activity: update_last_activity
-            },
-            success: function(data) {
-
-            }
-        });
-    };
+            $.ajax({
+                url: "contrStatus.php",
+                method:"POST",
+                data: {update_last_activity: update_last_activity},
+                success: function (data) {
+                    
+                }
+            });
+        };
 
 
     function readNotifl() {
         let readNotifl = "readNotifl";
         $.ajax({
-            url: "admin/controller/ajoutLogin.php",
+            url: "ajoutLogin.php",
             method: "POST",
             data: {
                 readNotifl: readNotifl
@@ -665,7 +399,7 @@ $connexion = new Connexion();
     function readNotifm() {
         let readNotifm = "readNotifm";
         $.ajax({
-            url: "admin/controller/ajoutLogin.php",
+            url: "ajoutLogin.php",
             method: "POST",
             data: {
                 readNotifm: readNotifm
@@ -675,11 +409,11 @@ $connexion = new Connexion();
             }
         });
     };
- 
+
     function readNotiftic() {
         let readNotiftic = "readNotiftic";
         $.ajax({
-            url: "admin/controller/ajoutLogin.php",
+            url: "ajoutLogin.php",
             method: "POST",
             data: {
                 readNotiftic: readNotiftic
@@ -694,7 +428,7 @@ $connexion = new Connexion();
     function readNotifcan() {
         let readNotifcan = "readNotifcan";
         $.ajax({
-            url: "admin/controller/ajoutLogin.php",
+            url: "ajoutLogin.php",
             method: "POST",
             data: {
                 readNotifcan: readNotifcan
@@ -708,7 +442,7 @@ $connexion = new Connexion();
     function readNotifmpj() {
         let readNotifmpj = "readNotifmpj";
         $.ajax({
-            url: "admin/controller/ajoutLogin.php",
+            url: "ajoutLogin.php",
             method: "POST",
             data: {
                 readNotifmpj: readNotifmpj
@@ -722,7 +456,7 @@ $connexion = new Connexion();
     function readNotifmgt() {
         let readNotifmgt = "readNotifmgt";
         $.ajax({
-            url: "admin/controller/ajoutLogin.php",
+            url: "ajoutLogin.php",
             method: "POST",
             data: {
                 readNotifmgt: readNotifmgt
@@ -737,7 +471,7 @@ $connexion = new Connexion();
     function readNotifdrt() {
         let readNotifdrt = "readNotifdrt";
         $.ajax({
-            url: "admin/controller/ajoutLogin.php",
+            url: "ajoutLogin.php",
             method: "POST",
             data: {
                 readNotifdrt: readNotifdrt
@@ -752,7 +486,7 @@ $connexion = new Connexion();
     function readNotifticm() {
         let readNotifticm = "readNotifticm";
         $.ajax({
-            url: "admin/controller/ajoutLogin.php",
+            url: "ajoutLogin.php",
             method: "POST",
             data: {
                 readNotifticm: readNotifticm
@@ -766,7 +500,7 @@ $connexion = new Connexion();
     function readNotifac() {
         let readNotifac = "readNotifac";
         $.ajax({
-            url: "admin/controller/ajoutLogin.php",
+            url: "ajoutLogin.php",
             method: "POST",
             data: {
                 readNotifac: readNotifac
@@ -780,7 +514,7 @@ $connexion = new Connexion();
     function readNotifmpjm() {
         let readNotifmpjm = "readNotifmpjm";
         $.ajax({
-            url: "admin/controller/ajoutLogin.php",
+            url: "ajoutLogin.php",
             method: "POST",
             data: {
                 readNotifmpjm: readNotifmpjm
@@ -795,7 +529,7 @@ $connexion = new Connexion();
     function readNotifmba() {
         let readNotifmba = "readNotifmba";
         $.ajax({
-            url: "admin/controller/ajoutLogin.php",
+            url: "ajoutLogin.php",
             method: "POST",
             data: {
                 readNotifmba: readNotifmba
@@ -810,7 +544,7 @@ $connexion = new Connexion();
     function readNotifdrtm() {
         let readNotifdrtm = "readNotifdrtm";
         $.ajax({
-            url: "admin/controller/ajoutLogin.php",
+            url: "ajoutLogin.php",
             method: "POST",
             data: {
                 readNotifdrtm: readNotifdrtm
@@ -829,7 +563,7 @@ $connexion = new Connexion();
         let LICENCE = "LICENCE";
         let TIC = "TIC";
         $.ajax({
-            url: "admin/controller/ajoutLogin.php",
+            url: "ajoutLogin.php",
             type: "POST",
             data: {
                 LICENCE: LICENCE,
@@ -848,7 +582,7 @@ $connexion = new Connexion();
         let LICENCE = "LICENCE";
         let CAN = "CAN";
         $.ajax({
-            url: "admin/controller/ajoutLogin.php",
+            url: "ajoutLogin.php",
             type: "POST",
             data: {
                 LICENCE: LICENCE,
@@ -866,7 +600,7 @@ $connexion = new Connexion();
         let LICENCE = "LICENCE";
         let MPJ = "MPJ";
         $.ajax({
-            url: "admin/controller/ajoutLogin.php",
+            url: "ajoutLogin.php",
             type: "POST",
             data: {
                 LICENCE: LICENCE,
@@ -885,7 +619,7 @@ $connexion = new Connexion();
         let LICENCE = "LICENCE";
         let MGT = "MGT";
         $.ajax({
-            url: "admin/controller/ajoutLogin.php",
+            url: "ajoutLogin.php",
             type: "POST",
             data: {
                 LICENCE: LICENCE,
@@ -903,7 +637,7 @@ $connexion = new Connexion();
         let LICENCE = "LICENCE";
         let DRT = "DRT";
         $.ajax({
-            url: "admin/controller/ajoutLogin.php",
+            url: "ajoutLogin.php",
             type: "POST",
             data: {
                 LICENCE: LICENCE,
@@ -922,7 +656,7 @@ $connexion = new Connexion();
         let MASTER = "MASTER";
         let TICM = "TICM";
         $.ajax({
-            url: "admin/controller/ajoutLogin.php",
+            url: "ajoutLogin.php",
             type: "POST",
             data: {
                 MASTER: MASTER,
@@ -942,7 +676,7 @@ $connexion = new Connexion();
         let MASTER = "MASTER";
         let AC = "AC";
         $.ajax({
-            url: "admin/controller/ajoutLogin.php",
+            url: "ajoutLogin.php",
             type: "POST",
             data: {
                 MASTER: MASTER,
@@ -961,7 +695,7 @@ $connexion = new Connexion();
         let MASTER = "MASTER";
         let MPJM = "MPJM";
         $.ajax({
-            url: "admin/controller/ajoutLogin.php",
+            url: "ajoutLogin.php",
             type: "POST",
             data: {
                 MASTER: MASTER,
@@ -981,7 +715,7 @@ $connexion = new Connexion();
         let MASTER = "MASTER";
         let MBA = "MBA";
         $.ajax({
-            url: "admin/controller/ajoutLogin.php",
+            url: "ajoutLogin.php",
             type: "POST",
             data: {
                 MASTER: MASTER,
@@ -999,7 +733,7 @@ $connexion = new Connexion();
         let MASTER = "MASTER";
         let DRTM = "DRTM";
         $.ajax({
-            url: "admin/controller/ajoutLogin.php",
+            url: "ajoutLogin.php",
             type: "POST",
             data: {
                 MASTER: MASTER,
@@ -1010,7 +744,6 @@ $connexion = new Connexion();
             }
         });
     };
-
 </script>
 <?php
 

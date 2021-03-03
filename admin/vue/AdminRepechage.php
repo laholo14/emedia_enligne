@@ -79,9 +79,7 @@ if (!isset($_SESSION['matriculeadmin'])) {
             </div>
         </div>
     </div>    <div>
-        <h1 class="m-4">
-    <a href="../controller/contrInsertionRepechage.php"><img src="image/actualiser.png" style="width: 18px;" title="actualiser"></a>
-Liste répechage</h1>
+        <h1 class="m-4">Liste répechage</h1>
     </div>
     <div class="response"></div>
 

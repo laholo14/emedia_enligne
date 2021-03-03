@@ -3,7 +3,7 @@ session_start();
 function loadclass($class)
 {
 
-    require "../../model/" . $class . '.class.php';
+    require "../model/" . $class . '.class.php';
 }
 
 spl_autoload_register("loadclass");
@@ -95,7 +95,57 @@ require('head.html');
                     <tbody id="tabnote">
                     </tbody>
                 </table>
+
+
+
                 </div>
+                <?php
+                    $rep=new Repecher();
+                    $rep->setIdEtudiant($_SESSION['id']);
+                    $countEtu=count($rep->verifyEtudiant());
+                    if ($countEtu!=0) {
+            ?>
+            <div class="title-note d-flex justify-content-center pt-3">
+                <h3>Listes des matières à repecher</h3>
+            </div>
+        <div class="table-note mt-3 pb-3 d-flex justify-content-center"><table border="1">
+            <thead>
+                <tr>
+                    <th class="text-center">Intitule</th>
+                    <th class="text">Montant à payer</th>
+                </tr>
+            </thead>   
+            <tbody>
+                
+                <?php
+                    $repecher=new Repecher();
+                    $res=$repecher->readEtudById($_SESSION['id']);
+                    foreach ($res as $resRepechage) {
+                        echo "<tr><td>".$resRepechage['INTITULE']."</td><td>".$resRepechage['MONTANT']."Ariary</td></tr>";
+                    }
+                ?>
+                    
+                    
+                
+                
+                <?php
+                    $repecher=new Repecher();
+                    $res=$repecher->readTotal($_SESSION['id']);
+                    foreach ($res as $resRepechage) {
+                        echo "<tr><td><b>TOTAL<b></td><td><b>".$resRepechage['MONTANT']."Ariary</b></td></tr>";
+                    }
+                ?>
+                
+            </tbody>
+        </table>
+
+
+
+        </div>
+            <?php
+
+                    }
+                ?>
             </div>
             <!-- fin note -->
 

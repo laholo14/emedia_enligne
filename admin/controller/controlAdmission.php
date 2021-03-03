@@ -5,7 +5,7 @@
 	require('../../model/Connexion.class.php');
 
 	$db=new Connexion;	
-	$suivre=new Suivre($db->getCx());
+	$suivre=new Suivre();
 
 	$semestre=$_POST["SEMESTRE"];
 

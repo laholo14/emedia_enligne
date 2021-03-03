@@ -85,7 +85,7 @@ class Exam
     public function insertExam()
     {
         $db = Connexion::getCx();
-        $requete = "INSERT INTO EXAM VALUES(:idmatiere, :idsessiondexam, :idtypedexam, :code, :sujet, :durre, :qcm)";
+        $requete = "INSERT INTO EXAM VALUES(:idsessiondexam, :idtypedexam, :idmatiere, :code, :sujet, :durre, :qcm)";
         $st = $db->prepare($requete);
         $st->execute(array(
             "idmatiere" => $this->getIdmatiere(),

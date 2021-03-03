@@ -3,12 +3,14 @@
 class Repecher{
     private $idEtudiant;
     private $idMatiere;
+    private $montant;
     private $etat;
 
     public function __construct()
     {
         $this->idEtudiant;
         $this->idMatiere;
+        $this->montant;
         $this->etat;
     }
 
@@ -17,6 +19,10 @@ class Repecher{
     }
     public function setIdMatiere($idMatiere){
       $this->idMatiere=$idMatiere;
+
+    }
+    public function setMontant($montant){
+      $this->montant=$montant;
 
     }
 
@@ -30,6 +36,9 @@ class Repecher{
     public function getIdMatiere(){
       return $this->idMatiere;
     }
+    public function getMontant(){
+      return $this->montant;
+    }
     public function getEtat(){
       return $this->etat;
     }
@@ -37,25 +46,45 @@ class Repecher{
 
    public function create(){
       $db=Connexion::getCx();
-       $requete = "INSERT INTO REPECHER VALUES(:idEtudiant , :idMatiere, :etat)";
+       $requete = "INSERT INTO REPECHER VALUES(:idEtudiant , :idMatiere, :montant, :etat)";
        $st = $db->prepare($requete);
        $st->execute(array(
            "idEtudiant" => $this->getIdEtudiant(),
            "idMatiere" => $this->getIdMatiere(),
+           "montant" => $this->getMontant(),
            "etat" => $this->getEtat()
        ));
        $st->closeCursor();
-   }
-   public function readEtudById($idEtudiant)
-   {
+   }public function delete(){
     $db=Connexion::getCx();
-    $sql = "SELECT * FROM REPECHER WHERE IDETUDIANTS ='".$idEtudiant."'";
-    $st =$db->query($sql);
-    $res = $st->fetchAll();
-    $st->closeCursor();
-    return $res;
+     $requete = "DELETE FROM REPECHER WHERE IDETUDIANTS=:idEtudiant and IDMATIERE=:idMatiere";
+     $st = $db->prepare($requete);
+     $st->execute(array(
+         "idEtudiant" => $this->getIdEtudiant(),
+         "idMatiere" => $this->getIdMatiere()
+     ));
+     $st->closeCursor();
+ }
+ public function readEtudById($idEtudiant)
+ {
+  $db=Connexion::getCx();
+  $sql = "SELECT * FROM REPECHER NATURAL JOIN MATIERE WHERE IDETUDIANTS ='".$idEtudiant."'";
+  $st =$db->query($sql);
+  $res = $st->fetchAll();
+  $st->closeCursor();
+  return $res;
 
-   }
+ }
+ public function readTotal($idEtudiant)
+ {
+  $db=Connexion::getCx();
+  $sql = "SELECT sum(MONTANT) as MONTANT FROM REPECHER NATURAL JOIN MATIERE WHERE IDETUDIANTS ='".$idEtudiant."'";
+  $st =$db->query($sql);
+  $res = $st->fetchAll();
+  $st->closeCursor();
+  return $res;
+
+ }
    public function deleteMatById($idMatiere)
    {
         $db=Connexion::getCx();
@@ -74,6 +103,30 @@ class Repecher{
         $st->closeCursor();
         return $res;
 
+       }
+       public function verify()
+       {
+           $db=Connexion::getCx();
+           $requete = "SELECT * FROM REPECHER WHERE IDETUDIANTS = :idetudiant  AND IDMATIERE = :idmat";
+           $st = $db->prepare($requete);
+           $st->execute(array(
+               "idetudiant" => $this->getIdEtudiant(),
+               "idmat" => $this->getIdMatiere()
+           ));
+   
+           $res = $st->fetchAll();
+           $st->closeCursor();
+           return $res;
+       }
+       public function verifyEtudiant()
+       {
+           $db=Connexion::getCx();
+           $requete = "SELECT * FROM REPECHER WHERE IDETUDIANTS = :idetudiant";
+           $st = $db->prepare($requete);
+           $st->execute(array("idetudiant" => $this->getIdEtudiant()));
+           $res = $st->fetchAll();
+           $st->closeCursor();
+           return $res;
        }
 }
 ?>

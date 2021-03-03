@@ -97,7 +97,7 @@ if (!isset($_SESSION['matriculeadmin'])) {
                             <!-- contenu rehefa upload-->
                             <div class="form-group" id="sujet">
                                 <div class="form-group" id="div_durre_upload">
-                                    <label for="" class="col-form-label">Duré:</label>
+                                    <label for="" class="col-form-label">Durée:</label>
                                     <input type="number" class="form-control" id="durre_upload" placeholder="Duré upload" name="durre_upload" />
                                 </div>
                                 <label for="start" class="titre">Sujet:</label><br>
@@ -115,7 +115,7 @@ if (!isset($_SESSION['matriculeadmin'])) {
 
                             <!-- contenu rehefa redaction-->
                             <div class="form-group" id="div_durre_redac" style="display:none">
-                                <label for="" class="col-form-label">Duré:</label>
+                                <label for="" class="col-form-label">Durée:</label>
                                 <input type="number" class="form-control" id="durre_redac" placeholder="Duré redaction" name="durre_redac" />
                             </div>
 
@@ -127,7 +127,7 @@ if (!isset($_SESSION['matriculeadmin'])) {
 
                             <!-- contenu rehefa qcm-->
                             <div class="form-group" id="div_durre_qcm" style="display:none">
-                                <label for="" class="col-form-label">Duré:</label>
+                                <label for="" class="col-form-label">Durée:</label>
                                 <input type="number" class="form-control" id="durre_qcm" placeholder="Duré qcm" name="durre_qcm" />
                             </div>
 
@@ -196,7 +196,7 @@ if (!isset($_SESSION['matriculeadmin'])) {
                             <!-- contenu rehefa upload-->
                             <div class="form-group" id="sujet_up">
                                 <div class="form-group" id="div_durre_upload">
-                                    <label for="" class="col-form-label">Duré:</label>
+                                    <label for="" class="col-form-label">Durée:</label>
                                     <input type="number" class="form-control" id="durre_upload_up" placeholder="Drré upload" name="durre_upload_up" />
                                 </div>
                                 <label for="start" class="titre">Sujet:</label><br>
@@ -214,7 +214,7 @@ if (!isset($_SESSION['matriculeadmin'])) {
 
                             <!-- contenu rehefa redaction-->
                             <div class="form-group" id="div_durre_redac_up" style="display:none">
-                                <label for="" class="col-form-label">Duré:</label>
+                                <label for="" class="col-form-label">Durée:</label>
                                 <input type="number" class="form-control" id="durre_redac_up" placeholder="Duré redaction" name="durre_redac_up" />
                             </div>
 
@@ -226,7 +226,7 @@ if (!isset($_SESSION['matriculeadmin'])) {
 
                             <!-- contenu rehefa qcm-->
                             <div class="form-group" id="div_durre_qcm_up" style="display:none">
-                                <label for="" class="col-form-label">Duré:</label>
+                                <label for="" class="col-form-label">Durée:</label>
                                 <input type="number" class="form-control" id="durre_qcm_up" placeholder="Duré Qcm" name="durre_qcm_up" />
                             </div>
 

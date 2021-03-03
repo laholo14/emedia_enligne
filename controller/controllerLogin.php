@@ -2,8 +2,8 @@
 
 ob_start();
 
-
 session_start();
+
 
 function loadclass($class)
 {
@@ -20,13 +20,16 @@ if (isset($_POST["matricule"]) and isset($_POST["password"])) {
 
     extract($_POST);
 
-    $log = new Suivre();   
+    $log = new Suivre();
     $log->setMatricule($matricule);
     $crypt = new Cryptage();
     $mdp = $crypt->crpt14($password);
     $log->setMdp($mdp);
     $res = $log->login();
     foreach ($res as $resultat) {
+
+
+
 
         $_SESSION['id'] = $resultat['IDETUDIANTS'];
 
@@ -98,34 +101,35 @@ if (isset($_POST["matricule"]) and isset($_POST["password"])) {
         $_SESSION['inscription'] = $resultat['INSCRIPTION'];
 
         $_SESSION['ecolage'] = $resultat['ECOLAGE'];
+        $_SESSION['droitexamen'] = $resultat['EXAMEN'];
 
-        $_SESSION['examen'] = $resultat['EXAMEN'];
 
         $_SESSION['soutenance'] = $resultat['SOUTENANCE'];
 
         $_SESSION['certificat'] = $resultat['CERTIFICAT'];
-
     }
 
 
 
 
-        if (isset($_SESSION['matricule']) and $matricule === $_SESSION['matricule'] and $mdp === $_SESSION['mdp']){
-            // if($_SESSION['diplome'] == 'LICENCE'){
-            //      header('Location: ../Accueil'); 
-            // }else{
-            //     header('Location: ../Home'); 
-            // } 
-            header('Location: ../Accueil'); 
-        } else {
-    
-            $_SESSION['erreur'] = "Matricule ou mot de passe incorrect";
-    
-            header('Location: ../Connecter');
-        }
+    if (isset($_SESSION['matricule']) and $matricule === $_SESSION['matricule'] and $mdp === $_SESSION['mdp']) {
+        // if($_SESSION['diplome'] == 'LICENCE'){
+        //      header('Location: ../Accueil'); 
+        // }else{
+        //     header('Location: ../Home'); 
+        // } 
+        header('Location: ../Accueil');
+
+        echo $_SESSION['ecolage'];
     } else {
-        echo 'diso';
+        session_start();
+        $_SESSION['erreur'] = "Matricule ou mot de passe incorrect";
+
+        header('Location: ../Connecter');
     }
+} else {
+    echo 'diso';
+}
 ob_end_flush();
 ?>
 
