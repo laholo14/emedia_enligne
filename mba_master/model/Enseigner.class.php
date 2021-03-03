@@ -63,9 +63,10 @@ class Enseigner
 
     
     public function create(){
-        $requete = "INSERT INTO ENSEIGNER VALUES('FCM',:sem , :idmat , '1', :mois)";
+        $requete = "INSERT INTO ENSEIGNER VALUES(:parcours,:sem , :idmat , '1', :mois)";
         $query = Connexion::getCx()->prepare($requete);
         $query->execute(array(
+            "parcours"=> $this->getParcours(),
             "sem" => $this->getSemestre(),
             "idmat" => $this->getMatiere(),
             "mois" => $this->getMois()

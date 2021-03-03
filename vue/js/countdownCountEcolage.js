@@ -1,5 +1,5 @@
 $(function () { 
-  $('#count_ecolage').countdown("2021/03/03").on('update.countdown', function (event) {
+  $('#count_ecolage').countdown("2021/04/03").on('update.countdown', function (event) {
     let $this = $(this).html(event.strftime(''
     + '<div class="date text-center"><div class="bloc1 d-flex justify-content-center align-items-center" id="jours">%D</div><div class="bloc2"><p>JOURS</p></div></div>'
     + '<div class="date text-center"><div class="bloc1 d-flex justify-content-center align-items-center" id="jours">%H</div><div class="bloc2"><p>HR</p></div></div>'

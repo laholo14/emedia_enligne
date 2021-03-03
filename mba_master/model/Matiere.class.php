@@ -5,6 +5,7 @@ class Matiere
 
     private $id_matiere;
     private $intitule;
+    private $credit;
 
 
     public function __construct()
@@ -34,14 +35,34 @@ class Matiere
         return $this->intitule;
     }
 
+    /**
+     * Get the value of credit
+     */ 
+    public function getCredit()
+    {
+        return $this->credit;
+    }
+
+    /**
+     * Set the value of credit
+     *
+     * @return  self
+     */ 
+    public function setCredit($credit)
+    {
+        $this->credit = $credit;
+
+    
+    }
 
     public function create()
     {
 
-        $requete = "INSERT INTO MATIERE VALUES(NULL,:idue,:intitule)";
+        $requete = "INSERT INTO MATIERE VALUES(NULL,:idue,:credit,:intitule)";
         $query = Connexion::getCx()->prepare($requete);
         $query->execute(array(
             "idue" => $this->getId_matiere(),
+            "credit"=>$this->getCredit(),
             "intitule" => $this->getIntitule()
         ));
         $query->closeCursor();
@@ -79,6 +100,14 @@ class Matiere
         return $res;
     }
 
+    public function readAllNOTMBA()
+    {
+        $requete = "SELECT * FROM MATIERE NATURAL JOIN ENSEIGNER WHERE PARCOURS != 'FCM' AND PARCOURS != 'CIM' AND PARCOURS != 'ADAM'";
+        $query = Connexion::getCx()->query($requete);
+        $res = $query->fetchAll();
+        return $res;
+    }
+
     //wheree id != requete
     public function readMatExamMBolatsisysujet($session)
     {
@@ -91,4 +120,5 @@ class Matiere
         $query->closeCursor();
         return $res;
     }
+
 }
