@@ -17,6 +17,7 @@ $db = new Connexion();
     $moyenne = new Resultat();
     if(isset($_POST['semestre'])){
         extract($_POST);
+        $_SESSION['semestreRepechage']=$semestre;
         $matiere->setSemetre($semestre);
         $matiere->setFiliere($_SESSION['filiere']);
         $res = $matiere->listmat();
@@ -48,23 +49,24 @@ $db = new Connexion();
                     //moyenne(idUe,idEtud)
                     $resMoyenne=$matiere->MoyenneParUe($resultat['IDUE'],$_SESSION['id']);
                     foreach ($resMoyenne as $resultatFinale) {
-                        if($resultatFinale['MOYENNEFINALE']<=9.75 || $resultatFinale['MOYENNEFINALE']==0  ){
+                        if($resultatFinale['MOYENNEFINALE']<10 || $resultatFinale['MOYENNEFINALE']==0  ){
                             $color='bg-danger';
                             $valiny =new Resultat();
+                            $repecher=new Repecher();
                             $valiny->setEtudiant($_SESSION['id']);
-                            $resMatiereArepecher=$valiny->selectMatiereARepecher($resultat['IDUE'],$semestre);
+                            $resMatiereArepecher=$valiny->selectMatiereARepecher($resultat['IDUE']);
                             $c="";
                             foreach ($resMatiereArepecher as $key) {
                                 echo var_dump($resMatiereArepecher);
                                  if ($c!=$key['INTITULE']) {
-                                     $repecher=new Repecher();
                                      $repecher->setIdEtudiant($_SESSION['id']);
                                      $repecher->setIdMatiere($key['IDMATIERE']);
+                                     $repecher->setSemestre($semestre);
                                      $repecher->setEtat(0);
                                      $repecher->setMontant(15000);
                                      $count=count($repecher->verify());
                                      if ($count==0) {
-                                     $repecher->create();
+                                        $repecher->create();
                                      }
                                      $c=$key['INTITULE'];
                                  }
