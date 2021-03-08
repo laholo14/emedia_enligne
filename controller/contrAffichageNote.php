@@ -17,6 +17,7 @@ $db = new Connexion();
     $moyenne = new Resultat();
     if(isset($_POST['semestre'])){
         extract($_POST);
+        $_SESSION['semestreRepechage']=$semestre;
         $matiere->setSemetre($semestre);
         $matiere->setFiliere($_SESSION['filiere']);
         $res = $matiere->listmat();

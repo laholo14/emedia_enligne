@@ -102,6 +102,7 @@ require('head.html');
                 <?php
                     $rep=new Repecher();
                     $rep->setIdEtudiant($_SESSION['id']);
+                    $rep->setSemestre($_SESSION['semestreRepechage']);
                     $countEtu=count($rep->verifyEtudiant());
                     if ($countEtu!=0) {
             ?>
@@ -119,7 +120,7 @@ require('head.html');
                 
                 <?php
                     $repecher=new Repecher();
-                    $res=$repecher->readEtudById($_SESSION['id']);
+                    $res=$repecher->readEtudById($_SESSION['id'],$_SESSION['semestreRepechage']);
                     foreach ($res as $resRepechage) {
                         echo "<tr><td>".$resRepechage['INTITULE']."</td><td>".$resRepechage['MONTANT']."Ariary</td></tr>";
                     }
@@ -130,7 +131,7 @@ require('head.html');
                 
                 <?php
                     $repecher=new Repecher();
-                    $res=$repecher->readTotal($_SESSION['id']);
+                    $res=$repecher->readTotal($_SESSION['id'],$_SESSION['semestreRepechage']);
                     foreach ($res as $resRepechage) {
                         echo "<tr><td><b>TOTAL<b></td><td><b>".$resRepechage['MONTANT']."Ariary</b></td></tr>";
                     }

@@ -131,9 +131,12 @@ class Repecher{
        public function verifyEtudiant()
        {
            $db=Connexion::getCx();
-           $requete = "SELECT * FROM REPECHER WHERE IDETUDIANTS = :idetudiant";
+           $requete = "SELECT * FROM REPECHER WHERE IDETUDIANTS = :idetudiant and SEMESTRE=:semestre";
            $st = $db->prepare($requete);
-           $st->execute(array("idetudiant" => $this->getIdEtudiant()));
+           $st->execute(array(
+            "idetudiant" => $this->getIdEtudiant(),
+            "semestre" => $this->getSemestre()
+          ));
            $res = $st->fetchAll();
            $st->closeCursor();
            return $res;
