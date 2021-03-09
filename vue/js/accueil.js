@@ -64,7 +64,7 @@ function GetYOUTUBE(idmatiere, intitule) {
       success: function (data) {
          $('#cours_video').attr('src', '' + data);
          $('#titre_video').html(intitule);
-         alert(idmatiere);
+         
       }
    })
 

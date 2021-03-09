@@ -27,7 +27,23 @@ if ($diff->invert == 1) {
 if (isset($_SESSION['matricule']) and $_SESSION['inscription'] == 0) {
 
     header("location: Commission");
-} else if (isset($_SESSION['matricule']) and $_SESSION['inscription'] == 1 and $_SESSION['ecolage'] < $mois + 1) {
+}
+else if(isset($_SESSION['matricule']) and $_SESSION['inscription'] == 1 and $mois >= 8 and $_SESSION['ecolage'] == 8){
+    
+     //rentrer le moisDenter
+     $moisDenter =  $datefr->dateToFrench(date($_SESSION['datedenter']), " F ");
+     $_SESSION['jourdaujourdhui'] = intval(Date('d')); //ito no tena maka ny date d'aujourdhui
+     $diff = $datedentrer->diff($datedaujourdhui);
+     $moisM = ($diff->m);
+     $differencejour = ($diff->days);
+ 
+     //mijery oe efa miditra ve ny vague misy azy sa tsia amin alalan difference datedenter su datedoujourdhui 1mbola tsy miditra 0 efa midditra
+     $_SESSION['testInclude'] = ($diff->invert);
+     $_SESSION['jour'] = $differencejour + 1;
+     $_SESSION['mois'] = $moisM + 1;
+
+}
+else if (isset($_SESSION['matricule']) and $_SESSION['inscription'] == 1 and $_SESSION['ecolage'] < $mois + 1) {
 
     header("location: Traitement");
 } else {
