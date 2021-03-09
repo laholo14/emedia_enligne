@@ -3,6 +3,7 @@
         Bulletin();
         $("#semestre").change(function() {
             Bulletin();
+            Repechage();
         });
     });
 
@@ -16,6 +17,23 @@
             },
             success: function (data) {
                $("#tabnote").html(data);
+                
+            }
+        });
+    };
+
+    Repechage();
+    function Repechage() {
+        let semestre = $("#semestre").val();
+        $.ajax({
+            url: "controller/contrAffichageRepechage.php",
+            type: "post",
+            data: {
+                semestre: semestre
+            },
+            success: function (data) {
+               $("#containerRepechage").html(data);
+               //alert(data);
                 
             }
         });
