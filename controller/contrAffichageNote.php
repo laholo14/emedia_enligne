@@ -57,7 +57,6 @@ $db = new Connexion();
                             $resMatiereArepecher=$valiny->selectMatiereARepecher($resultat['IDUE']);
                             $c="";
                             foreach ($resMatiereArepecher as $key) {
-                                echo var_dump($resMatiereArepecher);
                                  if ($c!=$key['INTITULE']) {
                                      $repecher->setIdEtudiant($_SESSION['id']);
                                      $repecher->setIdMatiere($key['IDMATIERE']);
@@ -75,9 +74,7 @@ $db = new Connexion();
                             $color='bg-success';
                         }
                         $table .= '<td class="'.$color.' text-light" rowspan="'.$row.'"><center>'.$resultatFinale['MOYENNEFINALE'].'</center></td>';
-                    }
-
-                    
+                    } 
                     $a=$b;
                 }
             $table .= '<td class="matier" rowspan="1">' . $resultat['INTITULE'] . '</td>';
