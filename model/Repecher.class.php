@@ -75,21 +75,29 @@ class Repecher{
      ));
      $st->closeCursor();
  }
- public function readEtudById($idEtudiant)
+ public function readEtudById($semestre)
  {
   $db=Connexion::getCx();
-  $sql = "SELECT * FROM REPECHER NATURAL JOIN MATIERE WHERE IDETUDIANTS ='".$idEtudiant."'";
+  $sql = "SELECT * FROM REPECHER NATURAL JOIN MATIERE WHERE IDETUDIANTS =:idEtudiant and SEMESTRE=:semestre";
   $st =$db->query($sql);
+  $st->execute(array(
+    "idEtudiant" => $this->getIdEtudiant(),
+    "semestre" => $semestre
+  ));
   $res = $st->fetchAll();
   $st->closeCursor();
   return $res;
 
  }
- public function readTotal($idEtudiant)
+ public function readTotal($semestre)
  {
   $db=Connexion::getCx();
-  $sql = "SELECT sum(MONTANT) as MONTANT FROM REPECHER NATURAL JOIN MATIERE WHERE IDETUDIANTS ='".$idEtudiant."'";
+  $sql = "SELECT sum(MONTANT) FROM REPECHER NATURAL JOIN MATIERE WHERE IDETUDIANTS =:idEtudiant and SEMESTRE=:semestre";
   $st =$db->query($sql);
+  $st->execute(array(
+    "idEtudiant" => $this->getIdEtudiant(),
+    "semestre" => $semestre
+  ));
   $res = $st->fetchAll();
   $st->closeCursor();
   return $res;
