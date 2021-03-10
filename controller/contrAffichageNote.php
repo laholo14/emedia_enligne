@@ -60,7 +60,7 @@ $db = new Connexion();
                                  if ($c!=$key['INTITULE']) {
                                      $repecher->setIdEtudiant($_SESSION['id']);
                                      $repecher->setIdMatiere($key['IDMATIERE']);
-                                     $repecher->setSemestre($semestre);
+                                     $repecher->setSemestre($key['SEMESTRE']);
                                      $repecher->setEtat(0);
                                      $repecher->setMontant(15000);
                                      $count=count($repecher->verify());

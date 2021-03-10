@@ -30,12 +30,22 @@ if (!isset($_SESSION['matricule'])) {
                     <tr>
                         <th class="text-center">Intitule</th>
                         <th class="text">Montant à payer</th>
+                        <th class="text">Statut</th>
                     </tr>
                 </thead>   
         <tbody>';
         $res=$rep->readEtudById();
         foreach ($res as $resultat) {
-            $contenu.='<tr><td>'.$resultat['INTITULE'].'</td><td>'.$resultat['MONTANT'].'Ariary</td></tr>';
+            $contenu.='<tr><td>'.$resultat['INTITULE'].'</td><td>'.$resultat['MONTANT'].'Ariary</td>';
+            if ($resultat['ETAT']!=0) {
+                $contenu.='<td class="text-succes">Payé</td></tr>';
+            }else{
+                $contenu.='<td class="text-danger">non payé</td></tr>';
+            }
+        }
+        $resultatMontant=$rep->readTotal();
+        foreach ($resultatMontant as $resultat) {
+            $contenu.='<tr><td><b>TOTAL</b></td><td><b>'.$resultat['MONTANTTOTAL'].'Ariary</b></td></tr>';
         }
         $contenu.='</tbody> 
             </table>

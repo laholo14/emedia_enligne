@@ -105,7 +105,7 @@ class Repecher{
  }
    public function deleteMatById($idMatiere)
    {
-        $db=Connexion::getCx();
+    $db=Connexion::getCx();
     $sql = "DELETE FROM REPECHER WHERE IDMATIERE ='".$idMatiere."'";
     $st = $db->prepare($sql);
     $st->execute();
