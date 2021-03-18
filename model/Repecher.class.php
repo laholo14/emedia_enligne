@@ -75,28 +75,28 @@ class Repecher{
      ));
      $st->closeCursor();
  }
- public function readEtudById($semestre)
+ public function readEtudById()
  {
   $db=Connexion::getCx();
   $sql = "SELECT * FROM REPECHER NATURAL JOIN MATIERE WHERE IDETUDIANTS =:idEtudiant and SEMESTRE=:semestre";
-  $st =$db->query($sql);
+  $st =$db->prepare($sql);
   $st->execute(array(
     "idEtudiant" => $this->getIdEtudiant(),
-    "semestre" => $semestre
+    "semestre" => $this->getSemestre()
   ));
   $res = $st->fetchAll();
   $st->closeCursor();
   return $res;
 
  }
- public function readTotal($semestre)
+ public function readTotal()
  {
   $db=Connexion::getCx();
-  $sql = "SELECT sum(MONTANT) FROM REPECHER NATURAL JOIN MATIERE WHERE IDETUDIANTS =:idEtudiant and SEMESTRE=:semestre";
-  $st =$db->query($sql);
+  $sql = "SELECT sum(MONTANT) as MONTANTTOTAL FROM REPECHER NATURAL JOIN MATIERE WHERE IDETUDIANTS =:idEtudiant and SEMESTRE=:semestre";
+  $st =$db->prepare($sql);
   $st->execute(array(
     "idEtudiant" => $this->getIdEtudiant(),
-    "semestre" => $semestre
+    "semestre" => $this->getSemestre()
   ));
   $res = $st->fetchAll();
   $st->closeCursor();
@@ -105,7 +105,7 @@ class Repecher{
  }
    public function deleteMatById($idMatiere)
    {
-        $db=Connexion::getCx();
+    $db=Connexion::getCx();
     $sql = "DELETE FROM REPECHER WHERE IDMATIERE ='".$idMatiere."'";
     $st = $db->prepare($sql);
     $st->execute();

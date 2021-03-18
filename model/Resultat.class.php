@@ -204,7 +204,7 @@ class Resultat
 
     public function selectMoyenne(){
         $db=Connexion::getCx();
-        $requete="SELECT avg(NOTE) AS 'MOYENNE' FROM RESULTAT where IDETUDIANTS=:idEtudiant and IDMATIERE=:idMatiere";
+        $requete="SELECT avg(NOTE) AS 'MOYENNE' FROM RESULTAT where IDETUDIANTS=:idEtudiant and IDMATIERE=:idMatiere AND (IDSESSIONDEXAM=1 OR IDSESSIONDEXAM=2)";
         $st = $db->prepare($requete);
        $st->execute(array(
            "idEtudiant" =>  $this->getEtudiant(),
@@ -217,7 +217,7 @@ class Resultat
     }
     public function selectMatiereARepecher($idUe){
         $db=Connexion::getCx();
-        $requete="SELECT * FROM MATIERE NATURAL JOIN RESULTAT where IDETUDIANTS=:idEtudiant and IDUE=:idUe and (SELECT avg(NOTE))<10 ORDER BY INTITULE";
+        $requete="SELECT * FROM MATIERE NATURAL JOIN RESULTAT NATURAL JOIN ENSEIGNER where IDETUDIANTS=:idEtudiant and IDUE=:idUe and (SELECT avg(NOTE))<10 ORDER BY INTITULE";
         $st = $db->prepare($requete);
        $st->execute(array(
            "idEtudiant" =>  $this->getEtudiant(),
