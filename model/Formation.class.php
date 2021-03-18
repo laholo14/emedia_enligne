@@ -246,6 +246,18 @@ class Formation
 
     public function listmat(){
         $db=Connexion::getCx();
+        $requete = "SELECT * FROM emediam_highschool.ENSEIGNER NATURAL JOIN emediam_highschool.MATIERE NATURAL JOIN emediam_highschool.PARCOURS NATURAL JOIN emediam_highschool.UE  WHERE SEMESTRE = :sem AND FILIERE = :fil ORDER BY IDUE ASC";
+        $st = $db->prepare($requete);
+        $st->execute(array(
+            "sem" => $this->getSemestre(),
+            "fil" => $this->getFiliere()
+        ));
+        $res = $st->fetchAll();
+        $st->closeCursor();
+        return $res;
+    }
+    public function listmatMasterV7(){
+        $db=Connexion::getCx();
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN PARCOURS NATURAL JOIN UE  WHERE SEMESTRE = :sem AND FILIERE = :fil ORDER BY IDUE ASC";
         $st = $db->prepare($requete);
         $st->execute(array(

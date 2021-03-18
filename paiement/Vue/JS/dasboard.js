@@ -18,5 +18,4 @@ $("document").ready(function(){
     e.preventDefault();
     $("#content-wrapper").toggleClass("toggled");
   });
-});
-
+});   

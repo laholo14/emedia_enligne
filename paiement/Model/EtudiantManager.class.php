@@ -1,6 +1,5 @@
 <?php
 //uploadena
-
 class EtudiantManager{
     protected $db;
 
@@ -21,7 +20,7 @@ class EtudiantManager{
         return $data;
     }
     public function getRepechageEtudiant($idetudiants){
-        $statement=$this->db->prepare("SELECT count(*) FROM `REPECHER` WHERE `IDETUDIANTS`=:idetudiants ");
+        $statement=$this->db->prepare("SELECT count(*) FROM `REPECHER` WHERE `IDETUDIANTS`=:idetudiants AND 'SEMESTRE'='S1'");
         $statement->bindValue(":idetudiants",$idetudiants,PDO::PARAM_INT);
         $statement->execute();
         $data=$statement->fetch();
