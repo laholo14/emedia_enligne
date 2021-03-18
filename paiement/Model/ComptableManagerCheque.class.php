@@ -62,7 +62,7 @@ protected $db;
         $sql->execute();
         $sql->closeCursor();
 
-        $sql=$this->db->prepare("DELETE FROM `REPECHER` WHERE `IDETUDIANTS`=:id");
+        $sql=$this->db->prepare("UPDATE `REPECHER` SET 'ETAT'=1 WHERE `IDETUDIANTS`=:id");
         $sql->bindValue(":id",$idetudiant,PDO::PARAM_INT);
         $sql->execute();
         $sql->closeCursor();
@@ -97,7 +97,7 @@ protected $db;
        
 
     }
-
+ 
 
     public function ValiderCertificat($matricule,$idCheque,$observation){
         $sql=$this->db->prepare("UPDATE `CHEQUE` SET `ETAT`='lu',`DECISION`='valide',`OBSERVATION`=:observation,`DATEVALIDATION`=CURRENT_DATE,`TEMPSVALIDATION`=CURRENT_TIME WHERE `IDCHEQUE`=:idCheque");

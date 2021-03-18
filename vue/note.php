@@ -99,8 +99,13 @@ require('head.html');
 
 
                 </div>
+            <?php
+                if($_SESSION['diplome']=='LICENCE' && $_SESSION['vague']=='V1'){
+                    echo "<div id='containerRepechage'></div>";
+                }
+            ?>
 
-            <div id='containerRepechage'></div>
+            
 
         
             </div>

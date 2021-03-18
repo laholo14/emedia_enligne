@@ -81,7 +81,7 @@ if (!isset($_SESSION['finance'])) {
 
         <div id="welcoming" class="container-fluid p-5">
           <div>
-            <h2>Bienvenu dans le tableau de bord </h2>
+            <h2>Bienvenue dans le tableau de bord </h2>
           </div>
         </div>
         <br>
@@ -89,7 +89,6 @@ if (!isset($_SESSION['finance'])) {
           <table class="table table-responsive-xl table-hover w-auto">
           </table>
         </div>
-
       </section>
 
 
