@@ -304,7 +304,7 @@ include "../Controller/AccesPaiement.php";
     
     <div class="custom-control flex-fill form-check-inline custom-radio">
     <input type="radio" class="custom-control-input" id="customradio6" <?php
-    //REPECHAGE
+    //REPECHAGE 
     $PrixRepechage=$ProduitManager->getPrix($mpianatra['nationalite'],$mpianatra['semestre'],"repechage");
     echo 'data-value="'.($mpianatra['repechage']*$PrixRepechage[0]["MONTANT"]).'"';    
     ?>

@@ -325,8 +325,24 @@ class Formation
     }
     public function formationExamenMensuel()
     {
-        $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN PARCOURS  NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE SEMESTRE = :sem AND FILIERE = :fil AND MOIS = :mois AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
-        $st = $this->base->prepare($requete);
+        $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN PARCOURS NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE SEMESTRE = :sem AND FILIERE = :fil AND MOIS = :mois AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
+        $st =Connexion::getCxEtudiant()->prepare($requete);
+        $st->execute(array(
+            "sem" => $this->getSemestre(),
+            "fil" => $this->getFiliere(),
+            "mois" => $this->getMois(),
+            "cat" => $this->getCategorie(),
+            "typ" => $this->getType()
+        ));
+        $res = $st->fetchAll();
+        $st->closeCursor();
+        return $res;
+    }
+
+    public function formationExamenMensuelV7MASTER()
+    {
+        $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN emediam_highschool.PARCOURS NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE SEMESTRE = :sem AND FILIERE = :fil AND MOIS = :mois AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
+        $st =Connexion::getCxEtudiant()->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
             "fil" => $this->getFiliere(),
@@ -341,7 +357,23 @@ class Formation
     public function listMatSemestriel()
     {
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN PARCOURS  NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE SEMESTRE = :sem AND FILIERE = :par AND MOIS <= :mois AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
-        $st = $this->base->prepare($requete);
+        $st =Connexion::getCxEtudiant()->prepare($requete);
+        $st->execute(array(
+            "sem" => $this->getSemestre(),
+            "par" => $this->getFiliere(),
+            "mois" => $this->getMois(),
+            "cat" => $this->getCategorie(),
+            "typ" => $this->getType()
+        ));
+        $res = $st->fetchAll();
+        $st->closeCursor();
+        return $res;
+    }
+
+    public function listMatSemestrielV7MASTER()
+    {
+        $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN emediam_highschool.PARCOURS  NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE SEMESTRE = :sem AND FILIERE = :par AND MOIS <= :mois AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
+        $st =Connexion::getCxEtudiant()->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
             "par" => $this->getFiliere(),
