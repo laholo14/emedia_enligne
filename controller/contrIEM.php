@@ -28,11 +28,12 @@ if (isset($_SESSION['matricule']) and $_SESSION['inscription'] == 0) {
 
     header("location: Commission");
 }
+//rehefa vita ny fianarany
 else if(isset($_SESSION['matricule']) and $_SESSION['inscription'] == 1 and $mois >= 8 and $_SESSION['ecolage'] == 8){
     
      //rentrer le moisDenter
      $moisDenter =  $datefr->dateToFrench(date($_SESSION['datedenter']), " F ");
-     $_SESSION['jourdaujourdhui'] = intval(Date('d')); //ito no tena maka ny date d'aujourdhui
+     $_SESSION['jourdaujourdhui'] = intval(Date('25')); //ito no tena maka ny date d'aujourdhui
      $diff = $datedentrer->diff($datedaujourdhui);
      $moisM = ($diff->m);
      $differencejour = ($diff->days);
@@ -50,7 +51,7 @@ else if (isset($_SESSION['matricule']) and $_SESSION['inscription'] == 1 and $_S
     
     //rentrer le moisDenter
     $moisDenter =  $datefr->dateToFrench(date($_SESSION['datedenter']), " F ");
-    $_SESSION['jourdaujourdhui'] = intval(Date('d')); //ito no tena maka ny date d'aujourdhui
+    $_SESSION['jourdaujourdhui'] = intval(Date('25')); //ito no tena maka ny date d'aujourdhui
     $diff = $datedentrer->diff($datedaujourdhui);
     $moisM = ($diff->m);
     $differencejour = ($diff->days);
