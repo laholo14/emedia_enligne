@@ -3,12 +3,12 @@ $(document).ready(function () {
     afficherMatiere();
 
     function listUpload() {
-        let upload = 1;
+
         $.ajax({
             url: "controller/contrExamEtudiantMaster.php",
             method: "POST",
             data: {
-                upload: upload
+                upload: 1
             },
             success: function (data) {
                 $("#upload").html(data);
@@ -19,7 +19,7 @@ $(document).ready(function () {
     function afficherMatiere() {
         let listmat = '';
         $.ajax({
-            url: "controller/contrExamEtudiantMaster.php",
+            url: "controller/contrExamEtudiantMasterListMat.php",
             method: "POST",
             data: {
                 listmat: listmat

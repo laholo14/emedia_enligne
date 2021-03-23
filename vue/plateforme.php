@@ -1,8 +1,9 @@
 <!--Calendrier-->
 <?php
 
-include '../controller/contrSessionExamLicence.php';
-
+if (!isset($_SESSION['etat_etude']) and $_SESSION['etat_etude'] != 'pause') {
+    include '../controller/contrSessionExamLicence.php';
+}
 
 require('head.html');
 
