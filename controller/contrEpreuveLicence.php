@@ -20,4 +20,4 @@ $matiere = new Matiere($db->getCx());
 $matiere->setId_matiere($id_matiere);
 $mat = $matiere->listMatiere_id();
 
-?>
+?>  

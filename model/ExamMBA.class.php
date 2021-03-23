@@ -94,8 +94,8 @@ public function setIdsessiondexam($idsessiondexam){
     }
     public function listexam_format()
     {
-        $db=Connexion::getCx();
-        $requete = "SELECT * FROM EXAMMBA NATURAL JOIN MATIERE NATURAL JOIN TYPEDEXAM NATURAL JOIN SESSIONDEXAM WHERE IDSESSIONDEXAM = :idsessiondexam AND IDMATIERE = :idmat AND IDTYPEDEXAM = :idtype ORDER BY INTITULE ASC";
+        $db=Connexion::getCxEtudiant();
+        $requete = "SELECT * FROM EXAM NATURAL JOIN MATIERE NATURAL JOIN TYPEDEXAM NATURAL JOIN SESSIONDEXAM WHERE IDSESSIONDEXAM = :idsessiondexam AND IDMATIERE = :idmat AND IDTYPEDEXAM = :idtype ORDER BY INTITULE ASC";
         $st = $db->prepare($requete);
         $st->execute(array(
             "idsessiondexam" => $this->getIdsessiondexam(),

@@ -70,7 +70,7 @@ if (isset($_POST['listmat'])) {
 
 
 if ($_SESSION['session_exam'] == 1) {
-  extract($_POST);
+
 
   $formation = new Formation();
   $formation->setSemetre($_SESSION['semestre']);

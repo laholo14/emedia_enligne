@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+
 function loadclass($class)
 {
 
@@ -9,57 +10,85 @@ function loadclass($class)
 
 spl_autoload_register("loadclass");
 
-if (isset($_POST['listmat'])) {
+if ($_SESSION['session_exam'] == 1) {
 
     $formation = new Formation();
     $formation->setSemetre($_SESSION['semestre']);
     $formation->setFiliere($_SESSION['filiere']);
-    $formation->setParcours($_SESSION['parcours']);
-    $formation->setMois($_SESSION['mois']);
-    $formation->setCategorie(1);
-    $formation->setType(1);
-    $table = '';
-    if ($_SESSION['session_exam'] == 1) {
-        $cours = $formation->formationExamenMensuelV7MASTER();
-    } else {
-        $cours = $formation->listMatSemestrielV7MASTER();
-    }
-    foreach ($cours as $resultatCours) {
+    $res = $formation->listmatMasterV7();
+    foreach ($res as $resultat) {
 
-        $contenuTab = explode(",", $resultatCours['CONTENU_FR']);
-        $contenuTabSize = sizeof($contenuTab);
+        if ($resultat['MOIS'] == $_SESSION['mois']) {
 
-        if ($contenuTabSize == 1) {
-            $tabsize = $contenuTabSize;
-        } else {
-            $tabsize = $contenuTabSize - 1;
-        }
+            if (isset($_POST['upload'])) {
+                extract($_POST);
+                $examupload = new ExamMBA();
+                $examupload->setIdsessiondexam(1);
+                $examupload->setIdmatiere($resultat['IDMATIERE']);
+                $examupload->setIdtypedexam($upload);
+                $resupload = $examupload->listexam_format();
+                $table = '';
+                foreach ($resupload as $resultatupload) {
 
-        for ($i = 0; $i < $tabsize; $i++) {
-            $courslivres = $contenuTab[$i];
-
-            if ($contenuTabSize <= 2) {
-                $partie = '';
-                $part = '';
-            } else {
-                $part = $i + 1;
-                $partie = ' Partie';
+                    $table .= '<div class="row pb-2">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10"><span style="font-size:18px;">' . $resultatupload['INTITULE'] . ':</span></div>
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2"><button type="button" class="btn qcm  btn-qcm-right" data-toggle="modal" data-target="#modal_alert"  onclick="Get(' . $resultatupload['IDSESSIONDEXAM'] . ',' . $resultatupload['IDMATIERE'] . ',' . $resultatupload['IDTYPEDEXAM'] . ',' . $resultatupload['DURRE'] . ')">Commencer</button>
+        
+                  </div>
+                  </div>
+                  <div class="row m-4">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center">
+                  <div class="separator"></div>
+                  </div>
+                 </div>';
+                }
+                echo $table;
             }
-            //courslivres le pdf
-            $table .= '
-            <li class="mt-1" ><button type="button" class="btn btn-matiere" id="bnt-list-matiere" data-toggle="modal" data-target="#pdfmodal" onclick="GetPdf(\'' . $courslivres . '\',\'' . $resultatCours['INTITULE'] . $partie . ' ' . $part . '\')">
-            ' . $resultatCours['INTITULE'] . '
-        </button></li>
-         ';
         }
     }
+} else if ($_SESSION['session_exam'] == 2) {
+    extract($_POST);
+    $formation = new Formation();
+    $formation->setSemetre($_SESSION['semestre']);
+    $formation->setFiliere($_SESSION['filiere']);
+    $res = $formation->listmatMasterV7();
+    if ($_SESSION['mois'] == 5) {
+        $moisdexamdiff1 = 1;
+        $moisdexamdiff2 = 4;
+    } else if ($_SESSION['mois'] == 10) {
+        $moisdexamdiff1 = 5;
+        $moisdexamdiff2 = 8;
+    }
+    foreach ($res as $resultat) {
+        if ($resultat['MOIS'] >= $moisdexamdiff1 and $resultat['MOIS'] <= $moisdexamdiff2) {
 
-    echo $table;
+            if (isset($_POST['upload'])) {
+                extract($_POST);
+                $examupload = new Exam();
+                $examupload->setSessiondexam(2);
+                $examupload->setMatiere($resultat['IDMATIERE']);
+                $examupload->setTypedexam($upload);
+                $resupload = $examupload->listexam_format();
+                $table = '';
+                foreach ($resupload as $resultatupload) {
+
+                    $table .= '<div class="row pb-2">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10"><span style="font-size:18px;">' . $resultatupload['INTITULE'] . ':</span></div>
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2"><button type="button" class="btn qcm  btn-qcm-right" data-toggle="modal" data-target="#modal_alert"  onclick="Get(' . $resultatupload['IDSESSIONDEXAM'] . ',' . $resultatupload['IDMATIERE'] . ',' . $resultatupload['IDTYPEDEXAM'] . ',' . $resultatupload['DURRE'] . ')">Commencer</button>
+        
+                  </div>
+                  </div>
+                  <div class="row m-4">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center">
+                  <div class="separator"></div>
+                  </div>
+                  </div>';
+                }
+                echo $table;
+            }
+        }
+    }
 }
-
-
-
-
 
 ?>
 <?php ?>

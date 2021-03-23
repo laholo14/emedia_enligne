@@ -80,9 +80,9 @@ class Formation
     {
         return $this->type;
     }
-       /**
+    /**
      * Get the value of idmatiere
-     */ 
+     */
     public function getIdmatiere()
     {
         return $this->idmatiere;
@@ -92,24 +92,22 @@ class Formation
      * Set the value of idmatiere
      *
      * @return  self
-     */ 
+     */
     public function setIdmatiere($idmatiere)
     {
         $this->idmatiere = $idmatiere;
-
-        
     }
 
 
     //mpianatra V7 mba surtout
     public function formationMBAV7()
     {
-        
+
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN emediam_highschool.PARCOURS  NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE SEMESTRE = :sem AND FILIERE = :fil AND MOIS <= :mois AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
         $st = Connexion::getCxEtudiant()->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
-            "fil" => $this->getFiliere(),   
+            "fil" => $this->getFiliere(),
             "mois" => $this->getMois(),
             "cat" => $this->getCategorie(),
             "typ" => $this->getType()
@@ -121,12 +119,12 @@ class Formation
 
     public function formationMBAV7Video()
     {
-        
+
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN emediam_highschool.PARCOURS  NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE SEMESTRE = :sem AND FILIERE = :fil AND MOIS <= :mois AND IDCATEGORIE = :cat AND IDTYPE = :typ AND IDMATIERE = :idmat ORDER BY MOIS,INTITULE ASC";
         $st = Connexion::getCxEtudiant()->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
-            "fil" => $this->getFiliere(),   
+            "fil" => $this->getFiliere(),
             "mois" => $this->getMois(),
             "cat" => $this->getCategorie(),
             "typ" => $this->getType(),
@@ -137,17 +135,17 @@ class Formation
         $st->closeCursor();
         return $res;
     }
-    
+
 
     //mpianatra mba V1-V6 MBA sy licence vague rehetra
     public function formationL1L2M1()
     {
-        
+
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN PARCOURS  NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE SEMESTRE = :sem AND FILIERE = :fil AND MOIS <= :mois AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
         $st = Connexion::getCx()->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
-            "fil" => $this->getFiliere(),   
+            "fil" => $this->getFiliere(),
             "mois" => $this->getMois(),
             "cat" => $this->getCategorie(),
             "typ" => $this->getType()
@@ -156,14 +154,14 @@ class Formation
         $st->closeCursor();
         return $res;
     }
-    
+
     public function formationL1L2M1Video()
     {
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN PARCOURS  NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE SEMESTRE = :sem AND FILIERE = :fil AND MOIS <= :mois AND IDCATEGORIE = :cat AND IDTYPE = :typ AND IDMATIERE = :idmat ORDER BY MOIS,INTITULE ASC";
         $st = Connexion::getCx()->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
-            "fil" => $this->getFiliere(),   
+            "fil" => $this->getFiliere(),
             "mois" => $this->getMois(),
             "cat" => $this->getCategorie(),
             "typ" => $this->getType(),
@@ -173,12 +171,12 @@ class Formation
         $st->closeCursor();
         return $res;
     }
-   
+
 
     //mba v7
     public function formationMASTERM2()
     {
-        
+
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN emediam_highschool.PARCOURS  NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE SEMESTRE = :sem AND PARCOURS = :par AND MOIS <= :mois AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
         $st = Connexion::getCxEtudiant()->prepare($requete);
         $st->execute(array(
@@ -196,7 +194,7 @@ class Formation
     //tsy mba v7
     public function formationL3M2()
     {
-        
+
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN PARCOURS  NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE SEMESTRE = :sem AND PARCOURS = :par AND MOIS <= :mois AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
         $st = Connexion::getCx()->prepare($requete);
         $st->execute(array(
@@ -213,7 +211,7 @@ class Formation
 
     public function formationL3M2Video()
     {
-        
+
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN PARCOURS  NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE SEMESTRE = :sem AND PARCOURS = :par AND MOIS <= :mois AND IDCATEGORIE = :cat AND IDTYPE = :typ AND IDMATIERE = :idmat ORDER BY MOIS,INTITULE ASC";
         $st = Connexion::getCx()->prepare($requete);
         $st->execute(array(
@@ -229,35 +227,25 @@ class Formation
         return $res;
     }
 
-    public function MoyenneParUe($idue,$idEtud){
-        $db=Connexion::getCx();
+    public function MoyenneParUe($idue, $idEtud)
+    {
+        $db = Connexion::getCx();
         $requete = "SELECT ROUND(avg(NOTE),2) as MOYENNEFINALE FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN RESULTAT NATURAL JOIN PARCOURS NATURAL JOIN UE WHERE SEMESTRE = :sem AND FILIERE = :fil and IDUE=:idue AND IDETUDIANTS=:idEtud";
         $st = $db->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
             "fil" => $this->getFiliere(),
             "idue" => $idue,
-            "idEtud" =>$idEtud
+            "idEtud" => $idEtud
         ));
         $res = $st->fetchAll();
         $st->closeCursor();
         return $res;
     }
 
-    public function listmat(){
-        $db=Connexion::getCx();
-        $requete = "SELECT * FROM emediam_highschool.ENSEIGNER NATURAL JOIN emediam_highschool.MATIERE NATURAL JOIN emediam_highschool.PARCOURS NATURAL JOIN emediam_highschool.UE  WHERE SEMESTRE = :sem AND FILIERE = :fil ORDER BY IDUE ASC";
-        $st = $db->prepare($requete);
-        $st->execute(array(
-            "sem" => $this->getSemestre(),
-            "fil" => $this->getFiliere()
-        ));
-        $res = $st->fetchAll();
-        $st->closeCursor();
-        return $res;
-    }
-    public function listmatMasterV7(){
-        $db=Connexion::getCx();
+    public function listmat()
+    {
+        $db = Connexion::getCx();
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN PARCOURS NATURAL JOIN UE  WHERE SEMESTRE = :sem AND FILIERE = :fil ORDER BY IDUE ASC";
         $st = $db->prepare($requete);
         $st->execute(array(
@@ -268,27 +256,42 @@ class Formation
         $st->closeCursor();
         return $res;
     }
-    public function countUe($ue){
-        $db=Connexion::getCx();
-        $requete = "SELECT count(INTITULE) as ROWSPAN FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN PARCOURS NATURAL JOIN UE  WHERE SEMESTRE = :sem AND FILIERE = :fil AND INTITULEUE=:ue ORDER BY IDUE ASC";
+    public function listmatMasterV7()
+    {
+        $db = Connexion::getCx();
+        $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN emediam_highschool.PARCOURS NATURAL JOIN UE  WHERE SEMESTRE = :sem AND FILIERE = :fil ORDER BY IDUE ASC";
         $st = $db->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
-            "fil" => $this->getFiliere(),
-            "ue"=>$ue
+            "fil" => $this->getFiliere()
         ));
         $res = $st->fetchAll();
         $st->closeCursor();
         return $res;
     }
-    public function totalCredit($ue){
-        $db=Connexion::getCx();
+    public function countUe($ue)
+    {
+        $db = Connexion::getCx();
+        $requete = "SELECT count(INTITULE) as ROWSPAN FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN PARCOURS NATURAL JOIN UE  WHERE SEMESTRE = :sem AND FILIERE = :fil AND INTITULEUE=:ue ORDER BY IDUE ASC";
+        $st = $db->prepare($requete);
+        $st->execute(array(
+            "sem" => $this->getSemestre(),
+            "fil" => $this->getFiliere(),
+            "ue" => $ue
+        ));
+        $res = $st->fetchAll();
+        $st->closeCursor();
+        return $res;
+    }
+    public function totalCredit($ue)
+    {
+        $db = Connexion::getCx();
         $requete = "SELECT sum(CREDIT) as TOTALCREDIT FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN PARCOURS NATURAL JOIN UE  WHERE SEMESTRE = :sem AND FILIERE = :fil AND INTITULEUE=:ue ORDER BY IDUE ASC";
         $st = $db->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
             "fil" => $this->getFiliere(),
-            "ue"=>$ue
+            "ue" => $ue
         ));
         $res = $st->fetchAll();
         $st->closeCursor();
@@ -326,7 +329,7 @@ class Formation
     public function formationExamenMensuel()
     {
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN PARCOURS NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE SEMESTRE = :sem AND FILIERE = :fil AND MOIS = :mois AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
-        $st =Connexion::getCxEtudiant()->prepare($requete);
+        $st = Connexion::getCx()->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
             "fil" => $this->getFiliere(),
@@ -342,7 +345,7 @@ class Formation
     public function formationExamenMensuelV7MASTER()
     {
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN emediam_highschool.PARCOURS NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE SEMESTRE = :sem AND FILIERE = :fil AND MOIS = :mois AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
-        $st =Connexion::getCxEtudiant()->prepare($requete);
+        $st = Connexion::getCxEtudiant()->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
             "fil" => $this->getFiliere(),
@@ -357,7 +360,7 @@ class Formation
     public function listMatSemestriel()
     {
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN PARCOURS  NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE SEMESTRE = :sem AND FILIERE = :par AND MOIS <= :mois AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
-        $st =Connexion::getCxEtudiant()->prepare($requete);
+        $st = Connexion::getCx()->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
             "par" => $this->getFiliere(),
@@ -373,7 +376,7 @@ class Formation
     public function listMatSemestrielV7MASTER()
     {
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN DOSSIER NATURAL JOIN emediam_highschool.PARCOURS  NATURAL JOIN CATEGORIE NATURAL JOIN TYPECOURS WHERE SEMESTRE = :sem AND FILIERE = :par AND MOIS <= :mois AND IDCATEGORIE = :cat AND IDTYPE = :typ ORDER BY MOIS,INTITULE ASC";
-        $st =Connexion::getCxEtudiant()->prepare($requete);
+        $st = Connexion::getCxEtudiant()->prepare($requete);
         $st->execute(array(
             "sem" => $this->getSemestre(),
             "par" => $this->getFiliere(),
@@ -385,9 +388,6 @@ class Formation
         $st->closeCursor();
         return $res;
     }
-
-
- 
 }
 
 ?> 
