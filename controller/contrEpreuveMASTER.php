@@ -9,15 +9,16 @@ if (!isset($_SESSION['session_exam'])) {
     header("location: Accueil");
 }
 
-$exam = new Exam();
+$exam = new ExamMBA();
 
-$exam->setSessiondexam($id_session_exam);
-$exam->setMatiere($id_matiere);
-$exam->setTypedexam($id_type_exam);
+$exam->setIdsessiondexam($id_session_exam);
+$exam->setIdmatiere($id_matiere);
+$exam->setIdtypedexam($id_type_exam);
+$exam->setCode($vague);
 $res = $exam->listexam_format();
 
 $matiere = new Matiere();
 $matiere->setId_matiere($id_matiere);
-$mat = $matiere->listMatiere_id();
+$mat = $matiere->listMatiere_id_MBA_V7();
 
 ?>  

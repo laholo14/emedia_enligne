@@ -12,7 +12,7 @@ function loadclass($class)
 
 spl_autoload_register("loadclass");
 
-$db = new Connexion();
+
 
 
 if (isset($_FILES["reponse_file"])) {

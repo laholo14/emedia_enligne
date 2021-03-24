@@ -108,6 +108,22 @@
         
     }
 
+    public function listMatiere_id_MBA_V7(){
+        $db=Connexion::getCxEtudiant();
+
+        $requete = "SELECT * FROM MATIERE where IDMATIERE = :idm ORDER BY IDMATIERE ASC";
+
+        $st = $db->prepare($requete);
+        $st->execute(array("idm"=> $this->getId_matiere()
+                                                        
+        ));
+        $res=$st->fetchAll();
+        $st->closeCursor();
+        return $res;
+
+        
+    }
+
 
     public function update(){
         $db=Connexion::getCx();

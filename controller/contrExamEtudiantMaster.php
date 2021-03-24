@@ -24,6 +24,7 @@ if ($_SESSION['session_exam'] == 1) {
                 extract($_POST);
                 $examupload = new ExamMBA();
                 $examupload->setIdsessiondexam(1);
+                $examupload->setCode($_SESSION['vague']);
                 $examupload->setIdmatiere($resultat['IDMATIERE']);
                 $examupload->setIdtypedexam($upload);
                 $resupload = $examupload->listexam_format();
