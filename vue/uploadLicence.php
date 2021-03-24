@@ -27,10 +27,14 @@ for ($i = 0; $i < count($tabvague); $i++) {
 }
 
  if ($numvague >= 7 and $_SESSION['diplome'] === 'MASTER') {
+     $action_form = "master_V7";
     include("../controller/contrEpreuveMASTER.php");
 
 } else if ($numvague <= 7) {
+    $action_form = "latsakV7";
     include("../controller/contrEpreuveLicence.php");
+    
+
 }
 
 ?>
@@ -57,9 +61,9 @@ for ($i = 0; $i < count($tabvague); $i++) {
             </div>
         </div>
 
-
+        
         <div class="col-sm-12 col-md-8 col-xl-8 col-lg-8 overflow-auto mt-5">
-            <form method="post" id="myform" action="controller/contrreponseUploadLicence.php" enctype="multipart/form-data">
+            <form method="post" id="myform" action="<?php echo $action_form == 'master_V7' ? 'controller/contrreponseUploadMasterV7.php':'controller/contrreponseUploadLicence.php'; ?>"  enctype="multipart/form-data">
                 <input type="hidden" name="durre" id="durre" value="<?php echo $durre_post; ?>" readonly />
                 <input type="hidden" name="type_exam_reponse" value="<?php echo $id_type_exam; ?>" readonly />
                 <input type="hidden" name="id_matiere_upload" value="<?php echo $id_matiere; ?>" readonly />

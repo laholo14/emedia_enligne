@@ -122,6 +122,21 @@ class Resultat
         $st->closeCursor();
     }
 
+    public function InsertReponse_MASTER_V7()
+    {
+        $db = Connexion::getCxEtudiant();
+        $requete = "UPDATE RESULTAT SET REPONSE = :reponse WHERE IDETUDIANTS = :idetudiant AND IDSESSIONDEXAM = :idsession AND IDMATIERE = :idmat";
+        $st = $db->prepare($requete);
+        $st->execute(array(
+            "reponse" => $this->getReponse(),
+            "idetudiant" => $this->getEtudiant(),
+            "idsession" => $this->getSessiondexam(),
+            "idmat" => $this->getMatiere()
+        ));
+        $st->closeCursor();
+    }
+
+
     public function verify()
     {
         $db = Connexion::getCx();

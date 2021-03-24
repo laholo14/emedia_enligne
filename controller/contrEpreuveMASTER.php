@@ -19,6 +19,6 @@ $res = $exam->listexam_format();
 
 $matiere = new Matiere();
 $matiere->setId_matiere($id_matiere);
-$mat = $matiere->listMatiere_id_MBA_V7();
+$mat = $matiere->listMatiere_id_MASTER_V7();
 
 ?>  
