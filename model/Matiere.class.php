@@ -108,7 +108,7 @@
         
     }
 
-    public function listMatiere_id_MBA_V7(){
+    public function listMatiere_id_MASTER_V7(){
         $db=Connexion::getCxEtudiant();
 
         $requete = "SELECT * FROM MATIERE where IDMATIERE = :idm ORDER BY IDMATIERE ASC";

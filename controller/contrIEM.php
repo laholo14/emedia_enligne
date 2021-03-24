@@ -33,7 +33,7 @@ else if(isset($_SESSION['matricule']) and $_SESSION['inscription'] == 1 and $moi
     
      //rentrer le moisDenter
      $moisDenter =  $datefr->dateToFrench(date($_SESSION['datedenter']), " F ");
-     $_SESSION['jourdaujourdhui'] = intval(Date('25')); //ito no tena maka ny date d'aujourdhui
+     $_SESSION['jourdaujourdhui'] = intval(Date('d')); //ito no tena maka ny date d'aujourdhui
      $_SESSION['etat_etude'] = 'pause';
      $diff = $datedentrer->diff($datedaujourdhui);
      $moisM = ($diff->m);
@@ -52,7 +52,7 @@ else if (isset($_SESSION['matricule']) and $_SESSION['inscription'] == 1 and $_S
     
     //rentrer le moisDenter
     $moisDenter =  $datefr->dateToFrench(date($_SESSION['datedenter']), " F ");
-    $_SESSION['jourdaujourdhui'] = intval(Date('25')); //ito no tena maka ny date d'aujourdhui
+    $_SESSION['jourdaujourdhui'] = intval(Date('d')); //ito no tena maka ny date d'aujourdhui
     $diff = $datedentrer->diff($datedaujourdhui);
     $moisM = ($diff->m);
     $differencejour = ($diff->days);
