@@ -6,7 +6,7 @@ if (!isset($_SESSION['matricule'])) {
 }
 if (!isset($_SESSION['session_exam'])) {
 
-    header("location: Home");
+    header("location: Accueil");
 }
 
 
@@ -21,8 +21,17 @@ if (!isset($_SESSION['session_exam'])) {
 
 <?php
 
+$tabvague = explode("V", $_SESSION['vague']);
+for ($i = 0; $i < count($tabvague); $i++) {
+    $numvague = $tabvague[$i];
+}
 
-include("../controller/contrEpreuveLicence.php");
+ if ($numvague >= 7 and $_SESSION['diplome'] === 'MASTER') {
+    include("../controller/contrEpreuveMASTER.php");
+
+} else if ($numvague <= 7) {
+    include("../controller/contrEpreuveLicence.php");
+}
 
 ?>
 

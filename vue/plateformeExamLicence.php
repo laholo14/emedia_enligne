@@ -10,7 +10,7 @@ session_start();
 
 if (!isset($_SESSION['session_exam'])) {
 
-    header("location: Home");
+    header("location: Accueil");
 }
 
 
@@ -139,7 +139,7 @@ if (!isset($_SESSION['session_exam'])) {
     <footer>
         <div class="col-lg-12">
 
-            <p class="text-center text-dark">&copy; Copyright E-MEDIA 2020</p>
+            <p class="text-center text-dark">&copy; Copyright E-MEDIA 2021</p>
 
         </div>
     </footer>
@@ -164,6 +164,7 @@ if (!isset($_SESSION['session_exam'])) {
                         <input type="hidden" value="<?php echo $_SESSION['id']; ?>" name="id_et" id="id_et" readonly />
                         <input type="hidden" value="<?php echo $_SESSION['mail']; ?>" name="mail_et" id="mail_et" readonly />
                         <input type="hidden" value="<?php echo $_SESSION['matricule']; ?>" name="matricule" id="matricule" readonly />
+                        <input type="hidden" value="<?php echo $_SESSION['vague']; ?>" name="vague" id="vague" readonly />
                         <div class="">
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Ne pas encore commencer</button>
                             <input type="submit" class="btn download continuer" name="sub_exam" value="Commencer maintenant " />
