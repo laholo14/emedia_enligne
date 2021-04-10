@@ -258,7 +258,7 @@ class Formation
     }
     public function listmatMasterV7()
     {
-        $db = Connexion::getCx();
+        $db = Connexion::getCxEtudiant();
         $requete = "SELECT * FROM ENSEIGNER NATURAL JOIN MATIERE NATURAL JOIN emediam_highschool.PARCOURS NATURAL JOIN UE  WHERE SEMESTRE = :sem AND FILIERE = :fil ORDER BY IDUE ASC";
         $st = $db->prepare($requete);
         $st->execute(array(
