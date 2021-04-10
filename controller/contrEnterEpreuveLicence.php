@@ -17,7 +17,7 @@ function loadclass($class)
 
 spl_autoload_register("loadclass");
 
-$db = new Connexion();
+
 
 if (isset($_POST['sub_exam'])) {
 
@@ -42,7 +42,7 @@ if (isset($_POST['sub_exam'])) {
         $count = $resultat["COUNT(*)"];
     }
 
-    $count = 0;
+
     if ($count != 0) {
         $_SESSION['interdit'] = '<div class="alert alert-danger  alert-dismissible fade show" style="position:relative;">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
