@@ -17,7 +17,7 @@ function loadclass($class)
 
 spl_autoload_register("loadclass");
 
-$db = new Connexion();
+
 
 if (isset($_POST['sub_exam'])) {
 
