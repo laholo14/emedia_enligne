@@ -17,7 +17,7 @@ function loadclass($class)
 
 spl_autoload_register("loadclass");
 
-
+$db = new Connexion();
 
 if (isset($_POST['sub_exam'])) {
 
@@ -34,7 +34,7 @@ if (isset($_POST['sub_exam'])) {
 
     if ($numvague >= 7 and $_SESSION['diplome'] === 'MASTER') {
         $res = $verify->verifyMasterV7();
-    } else if ($numvague <= 7) {
+    } else if ($numvague <= 7 or ($numvague > 7 and $_SESSION['diplome'] === 'LICENCE')) {
         $res = $verify->verify();
     }
 
@@ -61,7 +61,7 @@ if (isset($_POST['sub_exam'])) {
         $insertresultat->setMatiere($id_matiere);
         if ($numvague >= 7 and $_SESSION['diplome'] === 'MASTER') {
             $insertresultat->insertResultatMasterV7();
-        } else if ($numvague <= 7) {
+        } else if ($numvague <= 7 or ($numvague > 7 and $_SESSION['diplome'] === 'LICENCE')) {
             $insertresultat->insertResultat();
         }
     }

@@ -34,7 +34,7 @@ function listQcm() {
             $("#qcm").html(data);
         }
     });
-};
+}; 
 
 function listRedaction() {
     let redaction = 2;

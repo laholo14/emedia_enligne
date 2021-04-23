@@ -6,7 +6,6 @@ session_start();
 
 include("../controller/contrloginadmin.php");
 
-$connexion = new Connexion();
 
 
 

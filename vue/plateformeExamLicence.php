@@ -246,7 +246,7 @@ if (!isset($_SESSION['session_exam'])) {
     ?>
         <script src="vue/js/plateformExamenMaster.js"></script>
     <?php
-    } else if ($numvague <= 7) {
+    } else if ($numvague <= 7 or ($numvague > 7 and $_SESSION['diplome'] === 'LICENCE')){
     ?>
         <script src="vue/js/plateformExamenLicence.js"></script>
     <?php

@@ -2,9 +2,9 @@ $(function () {
   
   let date;
   if($('#cal_examen').val()=='23'){
-     date="2021/03/23";
+     date="2021/04/23";
   }else{
-    date="2021/03/25";
+    date="2021/04/25";
   }
   $('#count_exam').countdown(date).on('update.countdown', function (event) {
     let $this = $(this).html(event.strftime(''

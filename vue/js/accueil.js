@@ -46,6 +46,7 @@ function GetSemestreExo(semestre) {
 function GetPDF(intitule, titre) {
 
    $('#cours-pdf').attr('src', 'https://docs.google.com/viewer?url=https://e-media-madagascar.com/universite/Cours/' + intitule + '&embedded=true');
+   //$('#cours-pdf').attr('src', 'https://e-media-madagascar.com/universite/Cours/' + intitule + '&embedded=true');
    $("#titre-cours").html(titre);
 
 
@@ -64,6 +65,7 @@ function GetYOUTUBE(idmatiere, intitule) {
       success: function (data) {
          $('#cours_video').attr('src', '' + data);
          $('#titre_video').html(intitule);
+	// alert(''+data);
          
       }
    })

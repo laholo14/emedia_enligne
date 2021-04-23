@@ -533,4 +533,38 @@ class Suivre
     ));
     $st->closeCursor();
   }
+
+  //ito vao vao 03/04/2021
+  public function readIdLike($mat)
+  {
+    $db=Connexion::getCx();
+    $requete = "SELECT * FROM SUIVRE WHERE MATRICULE LIKE :mat";
+    $st = $db->prepare($requete);
+    $st->execute(array("mat" => $mat));
+    $res = $st->fetchAll();
+    $st->closeCursor();
+    return $res;
+  }
+  //ito vao vao 03/04/2021
+  public function updateSemestreMiaraka($mat)
+  {
+    $db=Connexion::getCx();
+    $requete = "UPDATE SUIVRE SET SEMESTRE = :sem  WHERE MATRICULE LIKE :matricule";
+    $st = $db->prepare($requete);
+    $st->execute(array(
+      "sem" => $this->getSemestre(),
+      "matricule" => $mat
+    ));
+    $st->closeCursor();
+  }
+//ito vao vao 03/04/2021
+  public function restorSemestre($mat)
+  {
+    $db=Connexion::getCx();
+    $requete = "UPDATE SUIVRE SET INSCRIPTION = 0, ECOLAGE = 0  WHERE MATRICULE LIKE :matricule";
+    $st = $db->prepare($requete);
+    $st->execute(array("matricule" => $mat));
+    $st->closeCursor();
+  }
+
 }

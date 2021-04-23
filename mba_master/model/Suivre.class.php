@@ -157,7 +157,18 @@ class Suivre
     return $res;
   }
 
-
+ public function resultatExamen($code,$semestre,$filiere)
+  {
+    $requete = "SELECT * FROM ETUDIANTS NATURAL JOIN SUIVRE WHERE CODE = :code AND FILIERE = :filiere AND SEMESTRE= :semestre";
+    $query = Connexion::getCxEtudiant()->prepare($requete);
+    $query->execute(array(
+      "code" => $code,
+      "filiere" => $filiere,
+      "semestre" => $semestre
+    ));
+    $res = $query->fetchAll();
+    return $res;
+  }
 
   public function Valider()
   {
@@ -198,6 +209,18 @@ class Suivre
     $res = $st->fetchAll();
     $st->closeCursor();
     return $res;
+  }
+  public function readSuivreMba(){
+	$db=Connexion::getCxEtudiant();
+    $requete = "SELECT DISTINCT CODE,SEMESTRE FROM SUIVRE WHERE filiere= :filiere AND (CODE= :code1 OR CODE= :code2)";
+    $st = $db->prepare($requete);
+    $st->execute(array(
+		"filiere"=>'MBA',
+		"code1"=>'V7',
+		"code2"=>'V8'
+	));
+    $res = $st->fetchAll();
+	return $res;
   }
 }
 ?>

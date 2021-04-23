@@ -305,7 +305,16 @@ require('include/nav.php');
                             </div>
                             <div class="bloc_resultat mt-3 pl-5">
                                 <div class="row">
-                                    <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+                                    <?php
+										require("../model/Suivre.class.php");
+										//Liste
+										$suivre = new Suivre();
+										$resSuivre = $suivre->readSuivreMba();
+										foreach ($resSuivre as $selectSuivre) {						
+									
+									?>
+									<!--  V7 MBA -->
+									<div class="col-6 col-sm-6 col-md-2 col-lg-2">
                                         <div class="card p-2 mr-5 mt-5 " style="width: 9rem;">
                                             <div class="col d-flex justify-content-center">
                                                 <div class="card-header-mba ">
@@ -315,104 +324,14 @@ require('include/nav.php');
                                             </div>
 
                                             <div class="card-body">
-                                                <h5 class="text-center">V1 <span class="badge badge-danger">4</span></h5>
+										<h5 class="text-center"><?php echo $selectSuivre['CODE']; ?> <span class="badge badge-danger"><?php echo $selectSuivre['SEMESTRE']; ?></span></h5>
                                                 <div class="col d-flex justify-content-center">
-                                                    <a href="liste_resultat_etudiant.php" class="btn  boutton">Lister</a>
+                                                    <a href="liste_resultat_etudiant.php?code=<?php echo $selectSuivre['CODE']; ?>&semestre=<?php echo $selectSuivre['SEMESTRE']; ?>" class="btn  boutton">Lister</a>
                                                 </div>
 
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-6 col-sm-6 col-md-2 col-lg-2">
-                                        <div class="card p-2 mr-5 mt-5 " style="width: 9rem;">
-                                            <div class="col d-flex justify-content-center">
-                                                <div class="card-header-mba ">
-                                                    <h5 class="text-center">MBA</h5>
-
-                                                </div>
-                                            </div>
-
-                                            <div class="card-body">
-                                                <h5 class="text-center">V2 <span class="badge badge-danger">4</span></h5>
-                                                <div class="col d-flex justify-content-center">
-                                                    <a href="liste_resultat_etudiant.php" class="btn  boutton">Lister</a>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 col-sm-6 col-md-2 col-lg-2">
-                                        <div class="card p-2 mr-5 mt-5 " style="width: 9rem;">
-                                            <div class="col d-flex justify-content-center">
-                                                <div class="card-header-mba ">
-                                                    <h5 class="text-center">MBA</h5>
-
-                                                </div>
-                                            </div>
-
-                                            <div class="card-body">
-                                                <h5 class="text-center">V3 <span class="badge badge-danger">4</span></h5>
-                                                <div class="col d-flex justify-content-center">
-                                                    <a href="liste_resultat_etudiant.php" class="btn  boutton">Lister</a>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 col-sm-6 col-md-2 col-lg-2">
-                                        <div class="card p-2 mr-5 mt-5 " style="width: 9rem;">
-                                            <div class="col d-flex justify-content-center">
-                                                <div class="card-header-mba ">
-                                                    <h5 class="text-center">MBA</h5>
-
-                                                </div>
-                                            </div>
-
-                                            <div class="card-body">
-                                                <h5 class="text-center">V4 <span class="badge badge-danger">4</span></h5>
-                                                <div class="col d-flex justify-content-center">
-                                                    <a href="liste_resultat_etudiant.php" class="btn  boutton">Lister</a>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 col-sm-6 col-md-2 col-lg-2">
-                                        <div class="card p-2 mr-5 mt-5 " style="width: 9rem;">
-                                            <div class="col d-flex justify-content-center">
-                                                <div class="card-header-mba ">
-                                                    <h5 class="text-center">MBA</h5>
-
-                                                </div>
-                                            </div>
-
-                                            <div class="card-body">
-                                                <h5 class="text-center">V5 <span class="badge badge-danger">4</span></h5>
-                                                <div class="col d-flex justify-content-center">
-                                                    <a href="liste_resultat_etudiant.php" class="btn  boutton">Lister</a>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 col-sm-6 col-md-2 col-lg-2">
-                                        <div class="card p-2 mr-5 mt-5 " style="width: 9rem;">
-                                            <div class="col d-flex justify-content-center">
-                                                <div class="card-header-mba ">
-                                                    <h5 class="text-center">MBA</h5>
-
-                                                </div>
-                                            </div>
-
-                                            <div class="card-body">
-                                                <h5 class="text-center">V6 <span class="badge badge-danger">4</span></h5>
-                                                <div class="col d-flex justify-content-center">
-                                                    <a href="liste_resultat_etudiant.php" class="btn  boutton">Lister</a>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
+										</div> <?php } ?>
                                 </div>
                             </div>
                         </div>

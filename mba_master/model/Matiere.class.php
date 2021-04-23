@@ -91,6 +91,18 @@ class Matiere
         $query->closeCursor();
         return $res;
     }
+	
+	public function readMatById($id)
+    {
+        $requete = "SELECT * FROM MATIERE WHERE IDMATIERE = :idmat";
+        $query = Connexion::getCx()->prepare($requete);
+        $query->execute(array(
+            "idmat" => $id
+        ));
+        $res = $query->fetchAll();
+        $query->closeCursor();
+        return $res;
+    }
 
     public function readAll()
     {

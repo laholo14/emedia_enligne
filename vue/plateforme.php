@@ -603,7 +603,7 @@ require('head.html');
 
                             if ($numvague >= 7 and $_SESSION['diplome'] === 'MASTER') {
                                 $tableaucours = $cours->formationMBAV7();
-                            } else if ($numvague <= 7) {
+                            } else if ($numvague <= 7 or ($numvague > 7 and $_SESSION['diplome'] === 'LICENCE')) {
                                 $tableaucours = $cours->formationL1L2M1();
                             }
                         } else {
@@ -637,9 +637,15 @@ require('head.html');
                                     <div class="mb-2 pt-2 cours text-center">
                                         <h5 class="d-flex justify-content-center align-items-center"><?php echo $resultat['INTITULE']; ?></h5>
                                         <div class="button-cours d-block">
+											<!--
+												<button class="btn mt-2 active-cours-pdf" onclick="GetPDF('<?php echo $courslivres;  ?>','<?php echo $resultat['INTITULE'] . $partie . ' ' . $part; ?>')">PDF</button>
+											-->     
 
-                                            <button class="btn mt-2 active-cours-pdf" onclick="GetPDF('<?php echo $courslivres;  ?>','<?php echo $resultat['INTITULE'] . $partie . ' ' . $part; ?>')">PDF</button>
-                                            <button class="btn active-cours-explication" onclick="GetYOUTUBE(<?php echo $resultat['IDMATIERE']; ?>,'<?php echo $resultat['INTITULE']; ?>')">Explication</button>
+
+<a href="http://online.verypdf.com/app/reader2/web/?url=https://e-media-madagascar.com/universite/Cours/<?php echo $courslivres;  ?>&noopen=1&noprint=1&nosidebar=1&nofullscreen=1&nodownload=1&noviewbookmark=1&nofind=1&nomoretools=1" target='_blank' onmouseover="window.status='http://tonsite.com'" class="btn mt-2"><b>PDF</b> </a>
+
+											
+										   <button class="btn active-cours-explication" onclick="GetYOUTUBE(<?php echo $resultat['IDMATIERE']; ?>,'<?php echo $resultat['INTITULE']; ?>')">Explication</button>
 
                                         </div>
                                     </div>
@@ -701,7 +707,7 @@ require('head.html');
 
                             if ($numvague >= 7 and $_SESSION['diplome'] === 'MASTER') {
                                 $tableaucours = $cours->formationMBAV7();
-                            } else if ($numvague <= 7) {
+                            } else if ($numvague <= 7 or ($numvague > 7 and $_SESSION['diplome'] === 'LICENCE')) {
                                 $tableaucours = $cours->formationL1L2M1();
                             }
                         } else {
@@ -735,8 +741,12 @@ require('head.html');
                                     <div class="mb-2 pt-2 exercice text-center">
                                         <h5 class="d-flex justify-content-center align-items-center"><?php echo $resultat['INTITULE']; ?></h5>
                                         <div class="button-exercice d-block">
-
+<!--
                                             <button class="btn mt-2 active-cours-pdf" onclick="GetPDF('<?php echo $courslivres;  ?>','<?php echo $resultat['INTITULE'] . $partie . ' ' . $part; ?>')">PDF</button>
+-->
+
+
+<a href="http://online.verypdf.com/app/reader2/web/?url=https://e-media-madagascar.com/universite/Cours/<?php echo $courslivres;  ?>&noopen=1&noprint=1&nosidebar=1&nofullscreen=1&nodownload=1&noviewbookmark=1&nofind=1&nomoretools=1" target='_blank' onmouseover="window.status='http://tonsite.com'" class="btn mt-2"><b>PDF</b> </a>
 
 
                                         </div>
