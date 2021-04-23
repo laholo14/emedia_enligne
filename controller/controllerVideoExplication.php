@@ -25,7 +25,7 @@ if (isset($_POST['idmatiere'])) {
 
         if ($numvague >= 7 and $_SESSION['diplome'] === 'MASTER') {
             $tableaucours = $cours->formationMBAV7Video();
-        } else if ($numvague <= 7) {
+        } else if ($numvague <= 7 or ($numvague > 7 and $_SESSION['diplome'] === 'LICENCE') ) {
             $tableaucours = $cours->formationL1L2M1Video();
         }
     } else {

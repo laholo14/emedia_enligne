@@ -20,8 +20,6 @@ function loadclass($class)
 spl_autoload_register("loadclass");
 
 
-$connexion = new Connexion();
-
 ?>
 
 

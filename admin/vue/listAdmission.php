@@ -67,8 +67,15 @@ $suivre = new Suivre();
     ?>
 
             <div class="table-responsive mt-3">
-                <form action="../controller/controlAdmission.php" method="post">
-                      <div class="d-inline-flex p-3 text-white" style="height: 86px;">  
+                <form action="../controller/contrAdmission.php" method="post">
+                      <div class="d-inline-flex p-3 text-white" style="height: 86px;"> 
+                      <?php 
+                   //ito vao vao 03/04/2021
+                        $Classe = $resultat['FILIERE'].'-'.$resultat['CODE'];
+                        echo "<input type='hidden' name='CLASSE' value='".$Classe."'>";
+
+
+                   ?> 
                         <div class="p-2 bg-primary" style="border-radius: 0px 0px 0px 10px;"><label for="select" class="" style="font-size: 22px;">Passer en</label></div>
                         <div class="p-2 bg-primary">
                             <select name="SEMESTRE" class="custom-select mb-3">
@@ -92,10 +99,6 @@ $suivre = new Suivre();
                                         echo "<option>S9</option>";
                                     }elseif($semestre == 'S9') {
                                         echo "<option>S10</option>";
-                                    }elseif ($semestre == 'S10') {
-                                        echo "<option>S11</option>";
-                                    }elseif($semestre == 'S11') {
-                                        echo "<option>S12</option>";
                                     }else{
                                         echo 'Erreur';
                                     }

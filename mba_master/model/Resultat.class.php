@@ -66,10 +66,22 @@ class Resultat
     {
         return $this->note;
     }
-
-
-
+	
+	public function readFileExamen($idEtud,$idsessiondexam,$idmatiere){
   
+		$requete = "SELECT * FROM RESULTAT WHERE IDETUDIANTS = :idEtud AND IDSESSIONDEXAM = :idsessiondexam AND IDMATIERE= :idmatiere";
+		$query = Connexion::getCx()->prepare($requete);
+		
+		$query->execute(array(
+		  "idEtud" => $idEtud,
+		  "idsessiondexam" => $idsessiondexam,
+		  "idmatiere" => $idmatiere
+		));
+		$res = $query->fetchAll();
+		
+		return $res;
+  }
+ 
 }
 ?>
 

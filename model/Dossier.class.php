@@ -85,7 +85,8 @@ class Dossier
     public function create()
     {
         $db=Connexion::getCx();
-        $requete = "INSERT INTO DOSSIER VALUES(:cat, :idm, :typ, :cont_mg, :cont_fr, NULL)";
+        //$requete = "INSERT INTO DOSSIER VALUES(:cat, :idm, :typ, :cont_mg, :cont_fr, NULL)";
+		$requete = "INSERT INTO DOSSIER VALUES(:idm, :cat, :typ, :cont_mg, :cont_fr, NULL)";
 
         $st = $db->prepare($requete);
 

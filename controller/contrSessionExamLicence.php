@@ -30,7 +30,7 @@ if ($numvague >= 7 and $_SESSION['diplome'] === 'MASTER') {
 
         header("location: Examen");
     }
-} else if ($numvague <= 7) {
+} else if ($numvague <= 7 or ($numvague > 7 and $_SESSION['diplome'] === 'LICENCE')) {
     if ($_SESSION['mois'] == 4 or $_SESSION['mois'] == 8) {
 
         if ($_SESSION['jourdaujourdhui'] >= 25 and $_SESSION['jourdaujourdhui'] <= 30) {
@@ -68,6 +68,7 @@ if ($numvague >= 7 and $_SESSION['diplome'] === 'MASTER') {
 
         header("location: Examen");
     }
+
 }
 
 
