@@ -24,6 +24,8 @@ if ($diff->invert == 1) {
     $mois = ($diff->m);
 }
 
+$_SESSION['mois_verifier'] = $mois;
+
 if (isset($_SESSION['matricule']) and $_SESSION['inscription'] == 0) {
     header("location: Commission");
 }
