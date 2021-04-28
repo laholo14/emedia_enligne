@@ -213,7 +213,7 @@ include "../Controller/AccesPaiement.php";
         $Prix=$ProduitManager->getPrix($mpianatra['nationalite'],$mpianatra['semestre'],"inscription");
         if ($inscri[0] >= 1) {
             $inscriplusieursfois = $etudiantmanager->inscriPlusieursFois($donne);
-            if ($inscriplusieursfois > 1) {
+            if ($inscriplusieursfois > 1 and $_SESSION['mois_verifier'] <8 and $_SESSION['ecolage'] < 8) {
             
                 echo 'value="'.(($Prix[0]["MONTANT"])/2).'"';
             } else {
@@ -236,7 +236,7 @@ include "../Controller/AccesPaiement.php";
         $PrixInscription=$ProduitManager->getPrix($mpianatra['nationalite'],$mpianatra['semestre'],"inscription");
         if ($inscri[0] >= 1) {
             $inscriplusieursfois = $etudiantmanager->inscriPlusieursFois($donne);
-            if ($inscriplusieursfois > 1) {
+            if ($inscriplusieursfois > 1 and $_SESSION['mois_verifier'] <8 and $_SESSION['ecolage'] < 8) {
                 echo 'data-value="'.(($PrixInscription[0]["MONTANT"])/2).'"';
             } else {
                 echo 'data-value="'.($PrixInscription[0]["MONTANT"]).'"';
@@ -250,7 +250,7 @@ include "../Controller/AccesPaiement.php";
     <?php
         if ($inscri[0] >= 1) {
             $inscriplusieursfois = $etudiantmanager->inscriPlusieursFois($donne);
-            if ($inscriplusieursfois > 1) {
+            if ($inscriplusieursfois > 1 and $_SESSION['mois_verifier'] <8 and $_SESSION['ecolage'] < 8) {
                 echo " ".(($PrixInscription[0]["MONTANT"])/2)." ".$PrixInscription[0]["DEVISE"]."  (montant réservé aux étudiants ayant choisi 2 filières)";
             } else {
                 echo " ".($PrixInscription[0]["MONTANT"])." ".$PrixInscription[0]["DEVISE"];
@@ -341,8 +341,10 @@ include "../Controller/AccesPaiement.php";
     <strong class="text-success validpromo" style="display:none;">Code promo valide</strong>
     </div>
     </div>
+    
     <?php
-        if ($inscri[0] >= 1) {
+     
+        if ($inscri[0] >= 1 and $_SESSION['mois_verifier'] <8 and $_SESSION['ecolage'] < 8) {
             $inscriplusieursfois = $etudiantmanager->inscriPlusieursFois($donne);
             
                 echo '<h3>Total montants : <strong id="Panier">'.(($PrixInscription[0]["MONTANT"])/2).'</strong><span> '.$PrixInscription[0]["DEVISE"].'</span></h3>';
