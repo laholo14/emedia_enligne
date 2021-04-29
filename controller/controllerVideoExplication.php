@@ -7,17 +7,17 @@ function loadclass($class)
 }
 spl_autoload_register("loadclass");
 
-if (isset($_POST['idmatiere'])) {
 
+if (isset($_POST['idmatiere']) and isset($_POST['semestre'])) {
     extract($_POST);
     $cours = new Formation();
-    $cours->setSemetre($_SESSION['semestre']);
+    $cours->setSemetre($_POST['semestre']);
     $cours->setFiliere($_SESSION['filiere']);
     $cours->setMois($_SESSION['mois']);
     $cours->setCategorie(1);
     $cours->setType(2);
     $cours->setIdmatiere($idmatiere);
-    if ($_SESSION['semestre'] != 'S5' or $_SESSION['semestre'] != 'S6' or $_SESSION['semestre'] != 'S9' or $_SESSION['semestre'] != 'S10') {
+    if ($_POST['semestre'] != 'S5' or $_POST['semestre'] != 'S6' or $_POST['semestre'] != 'S9' or $_POST['semestre'] != 'S10') {
         $tabvague = explode("V", $_SESSION['vague']);
         for ($i = 0; $i < count($tabvague); $i++) {
             $numvague = $tabvague[$i];
@@ -32,14 +32,13 @@ if (isset($_POST['idmatiere'])) {
 
         $tableaucours = $cours->formationL3M2();
     }
-
     foreach ($tableaucours as $resultat) {
 
         $lien = $resultat['CONTENU_FR'];
     }
     echo $lien;
-}
 
+}
 
 ?>
 

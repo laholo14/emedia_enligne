@@ -10,16 +10,16 @@ function GetSemestreCours(semestre) {
    $("#valuesemestrecours").val(semestre);
    $("#titreSemestre").html(semestre);
 
-   // $.ajax({
-   //    url: "vue/coursVueCon.php",
-   //    type: "POST",
-   //    data: {
-   //       semestre: semestre
-   //    },
-   //    success: function (data) {
-   //       $("#table-cours").html(data);
-   //    }
-   // })
+    $.ajax({
+       url: "controller/contrAffichageCours.php",
+       type: "POST",
+       data: {
+          semestre: semestre
+       },
+       success: function (data) {
+          $("#table-cours").html(data);
+       }
+    })
 
   
 
@@ -53,19 +53,20 @@ function GetPDF(intitule, titre) {
 }
 
 
-function GetYOUTUBE(idmatiere, intitule) {
+function GetYOUTUBE(idmatiere, intitule,semestre) {
 
    $.ajax({
       url: "controller/controllerVideoExplication.php",
       type: "POST",
       data: {
 
-         idmatiere: idmatiere
+         idmatiere: idmatiere,
+         semestre:semestre
       },
       success: function (data) {
          $('#cours_video').attr('src', '' + data);
          $('#titre_video').html(intitule);
-	// alert(''+data);
+	      //alert(''+data);
          
       }
    })
