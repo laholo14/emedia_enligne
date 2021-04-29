@@ -11,7 +11,7 @@ require('head.html');
 <link rel="stylesheet" href="vue/css/accueilMaster.css">
 </head>
 
-<body>
+<body> 
 
     <!-- preloading -->
     <div class="container-preloading flex-column" id="preloading">
@@ -109,21 +109,20 @@ require('head.html');
                                         // } else {
                                         //     $requete = $formation->listliensemestreMaster($numsemestre);
                                         // }
-                                        // foreach ($requete as $resultat) {
+                                        // foreach ($requete as $resultat) {<?php
+                                        $semestre =$_SESSION['semestre'];
+                                        $Tabvaleur=explode("S",$semestre);
+                                        for($i = 1;$i <$Tabvaleur[1]+1;$i++){
+                                            $_SESSION['s']="S".$i;
                                         ?>
-                                        <li class="list-group-item active-cours" onclick="GetSemestreCours('<?php echo $_SESSION['semestre']; ?>')">
+                                        <li class="list-group-item active-cours" onclick="GetSemestreCours('<?php echo $_SESSION['s'] ?>')">
                                             <i class="fal fa-user-graduate ml-2 mr-2"></i>
-                                            <span><?php echo $_SESSION['semestre']; ?></span>
-                                            <input type="hidden" id="<?php echo "lien" . $_SESSION['semestre']; ?>" value="<?php echo $_SESSION['semestre']; ?>" />
+                                            <span><?php echo $_SESSION['s'] ?></span>
+                                            <input type="hidden" id="<?php echo "lien" . $_SESSION['s'] ?>" value="<?php echo $_SESSION['s'] ?>" />
                                         </li>
-                                        <li class="list-group-item">
-                                            <i class="fal fa-user-graduate ml-2 mr-2"></i>
-                                            <span>...</span>
-
-                                        </li>
-                                        <?php //} 
+                                        <?php } 
                                         ?>
-                                        <input type="hidden" id="valuesemestrecours" value="" />
+                                        <input type="hidden" id="valuesemestrecours" value="<?php echo $_SESSION['s'] ?>" />
                                     </ul>
                                 </div>
                             </div>
@@ -573,7 +572,7 @@ require('head.html');
                             <i class="fal fa-books"></i>
                         </div>
                         <div class="title-cours d-flex justify-content-center pt-3">
-                            <h3>Cours <span id="titreSemestre">S1 </span></h3>
+                            <h3>Cours <span id="titreSemestre">S4 </span></h3>
                         </div>
                         <!-- <div class="col-12 d-flex menu-cours mt-3">
                                         <div class="col-6 d-flex justify-content-center pt-2">
@@ -586,76 +585,7 @@ require('head.html');
                     </div>
 
                     <div class="col-12 row table-cours" id="table-cours">
-                        <?php
-                        $cours = new Formation();
-                        $cours->setSemetre($_SESSION['semestre']);
-                        $cours->setFiliere($_SESSION['filiere']);
-                        $cours->setMois($_SESSION['mois']);
-                        $cours->setCategorie(1);
-                        $cours->setType(1);
-
-                        if ($_SESSION['semestre'] != 'S5' or $_SESSION['semestre'] != 'S6' or $_SESSION['semestre'] != 'S9' or $_SESSION['semestre'] != 'S10') {
-
-                            $tabvague = explode("V", $_SESSION['vague']);
-                            for ($i = 0; $i < count($tabvague); $i++) {
-                                $numvague = $tabvague[$i];
-                            }
-
-                            if ($numvague >= 7 and $_SESSION['diplome'] === 'MASTER') {
-                                $tableaucours = $cours->formationMBAV7();
-                            } else if ($numvague <= 7 or ($numvague > 7 and $_SESSION['diplome'] === 'LICENCE')) {
-                                $tableaucours = $cours->formationL1L2M1();
-                            }
-                        } else {
-
-                            $tableaucours = $cours->formationL3M2();
-                        }
-
-                        foreach ($tableaucours as $resultat) {
-                            $contenuTab = explode(",", $resultat['CONTENU_FR']);
-                            $contenuTabSize = sizeof($contenuTab);
-
-                            if ($contenuTabSize == 1) {
-                                $tabsize = $contenuTabSize;
-                            } else {
-                                $tabsize = $contenuTabSize - 1;
-                            }
-
-
-                            for ($i = 0; $i < $tabsize; $i++) {
-                                $courslivres = $contenuTab[$i];
-
-                                if ($contenuTabSize <= 2) {
-                                    $partie = '';
-                                    $part = '';
-                                } else {
-                                    $part = $i + 1;
-                                    $partie = ' Partie';
-                                } ?>
-
-                                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5">
-                                    <div class="mb-2 pt-2 cours text-center">
-                                        <h5 class="d-flex justify-content-center align-items-center"><?php echo $resultat['INTITULE']; ?></h5>
-                                        <div class="button-cours d-block">
-											<!--
-												<button class="btn mt-2 active-cours-pdf" onclick="GetPDF('<?php echo $courslivres;  ?>','<?php echo $resultat['INTITULE'] . $partie . ' ' . $part; ?>')">PDF</button>
-											-->     
-
-
-<a href="http://online.verypdf.com/app/reader2/web/?url=https://e-media-madagascar.com/universite/Cours/<?php echo $courslivres;  ?>&noopen=1&noprint=1&nosidebar=1&nofullscreen=1&nodownload=1&noviewbookmark=1&nofind=1&nomoretools=1" target='_blank' onmouseover="window.status='http://tonsite.com'" class="btn mt-2"><b>PDF</b> </a>
-
-											
-										   <button class="btn active-cours-explication" onclick="GetYOUTUBE(<?php echo $resultat['IDMATIERE']; ?>,'<?php echo $resultat['INTITULE']; ?>')">Explication</button>
-
-                                        </div>
-                                    </div>
-                                </div>
-                        <?php
-                            }
-                        }
-                        ?>
                     </div>
-
                 </div>
 
                 <!-- contenu-cours-explication -->
