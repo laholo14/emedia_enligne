@@ -16,7 +16,13 @@ if (!isset($_SESSION['matricule'])) {
             $cours = new Formation();
             $cours->setSemetre($_POST['semestre']);
             $cours->setFiliere($_SESSION['filiere']);
-            $cours->setMois($_SESSION['mois']);
+            $sem=explode('S',$_SESSION['semestre']);
+            $sem1=explode('S',$_POST['semestre']);
+            if($sem1[1]==$sem[1]) {
+                $cours->setMois($_SESSION['mois']);
+            }else {
+                $cours->setMois(8);
+            }
             $cours->setCategorie(1);
             $cours->setType(1);
 
